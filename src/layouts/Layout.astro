@@ -1,0 +1,28 @@
+---
+import { AstroSeo } from "@astrolib/seo";
+import "../styles/styles.css";
+
+// import partytown from "/src/utils/partytown.js";
+---
+
+<html class="scroll-smooth" lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"
+        />
+
+        <!-- <script type="text/partytown" src="fancy-analytics.js"></script> -->
+
+        <meta name="keywords" content="" />
+        <AstroSeo
+            title="Simple Usage Example"
+            description="A short description goes here."
+            canonical="Set the page canonical url"
+        />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
