@@ -29,7 +29,7 @@ export default defineConfig({
                 secondary: "ffffff",
                 sidecol1: "ffffff",
                 sidecol2: "ffffff",
-                background: "ffffff",
+                background: "151317",
             },
         },
     },

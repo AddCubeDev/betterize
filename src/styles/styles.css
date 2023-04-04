@@ -4,7 +4,7 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #141414;
+    background-color: #151317;
     margin: auto;
 
     font-family: "Roboto";
@@ -98,9 +98,13 @@ body {
 
     min-height: 100vh;
 }
-main {
+
+section {
     max-width: 1280px;
 }
+/* main {
+    max-width: 1280px;
+} */
 
 a {
     font-weight: 500;
@@ -142,7 +146,7 @@ button:focus-visible {
 #home {
     margin: 0 auto;
     height: auto;
-    max-width: 1280px;
+    /* max-width: 1280px; */
 }
 
 #footer {
