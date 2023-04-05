@@ -1,12 +1,13 @@
 ---
 const herobg = "/src/assets/hero-bg.png";
 const rocket = "/src/assets/rocket.png";
+
 // import herobg from "@assets/hero-bg.png";
 
 import {
     Img,
-    Picture,
-    BackgroundPicture,
+    // Picture,
+    // BackgroundPicture,
     BackgroundImage,
 } from "astro-imagetools/components";
 ---
@@ -17,16 +18,16 @@ import {
     quality={90}
     breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
 >
-    <div class="border right-0 z-1 absolute">
-        <Img
-            src={rocket}
-            alt="A random image"
-            breakpoints={[200, 400, 800]}
-            placeholder="blur"
-            objectFit="contain"
-        />
-    </div>
-    <div class="flex h-screen z-2">
+    <div class="flex flex-row gap-10 h-screen z-1">
+        <div class="right-0 top-0 absolute h-full w-100">
+            <Img
+                src={rocket}
+                alt="A random image"
+                breakpoints={[200, 400, 800, 1200]}
+                placeholder="none"
+                layout="fill"
+            />
+        </div>
         <div class="flex flex-col mx-auto mt-96">
             <h1 class="header-1">jestem elementem Hero</h1>
             <h2 class="header-2">
@@ -36,11 +37,3 @@ import {
         </div>
     </div>
 </BackgroundImage>
-
-<!-- <BackgroundImage
-    src={rocket}
-    class="top-0 z-10 absolute"
-    backgroundSize="cover"
-    quality={90}
-    breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
-/> -->
