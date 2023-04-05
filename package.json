@@ -15,12 +15,15 @@
   "dependencies": {
     "@astrojs/partytown": "^1.2.0",
     "@astrolib/seo": "^0.3.0",
+    "@cubejs-client/core": "^0.31.0",
     "astro": "^2.1.9",
     "astro-critters": "^1.1.31",
     "astro-imagetools": "^0.8.1",
-    "chart.js": "^4.2.1"
+    "chart.js": "^4.2.1",
+    "chartjs-plugin-datalabels": "^2.2.0"
   },
   "devDependencies": {
-    "astro-windicss": "^0.2.0"
+    "astro-windicss": "^0.2.0",
+    "parcel": "^2.6.2"
   }
 }
