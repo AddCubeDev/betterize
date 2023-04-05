@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 import windicss from "astro-windicss";
-import image from "@astrojs/image";
+import { astroImageTools } from "astro-imagetools";
 
 // import compressor from "astro-compressor";
 import critters from "astro-critters";
@@ -11,12 +11,8 @@ import partytown from "@astrojs/partytown";
 export default defineConfig({
     output: "static",
     integrations: [
+        astroImageTools,
         windicss(),
-        image({
-            logLevel: "debug",
-            cacheDir: "./.cache/image",
-            serviceEntryPoint: "@astrojs/image/sharp",
-        }),
         // compressor(),
         critters(),
         //partytown()

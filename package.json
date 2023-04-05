@@ -13,13 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@astrojs/image": "^0.16.4",
     "@astrojs/partytown": "^1.2.0",
     "@astrolib/seo": "^0.3.0",
     "astro": "^2.1.9",
     "astro-critters": "^1.1.31",
-    "chart.js": "^4.2.1",
-    "sharp": "^0.31.3"
+    "astro-imagetools": "^0.8.1",
+    "chart.js": "^4.2.1"
   },
   "devDependencies": {
     "astro-windicss": "^0.2.0"

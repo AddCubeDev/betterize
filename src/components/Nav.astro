@@ -1,6 +1,5 @@
 ---
-import logo from "@assets/logo.png";
-import { Image, Picture } from "@astrojs/image/components";
+import { Img, Picture } from "astro-imagetools/components";
 ---
 
 <header
@@ -11,8 +10,9 @@ import { Image, Picture } from "@astrojs/image/components";
         <div class="flex gap-4 items-center justify-between lg:gap-10">
             <div class="flex lg:flex-1 lg:w-0">
                 <a href="/" class="image-animation">
-                    <Image
-                        src={logo}
+                    <Img
+                        src="/src/assets/logo.png"
+                        placeholder="none"
                         width={80}
                         format="avif"
                         alt="descriptive text"
