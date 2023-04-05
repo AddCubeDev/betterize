@@ -1,30 +1,48 @@
 ---
-import herobg from "@assets/hero-bg.png";
-import rocket from "@assets/rocket.png";
-// import { Image, Picture } from "@astrojs/image/components";
+const herobg = "/src/assets/hero-bg.png";
+const rocket = "/src/assets/rocket.png";
+// import herobg from "@assets/hero-bg.png";
+
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
 ---
 
-<div class="">
-    <div class="h-full object-cover w-full z-0 overflow-x-hidden">
-        <!-- <Picture
-            class="object-cover inset-x-0 absolute"
-            src={herobg}
-            widths={[500, 800, 1200, 1920, 2560, 3840]}
-            aspectRatio="16:9"
-            sizes="(max-width: 500px) 500px, (max-width: 800px) 800px,(max-width: 1200px) 1200px,(max-width: 1920px) 1920px,(max-width: 2560px) 2560px"
-            format="avif"
-            alt="descriptive text"
-            quality={90} -->
+<BackgroundImage
+    src={herobg}
+    backgroundSize="cover"
+    quality={90}
+    breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
+>
+    <div class="border right-0 z-1 absolute">
+        <Img
+            src={rocket}
+            class="fixed"
+            alt="A random image"
+            backgroundSize="cover"
+            breakpoints={[200, 400, 800]}
+            placeholder="blur"
+            objectFit="contain"
         />
     </div>
-    <!-- <div class="inset-x-0 z-2 absolute">
-        <Image src={rocket} width={600} format="avif" alt="descriptive text" />
-    </div> -->
-    <div class="flex flex-col pt-64 z-1 absolute">
-        <h1 class="header-1">jestem elementem Hero</h1>
-        <h2 class="header-2">
-            tekst mowiacy o tym jak super jest ten template. Co wiecej mozna o
-            nim powiedziec? Nie wiem
-        </h2>
+    <div class="flex h-screen z-2">
+        <div class="flex flex-col mx-auto mt-96">
+            <h1 class="header-1">jestem elementem Hero</h1>
+            <h2 class="header-2">
+                tekst mowiacy o tym jak super jest ten template. Co wiecej mozna
+                o nim powiedziec? Nie wiem
+            </h2>
+        </div>
     </div>
-</div>
+</BackgroundImage>
+
+<!-- <BackgroundImage
+    src={rocket}
+    class="top-0 z-10 absolute"
+    backgroundSize="cover"
+    quality={90}
+    breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
+/> -->

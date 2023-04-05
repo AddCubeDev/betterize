@@ -2,11 +2,14 @@
 import { AstroSeo } from "@astrolib/seo";
 import "../styles/styles.css";
 
+import { ImageSupportDetection } from "astro-imagetools/components";
+
 // import partytown from "/src/utils/partytown.js";
 ---
 
 <html class="scroll-smooth" lang="pl">
     <head>
+        <ImageSupportDetection />
         <meta charset="UTF-8" />
         <meta
             name="viewport"

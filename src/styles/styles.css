@@ -99,12 +99,9 @@ body {
     min-height: 100vh;
 }
 
-section {
+/* section {
     max-width: 1280px;
-}
-main {
-    max-width: 1280px;
-}
+} */
 
 a {
     font-weight: 500;
