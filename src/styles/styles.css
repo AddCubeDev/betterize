@@ -102,9 +102,9 @@ body {
 section {
     max-width: 1280px;
 }
-/* main {
+main {
     max-width: 1280px;
-} */
+}
 
 a {
     font-weight: 500;
@@ -146,7 +146,7 @@ button:focus-visible {
 #home {
     margin: 0 auto;
     height: auto;
-    /* max-width: 1280px; */
+    max-width: 1280px;
 }
 
 #footer {

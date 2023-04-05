@@ -11,4 +11,7 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "easycode.model": "gpt-3.5-turbo",
+  "easycode.promptPrefix.explain": "Explain: ",
+  "easycode.promptPrefix.explainFileFlow": "Summarize: ",
 }
