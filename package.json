@@ -23,7 +23,6 @@
     "chartjs-plugin-datalabels": "^2.2.0"
   },
   "devDependencies": {
-    "astro-windicss": "^0.2.0",
-    "parcel": "^2.6.2"
+    "astro-windicss": "^0.2.0"
   }
 }
