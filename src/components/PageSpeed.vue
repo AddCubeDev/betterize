@@ -56,6 +56,17 @@ function onTestResult(test_result: PagespeedTestResult) {
             ],
         },
         options: {
+            responsive: true,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                        stepSize: 10,
+                    },
+                },
+            },
+
             plugins: {
                 datalabels: {
                     display: true,

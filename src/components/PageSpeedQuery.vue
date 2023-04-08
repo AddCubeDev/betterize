@@ -19,8 +19,8 @@
         <div id="spinner" hidden="true">
             <atom-spinner
                 :animation-duration="1500"
-                :size="60"
-                :color="'#f44941'"
+                :size="40"
+                :color="'white'"
             />
         </div>
     </div>

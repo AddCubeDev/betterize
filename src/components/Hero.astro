@@ -11,31 +11,32 @@ import {
 } from "astro-imagetools/components";
 ---
 
-<BackgroundImage
-    src={herobg}
-    backgroundSize="cover"
-    quality={90}
-    breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
->
-    <div class="right-0 z-1 absolute overflow-clip">
-        <!-- <Img
+<div class="bg-grid">
+    <BackgroundImage
+        src={herobg}
+        backgroundSize="cover"
+        quality={90}
+        breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
+    >
+        <div class="right-0 z-1 absolute overflow-clip">
+            <!-- <Img
             src={rocket}
             alt="A random image"
             breakpoints={[200, 400, 800]}
             placeholder="blur"
             objectFit="contain"
         /> -->
-    </div>
-    <div class="flex h-screen z-2">
-        <div class="flex flex-col mx-auto mt-96">
-            <h1 class="header-1">we make flying fast websites</h1>
-            <h2 class="header-2">
-                Make Google SEO agents fall in love with your brand!
-            </h2>
         </div>
-    </div>
-</BackgroundImage>
-
+        <div class="flex h-screen z-2">
+            <div class="flex flex-col mx-auto mt-96">
+                <h1 class="header-1">we make flying fast websites</h1>
+                <h2 class="header-2">
+                    Make Google SEO agents fall in love with your brand!
+                </h2>
+            </div>
+        </div>
+    </BackgroundImage>
+</div>
 <!-- <BackgroundImage
     src={rocket}
     class="top-0 z-10 absolute"

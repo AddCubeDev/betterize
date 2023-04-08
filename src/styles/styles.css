@@ -154,3 +154,26 @@ button {
     padding: 0;
     text-align: center;
 }
+.bg-grid {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, #151317 1px, transparent 1px),
+        linear-gradient(to bottom, #151317 1px, transparent 1px);
+    background-position: top center;
+    image-rendering: pixelated;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        10%,
+        white,
+        90%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        10%,
+        white,
+        90%,
+        transparent
+    );
+}
