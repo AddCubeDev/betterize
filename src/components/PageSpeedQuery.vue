@@ -22,6 +22,7 @@
                 :size="40"
                 :color="'white'"
             />
+            <span>loading...</span>
         </div>
     </div>
 </template>
