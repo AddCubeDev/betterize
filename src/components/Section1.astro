@@ -1,4 +1,14 @@
-<script type="module" src="/src/components/acquisitions.js"></script>
+---
+import PageSpeed from "@components/PageSpeed.vue";
+---
+
+<PageSpeed client:only />
+
+<script type="module">
+    import { createChart } from "/src/components/acquisitions.ts";
+
+    createChart();
+</script>
 
 <div class="mx-auto" style="width: 800px;">
     <canvas id="acquisitions"></canvas>

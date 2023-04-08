@@ -4,8 +4,9 @@ import { astroImageTools } from "astro-imagetools";
 
 // import compressor from "astro-compressor";
 import critters from "astro-critters";
-
 import partytown from "@astrojs/partytown";
+
+import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
         windicss(),
         // compressor(),
         critters(),
+        vue(),
         //partytown()
     ],
 });
