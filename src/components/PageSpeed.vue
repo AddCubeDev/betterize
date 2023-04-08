@@ -1,15 +1,17 @@
 <template>
-    <PageSpeedQuery
-        @testStart="onTestStart"
-        @testResult="onTestResult"
-        @testHasFailed="onTestHasFailed"
-    />
+    <div>
+        <PageSpeedQuery
+            @testStart="onTestStart"
+            @testResult="onTestResult"
+            @testHasFailed="onTestHasFailed"
+        />
 
-    <div class="mx-auto bg-gray-900 h-64 w-full lg:(w-192 h-96)">
-        <canvas :id="chartId"></canvas>
+        <div class="mx-auto bg-gray-900 h-64 w-full lg:(w-192 h-96)">
+            <canvas :id="chartId"></canvas>
+        </div>
+
+        <p>Performance test</p>
     </div>
-
-    <p>Performance test</p>
 </template>
 
 <script setup lang="ts">
