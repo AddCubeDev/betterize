@@ -10,13 +10,13 @@
         <input
             type="text"
             name="url"
-            class="bg-inherit border rounded-md border-gray-600/50 p-2 text-gray-300 w-96 focus:(border-gray-200/50)"
+            class="bg-inherit border rounded-md border-gray-600/50 w-full p-2 text-gray-300 lg:w-96 focus:(border-gray-200/50)"
             v-model="url"
         />
 
         <button
             type="button"
-            class="bg-gradient-to-t border-none from-indigo-900 via-indigo-700 to-indigo-800 shadow:(shadow-xl p-2 px-12 transition text-gray-200 duration-300 capitalize hover:(shadow-lg shadow-indigo-800) focus:(border-blue-200 border)"
+            class="bg-gradient-to-t border-none from-indigo-900 via-indigo-700 to-indigo-800 p-2 px-6 transition text-gray-200 duration-300 capitalize lg:px-12 hover:(shadow-lg shadow-indigo-800) focus:(border-blue-200 border)"
             @click="runTest"
         >
             Run test

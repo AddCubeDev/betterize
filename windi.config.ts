@@ -6,9 +6,9 @@ export default defineConfig({
     attributify: true,
     darkMode: "class", // or 'media'
     shortcuts: {
-        "header-1": "text-6xl  font-bold text-gray-100 uppercase",
-        "header-2": "text-2xl text-gray-200 lg:px-32",
-        "ordinary-text": "text-md text-gray-300 lg:w-96 mx-auto",
+        "header-1": "text-4xl lg:text-6xl  font-bold text-gray-100 uppercase",
+        "header-2": "text-lg lg:text-2xl text-gray-200 lg:px-32",
+        "ordinary-text": "text-sm lg:text-md text-gray-300 lg:w-96 mx-auto",
         "button-cta": "px-16 py-4",
         "transition-smooth":
             "transition duration-150 hover:(transition duration-150)",
