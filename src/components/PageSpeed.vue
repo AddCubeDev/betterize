@@ -4,7 +4,7 @@
         @testResult="onTestResult"
     />
 
-    <div class="mx-auto" style="width: 800px">
+    <div class="mx-auto w-full h-64 lg:(w-192 h-96) bg-gray-900">
         <canvas :id="chartId"></canvas>
     </div>
 
@@ -29,14 +29,43 @@ onMounted(async () => {
 
 function onTestResult(data: PagespeedTestResult) {
     chart.data.datasets[0].data[0] = data.performance;
+    chart.data.datasets[0].backgroundColor[0] = getBackgroundColor(
+        data.performance
+    );
+
     chart.data.datasets[0].data[1] = data.seo;
+    chart.data.datasets[0].backgroundColor[1] = getBackgroundColor(data.seo);
+
     chart.data.datasets[0].data[2] = data.accessibility;
+    chart.data.datasets[0].backgroundColor[2] = getBackgroundColor(
+        data.accessibility
+    );
+
     chart.data.datasets[0].data[3] = data.best_practices;
+    chart.data.datasets[0].backgroundColor[3] = getBackgroundColor(
+        data.best_practices
+    );
+
     chart.update();
 }
 
 function onTestHasFailed(error: string) {
     console.log("test has failed!: ", error);
+}
+
+function getBackgroundColor(value: number): string {
+    if (value > 85) {
+        // green
+        return "rgba(21, 255, 50, 0.8)";
+    }
+
+    if (value > 40) {
+        // yeallow
+        return "yellow";
+    }
+
+    // red
+    return "rgba(255, 20, 20, 0.8)";
 }
 
 function createChart() {
@@ -55,7 +84,12 @@ function createChart() {
             datasets: [
                 {
                     label: "Test results by type",
-                    backgroundColor: "rgba(21, 255, 50, 0.8)",
+                    backgroundColor: [
+                        "rgba(21, 255, 50, 0.8)",
+                        "red",
+                        "yellow",
+                        "green",
+                    ],
 
                     data: data.map((row) => row.count),
                 },
