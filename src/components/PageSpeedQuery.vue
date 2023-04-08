@@ -1,15 +1,22 @@
 <template>
-    <div class="mx-auto">
+    <div class="py-16">
+        <h2 class="header-1">CHECK YOUR PAGE SPEED</h2>
+        <p class="ordinary-text">
+            New Google ranking factor starting May 2021.Check if your website
+            passes Core Web Vitals assessment.
+        </p>
+    </div>
+    <div class="flex mx-auto pb-4 gap-2 justify-center">
         <input
             type="text"
             name="url"
-            class="bg-gray-700 text-yellow-400 p-2 w-96"
+            class="bg-inherit border rounded-md border-gray-600/50 p-2 text-gray-300 w-96 focus:(border-gray-200/50)"
             v-model="url"
         />
 
         <button
             type="button"
-            class="bg-gray-700 text-yellow-400 p-2"
+            class="bg-gradient-to-t border-none from-indigo-900 via-indigo-700 to-indigo-800 shadow:(shadow-xl p-2 px-12 transition text-gray-200 duration-300 capitalize hover:(shadow-lg shadow-indigo-800) focus:(border-blue-200 border)"
             @click="runTest"
         >
             Run test
