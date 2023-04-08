@@ -9,10 +9,24 @@
         <div
             class="bg-transparent border rounded-md mx-auto border-gray-200/20 h-64 w-full lg:(w-192 h-96)"
         >
+            <span
+                class="mr-3"
+                style="color: rgba(255, 10, 10, 0.8); font-weight: bold"
+            >
+                0-40</span
+            >
+            <span
+                class="mr-3"
+                style="color: rgba(255, 255, 0, 0.8); font-weight: bold"
+            >
+                41-85</span
+            >
+            <span style="color: rgba(21, 255, 50, 0.8); font-weight: bold">
+                86-100</span
+            >
+
             <canvas :id="chartId"></canvas>
         </div>
-
-        <!-- <p>Performance test</p> -->
     </div>
 </template>
 
@@ -40,9 +54,16 @@ function onTestResult(test_result: PagespeedTestResult) {
         { test_type: "BEST PRACTICES", count: test_result.best_practices },
     ];
 
+    Chart.defaults.color = "#fff";
+    Chart.defaults.font.size = 16;
+    Chart.defaults.font.weight = "bold";
+
     chart = new Chart(document.getElementById(chartId), {
         plugins: [ChartDataLabels],
         type: "bar",
+        defaults: {
+            color: "white",
+        },
         data: {
             labels: data.map((row) => row.test_type),
             datasets: [
@@ -68,6 +89,9 @@ function onTestResult(test_result: PagespeedTestResult) {
             },
 
             plugins: {
+                colors: {
+                    enabled: false,
+                },
                 datalabels: {
                     display: true,
                     color: "#f9fafb",

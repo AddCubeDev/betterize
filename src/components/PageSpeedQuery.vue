@@ -1,6 +1,7 @@
 <template>
     <div class="flex mx-auto pb-4 gap-2 justify-center">
         <input
+            id="url"
             type="text"
             name="url"
             class="bg-inherit border rounded-md border-gray-600/50 w-full p-2 text-gray-300 lg:w-96 focus:(border-gray-200/50)"
@@ -19,10 +20,10 @@
         <div id="spinner" hidden="true">
             <atom-spinner
                 :animation-duration="1500"
-                :size="40"
+                :size="64"
                 :color="'white'"
             />
-            <span>loading...</span>
+            <span>processing ...</span>
         </div>
     </div>
 </template>
@@ -55,8 +56,10 @@ function runTest() {
     }
     // console.log("start runTest with url=", url.value);
 
+    const urlInput = document.getElementById("url");
     const button = document.getElementById("btnStartTest");
     const spinner = document.getElementById("spinner");
+    urlInput.hidden = true;
     button.hidden = true;
     spinner.hidden = false;
 
@@ -65,8 +68,10 @@ function runTest() {
 }
 
 function onPagespeedDataLoaded(data: PagespeedTestResultOrError) {
+    const urlInput = document.getElementById("url");
     const button = document.getElementById("btnStartTest");
     const spinner = document.getElementById("spinner");
+    urlInput.hidden = false;
     button.hidden = false;
     spinner.hidden = true;
 
