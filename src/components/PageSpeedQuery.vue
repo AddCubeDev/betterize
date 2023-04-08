@@ -8,12 +8,21 @@
         />
 
         <button
+            id="btnStartTest"
             type="button"
             class="bg-gradient-to-t border-none from-indigo-900 via-indigo-700 to-indigo-800 p-2 px-6 transition text-gray-200 duration-300 capitalize lg:px-12 hover:(shadow-lg shadow-indigo-800) focus:(border-blue-200 border)"
             @click="runTest"
         >
             Run test
         </button>
+
+        <div id="spinner" hidden="true">
+            <atom-spinner
+                :animation-duration="1500"
+                :size="60"
+                :color="'#f44941'"
+            />
+        </div>
     </div>
 </template>
 
@@ -23,6 +32,7 @@ import {
     type PagespeedTestResultOrError,
     type PagespeedTestResult,
 } from "../PageSpeed";
+import { AtomSpinner } from "epic-spinners";
 import { ref } from "vue";
 
 // component properties/events (emits)
@@ -42,18 +52,28 @@ function runTest() {
     if (!url.value.startsWith("http")) {
         url.value = "https://" + url.value;
     }
-    console.log("start runTest with url=", url.value);
+    // console.log("start runTest with url=", url.value);
+
+    const button = document.getElementById("btnStartTest");
+    const spinner = document.getElementById("spinner");
+    button.hidden = true;
+    spinner.hidden = false;
 
     emits("testStart");
     runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
 }
 
 function onPagespeedDataLoaded(data: PagespeedTestResultOrError) {
+    const button = document.getElementById("btnStartTest");
+    const spinner = document.getElementById("spinner");
+    button.hidden = false;
+    spinner.hidden = true;
+
     if (data as PagespeedTestResult) {
-        console.log("emits testResult:", data);
+        // console.log("emits testResult:", data);
         emits("testResult", data as PagespeedTestResult);
     } else {
-        console.log("emits testHasFailed:", data);
+        // console.log("emits testHasFailed:", data);
         emits("testHasFailed", data as string);
     }
 }
