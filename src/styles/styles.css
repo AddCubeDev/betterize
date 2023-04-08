@@ -177,3 +177,12 @@ button {
         transparent
     );
 }
+.noise {
+    z-index: 20;
+    position: absolute;
+    inset: 0;
+    background-image: url(/assets/noise.webp);
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}

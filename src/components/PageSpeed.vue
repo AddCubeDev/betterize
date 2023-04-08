@@ -47,7 +47,7 @@ function onTestResult(test_result: PagespeedTestResult) {
             labels: data.map((row) => row.test_type),
             datasets: [
                 {
-                    label: "Test results by type",
+                    label: "",
                     backgroundColor: data.map((row) =>
                         getBackgroundColor(row.count)
                     ),
