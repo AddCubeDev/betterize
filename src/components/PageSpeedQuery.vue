@@ -4,7 +4,7 @@
             type="text"
             name="url"
             class="bg-gray-700 text-yellow-400 p-2 w-96"
-            :value="url"
+            v-model="url"
         />
 
         <button
@@ -38,7 +38,10 @@ const emits = defineEmits<Emits>();
 const url = ref("https://swiperight.pl");
 
 function runTest() {
-    console.log("start runTest ...");
+    if (!url.value.startsWith("http")) {
+        url.value = "https://" + url.value;
+    }
+    console.log("start runTest with url=", url.value);
 
     runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
 }

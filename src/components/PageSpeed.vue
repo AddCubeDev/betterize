@@ -8,7 +8,7 @@
         <canvas :id="chartId"></canvas>
     </div>
 
-    <p id="xxx">Performance test</p>
+    <p>Performance test</p>
 </template>
 
 <script setup lang="ts">
