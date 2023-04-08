@@ -5,7 +5,7 @@
         @testHasFailed="onTestHasFailed"
     />
 
-    <div class="mx-auto w-full h-64 lg:(w-192 h-96) bg-gray-900">
+    <div class="mx-auto bg-gray-900 h-64 w-full lg:(w-192 h-96)">
         <canvas :id="chartId"></canvas>
     </div>
 
@@ -28,12 +28,12 @@ function onTestStart() {
     }
 }
 
-function onTestResult(rest_result: PagespeedTestResult) {
+function onTestResult(test_result: PagespeedTestResult) {
     const data = [
-        { test_type: "PERFORMANCE", count: rest_result.performance },
-        { test_type: "SEO", count: rest_result.seo },
-        { test_type: "ACCESIBILITY", count: rest_result.accessibility },
-        { test_type: "BEST PRACTICES", count: rest_result.best_practices },
+        { test_type: "PERFORMANCE", count: test_result.performance },
+        { test_type: "SEO", count: test_result.seo },
+        { test_type: "ACCESIBILITY", count: test_result.accessibility },
+        { test_type: "BEST PRACTICES", count: test_result.best_practices },
     ];
 
     chart = new Chart(document.getElementById(chartId), {
@@ -81,10 +81,10 @@ function getBackgroundColor(value: number): string {
 
     if (value > 40) {
         // yeallow
-        return "yellow";
+        return "rgba(255, 255, 0, 0.8)";
     }
 
     // red
-    return "rgba(255, 20, 20, 0.8)";
+    return "rgba(255, 10, 10, 0.8)";
 }
 </script>
