@@ -29,8 +29,9 @@ import { ref } from "vue";
 // ------------------------------------------------------------------------
 
 interface Emits {
-    (event: "testHasFailed", error: string): void;
+    (event: "testStart"): void;
     (event: "testResult", error: PagespeedTestResult): void;
+    (event: "testHasFailed", error: string): void;
 }
 
 const emits = defineEmits<Emits>();
@@ -43,6 +44,7 @@ function runTest() {
     }
     console.log("start runTest with url=", url.value);
 
+    emits("testStart");
     runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
 }
 

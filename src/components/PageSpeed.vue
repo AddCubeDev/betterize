@@ -1,7 +1,8 @@
 <template>
     <PageSpeedQuery
-        @testHasFailed="onTestHasFailed"
+        @testStart="onTestStart"
         @testResult="onTestResult"
+        @testHasFailed="onTestHasFailed"
     />
 
     <div class="mx-auto w-full h-64 lg:(w-192 h-96) bg-gray-900">
@@ -17,66 +18,25 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import PageSpeedQuery from "@components/PageSpeedQuery.vue";
 import { type PagespeedTestResult } from "../PageSpeed";
-import { onMounted } from "vue";
 
 const chartId = "chartId";
-var chart = null;
+var chart: Chart | undefined = undefined;
 
-// Hooks
-onMounted(async () => {
-    chart = createChart();
-});
-
-function onTestResult(data: PagespeedTestResult) {
-    chart.data.datasets[0].data[0] = data.performance;
-    chart.data.datasets[0].backgroundColor[0] = getBackgroundColor(
-        data.performance
-    );
-
-    chart.data.datasets[0].data[1] = data.seo;
-    chart.data.datasets[0].backgroundColor[1] = getBackgroundColor(data.seo);
-
-    chart.data.datasets[0].data[2] = data.accessibility;
-    chart.data.datasets[0].backgroundColor[2] = getBackgroundColor(
-        data.accessibility
-    );
-
-    chart.data.datasets[0].data[3] = data.best_practices;
-    chart.data.datasets[0].backgroundColor[3] = getBackgroundColor(
-        data.best_practices
-    );
-
-    chart.update();
-}
-
-function onTestHasFailed(error: string) {
-    console.log("test has failed!: ", error);
-}
-
-function getBackgroundColor(value: number): string {
-    if (value > 85) {
-        // green
-        return "rgba(21, 255, 50, 0.8)";
+function onTestStart() {
+    if (chart != undefined) {
+        chart.destroy();
     }
-
-    if (value > 40) {
-        // yeallow
-        return "yellow";
-    }
-
-    // red
-    return "rgba(255, 20, 20, 0.8)";
 }
 
-function createChart() {
+function onTestResult(rest_result: PagespeedTestResult) {
     const data = [
-        { test_type: "PERFORMANCE", count: 0 },
-        { test_type: "SEO", count: 0 },
-        { test_type: "ACCESIBILITY", count: 0 },
-        { test_type: "BEST PRACTICES", count: 0 },
+        { test_type: "PERFORMANCE", count: rest_result.performance },
+        { test_type: "SEO", count: rest_result.seo },
+        { test_type: "ACCESIBILITY", count: rest_result.accessibility },
+        { test_type: "BEST PRACTICES", count: rest_result.best_practices },
     ];
 
-    const chart = new Chart(document.getElementById(chartId), {
+    chart = new Chart(document.getElementById(chartId), {
         plugins: [ChartDataLabels],
         type: "bar",
         data: {
@@ -84,13 +44,9 @@ function createChart() {
             datasets: [
                 {
                     label: "Test results by type",
-                    backgroundColor: [
-                        "rgba(21, 255, 50, 0.8)",
-                        "red",
-                        "yellow",
-                        "green",
-                    ],
-
+                    backgroundColor: data.map((row) =>
+                        getBackgroundColor(row.count)
+                    ),
                     data: data.map((row) => row.count),
                 },
             ],
@@ -111,7 +67,24 @@ function createChart() {
             },
         },
     });
+}
 
-    return chart;
+function onTestHasFailed(error: string) {
+    console.log("test has failed!: ", error);
+}
+
+function getBackgroundColor(value: number): string {
+    if (value > 85) {
+        // green
+        return "rgba(21, 255, 50, 0.8)";
+    }
+
+    if (value > 40) {
+        // yeallow
+        return "yellow";
+    }
+
+    // red
+    return "rgba(255, 20, 20, 0.8)";
 }
 </script>
