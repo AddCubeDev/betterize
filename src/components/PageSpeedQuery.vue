@@ -1,11 +1,4 @@
 <template>
-    <div class="py-16">
-        <h2 class="header-1">CHECK YOUR PAGE SPEED</h2>
-        <p class="ordinary-text">
-            New Google ranking factor starting May 2021.Check if your website
-            passes Core Web Vitals assessment.
-        </p>
-    </div>
     <div class="flex mx-auto pb-4 gap-2 justify-center">
         <input
             type="text"

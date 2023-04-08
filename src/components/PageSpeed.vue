@@ -6,11 +6,13 @@
             @testHasFailed="onTestHasFailed"
         />
 
-        <div class="mx-auto bg-gray-900 h-64 w-full lg:(w-192 h-96)">
+        <div
+            class="bg-transparent border rounded-md mx-auto border-gray-200/20 h-64 w-full lg:(w-192 h-96)"
+        >
             <canvas :id="chartId"></canvas>
         </div>
 
-        <p>Performance test</p>
+        <!-- <p>Performance test</p> -->
     </div>
 </template>
 
