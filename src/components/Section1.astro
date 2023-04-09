@@ -9,7 +9,7 @@ import {
 const bg = "/src/assets/bg7.jpg";
 ---
 
-<div class="bg-grid">
+<div class="faded-full">
     <BackgroundImage
         src={bg}
         backgroundSize="cover"
@@ -17,9 +17,11 @@ const bg = "/src/assets/bg7.jpg";
         brightness={0.7}
         breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
     >
-        <div class="flex flex-col h-screen mx-auto max-w-5xl justify-center">
+        <div
+            class="rounded-lg flex flex-col h-screen mx-auto max-w-5xl justify-center lg:h-screen"
+        >
             <div
-                class="bg-clip-padding bg-black border rounded-md bg-opacity-60 border-gray-300/20 py-20 px-4 shadow-2xl shadow-sky-800/50 backdrop-filter backdrop-blur-xl"
+                class="bg-clip-padding bg-black border rounded-lg bg-opacity-60 border-gray-300/20 py-20 px-4 shadow-2xl shadow-sky-800/50 backdrop-filter backdrop-blur-xl"
             >
                 <div class="pb-12">
                     <h2 class="header-1">CHECK YOUR PAGE SPEED</h2>

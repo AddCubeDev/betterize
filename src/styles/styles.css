@@ -155,11 +155,50 @@ button {
     text-align: center;
 }
 .bg-grid {
-    background-size: 50px 50px;
+    background-size: 20px 20px;
     background-image: linear-gradient(to right, #151317 1px, transparent 1px),
         linear-gradient(to bottom, #151317 1px, transparent 1px);
     background-position: top center;
     image-rendering: pixelated;
+}
+
+.faded-top {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        10%,
+        black,
+        100%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        10%,
+        black,
+        100%,
+        transparent
+    );
+}
+.faded-bottom {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        white,
+        20%,
+        white,
+        80%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to bottom,
+
+        20%,
+        white,
+        80%,
+        transparent
+    );
+}
+.faded-full {
     -webkit-mask-image: linear-gradient(
         to bottom,
         transparent,

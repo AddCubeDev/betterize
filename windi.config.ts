@@ -11,6 +11,8 @@ export default defineConfig({
         "header-2": "text-lg lg:text-2xl text-gray-200 lg:px-32",
         "ordinary-text": "text-sm lg:text-md text-gray-300 max-w-2xl mx-auto",
         "button-cta": "px-16 py-4",
+        "fancy-shadow":
+            "box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
         "transition-smooth":
             "transition duration-150 hover:(transition duration-150)",
         "image-animation":

@@ -9,7 +9,9 @@ import {
 } from "astro-imagetools/components";
 ---
 
-<div class="flex flex-col h-screen items-center justify-center lg:h-196">
+<div
+    class="flex flex-col h-96 items-center justify-center lg:h-screen lg:h-196"
+>
     <div class="flex flex-col mx-auto gap-6 items-center justify-center">
         <span
             class="bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 text-transparent header-1"
@@ -33,4 +35,9 @@ import {
     <!-- <div class="mx-auto mt-auto">
         <Img src={arrow} alt="asdasdasd" placeholder="none" />
     </div> -->
+</div>
+<div class="flex">
+    <div class="bg-white mx-auto h-96 w-96 faded-bottom"></div>
+    <div class="bg-white mx-auto h-96 w-96 faded-top"></div>
+    <div class="bg-white mx-auto h-96 w-96 faded-full"></div>
 </div>

@@ -11,14 +11,14 @@ import {
 } from "astro-imagetools/components";
 ---
 
-<div class="bg-grid">
+<div>
     <BackgroundImage
         src={herobg}
         backgroundSize="cover"
         quality={90}
         breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
     >
-        <div class="flex h-screen z-20">
+        <div class="flex h-96 z-20 lg:h-screen">
             <div class="flex flex-col mx-auto mt-16 inline-flex lg:mt-96">
                 <h1 class="header-1">
                     we make <span
