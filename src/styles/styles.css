@@ -216,12 +216,45 @@ button {
         transparent
     );
 }
+.noise-container {
+    position: relative;
+    isolation: isolate;
+    background-color: #17191e;
+}
+.noise-underlay {
+    z-index: -30;
+    position: relative;
+}
 .noise {
-    z-index: 20;
+    z-index: -20;
     position: absolute;
     inset: 0;
     background-image: url(/assets/noise.webp);
     opacity: 0.4;
     mix-blend-mode: overlay;
     pointer-events: none;
+}
+.noise-panel {
+    position: relative;
+    isolation: isolate;
+    border-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: rgb(52 56 65 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(35 38 45 / var(--tw-bg-opacity));
+    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+        0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+        0 8px 10px -6px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.noise-panel:before {
+    position: absolute;
+    inset: 0;
+    z-index: -20;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    content: "";
+    background-image: url(/assets/noise.webp);
 }

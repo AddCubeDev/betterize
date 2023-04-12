@@ -1,5 +1,6 @@
 ---
 import { Img, Picture } from "astro-imagetools/components";
+import ButtonContact from "./subcomponents/ButtonContact.astro";
 ---
 
 <header
@@ -33,18 +34,10 @@ import { Img, Picture } from "astro-imagetools/components";
                 <a class="transition-smooth ease-in-out text-gray-300" href=""
                     >Projects</a
                 >
-                <a class="transition-smooth ease-in-out text-gray-300" href=""
-                    >Contact</a
-                >
             </nav>
 
             <div class="flex-1 gap-4 hidden items-center justify-end sm:flex">
-                <a
-                    class="rounded-md font-medium bg-blue-600 text-md text-white py-2 px-5 transition-smooth ease-in-out hover:(transition-smooth transform scale-105 text-gray-900 shadow-lg shadow-blue-600/40)"
-                    href=""
-                >
-                    Contact Us
-                </a>
+                <ButtonContact />
             </div>
         </div>
     </div>

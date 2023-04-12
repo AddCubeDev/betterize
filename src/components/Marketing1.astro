@@ -1,0 +1,81 @@
+---
+import AdvantageItem from "./subcomponents/AdvantageItem.astro";
+const seo = "/src/assets/seo.png";
+const bounce = "/src/assets/bounce.png";
+const reputation = "/src/assets/reputation.png";
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
+---
+
+<div class="mx-auto max-w-5xl section">
+    <div class="pb-16">
+        <h2 class="header-1">need for speed</h2>
+        <p class="header-2">Why web performance is crucial for your buisness</p>
+    </div>
+    <div class="grid gap-4 grid-cols-3">
+        <div>
+            <div class="pb-8">
+                <Img
+                    src={seo}
+                    alt="asdasda"
+                    placeholder="none"
+                    width={200}
+                    sizes="(max-width: 500px) 140px, 200px"
+                />
+            </div>
+
+            <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
+                Website Speed and Search Engine Rankings
+            </h2>
+            <p class="text-base text-left">
+                Google considers website speed as a factor in search engine
+                rankings. Faster websites are more likely to rank higher in
+                search results and can result in up to 33% more organic traffic.
+            </p>
+        </div>
+        <div>
+            <div class="pb-8">
+                <Img
+                    src={bounce}
+                    alt="asdasda"
+                    placeholder="none"
+                    width={200}
+                    sizes="(max-width: 500px) 140px, 200px"
+                />
+            </div>
+            <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
+                Bounce Rates
+            </h2>
+            <p class="text-base text-left">
+                According to Google, if a page takes 1-3 seconds to load, the
+                probability of bounce increases by 32%. For pages that take 1-5
+                seconds to load, the probability of bounce increases by 90%
+            </p>
+        </div>
+        <div>
+            <div class="pb-8">
+                <Img
+                    src={reputation}
+                    alt="asdasda"
+                    placeholder="none"
+                    width={200}
+                    sizes="(max-width: 500px) 140px, 200px"
+                />
+            </div>
+
+            <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
+                Brand Reputation
+            </h2>
+            <p class="text-base text-left">
+                A slow website can damage brand reputation, leading to decreased
+                customer trust and loyalty. A survey by Akamai found that 79% of
+                customers who experience website performance issues are less
+                likely to return to the same site.
+            </p>
+        </div>
+    </div>
+</div>

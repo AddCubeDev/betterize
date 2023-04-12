@@ -1,0 +1,30 @@
+---
+import { Img } from "astro-imagetools/components";
+
+const {
+    alt = "descriptive text",
+    format = "avif",
+    title = "Tytuł komponentu AdvantageItem ...",
+    ...props
+} = Astro.props;
+
+if (props.src === undefined || props.src === null) {
+    console.error("Missing required 'src' attribute");
+}
+
+if (props.width === undefined || props.width === null) {
+    console.error("Missing required 'width' attribute");
+}
+---
+
+<div class="rounded-lg">
+    <div class="flex items-center justify-center">
+        <Img src={props.src} alt={alt} />
+    </div>
+    <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
+        {title}
+    </h2>
+    <p class="text-base leading-relaxed">
+        <slot> Opis komponentu AdvantageItem ...</slot>
+    </p>
+</div>

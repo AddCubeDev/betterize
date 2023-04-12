@@ -17,6 +17,7 @@ export default defineConfig({
             "transition duration-150 hover:(transition duration-150)",
         "image-animation":
             "transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 )",
+        "main-section": "py-32 max-w-7xl mx-auto",
     },
     theme: {
         extend: {

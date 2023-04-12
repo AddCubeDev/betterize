@@ -9,21 +9,11 @@
         <div
             class="bg-transparent border rounded-md mx-auto border-gray-200/20 h-64 w-full lg:(w-192 h-96)"
         >
-            <span
-                class="mr-3"
-                style="color: rgba(255, 10, 10, 0.8); font-weight: bold"
-            >
-                0-40</span
-            >
-            <span
-                class="mr-3"
-                style="color: rgba(255, 255, 0, 0.8); font-weight: bold"
-            >
-                41-85</span
-            >
-            <span style="color: rgba(21, 255, 50, 0.8); font-weight: bold">
-                86-100</span
-            >
+            <div class="flex mx-auto gap-6 justify-center">
+                <p class="font-bold text-red-600">0-40 Poor</p>
+                <p class="font-bold text-yellow-300">41-89 Average</p>
+                <p class="font-bold text-[#15ff32cc]">89-100 Excelent</p>
+            </div>
 
             <canvas :id="chartId"></canvas>
         </div>
