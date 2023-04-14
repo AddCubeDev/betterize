@@ -1,39 +1,53 @@
 ---
 const herobg = "/src/assets/hero-bg.png";
 const rocket = "/src/assets/rocket.png";
-
 // import herobg from "@assets/hero-bg.png";
 
 import {
     Img,
-    // Picture,
-    // BackgroundPicture,
+    Picture,
+    BackgroundPicture,
     BackgroundImage,
 } from "astro-imagetools/components";
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
 ---
 
-<BackgroundImage
-    src={herobg}
-    backgroundSize="cover"
-    quality={90}
-    breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
->
-    <div class="flex flex-row gap-10 h-screen z-1">
-        <div class="right-0 top-0 absolute h-full w-100">
-            <Img
+<div class="faded-bottom" {...storyblokEditable(blok)}>
+    <BackgroundImage
+        src={herobg}
+        backgroundSize="cover"
+        breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
+    >
+        <section
+            class="flex h-96 pt-24 z-20 z-10 main-content relative lg:h-screen lg:pt-0"
+        >
+            <div class="flex flex-col mx-auto inline-flex lg:mt-96">
+                <h1 class="header-1">
+                    we make <span
+                        class="bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 text-transparent header-1"
+                    >
+                        flying fast websites
+                    </span>
+                </h1>
+                <h2 class="header-2">
+                    {blok.subtitle}
+                </h2>
+            </div>
+        </section>
+        <!-- <div class="inset-y-0 right-0 z-0 absolute overflow-hidden lg:h-auto">
+            <Picture
                 src={rocket}
-                alt="A random image"
-                breakpoints={[200, 400, 800, 1200]}
+                alt="haha"
+                layout="fixed"
                 placeholder="none"
-                layout="fill"
+                blur={5}
+                brightness={0.7}
+                breakpoints={{ count: 3, minWidth: 150, maxWidth: 700 }}
             />
-        </div>
-        <div class="flex flex-col mx-auto mt-96">
-            <h1 class="header-1">jestem elementem Hero</h1>
-            <h2 class="header-2">
-                tekst mowiacy o tym jak super jest ten template. Co wiecej mozna
-                o nim powiedziec? Nie wiem
-            </h2>
-        </div>
-    </div>
-</BackgroundImage>
+        </div> -->
+    </BackgroundImage>
+</div>
+
+<!-- sizes="(max-width: 600px) 150px, (max-width:1200px) 300px, 600px" -->

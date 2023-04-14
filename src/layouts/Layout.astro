@@ -1,7 +1,7 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
 import "../styles/styles.css";
-
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { ImageSupportDetection } from "astro-imagetools/components";
 
 // import partytown from "/src/utils/partytown.js";
@@ -10,6 +10,9 @@ import { ImageSupportDetection } from "astro-imagetools/components";
 <html class="scroll-smooth" lang="pl">
     <head>
         <ImageSupportDetection />
+        <GoogleFontsOptimizer
+            url="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=block"
+        />
         <meta charset="UTF-8" />
         <meta
             name="viewport"

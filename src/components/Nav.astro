@@ -1,12 +1,13 @@
 ---
 import { Img, Picture } from "astro-imagetools/components";
+import ButtonContact from "./subcomponents/ButtonContact.astro";
 ---
 
 <header
     aria-label="Site Header"
     class="bg-gray-800 shadow-lg w-full shadow-gray-900"
 >
-    <div class="mx-auto max-w-screen-xl py-4 px-8">
+    <section class="mx-auto max-w-screen-xl py-4 px-8">
         <div class="flex gap-4 items-center justify-between lg:gap-10">
             <div class="flex lg:flex-1 lg:w-0">
                 <a href="/" class="image-animation">
@@ -27,25 +28,17 @@ import { Img, Picture } from "astro-imagetools/components";
                 <a class="transition-smooth ease-in-out text-gray-300" href=""
                     >About</a
                 >
-                <a class="transition-smooth ease-in-out text-gray-300" href=""
+                <a class="transition-smooth ease-in-out text-gray-300" href="/Blog"
                     >Blog</a
                 >
                 <a class="transition-smooth ease-in-out text-gray-300" href=""
                     >Projects</a
                 >
-                <a class="transition-smooth ease-in-out text-gray-300" href=""
-                    >Contact</a
-                >
             </nav>
 
             <div class="flex-1 gap-4 hidden items-center justify-end sm:flex">
-                <a
-                    class="rounded-md font-medium bg-blue-600 text-md text-white py-2 px-5 transition-smooth ease-in-out hover:(transition-smooth transform scale-105 text-gray-900)"
-                    href=""
-                >
-                    Contact Us
-                </a>
+                <ButtonContact />
             </div>
         </div>
-    </div>
+    </section>
 </header>

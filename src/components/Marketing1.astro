@@ -1,0 +1,32 @@
+---
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import AdvantageItem from "@components/subcomponents/AdvantageItem.astro";
+const seo = "/src/assets/seo.png";
+const bounce = "/src/assets/bounce.png";
+const reputation = "/src/assets/reputation.png";
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
+
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<div class="main-content" {...storyblokEditable(blok)}>
+    <div class="pb-16">
+        <h2 class="header-1">{blok.title}</h2>
+        <p class="header-2">{blok.subtitle}</p>
+    </div>
+
+    <div class="grid gap-24 grid-cols-1 lg:grid-cols-3">
+        {
+            blok.advantages.map((blok) => {
+                return <StoryblokComponent blok={blok} />;
+            })
+        }
+    </div>
+</div>

@@ -1,0 +1,37 @@
+---
+import { Img } from "astro-imagetools/components";
+
+const { blok } = Astro.props;
+
+// const {
+//     alt = "descriptive text",
+//     format = "avif",
+//     title = "Tytuł komponentu AdvantageItem ...",
+//     ...props
+// } = Astro.props;
+
+// if (blok.src === undefined || blok.src === null) {
+//     console.error("Missing required 'src' attribute");
+// }
+
+// if (blok.width === undefined || blok.width === null) {
+//     console.error("Missing required 'width' attribute");
+// }
+---
+
+<div>
+    <div class="pb-8">
+        <Img
+            src={blok.image.filename}
+            alt="asdasda"
+            placeholder="none"
+            width={200}
+        />
+    </div>
+    <h2 class="font-medium mb-2 text-2xl lg:h-16">
+        {blok.title}
+    </h2>
+    <p class="text-base">
+        {blok.description}
+    </p>
+</div>

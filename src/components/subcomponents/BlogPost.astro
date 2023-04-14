@@ -1,0 +1,26 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+
+const { blok } = Astro.props
+const content = renderRichText(blok.content)
+
+console.log("----------------------------------------");
+console.log(content);
+console.log("----------------------------------------");
+
+---
+<Layout>
+  <Nav />
+  <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16" {...storyblokEditable(blok)}>
+    <h1>{blok.title}</h1>
+    <p>{blok.description}</p>
+    <Fragment set:html={content} />
+  </main>
+  <div class="mt-auto">
+      <Footer />
+  </div>
+</Layout>

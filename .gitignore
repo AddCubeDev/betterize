@@ -2,6 +2,7 @@
 .output/
 .cache
 dist
+dist.dhvphotography
 
 # dependencies
 node_modules/
@@ -19,3 +20,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# localhost certificates
+localhost_https/*

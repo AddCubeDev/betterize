@@ -1,1 +1,38 @@
+---
+import PageSpeed from "@components/PageSpeed.vue";
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
+const bg = "/src/assets/bg7.jpg";
+---
 
+<div class="faded-full">
+    <BackgroundImage
+        src={bg}
+        backgroundSize="cover"
+        quality={90}
+        brightness={0.7}
+        breakpoints={{ count: 6, minWidth: 400, maxWidth: 2560 }}
+    >
+        <section
+            class="rounded-lg flex flex-col h-screen main-content justify-center lg:h-screen"
+        >
+            <div
+                class="bg-clip-padding bg-black border rounded-lg bg-opacity-60 border-gray-300/20 py-20 px-4 shadow-2xl shadow-sky-800/50 backdrop-filter backdrop-blur-xl"
+            >
+                <div class="pb-12">
+                    <h2 class="header-1">CHECK YOUR PAGE SPEED</h2>
+                    <p class="ordinary-text">
+                        New Google ranking factor starting May 2021.Check if
+                        your website passes Core Web Vitals assessment.
+                    </p>
+                </div>
+
+                <PageSpeed client:only />
+            </div>
+        </section>
+    </BackgroundImage>
+</div>
