@@ -17,7 +17,7 @@
     -webkit-text-size-adjust: 100%;
 }
 
-@font-face {
+/* @font-face {
     font-family: "Roboto";
     font-style: normal;
     font-weight: 300;
@@ -78,7 +78,7 @@
         url(/assets/fonts/roboto-black.latin-ext.woff2) format("woff2");
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F,
         U+A720-A7FF;
-}
+} */
 
 summary::-webkit-details-marker {
     display: none;
@@ -105,7 +105,7 @@ body {
 
 a {
     font-weight: 500;
-    color: #646cff;
+    /* color: #646cff; */
     text-decoration: inherit;
 }
 a:hover {
@@ -257,4 +257,17 @@ button {
     mix-blend-mode: overlay;
     content: "";
     background-image: url(/assets/noise.webp);
+}
+
+.blur-radial {
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(50px);
+}
+
+.bg-blur {
+    filter: blur(192px);
 }

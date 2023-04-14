@@ -14,10 +14,10 @@ export default defineConfig({
         "fancy-shadow":
             "box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
         "transition-smooth":
-            "transition duration-150 hover:(transition duration-150)",
+            "transition duration-200 hover:(transition duration-200)",
         "image-animation":
             "transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 )",
-        "main-section": "py-32 max-w-7xl mx-auto",
+        "main-content": "px-4 xl:px-0 max-w-7xl mx-auto",
     },
     theme: {
         extend: {
