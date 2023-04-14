@@ -258,3 +258,16 @@ button {
     content: "";
     background-image: url(/assets/noise.webp);
 }
+
+.blur-radial {
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(50px);
+}
+
+.bg-blur {
+    filter: blur(192px);
+}

@@ -1,5 +1,5 @@
 ---
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import AdvantageItem from "@components/subcomponents/AdvantageItem.astro";
 const seo = "/src/assets/seo.png";
 const bounce = "/src/assets/bounce.png";
@@ -11,8 +11,7 @@ import {
     BackgroundImage,
 } from "astro-imagetools/components";
 
-import { storyblokEditable} from '@storyblok/astro';
-
+import { storyblokEditable } from "@storyblok/astro";
 
 const { blok } = Astro.props;
 ---
@@ -26,7 +25,7 @@ const { blok } = Astro.props;
     <div class="grid gap-4 grid-cols-3">
         {
             blok.advantages.map((blok) => {
-              return <StoryblokComponent blok={blok} />
+                return <StoryblokComponent blok={blok} />;
             })
         }
     </div>
