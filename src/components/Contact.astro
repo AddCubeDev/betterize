@@ -1,5 +1,5 @@
 ---
-const rocket = "/src/assets/contact.jpg";
+const star = "/src/assets/starship.png";
 const arrow = "/src/assets/arrow.png";
 import {
     Img,
@@ -12,15 +12,16 @@ import ButtonContact from "./subcomponents/ButtonContact.astro";
 ---
 
 <div
-    class="flex flex-col h-96 relative faded-top items-center justify-center lg:h-screen lg:h-196"
+    class="flex flex-col h-128 pb-20 relative items-center justify-center lg:pb-40"
 >
     <div class="bg-grid h-full w-full -z-1 faded-top absolute"></div>
     <div
         class="bg-gradient-to-b from-transparent to-sky-800/30 h-32 w-full bottom-0 -z-1 absolute"
     >
     </div>
-
-    <div class="flex flex-col mx-auto gap-6 items-center justify-center">
+    <section
+        class="flex flex-col pb-6 gap-6 main-content items-center justify-center"
+    >
         <span
             class="bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 text-transparent header-1"
         >
@@ -37,5 +38,5 @@ import ButtonContact from "./subcomponents/ButtonContact.astro";
         <!-- <div class="mx-auto mt-auto">
         <Img src={arrow} alt="asdasdasd" placeholder="none" />
     </div> -->
-    </div>
+    </section>
 </div>
