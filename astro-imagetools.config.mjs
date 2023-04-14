@@ -5,6 +5,7 @@ export default defineConfig({
     format: ["avif", "webp"],
     fallbackFormat: "png",
     loading: "lazy",
+    preload: "avif",
     // layout: "fill",
     includeSourceFormat: false,
     formatOptions: {
