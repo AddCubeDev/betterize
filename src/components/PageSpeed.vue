@@ -9,100 +9,88 @@
         <div
             class="bg-transparent border rounded-md mx-auto border-gray-200/20 h-64 w-full lg:(w-192 h-96)"
         >
-            <div class="flex mx-auto gap-6 justify-center">
+            <div class="flex mx-auto gap-6 justify-center pb-4">
                 <p class="font-bold text-red-600">0-40 Poor</p>
                 <p class="font-bold text-yellow-300">41-89 Average</p>
                 <p class="font-bold text-[#15ff32cc]">89-100 Excelent</p>
             </div>
 
-            <canvas :id="chartId"></canvas>
+            <div
+                class="grid grid-cols-2 lg:grid-cols-4 gap-x-* gap-y-4 justify-items-center"
+            >
+                <div
+                    class="grid grid-cols-1 gap-y-3"
+                    v-for="pageSpeedTest in pageSpeedTests"
+                >
+                    <div class="relative items-center justify-center flex">
+                        <p
+                            class="absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold"
+                        >
+                            {{ pageSpeedTest.test_result.value }}
+                        </p>
+
+                        <div
+                            :style="
+                                'background-color: ' +
+                                getBackgroundColor(
+                                    pageSpeedTest.test_result.value
+                                )
+                            "
+                            class="absolute w-[120px] h-[120px] rounded-full"
+                        ></div>
+
+                        <circle-progress
+                            :percent="pageSpeedTest.test_result.value"
+                            :fill-color="
+                                getFillColor(pageSpeedTest.test_result.value)
+                            "
+                            :size="120"
+                            :border-width="10"
+                            :border-bg-width="10"
+                        />
+                    </div>
+                    <p class="font-bold text-lg">{{ pageSpeedTest.label }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Chart from "chart.js/auto";
-import ChartDataLabels from "chartjs-plugin-datalabels";
+import "vue3-circle-progress/dist/circle-progress.css";
+import CircleProgress from "vue3-circle-progress";
 
 import PageSpeedQuery from "@components/PageSpeedQuery.vue";
 import { type PagespeedTestResult } from "../PageSpeed";
 
-const chartId = "chartId";
-var chart: Chart | undefined = undefined;
+import { ref } from "vue";
 
-function onTestStart() {
-    if (chart != undefined) {
-        chart.destroy();
-    }
-}
+const performance = ref(0);
+const seo = ref(0);
+const accessibility = ref(0);
+const best_practices = ref(0);
+
+const pageSpeedTests = [
+    { label: "Performance", test_result: performance },
+    { label: "Seo", test_result: seo },
+    { label: "Accessibility", test_result: accessibility },
+    { label: "Best practices", test_result: best_practices },
+];
+
+function onTestStart() {}
 
 function onTestResult(test_result: PagespeedTestResult) {
-    const data = [
-        { test_type: "PERFORMANCE", count: test_result.performance },
-        { test_type: "SEO", count: test_result.seo },
-        { test_type: "ACCESIBILITY", count: test_result.accessibility },
-        { test_type: "BEST PRACTICES", count: test_result.best_practices },
-    ];
-
-    Chart.defaults.color = "#fff";
-    Chart.defaults.font.size = 16;
-    Chart.defaults.font.weight = "bold";
-
-    chart = new Chart(document.getElementById(chartId), {
-        plugins: [ChartDataLabels],
-        type: "bar",
-        defaults: {
-            color: "white",
-        },
-        data: {
-            labels: data.map((row) => row.test_type),
-            datasets: [
-                {
-                    label: "",
-                    backgroundColor: data.map((row) =>
-                        getBackgroundColor(row.count)
-                    ),
-                    data: data.map((row) => row.count),
-                },
-            ],
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100,
-                    ticks: {
-                        stepSize: 10,
-                    },
-                },
-            },
-
-            plugins: {
-                colors: {
-                    enabled: false,
-                },
-                datalabels: {
-                    display: true,
-                    color: "#f9fafb",
-                    font: {
-                        weight: "bold",
-                        size: 32,
-                    },
-                    formatter: function (value, context) {
-                        return value;
-                    },
-                },
-            },
-        },
-    });
+    performance.value = test_result.performance;
+    seo.value = test_result.seo;
+    accessibility.value = test_result.accessibility;
+    best_practices.value = test_result.best_practices;
 }
 
 function onTestHasFailed(error: string) {
     console.log("test has failed!: ", error);
 }
 
-function getBackgroundColor(value: number): string {
+function getFillColor(value: number): string {
     if (value > 85) {
         // green
         return "rgba(21, 255, 50, 0.8)";
@@ -115,5 +103,20 @@ function getBackgroundColor(value: number): string {
 
     // red
     return "rgba(255, 10, 10, 0.8)";
+}
+
+function getBackgroundColor(value: number): string {
+    if (value > 85) {
+        // green
+        return "#15ff3299";
+    }
+
+    if (value > 40) {
+        // yeallow
+        return "#ffff0066";
+    }
+
+    // red
+    return "#ff0a0a66";
 }
 </script>

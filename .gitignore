@@ -2,6 +2,7 @@
 .output/
 .cache
 dist
+dist.dhvphotography
 
 # dependencies
 node_modules/

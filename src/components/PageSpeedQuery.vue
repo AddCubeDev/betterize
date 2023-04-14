@@ -64,7 +64,21 @@ function runTest() {
     spinner.hidden = false;
 
     emits("testStart");
-    runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
+
+    // TODO: change 'prod' to true before deployment
+    const prod = false;
+    if (prod) {
+        // runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
+    } else {
+        // TEST:
+        const test_data: PagespeedTestResultOrError = {
+            performance: 90,
+            seo: 70,
+            best_practices: 86,
+            accessibility: 30,
+        };
+        onPagespeedDataLoaded(test_data);
+    }
 }
 
 function onPagespeedDataLoaded(data: PagespeedTestResultOrError) {
