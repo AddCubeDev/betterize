@@ -18,7 +18,8 @@ const { blok } = Astro.props;
     <BackgroundImage
         src={herobg}
         backgroundSize="cover"
-        format="avif"
+        format={["avif", "webp"]}
+        includeSourceFormat={false}
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
     >
         <section
