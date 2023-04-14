@@ -16,13 +16,13 @@ import { storyblokEditable } from "@storyblok/astro";
 const { blok } = Astro.props;
 ---
 
-<div class="mx-auto max-w-5xl section" {...storyblokEditable(blok)}>
+<div class="main-content" {...storyblokEditable(blok)}>
     <div class="pb-16">
         <h2 class="header-1">{blok.title}</h2>
         <p class="header-2">{blok.subtitle}</p>
     </div>
 
-    <div class="grid gap-4 grid-cols-3">
+    <div class="grid gap-24 grid-cols-1 lg:grid-cols-3">
         {
             blok.advantages.map((blok) => {
                 return <StoryblokComponent blok={blok} />;

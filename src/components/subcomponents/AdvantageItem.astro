@@ -1,7 +1,7 @@
 ---
 import { Img } from "astro-imagetools/components";
 
-const { blok } = Astro.props
+const { blok } = Astro.props;
 
 // const {
 //     alt = "descriptive text",
@@ -29,10 +29,10 @@ const { blok } = Astro.props
             sizes="(max-width: 500px) 140px, 200px"
         />
     </div>
-        <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
-            {blok.title}
-        </h2>
-        <p class="text-base text-left">
-            {blok.description}
-        </p>
+    <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
+        {blok.title}
+    </h2>
+    <p class="text-base text-left">
+        {blok.description}
+    </p>
 </div>

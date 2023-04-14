@@ -1,7 +1,7 @@
 ---
-import { Img } from "astro-imagetools/components";
+import { Img, Picture } from "astro-imagetools/components";
 
-const { blok } = Astro.props
+const { blok } = Astro.props;
 
 // const {
 //     alt = "descriptive text",
@@ -17,25 +17,36 @@ const { blok } = Astro.props
 // if (blok.width === undefined || blok.width === null) {
 //     console.error("Missing required 'width' attribute");
 // }
+
+const blogbg = "/src/assets/bg3.jpg";
 ---
 
-<div class="mb-4 border mx-auto max-w-5xl">
-    <div class="pb-8">
-        <Img
-            src={blok.image.filename}
-            alt="asdasda"
-            placeholder="none"
-            width={200}
-            sizes="(max-width: 500px) 140px, 200px"
-        />
-    </div>
-    <a href={blok.slug}>
-        <time>{blok.date}</time>
-        <h2 class="font-medium text-lg mb-2 title-font">
-            {blok.title} 
-        </h2>
-        <p class="text-base">
-            {blok.description}
-        </p>
+<div
+    class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
+>
+    <a class="hover:text-sky-200/50" href={blok.slug}>
+        <div class="h-64 w-full overflow-hidden faded-bottom">
+            <Picture
+                src={blogbg}
+                alt="asdasda"
+                objectFit="fill"
+                placeholder="none"
+                objectPosition="50% 50%"
+                sizes="(max-width: 500px) 350px, 600px"
+            />
+        </div>
+
+        <div class="p-4 pb-8">
+            <time class="text-sm text-gray-400/30 items-left">{blok.date}</time>
+            <h2 class="font-medium font-bold pb-2 text-2xl capitalize">
+                {blok.title}
+            </h2>
+            <p class="max-w-md text-base text-left">
+                <!-- {blok.description} -->
+                Google considers website speed as a factor in search engine rankings.
+                Faster websites are more likely to rank higher in search results
+                and can result in up to 33% more organic traffic.
+            </p>
+        </div>
     </a>
-</div> 
+</div>
