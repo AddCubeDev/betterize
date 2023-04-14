@@ -1,6 +1,8 @@
 ---
 import { Img } from "astro-imagetools/components";
 
+const seo = "/src/assets/seo.png";
+
 const { blok } = Astro.props
 
 // const {
@@ -22,7 +24,7 @@ const { blok } = Astro.props
 <div class="mb-4 border mx-auto max-w-5xl">
     <div class="pb-8">
         <Img
-            src={blok.image.filename}
+            src={seo}
             alt="asdasda"
             placeholder="none"
             width={200}
