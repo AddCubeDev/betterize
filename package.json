@@ -17,6 +17,7 @@
     "@astrojs/vue": "^2.1.1",
     "@astrolib/seo": "^0.3.0",
     "@cubejs-client/core": "^0.31.0",
+    "@storyblok/astro": "^2.0.16",
     "astro": "^2.2.0",
     "astro-critters": "^1.1.31",
     "astro-imagetools": "^0.8.1",

@@ -1,0 +1,24 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const { blok } = Astro.props
+---
+
+<Layout>
+  <Nav />
+  <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16" {...storyblokEditable(blok)}>
+    {
+      blok.body?.map((blok) => {
+        return <StoryblokComponent blok={blok} />
+      })
+    }
+  </main>
+  <div class="mt-auto">
+      <Footer />
+  </div>
+</Layout>

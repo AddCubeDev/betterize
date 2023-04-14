@@ -19,7 +19,7 @@ const { blok } = Astro.props
 // }
 ---
 
-<div>
+<div class="mb-4 border mx-auto max-w-5xl">
     <div class="pb-8">
         <Img
             src={blok.image.filename}
@@ -29,10 +29,13 @@ const { blok } = Astro.props
             sizes="(max-width: 500px) 140px, 200px"
         />
     </div>
-        <h2 class="font-medium text-lg mb-2 title-font lg:h-14">
-            {blok.title}
+    <a href={blok.slug}>
+        <time>{blok.date}</time>
+        <h2 class="font-medium text-lg mb-2 title-font">
+            {blok.title} 
         </h2>
-        <p class="text-base text-left">
+        <p class="text-base">
             {blok.description}
         </p>
-</div>
+    </a>
+</div> 

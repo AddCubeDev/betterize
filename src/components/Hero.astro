@@ -9,9 +9,12 @@ import {
     BackgroundPicture,
     BackgroundImage,
 } from "astro-imagetools/components";
+import { storyblokEditable} from '@storyblok/astro';
+
+const { blok } = Astro.props
 ---
 
-<div class="faded-bottom">
+<div class="faded-bottom" {...storyblokEditable(blok)}>
     <BackgroundImage
         src={herobg}
         backgroundSize="cover"
@@ -28,17 +31,9 @@ import {
                     </span>
                 </h1>
                 <h2 class="header-2">
-                    Make Google SEO agents fall in love with your brand!
+                    {blok.subtitle}
                 </h2>
             </div>
         </div>
     </BackgroundImage>
 </div>
-
-<!-- <BackgroundImage
-    src={rocket}
-    class="top-0 z-10 absolute"
-    backgroundSize="cover"
-    quality={90}
-    breakpoints={{ count: 6, minWidth: 320, maxWidth: 2560 }}
-/> -->
