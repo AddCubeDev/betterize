@@ -156,8 +156,8 @@ button {
 }
 .bg-grid {
     background-size: 20px 20px;
-    background-image: linear-gradient(to right, #2c313550 1px, transparent 1px),
-        linear-gradient(to bottom, #2c313550 1px, transparent 1px);
+    background-image: linear-gradient(to right, #7dd3fc10 1px, transparent 1px),
+        linear-gradient(to bottom, #7dd3fc10 1px, transparent 1px);
     background-position: top center;
     image-rendering: pixelated;
 }

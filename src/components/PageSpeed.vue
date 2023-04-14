@@ -7,24 +7,22 @@
         />
 
         <div
-            class="bg-transparent border rounded-md mx-auto border-gray-200/20 h-64 w-full lg:(w-192 h-96)"
+            class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
-            <div class="flex mx-auto gap-6 justify-center pb-4">
-                <p class="font-bold text-red-600">0-40 Poor</p>
-                <p class="font-bold text-yellow-300">41-89 Average</p>
-                <p class="font-bold text-[#15ff32cc]">89-100 Excelent</p>
+            <div class="flex mx-auto pb-4 gap-6 justify-center">
+                <p class="font-bold text-[#f90000]">0-40 Poor</p>
+                <p class="font-bold text-[#f9f900]">41-89 Average</p>
+                <p class="font-bold text-[#00f900]">89-100 Excelent</p>
             </div>
 
-            <div
-                class="grid grid-cols-2 lg:grid-cols-4 gap-x-* gap-y-4 justify-items-center"
-            >
+            <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
                 <div
-                    class="grid grid-cols-1 gap-y-3"
+                    class="grid gap-y-3 grid-cols-1"
                     v-for="pageSpeedTest in pageSpeedTests"
                 >
-                    <div class="relative items-center justify-center flex">
+                    <div class="flex relative items-center justify-center">
                         <p
-                            class="absolute top-1/2 left-1/2 z-10 transform -translate-x-1/2 -translate-y-1/2 text-xl font-bold"
+                            class="font-bold transform top-1/2 left-1/2 text-2xl z-10 -translate-x-1/2 -translate-y-1/2 absolute"
                         >
                             {{ pageSpeedTest.test_result.value }}
                         </p>
@@ -36,7 +34,7 @@
                                     pageSpeedTest.test_result.value
                                 )
                             "
-                            class="absolute w-[120px] h-[120px] rounded-full"
+                            class="rounded-full h-[120px] w-[120px] absolute"
                         ></div>
 
                         <circle-progress
@@ -49,7 +47,7 @@
                             :border-bg-width="10"
                         />
                     </div>
-                    <p class="font-bold text-lg">{{ pageSpeedTest.label }}</p>
+                    <p class="font-medium text-lg">{{ pageSpeedTest.label }}</p>
                 </div>
             </div>
         </div>
@@ -93,30 +91,30 @@ function onTestHasFailed(error: string) {
 function getFillColor(value: number): string {
     if (value > 85) {
         // green
-        return "rgba(21, 255, 50, 0.8)";
+        return "#00f900";
     }
 
     if (value > 40) {
         // yeallow
-        return "rgba(255, 255, 0, 0.8)";
+        return "#f9f900";
     }
 
     // red
-    return "rgba(255, 10, 10, 0.8)";
+    return "#f90000";
 }
 
 function getBackgroundColor(value: number): string {
     if (value > 85) {
         // green
-        return "#15ff3299";
+        return "#00f90040";
     }
 
     if (value > 40) {
         // yeallow
-        return "#ffff0066";
+        return "#f9f90040";
     }
 
     // red
-    return "#ff0a0a66";
+    return "#470000";
 }
 </script>

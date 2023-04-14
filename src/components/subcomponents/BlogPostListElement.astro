@@ -22,10 +22,11 @@ const blogbg = "/src/assets/bg3.jpg";
 ---
 
 <div
-    class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
+    class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 relative hover:(transform scale-105)"
 >
+    <div class="bg-grid h-full w-full z-0 absolute"></div>
     <a class="hover:text-sky-200/50" href={blok.slug}>
-        <div class="h-64 w-full overflow-hidden faded-bottom">
+        <div class="h-64 w-full overflow-hidden">
             <Picture
                 src={blogbg}
                 alt="asdasda"
@@ -38,10 +39,12 @@ const blogbg = "/src/assets/bg3.jpg";
 
         <div class="p-4 pb-8">
             <time class="text-sm text-gray-400/30 items-left">{blok.date}</time>
-            <h2 class="font-medium font-bold pb-2 text-2xl capitalize">
+            <h2
+                class="font-medium font-bold pb-2 text-2xl text-gray-100 capitalize"
+            >
                 {blok.title}
             </h2>
-            <p class="max-w-md text-base text-left">
+            <p class="max-w-md text-base text-left text-gray-300">
                 <!-- {blok.description} -->
                 Google considers website speed as a factor in search engine rankings.
                 Faster websites are more likely to rank higher in search results
