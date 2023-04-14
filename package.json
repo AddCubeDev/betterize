@@ -20,6 +20,7 @@
     "@storyblok/astro": "^2.0.16",
     "astro": "^2.2.0",
     "astro-critters": "^1.1.31",
+    "astro-google-fonts-optimizer": "^0.2.2",
     "astro-imagetools": "^0.8.1",
     "chart.js": "^4.2.1",
     "chartjs-plugin-datalabels": "^2.2.0",
