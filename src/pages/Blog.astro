@@ -12,8 +12,4 @@ const { data } = await storyblokApi.get('cdn/stories/blog_landing', {
 const content = data.story.content;
 ---
 
-<Layout>
-  <Nav />
-  <StoryblokComponent blok={content} />
-  <Footer />
-</Layout>
+<StoryblokComponent blok={content} />
