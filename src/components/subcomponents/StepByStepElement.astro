@@ -1,0 +1,28 @@
+---
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "../../node_modules/astro-imagetools/components";
+const {
+    title = "Jestem pytaniem ktore moglby ktos zadac",
+    paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
+    number = "1",
+} = Astro.props;
+---
+
+<div class="relative">
+    <div class="bg-red-500 h-32 w-full">
+        <!-- <Img src={} alt="descriptive text" /> -->
+    </div>
+    <div class="py-4 px-2">
+        <h2 class="font-bold text-left text-xl text-gray-200">{title}</h2>
+        <p class="text-left text-gray-300">{paragraph}</p>
+    </div>
+    <p
+        class="font-bold transform top-0 left-0 text-gray-200/30 text-[150px] -translate-y-1/2 absolute lg:(-translate-x-2/3 -translate-y-2/3)"
+    >
+        {number}
+    </p>
+</div>
