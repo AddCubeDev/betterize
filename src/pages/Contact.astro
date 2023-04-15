@@ -9,18 +9,20 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
 <Layout>
     <Nav />
     <main
-        class="flex flex-col mx-auto min-h-screen p-4 gap-16 main-content items-center justify-center"
+        class="flex flex-col mx-auto min-h-screen p-4 gap-16 main-content items-center justify-center lg:p-0"
     >
         <h1 class="pt-20 header-1">Contact Us</h1>
-        <div class="mx-auto max-w-full w-128">
-            <form action="" class="space-y-4 text-left">
+        <div class="mx-auto w-128">
+            <form
+                action="mailto:test@test.com"
+                method="post"
+                enctype="text/plain"
+                class="space-y-4"
+            >
                 <div>
-                    <label class="text-sm px-1 text-gray-200" for="name"
-                        >Full Name:</label
-                    >
-
+                    <label class="sr-only" for="name">Name</label>
                     <input
-                        class="border rounded-lg bg-neutral-800 border-gray-200/20 text-sm w-full p-3 focus:(border-gray-200/60)"
+                        class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
                         placeholder="Name"
                         type="text"
                         id="name"
@@ -28,11 +30,9 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
                 </div>
 
                 <div>
-                    <label class="text-sm px-1 text-gray-200" for="email"
-                        >Email</label
-                    >
+                    <label class="sr-only" for="email">Email</label>
                     <input
-                        class="border rounded-lg bg-neutral-800 border-gray-200/20 text-sm w-full p-3 focus:(border-gray-200/60)"
+                        class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
                         placeholder="Email address"
                         type="email"
                         id="email"
@@ -40,12 +40,10 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
                 </div>
 
                 <div>
-                    <label class="text-sm px-1 text-gray-200" for="message"
-                        >Message</label
-                    >
+                    <label class="sr-only" for="message">Message</label>
 
                     <textarea
-                        class="border rounded-lg bg-neutral-800 border-gray-200/20 text-sm w-full p-3 focus:(border-gray-200/60)"
+                        class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
                         placeholder="Message"
                         rows="8"
                         id="message"></textarea>
@@ -54,7 +52,7 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
                 <div class="mt-4">
                     <button
                         type="submit"
-                        class="rounded-lg flex font-medium bg-blue-600 text-white py-3 px-8 transition-smooth inline-block items-left sm:w-auto hover:(bg-transparent border-gray-200/80)"
+                        class="rounded-lg flex font-medium bg-blue-600 text-white py-3 px-5 inline-block items-left sm:w-auto"
                     >
                         Send Enquiry
                     </button>
@@ -63,7 +61,7 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
         </div>
 
         <div
-            class="mx-auto max-w-full grid pb-20 w-5xl gap-4 grid-cols-1 lg:grid-cols-2"
+            class="mx-auto grid pb-20 w-5xl gap-4 grid-cols-1 main-content lg:grid-cols-2"
         >
             <FAQcard />
             <FAQcard />

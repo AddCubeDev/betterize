@@ -1,10 +1,10 @@
 ---
 interface Props {
-    name: string;
-    greeting?: string;
+    question?: string;
+    answer?: string;
 }
 const {
-    ask = "Jestem pytaniem ktore moglby ktos zadac",
+    question = "Jestem pytaniem, które ktoś mógłby zadać",
     answer = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
 } = Astro.props;
 ---
@@ -14,7 +14,7 @@ const {
         class="border rounded-lg cursor-pointer flex border-gray-200/50 w-full p-4 items-center justify-between"
     >
         <h2 class="font-medium text-gray-200">
-            {ask}
+            {question}
         </h2>
 
         <svg

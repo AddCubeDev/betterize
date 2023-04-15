@@ -66,9 +66,9 @@ function runTest() {
     emits("testStart");
 
     // TODO: change 'prod' to true before deployment
-    const prod = false;
+    const prod = true;
     if (prod) {
-        // runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
+        runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
     } else {
         // TEST:
         const test_data: PagespeedTestResultOrError = {
@@ -85,11 +85,12 @@ function onPagespeedDataLoaded(data: PagespeedTestResultOrError) {
     const urlInput = document.getElementById("url");
     const button = document.getElementById("btnStartTest");
     const spinner = document.getElementById("spinner");
+
     urlInput.hidden = false;
     button.hidden = false;
     spinner.hidden = true;
 
-    if (data as PagespeedTestResult) {
+    if ((data as PagespeedTestResult).performance) {
         // console.log("emits testResult:", data);
         emits("testResult", data as PagespeedTestResult);
     } else {

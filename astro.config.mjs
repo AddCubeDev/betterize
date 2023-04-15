@@ -5,7 +5,7 @@ import storyblok from "@storyblok/astro";
 
 // import compressor from "astro-compressor";
 import critters from "astro-critters";
-import partytown from "@astrojs/partytown";
+// import partytown from "@astrojs/partytown";
 import vue from "@astrojs/vue";
 import purgecss from "astro-purgecss";
 

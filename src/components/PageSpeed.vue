@@ -6,7 +6,12 @@
             @testHasFailed="onTestHasFailed"
         />
 
+        <div :hidden="hiddenPageSpeedTestError">
+            <p class="font-bold">{{ pageSpeedTestError }}</p>
+        </div>
+
         <div
+            :hidden="hiddenPageSpeedTestResults"
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex mx-auto pb-4 gap-6 justify-center">
@@ -67,6 +72,9 @@ const performance = ref(0);
 const seo = ref(0);
 const accessibility = ref(0);
 const best_practices = ref(0);
+const hiddenPageSpeedTestResults = ref(true);
+const hiddenPageSpeedTestError = ref(true);
+const pageSpeedTestError = ref("");
 
 const pageSpeedTests = [
     { label: "Performance", test_result: performance },
@@ -75,9 +83,14 @@ const pageSpeedTests = [
     { label: "Best practices", test_result: best_practices },
 ];
 
-function onTestStart() {}
+function onTestStart() {
+    hiddenPageSpeedTestResults.value = true;
+    hiddenPageSpeedTestError.value = true;
+}
 
 function onTestResult(test_result: PagespeedTestResult) {
+    hiddenPageSpeedTestResults.value = false;
+
     performance.value = test_result.performance;
     seo.value = test_result.seo;
     accessibility.value = test_result.accessibility;
@@ -85,7 +98,9 @@ function onTestResult(test_result: PagespeedTestResult) {
 }
 
 function onTestHasFailed(error: string) {
-    console.log("test has failed!: ", error);
+    hiddenPageSpeedTestError.value = false;
+
+    pageSpeedTestError.value = error;
 }
 
 function getFillColor(value: number): string {
