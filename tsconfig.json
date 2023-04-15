@@ -8,6 +8,7 @@
             "@layouts/*": ["src/layouts/*"]
         },
         // Needed for TypeScript intellisense in the template inside Vue files
-        "jsx": "preserve"
+        "jsx": "preserve",
+        "verbatimModuleSyntax": true
     }
 }
