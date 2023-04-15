@@ -24,8 +24,6 @@
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-imagetools": "^0.8.1",
     "astro-purgecss": "^2.0.1",
-    "chart.js": "^4.2.1",
-    "chartjs-plugin-datalabels": "^2.2.0",
     "epic-spinners": "^2.0.0",
     "vue": "^3.2.47",
     "vue3-circle-progress": "^1.0.7"
