@@ -1,9 +1,8 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-import Layout from "@layouts/Layout.astro";
-import Nav from "@components/Nav.astro";
-import Footer from "@components/Footer.astro";
+import BlogPage from 'src/storyblok/BlogPage.astro';
+
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/blog_landing', {
@@ -12,4 +11,4 @@ const { data } = await storyblokApi.get('cdn/stories/blog_landing', {
 const content = data.story.content;
 ---
 
-<StoryblokComponent blok={content} />
+<BlogPage blok={content} />

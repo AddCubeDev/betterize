@@ -18,7 +18,6 @@ const { blok } = Astro.props;
 //     console.error("Missing required 'width' attribute");
 // }
 
-const blogbg = "/src/assets/bg3.jpg";
 ---
 
 <div
@@ -28,7 +27,7 @@ const blogbg = "/src/assets/bg3.jpg";
     <a class="hover:text-sky-200/50" href={blok.slug}>
         <div class="h-64 w-full overflow-hidden">
             <Picture
-                src={blogbg}
+                src={blok.image.filename}
                 alt="asdasda"
                 objectFit="fill"
                 placeholder="none"
@@ -45,10 +44,7 @@ const blogbg = "/src/assets/bg3.jpg";
                 {blok.title}
             </h2>
             <p class="max-w-md text-base text-left text-gray-300">
-                <!-- {blok.description} -->
-                Google considers website speed as a factor in search engine rankings.
-                Faster websites are more likely to rank higher in search results
-                and can result in up to 33% more organic traffic.
+                {blok.description}
             </p>
         </div>
     </a>
