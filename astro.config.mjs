@@ -2,13 +2,13 @@ import { defineConfig } from "astro/config";
 import windicss from "astro-windicss";
 import { astroImageTools } from "astro-imagetools";
 import storyblok from "@storyblok/astro";
+import critters from "astro-critters";
 
 // import compressor from "astro-compressor";
-import critters from "astro-critters";
 // import partytown from "@astrojs/partytown";
-import vue from "@astrojs/vue";
-import purgecss from "astro-purgecss";
+// import purgecss from "astro-purgecss";
 
+import vue from "@astrojs/vue";
 import compressor from "astro-compressor";
 
 // https://astro.build/config
@@ -36,7 +36,7 @@ export default defineConfig({
                 region: "eu",
             },
         }),
-        purgecss(),
+        // purgecss(),
         compressor({ gzip: false, brotli: true }),
     ],
 });
