@@ -229,7 +229,7 @@ button {
     z-index: -20;
     position: absolute;
     inset: 0;
-    background-image: url(/assets/noise.webp);
+    background-image: url(/src/assets/noise.webp);
     opacity: 0.4;
     mix-blend-mode: overlay;
     pointer-events: none;
@@ -256,7 +256,7 @@ button {
     opacity: 0.4;
     mix-blend-mode: overlay;
     content: "";
-    background-image: url(/assets/noise.webp);
+    background-image: url(/src/assets/noise.webp);
 }
 
 .blur-radial {
