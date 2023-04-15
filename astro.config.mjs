@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import windicss from "astro-windicss";
 import { astroImageTools } from "astro-imagetools";
 import storyblok from "@storyblok/astro";
-import critters from "astro-critters";
+// import critters from "astro-critters";
 
 // import compressor from "astro-compressor";
 // import partytown from "@astrojs/partytown";
@@ -18,7 +18,7 @@ export default defineConfig({
         astroImageTools,
         windicss(),
 
-        critters(),
+        //critters(),
         vue(),
         //partytown()
         storyblok({
