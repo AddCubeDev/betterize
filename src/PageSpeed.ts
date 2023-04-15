@@ -17,6 +17,10 @@ export function runPagespeedTest(
         "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
     );
 
+    query_url.searchParams.append(
+        "key",
+        "AIzaSyAJ5gjYWHGIFo-nn4fs0L921G5e2He0c04"
+    );
     query_url.searchParams.append("url", test_url);
     query_url.searchParams.append("category", "performance");
     query_url.searchParams.append("category", "best-practices");
