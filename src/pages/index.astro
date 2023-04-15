@@ -8,6 +8,9 @@ const { data } = await storyblokApi.get("cdn/stories/landing_page", {
 });
 
 const content = data.story.content;
+
+
+
 ---
 
 <StoryblokComponent blok={content} />

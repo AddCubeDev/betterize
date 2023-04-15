@@ -12,15 +12,22 @@ import {
 import { storyblokEditable } from "@storyblok/astro";
 
 const { blok } = Astro.props;
+
+console.log("----Hello from hero----");
 ---
 
 <div class="faded-bottom" {...storyblokEditable(blok)}>
     <BackgroundImage
         src={bg}
-        brightness={0.8}
         saturation={0.1}
         backgroundSize="cover"
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
+        artDirectives={[
+            {
+              src: "/src/assets/bgkupa.png",
+              media: "(orientation: potrait)",
+            },
+          ]}
     >
         <section
             class="flex h-96 pt-24 z-20 z-10 main-content relative lg:h-screen lg:pt-0"
@@ -38,7 +45,12 @@ const { blok } = Astro.props;
                 </h2>
             </div>
         </section>
-        <!-- <div class="inset-y-0 right-0 z-0 absolute overflow-hidden lg:h-auto">
+    </BackgroundImage>
+
+    {blok.subtitle}
+</div>
+
+<!-- <div class="inset-y-0 right-0 z-0 absolute overflow-hidden lg:h-auto">
             <Picture
                 src={rocket}
                 alt="haha"
@@ -49,7 +61,5 @@ const { blok } = Astro.props;
                 breakpoints={{ count: 3, minWidth: 150, maxWidth: 700 }}
             />
         </div> -->
-    </BackgroundImage>
-</div>
 
 <!-- sizes="(max-width: 600px) 150px, (max-width:1200px) 300px, 600px" -->

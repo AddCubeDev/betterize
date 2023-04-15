@@ -14,21 +14,23 @@ import Proof from "@components/Proof.astro";
 import StepByStep from "@components/StepByStep.astro";
 
 const { blok } = Astro.props
+
+console.log("--NEW LANDING PAGE STORYBLOK RUN------------------");
 ---
 
 
 <Layout>
     <Nav />
     <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16" {...storyblokEditable(blok)}>
-        {
+        <!-- {
           blok.body?.map((blok) => {
-            return <StoryblokComponent blok={blok} />
+            return <StoryblokComponent blok={blok}; />
           })
-        }
+        } -->
         <Marketing2 />
         <Proof />
         <StepByStep />
-        <Section1 />
+        <!-- <Section1 /> -->
         <Testimonials />
         <Contact />
     </main>
