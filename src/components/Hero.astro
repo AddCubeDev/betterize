@@ -1,6 +1,6 @@
 ---
-const herobg = "/src/assets/hero-bg.png";
 const rocket = "/src/assets/rocket.png";
+let bg = "/src/assets/bgkupa.png";
 // import herobg from "@assets/hero-bg.png";
 
 import {
@@ -16,10 +16,10 @@ const { blok } = Astro.props;
 
 <div class="faded-bottom" {...storyblokEditable(blok)}>
     <BackgroundImage
-        src={herobg}
+        src={bg}
+        brightness={0.8}
+        saturation={0.1}
         backgroundSize="cover"
-        format={["avif", "webp"]}
-        includeSourceFormat={false}
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
     >
         <section

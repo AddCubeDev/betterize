@@ -2,8 +2,7 @@ import { defineConfig } from "astro-imagetools/config";
 
 export default defineConfig({
     placeholder: "none", // jesli nie jest to ustawione, to na raz wyswietla sie zarowno placeholder jak i zwykly obrazek
-    format: ["avif", "webp"],
-    fallbackFormat: "webp",
+    format: ["avif", "webp", "png"],
     loading: "lazy",
     // layout: "fill",
     includeSourceFormat: false,
