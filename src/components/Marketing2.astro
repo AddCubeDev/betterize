@@ -11,22 +11,8 @@ const guy = "/src/assets/guy.png";
 const olek = "/src/assets/profilowka.jpg";
 ---
 
-aaaa
-
 <div class="mx-auto max-w-full p-4 py-20 lg:max-w-6xl">
-    <swiper-container
-        class="mySwiper"
-        navigation="true"
-        pagination="true"
-        keyboard="true"
-        mousewheel="true"
-        css-mode="true"
-        autoplay="false"
-        crossFade="true"
-        virtual="true"
-        freeMode="true"
-        grabCursor="true"
-    >
+    <swiper-container init="false">
         <SwiperSlider
             src="/src/assets/adam.jpg"
             name="Adam Psikut"
@@ -53,21 +39,6 @@ aaaa
         width: 100%;
         height: 100%;
     }
-
-    swiper-slide {
-        /* text-align: center; */
-        /* font-size: 18px; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    swiper-slide img {
-        /* display: block; */
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 </style>
 
 <script>
@@ -75,4 +46,38 @@ aaaa
     import "swiper/css";
 
     register();
+
+    // swiper element
+    const swiperEl = document.querySelector("swiper-container");
+
+    // swiper parameters
+    const swiperParams = {
+        cssMode: false,
+        keyboard: true,
+        mousewheel: true,
+        navigation: true,
+        pagination: true,
+        paginationClickable: true,
+        grabCursor: true,
+        // effect: "cards",
+        slidesPerView: 1,
+        breakpoints: {
+            1024: {
+                slidesPerView: 1.4,
+            },
+        },
+        on: {
+            init() {
+                // ...
+            },
+        },
+    };
+
+    // now we need to assign all parameters to Swiper element
+    Object.assign(swiperEl, swiperParams);
+
+    // and now initialize it
+    swiperEl.initialize();
+
+    // swiperEl.swiper.
 </script>
