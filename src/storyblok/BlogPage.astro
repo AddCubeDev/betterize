@@ -4,7 +4,7 @@ import Nav from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
 
 import { storyblokEditable } from "@storyblok/astro";
-import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import BlogPostList from "@components/BlogPostList.astro";
 
 const { blok } = Astro.props;
 ---
@@ -17,7 +17,7 @@ const { blok } = Astro.props;
     >
         {
             blok.body?.map((blok) => {
-                return <StoryblokComponent blok={blok} />;
+                return <BlogPostList blok={blok} />;
             })
         }
     </main>
