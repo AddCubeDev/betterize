@@ -18,13 +18,18 @@ const { blok } = Astro.props;
 //     console.error("Missing required 'width' attribute");
 // }
 const blogbg = "/src/assets/bg6.jpg";
+
+console.log("--------------------------------");
+console.log(blok);
+console.log("================================");
+
 ---
 
 <div
     class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 relative hover:(transform scale-105)"
 >
     <div class="bg-grid h-full w-full z-0 absolute"></div>
-    <a class="hover:text-sky-200/50" href={blok.slug}>
+    <a class="hover:text-sky-200/50" href={"/" + blok.slug}>
         <div class="h-64 w-full overflow-hidden">
             <Img
                 src={blogbg}
