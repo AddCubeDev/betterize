@@ -19,17 +19,5 @@ export default defineConfig({
         webp: {
             quality: 80,
         },
-        tracedSVG: {
-            options: {
-                background: "#fff",
-                color: "#000",
-                turnPolicy: "black",
-                turdSize: 1,
-                alphaMax: 1,
-                optCurve: true,
-                threshold: 100,
-                blackOnWhite: false,
-            },
-        },
     },
 });

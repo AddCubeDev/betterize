@@ -1,5 +1,5 @@
 ---
-import { Img, Picture } from "astro-imagetools/components";
+import { Img } from "astro-imagetools/components";
 
 const { blok } = Astro.props;
 
@@ -26,12 +26,12 @@ const blogbg = "/src/assets/bg6.jpg";
     <div class="bg-grid h-full w-full z-0 absolute"></div>
     <a class="hover:text-sky-200/50" href={blok.slug}>
         <div class="h-64 w-full overflow-hidden">
-            <Picture
+            <Img
                 src={blogbg}
                 alt="blog-post-image"
                 objectFit="fill"
                 loading="eager"
-                placeholder="tracedSVG"
+                placeholder="blurred"
                 objectPosition="50% 50%"
                 sizes="(max-width: 500px) 350px, 600px"
             />
