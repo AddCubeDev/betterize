@@ -9,10 +9,10 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
 <Layout>
     <Nav />
     <main
-        class="flex flex-col mx-auto min-h-screen p-4 gap-16 main-content items-center justify-center lg:p-0"
+        class="flex flex-col mx-auto min-h-screen gap-16 main-content items-center justify-center xl:p-0"
     >
-        <h1 class="pt-20 header-1">Contact Us</h1>
-        <div class="mx-auto w-128">
+        <h1 class="pt-20 header-1">Skontaktuj Się z nami</h1>
+        <div class="mx-auto w-full lg:w-128">
             <form
                 action="mailto:test@test.com"
                 method="post"
@@ -20,10 +20,10 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
                 class="space-y-4"
             >
                 <div>
-                    <label class="sr-only" for="name">Name</label>
+                    <label class="sr-only" for="name">Twoje Imię</label>
                     <input
                         class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
-                        placeholder="Name"
+                        placeholder="Twoje Imię"
                         type="text"
                         id="name"
                     />
@@ -33,7 +33,7 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
                     <label class="sr-only" for="email">Email</label>
                     <input
                         class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
-                        placeholder="Email address"
+                        placeholder="Twój Adres Email"
                         type="email"
                         id="email"
                     />
@@ -44,7 +44,7 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
 
                     <textarea
                         class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
-                        placeholder="Message"
+                        placeholder="Wiadomość"
                         rows="8"
                         id="message"></textarea>
                 </div>
@@ -52,22 +52,39 @@ import FAQcard from "@components/subcomponents/FAQcard.astro";
                 <div class="mt-4">
                     <button
                         type="submit"
-                        class="rounded-lg flex font-medium bg-blue-600 text-white py-3 px-5 inline-block items-left sm:w-auto"
+                        class="rounded-lg flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth inline-block hover:(bg-transparent border border-blue-600 shadow-xl shadow-blue-600/20)"
                     >
-                        Send Enquiry
+                        Wyślij
                     </button>
                 </div>
             </form>
         </div>
 
-        <div
-            class="border mx-auto max-w-screen grid pb-20 w-5xl gap-4 grid-cols-1 main-content lg:grid-cols-2"
-        >
-            <FAQcard />
-            <FAQcard />
-            <FAQcard />
-            <FAQcard />
-            <FAQcard />
+        <div class="w-full grid pb-20 gap-4 grid-cols-1 lg:grid-cols-2">
+            <FAQcard
+                question={"Czy będzie łatwo edytować i aktualizować swoją stronę internetową?"}
+                answer={"Tak, podpinamy do stron internetowych system CMS, który umożliwia łatwą edycję i aktualizację treści bez konieczności znajomości kodowania"}
+            />
+            <FAQcard
+                question={"Czy moja strona będzie responsywna i dostosowana do urządzeń mobilnych?"}
+                answer={"Tak, projektujemy responsywne strony internetowe, które automatycznie dostosowują się do urządzeń mobilnych i innych ekranów."}
+            />
+            <FAQcard
+                question={"Czy oferujecie wsparcie techniczne dla mojej strony internetowej po jej wdrożeniu?"}
+                answer={"Tak, oferujemy wsparcie techniczne dla naszych klientów po wdrożeniu strony internetowej, aby zapewnić ich działanie bez awarii."}
+            />
+            <FAQcard
+                question={"Jakie są warunki umowy dotyczącej projektowania i wdrażania mojej strony internetowej?"}
+                answer={"Przed rozpoczęciem projektu, klient i nasza firma podpisują umowę, która zawiera szczegółowy opis usług oraz kosztorys. W umowie określamy też terminy realizacji projektu oraz warunki płatności"}
+            />
+            <FAQcard
+                question={"Jakie są koszty projektowania i wdrażania mojej strony internetowej z systemem CMS?"}
+                answer={"Koszty projektowania i wdrażania strony internetowej zależą od wielu czynników, takich jak skala projektu, liczba stron i funkcjonalności. Przed rozpoczęciem projektu, ustalamy szczegółową wycenę usług."}
+            />
+            <FAQcard
+                question={"Jakie są koszty usług hostingowych dla mojej strony internetowej?"}
+                answer={"Oferujemy sprawdzone i wydajne opcje hostingowe dla naszych klientów. Koszty usług hostingowych zależą od wybranej przez klienta opcji hostingowej, takiej jak liczba stron, pojemność dysku, transfer danych itp. Dla zwykłej firmowej strony koszty te wahają się od 50 do 150zł miesięcznie"}
+            />
         </div>
     </main>
     <Footer />
