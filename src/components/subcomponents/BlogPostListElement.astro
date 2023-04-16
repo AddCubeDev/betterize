@@ -17,6 +17,7 @@ const { blok } = Astro.props;
 // if (blok.width === undefined || blok.width === null) {
 //     console.error("Missing required 'width' attribute");
 // }
+const blogbg = "/src/assets/bg6.jpg";
 ---
 
 <div
@@ -30,7 +31,7 @@ const { blok } = Astro.props;
                 alt="blog-post-image"
                 objectFit="fill"
                 loading="eager"
-                placeholder="blurred"
+                placeholder="tracedSVG"
                 objectPosition="50% 50%"
                 sizes="(max-width: 500px) 350px, 600px"
             />
