@@ -14,16 +14,19 @@
             class="bg-gradient-to-t border-none from-indigo-900 via-indigo-700 to-indigo-800 p-2 px-6 transition text-gray-200 duration-300 capitalize lg:px-12 hover:(shadow-lg shadow-indigo-800) focus:(border-blue-200 border)"
             @click="runTest"
         >
-            Run test
+            Testuj
         </button>
 
         <div id="spinner" hidden="true">
-            <atom-spinner
-                :animation-duration="1500"
-                :size="64"
-                :color="'white'"
-            />
-            <span>processing ...</span>
+            <div class="flex flex-col items-center">
+                <atom-spinner
+                    :animation-duration="1500"
+                    :size="64"
+                    :color="'white'"
+                />
+                <p>przetwarzanie ...</p>
+                <p>zwykle trwa to około 15 sekund</p>
+            </div>
         </div>
     </div>
 </template>

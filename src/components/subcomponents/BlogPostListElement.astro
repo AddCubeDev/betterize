@@ -17,7 +17,6 @@ const { blok } = Astro.props;
 // if (blok.width === undefined || blok.width === null) {
 //     console.error("Missing required 'width' attribute");
 // }
-
 ---
 
 <div
@@ -27,10 +26,11 @@ const { blok } = Astro.props;
     <a class="hover:text-sky-200/50" href={blok.slug}>
         <div class="h-64 w-full overflow-hidden">
             <Picture
-                src={blok.image.filename}
-                alt="asdasda"
+                src={blogbg}
+                alt="blog-post-image"
                 objectFit="fill"
-                placeholder="none"
+                loading="eager"
+                placeholder="blurred"
                 objectPosition="50% 50%"
                 sizes="(max-width: 500px) 350px, 600px"
             />

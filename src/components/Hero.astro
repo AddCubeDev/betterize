@@ -12,21 +12,22 @@ import {
 import { storyblokEditable } from "@storyblok/astro";
 
 const { blok } = Astro.props;
-
 ---
 
 <div class="faded-bottom" {...storyblokEditable(blok)}>
     <BackgroundImage
         src={bg}
+        brightness={0.8}
+        loading="eager"
         saturation={0.1}
         backgroundSize="cover"
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
         artDirectives={[
             {
-              src: "/src/assets/bgkupa.png",
-              media: "(orientation: potrait)",
+                src: "/src/assets/bgkupa.png",
+                media: "(orientation: potrait)",
             },
-          ]}
+        ]}
     >
         <section
             class="flex h-96 pt-24 z-20 z-10 main-content relative lg:h-screen lg:pt-0"

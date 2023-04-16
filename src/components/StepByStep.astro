@@ -3,15 +3,50 @@ import StepByStepElement from "./subcomponents/StepByStepElement.astro";
 ---
 
 <section>
-    <h2 class="pb-16 header-1">How we will work</h2>
+    <h2 class="pb-16 header-1">Jak Będzie wyglądać nasza współpraca</h2>
     <div
         class="mx-auto grid py-8 px-4 gap-16 grid-cols-1 main-content lg:grid-cols-2"
     >
-        <StepByStepElement />
-        <StepByStepElement number="2" />
-        <StepByStepElement number="3" />
-        <StepByStepElement number="4" />
-        <StepByStepElement number="5" />
-        <StepByStepElement number="6" />
+        <StepByStepElement
+            title="Konsultacje"
+            paragraph="Pierwszy krok to konsultacje z klientem, aby zrozumieć jego potrzeby i cele biznesowe. W tym etapie ustalamy, jakie funkcjonalności i elementy mają znaleźć się na stronie internetowej."
+            number="1"
+            src="/src/assets/steps/conversation.png"
+        />
+
+        <StepByStepElement
+            title="Projektowanie"
+            paragraph="Następnie tworzymy projekt wizualny strony internetowej. Przedstawiamy klientowi różne opcje, aby wybrał projekt, który najlepiej odpowiada jego potrzebom i oczekiwaniom."
+            number="2"
+            src="/src/assets/steps/ux.png"
+        />
+
+        <StepByStepElement
+            title="Kodowanie"
+            paragraph="Po zatwierdzeniu projektu, przechodzimy do etapu kodowania, w którym przekształcamy projekt graficzny w funkcjonalną stronę internetową. Skupiamy się na tym, aby strona była szybka, wydajna i przyjazna SEO."
+            number="3"
+            src="/src/assets/steps/programming.png"
+        />
+
+        <StepByStepElement
+            title="Testowanie"
+            paragraph="Po zakończeniu kodowania, przeprowadzamy testy, aby upewnić się, że strona działa prawidłowo na różnych urządzeniach i przeglądarkach. Upewniamy się że wydajność twojej strony jest na najwyższym możliwym poziomie."
+            number="4"
+            src="/src/assets/steps/test.png"
+        />
+
+        <StepByStepElement
+            title="Wdrażanie"
+            paragraph="Gdy strona internetowa jest gotowa, przeprowadzamy wdrażanie, czyli umieszczamy ją na serwerze i udostępniamy ją publicznie. Pomagamy również w konfiguracji systemów analitycznych i narzędzi marketingowych, aby klient mógł skutecznie zarządzać swoją stroną."
+            number="5"
+            src="/src/assets/steps/development.png"
+        />
+
+        <StepByStepElement
+            title="Wsparcie i rozwój"
+            paragraph="Nasza praca nie kończy się po wdrożeniu strony. Oferujemy również dalsze wsparcie techniczne oraz rozwój strony internetowej, aby była zawsze aktualna i spełniała wymagania rynkowe.            "
+            number="6"
+            src="/src/assets/steps/engineering.png"
+        />
     </div>
 </section>

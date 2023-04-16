@@ -1,15 +1,18 @@
-<script
-    lang="ts"
-    src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-></script>
+---
+import Footer from "@components/Footer.astro";
+import Nav from "@components/Nav.astro";
+import Layout from "@layouts/Layout.astro";
+---
 
-<div class="max-h-screen w-full overflow-hidden relative">
-    <h2 class="inset-0 z-1 absolute header-1">Something Went Wrong</h2>
-    <lottie-player
-        src="https://assets7.lottiefiles.com/packages/lf20_h5lattxs.json"
-        background="transparent"
-        speed="1"
-        style="width: full; height: ;"
-        loop
-        autoplay></lottie-player>
-</div>
+<Layout>
+    <div class="flex flex-col h-screen justify-between">
+        <Nav />
+
+        <div>
+            <h2 class="header-1">ERROR 404</h2>
+            <p></p>
+        </div>
+
+        <Footer />
+    </div>
+</Layout>
