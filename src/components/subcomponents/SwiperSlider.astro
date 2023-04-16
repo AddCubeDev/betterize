@@ -16,7 +16,7 @@ const {
 
 <swiper-slide
     ><div
-        class="mb-8 flex flex-col-reverse bg-neutral-800/80 rounded-2xl shadow-xl text-left shadow-gray-700 relative lg:flex-row lg:grid-cols-2"
+        class="flex flex-col-reverse bg-neutral-800/80 rounded-2xl text-left mb-8 relative lg:flex-row lg:grid-cols-2"
     >
         <div
             class="flex flex-col max-w-[400px] py-8 px-4 gap-8 justify-between lg:max-w-auto lg:p-8"
@@ -34,7 +34,13 @@ const {
         <div
             class="rounded-t-xl overflow-hidden lg:(rounded-r-xl rounded-l-none) lg:mr-none"
         >
-            <Img src={src} width={400} height={400} alt="descriptive text" />
+            <Img
+                src={src}
+                width={400}
+                height={400}
+                aspect={1}
+                alt="descriptive text"
+            />
         </div>
         <!-- <svg
                     width="158"
