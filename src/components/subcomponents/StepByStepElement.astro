@@ -4,25 +4,30 @@ import {
     Picture,
     BackgroundPicture,
     BackgroundImage,
-} from "../../node_modules/astro-imagetools/components";
+} from "astro-imagetools/components";
+
 const {
-    title = "Jestem pytaniem ktore moglby ktos zadac",
+    title = "Jestem pytaniem, które ktoś mógłby zadać",
     paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
     number = "1",
+    src = "/src/assets/search.png",
 } = Astro.props;
+
+const icon = "/src/assets/seo.png";
 ---
 
-<div class="relative">
-    <div class="bg-red-500 h-32 w-full">
-        <!-- <Img src={} alt="descriptive text" /> -->
+<div class="flex flex-col gap-4 relative lg:gap-8">
+    <!-- <div class="bg-red-500 h-32 w-full">
+        <Img src={} alt="descriptive text" />
+    </div> -->
+    <div>
+        <Img src={src} width={200} alt="descriptive text" />
     </div>
-    <div class="py-4 px-2">
-        <h2 class="font-bold text-left text-xl text-gray-200">{title}</h2>
+    <div class="flex flex-col py-4 px-2 gap-2">
+        <h2 class="font-bold text-left text-2xl text-gray-200">{title}</h2>
         <p class="text-left text-gray-300">{paragraph}</p>
     </div>
-    <p
-        class="font-bold transform top-0 left-0 text-gray-200/30 text-[150px] -translate-y-1/2 absolute lg:(-translate-x-2/3 -translate-y-2/3)"
-    >
+    <p class="top-0 left-0 text-[150px] outlined-text absolute">
         {number}
     </p>
 </div>

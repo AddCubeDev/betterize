@@ -18,6 +18,8 @@ export default defineConfig({
         "image-animation":
             "transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 )",
         "main-content": "px-4 xl:px-0 max-w-7xl mx-auto",
+        "outlined-text":
+            "text-stroke-width-2 text-stroke-sky-500/40 text-transparent font-bold",
     },
     theme: {
         extend: {

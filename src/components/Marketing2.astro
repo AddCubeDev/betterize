@@ -1,9 +1,19 @@
 ---
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "../../node_modules/astro-imagetools/components";
+import SwiperSlider from "./subcomponents/SwiperSlider.astro";
+
+const guy = "/src/assets/guy.png";
+const olek = "/src/assets/profilowka.jpg";
 ---
 
 aaaa
 
-<div class="h-300px">
+<div class="mx-auto max-w-full p-4 py-20 lg:max-w-6xl">
     <swiper-container
         class="mySwiper"
         navigation="true"
@@ -11,20 +21,32 @@ aaaa
         keyboard="true"
         mousewheel="true"
         css-mode="true"
+        autoplay="false"
+        crossFade="true"
+        virtual="true"
+        freeMode="true"
+        grabCursor="true"
     >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
+        <SwiperSlider
+            src="/src/assets/adam.jpg"
+            name="Adam Psikut"
+            company="FatForLife.pl"
+            paragraph="Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych."
+        />
+        <SwiperSlider
+            src={guy}
+            name=" Marek Pompa"
+            company="2gonecup.pl"
+            paragraph="Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych."
+        />
+        <SwiperSlider
+            src={olek}
+            name=" Ignacy Trąbasz"
+            company="onliners.pl"
+            paragraph="Dzięki firmie Betterize, moja strona internetowa jest teraz piękna i funkcjonalna. Zespół był bardzo kreatywny i elastyczny w dostosowaniu się do moich potrzeb. Gorąco polecam ich usługi."
+        />
     </swiper-container>
 </div>
-
-bbbb
 
 <style>
     swiper-container {
@@ -33,15 +55,15 @@ bbbb
     }
 
     swiper-slide {
-        text-align: center;
-        font-size: 18px;
+        /* text-align: center; */
+        /* font-size: 18px; */
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     swiper-slide img {
-        display: block;
+        /* display: block; */
         width: 100%;
         height: 100%;
         object-fit: cover;
