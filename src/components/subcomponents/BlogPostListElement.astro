@@ -17,14 +17,14 @@ const { blok } = Astro.props;
 // if (blok.width === undefined || blok.width === null) {
 //     console.error("Missing required 'width' attribute");
 // }
-const blogbg = "/src/assets/bg6.jpg";
+const blogbg = "/src/assets/adam.jpg";
 ---
 
 <div
     class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
 >
     <a class="hover:text-sky-200/50" href={blok.slug}>
-        <div class="h-64 w-full overflow-hidden">
+        <div class="rounded-t-md h-64 w-full overflow-hidden">
             <Img
                 src={blogbg}
                 alt="blog-post-image"
@@ -32,7 +32,7 @@ const blogbg = "/src/assets/bg6.jpg";
                 loading="eager"
                 placeholder="blurred"
                 objectPosition="50% 50%"
-                sizes="(max-width: 500px) 350px, 600px"
+                sizes="(max-width: 500px) 300px, 420px"
             />
         </div>
 

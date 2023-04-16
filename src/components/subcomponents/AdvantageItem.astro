@@ -19,16 +19,16 @@ const { blok } = Astro.props;
 // }
 ---
 
-<div>
-    <div class="pb-8">
+<div class="border-t border-sky-200/50 p-4">
+    <div class="flex-none p-8 pb-12 lg:flex lg:(p-0 pb-8)">
         <Img
             src={blok.image.filename}
-            alt="asdasda"
+            alt="advantage_item"
             placeholder="none"
-            width={300}
+            width={200}
         />
     </div>
-    <h2 class="font-medium mb-2 text-2xl lg:h-16">
+    <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
         {blok.title}
     </h2>
     <p class="text-base text-left">
