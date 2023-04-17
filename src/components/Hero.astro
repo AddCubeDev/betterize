@@ -17,6 +17,8 @@ const { blok } = Astro.props;
 <div class="faded-bottom" {...storyblokEditable(blok)}>
     <BackgroundImage
         src={bg}
+        format="avif"
+        placeholder="blurred"
         brightness={0.8}
         saturation={0.1}
         backgroundSize="cover"
