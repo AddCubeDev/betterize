@@ -1,6 +1,13 @@
 ---
 import { Img, Picture } from "astro-imagetools/components";
 import ButtonContact from "./subcomponents/ButtonContact.astro";
+import {
+    Astronav,
+    MenuItems,
+    MenuIcon,
+    Dropdown,
+    DropdownItems,
+} from "astro-navbar";
 ---
 
 <header
@@ -10,7 +17,7 @@ import ButtonContact from "./subcomponents/ButtonContact.astro";
     <section class="mx-auto max-w-screen-xl py-4 px-8">
         <div class="flex gap-4 items-center justify-between lg:gap-10">
             <div class="flex lg:flex-1 lg:w-0">
-                <a href="/" class="image-animation">
+                <a href="/" rel="prefetch" class="image-animation">
                     <Img
                         src="/src/assets/logo.png"
                         placeholder="none"
@@ -27,14 +34,12 @@ import ButtonContact from "./subcomponents/ButtonContact.astro";
                 class="font-medium text-sm text-md gap-8 hidden md:flex"
             >
                 <a
-                    class="transition-smooth ease-in-out text-gray-300"
-                    href="/about">About</a
-                >
-                <a
+                    rel="prefetch"
                     class="transition-smooth ease-in-out text-gray-300"
                     href="/blog">Blog</a
                 >
                 <a
+                    rel="prefetch"
                     class="transition-smooth ease-in-out text-gray-300"
                     href="/about">Projects</a
                 >
