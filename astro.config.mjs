@@ -33,6 +33,7 @@ export default defineConfig({
             apiOptions: {
                 region: "eu",
             },
+            bridge: false,
         }),
         purgecss(),
         compressor({
