@@ -45,41 +45,43 @@ const olek = "/src/assets/profilowka.jpg";
     import { register } from "swiper/element/bundle";
     import "swiper/css";
 
-    register();
-
     // swiper element
     const swiperEl = document.querySelector("swiper-container");
 
-    // swiper parameters
-    const swiperParams = {
-        cssMode: false,
-        keyboard: true,
-        mousewheel: false,
-        navigation: true,
-        pagination: true,
-        paginationClickable: true,
-        grabCursor: true,
-        centeredSlides: true,
-        effect: "cards",
-        slidesPerView: 1,
-        breakpoints: {
-            1024: {
-                slidesPerView: 1,
-                // navigation: false,
+    if (swiperEl != null) {
+        register();
+
+        // swiper parameters
+        const swiperParams = {
+            cssMode: false,
+            keyboard: true,
+            mousewheel: true,
+            navigation: true,
+            pagination: true,
+            paginationClickable: true,
+            grabCursor: true,
+            centeredSlides: true,
+            effect: "cards",
+            slidesPerView: 1,
+            breakpoints: {
+                1024: {
+                    slidesPerView: 1,
+                    // navigation: false,
+                },
             },
-        },
-        on: {
-            init() {
-                // ...
+            on: {
+                init() {
+                    // ...
+                },
             },
-        },
-    };
+        };
 
-    // now we need to assign all parameters to Swiper element
-    Object.assign(swiperEl, swiperParams);
+        // now we need to assign all parameters to Swiper element
+        Object.assign(swiperEl, swiperParams);
 
-    // and now initialize it
-    swiperEl.initialize();
+        // and now initialize it
+        swiperEl.initialize();
 
-    // swiperEl.swiper.
+        // swiperEl.swiper.
+    }
 </script>
