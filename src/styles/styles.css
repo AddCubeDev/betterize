@@ -222,10 +222,6 @@ button {
     pointer-events: none;
 }
 
-.gradient1 {
-    background: radial-gradient(
-        circle,
-        rgba(9, 121, 114, 1) 0%,
-        rgba(0, 219, 255, 0) 100%
-    );
+.bg-blur {
+    filter: blur(80px);
 }
