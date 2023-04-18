@@ -39,5 +39,5 @@ export default defineConfig({
             },
         },
     },
-    // purge: ["./src/**/*.html", "./src/**/*.css", "./src/**/*.js"],
+    purge: ["./src/**/*.html", "./src/**/*.css", "./src/**/*.js"],
 });

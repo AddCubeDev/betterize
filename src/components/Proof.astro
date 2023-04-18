@@ -1,4 +1,31 @@
-<div class="main-section">
-    <h2 class="header-1">google będzie uwielbiać twoją stronę</h2>
+---
+import { Img, Picture } from "astro-imagetools/components";
+import ProofItem from "./subcomponents/ProofItem.astro";
+
+const blog1 = "/src/assets/swiperight.jpg";
+const blog2 = "/src/assets/betterize.jpg";
+const blog3 = "/src/assets/marketliners.jpg";
+---
+
+<div class="mx-auto main-content">
+    <h2 class="pb-16 header-1">Nasze Projekty:</h2>
+    <div
+        class="rounded-xl w-full grid p-8 w-6xl gap-4 gird-cols-1 lg:grid-cols-3"
+    >
+        <ProofItem
+            title="180% wzrost zapisów na rozmowę wstępną dla firmy Marketliners Dzięki poprawie"
+            paragraph="Dzięki poprawie jakości i przejrzystości informacji na stronie Marketliners, skróceniu formularzy kontaktowych i wykorzystaniu opinii klientów oraz elementów społecznościowych, udało mi się zwiększyć o 180% wzrost zapisów na rozmowę wstępną na temat produktu."
+            src="/src/assets/marketliners.jpg"
+        />
+        <ProofItem
+            title="Jak poprawiliśmy wydajność SwipeRight.pl"
+            paragraph="Swipe right to firma skupiająca się na robieniu zdjęć dla randkowiczów. Bardzo ważne było dla niech zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób."
+            src="/src/assets/swiperight.jpg"
+        />
+        <ProofItem
+            title="Perfekcyjny wynik GoogleLighthouse na Betterize"
+            paragraph="Swipe right to firma skupiająca się na robieniu zdjęć dla randkowiczów. Bardzo ważne było dla niech zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób."
+            src="/src/assets/betterize.jpg"
+        />
+    </div>
 </div>
-<section></section>

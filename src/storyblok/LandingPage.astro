@@ -1,6 +1,6 @@
 ---
-import { storyblokEditable } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { storyblokEditable } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import Section1 from "@components/Section1.astro";
@@ -12,23 +12,44 @@ import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
 import Proof from "@components/Proof.astro";
 import StepByStep from "@components/StepByStep.astro";
+import Features from "@components/Features.astro";
 
-const { blok } = Astro.props
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
+
+const { blok } = Astro.props;
 ---
 
-
 <Layout>
+    <!-- <BackgroundImage
+        src="/src/assets/bg1.jpg"
+        format="avif"
+        placeholder="blurred"
+        backgroundSize="cover"
+        breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
+    > -->
+    <!-- </BackgroundImage> -->
+    <div class="h-screen w-full -z-2 fixed noise2"></div>
+    <div class="h-128 left-0 w-128 -z-1 fixed gradient1"></div>
     <Nav />
-    <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16" {...storyblokEditable(blok)}>
+    <main
+        class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16"
+        {...storyblokEditable(blok)}
+    >
         {
-          blok.body?.map((blok) => {
-            return <StoryblokComponent blok={blok} />
-          })
+            blok.body?.map((blok) => {
+                return <StoryblokComponent blok={blok} />;
+            })
         }
         <Marketing2 />
         <Proof />
         <StepByStep />
         <Section1 />
+        <Features />
         <Testimonials />
         <Contact />
     </main>

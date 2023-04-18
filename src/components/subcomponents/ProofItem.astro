@@ -1,0 +1,45 @@
+---
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
+
+const {
+    title = "Jestem tytułem artykułu",
+    paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
+    src = "/src/assets/swiperight.jpg",
+} = Astro.props;
+---
+
+<div
+    class="rounded-md flex flex-col mx-auto bg-gray-800 w-full transition-smooth shadow-2xl shadow-sky-900/20 relative hover:(transform scale-105)"
+>
+    <a class="hover:text-sky-200/50" href="/blog">
+        <div class="rounded-t-md h-64 w-full overflow-hidden">
+            <Picture
+                src={src}
+                alt="blog-post-image"
+                objectFit="cover"
+                layout="fill"
+                loading="eager"
+                quality="70"
+                placeholder="blurred"
+            />
+        </div>
+
+        <div class="p-4 pb-8 overflow-hidden">
+            <div class="bg-grid inset-0 -z-0 absolute"></div>
+            <time class="text-sm text-gray-400/30 items-left">01.01.2023</time>
+            <h2
+                class="font-medium font-bold h-28 pb-2 text-2xl text-gray-100 capitalize"
+            >
+                {title}
+            </h2>
+            <p class="max-w-md text-base text-left text-gray-300">
+                {paragraph}
+            </p>
+        </div>
+    </a>
+</div>

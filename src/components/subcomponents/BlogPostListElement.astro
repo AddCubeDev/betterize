@@ -1,5 +1,5 @@
 ---
-import { Img } from "astro-imagetools/components";
+import { Img, Picture } from "astro-imagetools/components";
 
 const { blok } = Astro.props;
 
@@ -17,19 +17,54 @@ const { blok } = Astro.props;
 // if (blok.width === undefined || blok.width === null) {
 //     console.error("Missing required 'width' attribute");
 // }
-const blogbg = "/src/assets/adam.jpg";
+const blog1 = "/src/assets/swiperight.jpg";
+const blog2 = "/src/assets/betterize.jpg";
+const blog3 = "/src/assets/marketliners.jpg";
 ---
 
 <div
     class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
 >
     <a class="hover:text-sky-200/50" href={blok.slug}>
+        <div class="rounded-t-md h-64 overflow-hidden">
+            <Picture
+                src={blog3}
+                alt="blog-post-image"
+                objectFit="cover"
+                layout="fill"
+                loading="eager"
+                quality="70"
+                placeholder="blurred"
+                height={500}
+                sizes="600px"
+            />
+        </div>
+
+        <div class="p-4 pb-8 overflow-hidden relative">
+            <div class="bg-grid inset-0 -z-0 absolute"></div>
+            <time class="text-sm text-gray-400/30 items-left">{blok.date}</time>
+            <h2
+                class="font-medium font-bold pb-2 text-2xl text-gray-100 capitalize"
+            >
+                {blok.title}
+            </h2>
+            <p class="max-w-md text-base text-left text-gray-300">
+                {blok.description}
+            </p>
+        </div>
+    </a>
+</div>
+<!-- <div
+    class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105) "
+>
+    <a class="hover:text-sky-200/50" href={blok.slug}>
         <div class="rounded-t-md h-64 w-full overflow-hidden">
             <Img
-                src={blogbg}
+                src={blog1}
                 alt="blog-post-image"
                 objectFit="fill"
                 loading="eager"
+                quality="70"
                 placeholder="blurred"
                 objectPosition="50% 50%"
                 sizes="(max-width: 500px) 300px, 420px"
@@ -49,4 +84,4 @@ const blogbg = "/src/assets/adam.jpg";
             </p>
         </div>
     </a>
-</div>
+</div> -->

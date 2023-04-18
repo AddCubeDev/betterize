@@ -23,69 +23,6 @@
     --swiper-pagination-bullet-height: 12px;
 }
 
-/* @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 300;
-    font-display: optional;
-    src: local("Roboto Light"),
-        url(/assets/fonts/roboto-light.latin.woff2) format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
-}
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 300;
-    font-display: optional;
-    src: local("Roboto Light"),
-        url(/assets/fonts/roboto-light.latin-ext.woff2) format("woff2");
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F,
-        U+A720-A7FF;
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-display: optional;
-    src: local("Roboto Medium"),
-        url(/assets/fonts/roboto-medium.latin.woff2) format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
-}
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-display: optional;
-    src: local("Roboto Medium"),
-        url(/assets/fonts/roboto-medium.latin-ext.woff2) format("woff2");
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F,
-        U+A720-A7FF;
-}
-
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 900;
-    font-display: optional;
-    src: local("Roboto Black"),
-        url(/assets/fonts/roboto-black.latin.woff2) format("woff2");
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
-}
-@font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 900;
-    font-display: optional;
-    src: local("Roboto Black"),
-        url(/assets/fonts/roboto-black.latin-ext.woff2) format("woff2");
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20CF, U+2C60-2C7F,
-        U+A720-A7FF;
-} */
-
 summary::-webkit-details-marker {
     display: none;
     margin-inline-end: 0;
@@ -101,7 +38,6 @@ iframe {
 body {
     margin: 0 auto;
     min-width: 360px;
-
     min-height: 100vh;
 }
 
@@ -276,4 +212,20 @@ button {
 
 .bg-blur {
     filter: blur(192px);
+}
+
+.noise2 {
+    /* background-color: #1b1a1a; */
+    background-image: url("/src/assets/noise.webp");
+    background-blend-mode: overlay;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.gradient1 {
+    background: radial-gradient(
+        circle,
+        rgba(9, 121, 114, 1) 0%,
+        rgba(0, 219, 255, 0) 100%
+    );
 }
