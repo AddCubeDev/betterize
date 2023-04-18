@@ -1,27 +1,4 @@
 ---
-import { storyblokEditable } from "@storyblok/astro";
-import { useStoryblokApi } from "@storyblok/astro";
-import BlogPostListElement from "./subcomponents/BlogPostListElement.astro";
-
-const storyblokApi = useStoryblokApi();
-
-const { data } = await storyblokApi.get("cdn/stories", {
-    version: import.meta.env.DEV ? "draft" : "published",
-    content_type: "blogPost",
-});
-
-const posts = data.stories.map((story) => {
-    return {
-        title: story.content.title,
-        date: new Date(story.published_at).toLocaleDateString("en-US", {
-            dateStyle: "full",
-        }),
-        description: story.content.description,
-        slug: story.full_slug,
-        image: story.content.image,
-    };
-});
-
 const { blok } = Astro.props;
 ---
 
@@ -29,13 +6,6 @@ const { blok } = Astro.props;
 
 <ul
     class="w-full grid py-24 gap-4 grid-cols-1 main-content md:grid-cols-2 lg:grid-cols-3"
-    {...storyblokEditable(posts)}
 >
-    {
-        posts.map((post) => (
-            <li>
-                <BlogPostListElement blok={post} />
-            </li>
-        ))
-    }
+    blog post list element
 </ul>

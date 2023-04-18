@@ -1,31 +1,15 @@
 ---
-import { Img, Picture } from "astro-imagetools/components";
+import { Picture } from "astro-imagetools/components";
 
 const { blok } = Astro.props;
 
-// const {
-//     alt = "descriptive text",
-//     format = "avif",
-//     title = "Tytuł komponentu AdvantageItem ...",
-//     ...props
-// } = Astro.props;
-
-// if (blok.src === undefined || blok.src === null) {
-//     console.error("Missing required 'src' attribute");
-// }
-
-// if (blok.width === undefined || blok.width === null) {
-//     console.error("Missing required 'width' attribute");
-// }
-const blog1 = "/src/assets/swiperight.jpg";
-const blog2 = "/src/assets/betterize.jpg";
 const blog3 = "/src/assets/marketliners.jpg";
 ---
 
 <div
     class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
 >
-    <a class="hover:text-sky-200/50" href={"/" + blok.slug}>
+    <a class="hover:text-sky-200/50" href={"/" + "blok.slug"}>
         <div class="rounded-t-md h-64 overflow-hidden">
             <Picture
                 src={blog3}
@@ -42,14 +26,14 @@ const blog3 = "/src/assets/marketliners.jpg";
 
         <div class="p-4 pb-8 overflow-hidden relative">
             <div class="bg-grid inset-0 -z-0 absolute"></div>
-            <time class="text-sm text-gray-400/30 items-left">{blok.date}</time>
+            <time class="text-sm text-gray-400/30 items-left">blok.date</time>
             <h2
                 class="font-medium font-bold pb-2 text-2xl text-gray-100 capitalize"
             >
-                {blok.title}
+                blok.title
             </h2>
             <p class="max-w-md text-base text-left text-gray-300">
-                {blok.description}
+                blok.description
             </p>
         </div>
     </a>
