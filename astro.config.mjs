@@ -5,7 +5,7 @@ import storyblok from "@storyblok/astro";
 // import critters from "astro-critters";
 // import compressor from "astro-compressor";
 // import partytown from "@astrojs/partytown";
-import purgecss from "astro-purgecss";
+// import purgecss from "astro-purgecss";
 
 import vue from "@astrojs/vue";
 import compressor from "astro-compressor";
@@ -35,7 +35,7 @@ export default defineConfig({
             },
             bridge: false,
         }),
-        purgecss(),
+        // purgecss(),
         compressor({
             gzip: false,
             brotli: true,
