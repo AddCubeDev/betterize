@@ -17,7 +17,7 @@ const posts = data.stories.map((story) => {
             dateStyle: "full",
         }),
         description: story.content.description,
-        slug: story.slug,
+        slug: story.full_slug,
         image: story.content.image,
     };
 });
