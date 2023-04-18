@@ -9,7 +9,7 @@ const {
 } = Astro.props;
 ---
 
-<details class="w-full group [&_summary::-webkit-details-marker]:hidden" open>
+<details class="w-full group [&_summary::-webkit-details-marker]:hidden">
     <summary
         class="border rounded-lg cursor-pointer flex border-gray-200/50 w-full p-4 items-center justify-between"
     >
@@ -18,7 +18,7 @@ const {
         </h2>
 
         <svg
-            class="flex-shrink-0 h-5 ml-1.5 transition w-5 duration-300 group-open:-rotate-180"
+            class="flex-shrink-0 h-5 ml-1.5 transform transition w-5 rotate-0 duration-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

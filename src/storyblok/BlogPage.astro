@@ -5,11 +5,13 @@ import Footer from "@components/Footer.astro";
 
 import { storyblokEditable } from "@storyblok/astro";
 import BlogPostList from "@components/BlogPostList.astro";
+import FancyBg from "@components/subcomponents/FancyBg.astro";
 
 const { blok } = Astro.props;
 ---
 
 <Layout>
+    <FancyBg />
     <Nav />
     <main
         class="flex-col flex mx-auto min-h-screen pt-16 gap-2 lg:gap-16"
