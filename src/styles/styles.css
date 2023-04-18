@@ -214,14 +214,15 @@ button {
     filter: blur(192px);
 }
 
-.noise2 {
-    /* background-color: #1b1a1a; */
-    background-image: url("/src/assets/noise.webp");
-    background-blend-mode: overlay;
-    opacity: 0.2;
-    pointer-events: none;
+@media (min-width: 1280px) {
+    .noise2 {
+        background-color: #1b1a1a80;
+        background-image: url("/src/assets/noise.webp");
+        background-blend-mode: overlay;
+        opacity: 0.2;
+        pointer-events: none;
+    }
 }
-
 .bg-blur {
     filter: blur(80px);
 }

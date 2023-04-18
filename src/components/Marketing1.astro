@@ -22,7 +22,7 @@ const { blok } = Astro.props;
         <p class="header-2">{blok.subtitle}</p>
     </div>
 
-    <div class="w-md grid gap-16 grid-cols-1 lg:(grid-cols-3 w-auto)">
+    <div class="max-w-md grid gap-16 grid-cols-1 lg:(grid-cols-3 max-w-6xl)">
         {
             blok.advantages.map((blok) => {
                 return <StoryblokComponent blok={blok} />;
