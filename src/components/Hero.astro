@@ -1,26 +1,27 @@
 ---
-const rocket = "/src/assets/rocket.png";
-let bg = "/src/assets/bgkupa.png";
+const bg = "/src/assets/bgkupa.png";
 // import herobg from "@assets/hero-bg.png";
 
-import {
-    Img,
-    Picture,
-    BackgroundPicture,
-    BackgroundImage,
-} from "astro-imagetools/components";
-import { storyblokEditable } from "@storyblok/astro";
+import { BackgroundImage } from "astro-imagetools/components";
 
-const { blok } = Astro.props;
+interface Props {
+    image: {
+        src: string;
+        brightness: number;
+        saturation: number;
+    };
+}
+
+const { image } = Astro.props;
 ---
 
-<div class="faded-bottom" {...storyblokEditable(blok)}>
+<div class="faded-bottom">
     <BackgroundImage
-        src={bg}
+        src={image.src}
         format="avif"
         placeholder="blurred"
-        brightness={0.8}
-        saturation={0.1}
+        brightness={image.brightness}
+        saturation={image.saturation}
         backgroundSize="cover"
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
         artDirectives={[
@@ -41,7 +42,8 @@ const { blok } = Astro.props;
                     strony internetowe
                 </h1>
                 <h2 class="header-2">
-                    {blok.subtitle}
+                    Chcesz lepsze pozycjonowanie i większe zyski? Postaw na
+                    szybkość i jakość swojej strony internetowej z Betterize!
                 </h2>
             </div>
         </section>
