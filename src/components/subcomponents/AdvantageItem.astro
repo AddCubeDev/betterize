@@ -2,25 +2,18 @@
 import { Img } from "astro-imagetools/components";
 
 interface Props {
-    image: {
-        src: string;
-        width: number;
-    };
+    src: string;
+    width?: number;
     title: string;
     description: string;
 }
 
-const { image, title, description } = Astro.props;
+const { src, width = 200, title, description } = Astro.props;
 ---
 
 <div class="border-t border-sky-200/50 p-4">
     <div class="flex-none p-8 pb-12 lg:flex lg:(p-0 pb-8)">
-        <Img
-            src={image.src}
-            alt="advantage_item"
-            placeholder="none"
-            width={image.width}
-        />
+        <Img src={src} alt="advantage_item" placeholder="none" width={width} />
     </div>
     <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
         {title}

@@ -1,0 +1,20 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import FancyBg from "@components/subcomponents/FancyBg.astro";
+import Proof from "@components/Proof.astro";
+
+const { blok } = Astro.props;
+---
+
+<Layout>
+    <FancyBg />
+    <Nav />
+    <main class="flex-col flex mx-auto min-h-screen pt-16 gap-2 lg:gap-16">
+        <Proof />
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

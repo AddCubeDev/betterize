@@ -3,6 +3,12 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
+import BlogPostListElement from "@components/blogcomponents/BlogPostListElement.astro";
+import Proof from "@components/Proof.astro";
+import { getPosts } from "@typescript/strapiApi";
+import type { BlogPost } from "@typescript/types/BlogPost";
+
+const posts = await getPosts();
 
 const { blok } = Astro.props;
 ---
@@ -11,7 +17,13 @@ const { blok } = Astro.props;
     <FancyBg />
     <Nav />
     <main class="flex-col flex mx-auto min-h-screen pt-16 gap-2 lg:gap-16">
-        i am blog post prewiew
+        <Proof />
+        <h2 class="pt-24 pb-16 header-1">Artykuły:</h2>
+        <ul
+            class="w-full grid pb-24 gap-4 grid-cols-1 main-content md:grid-cols-2 lg:grid-cols-3"
+        >
+            {posts.map((post: BlogPost) => <BlogPostListElement post={post} />)}
+        </ul>
     </main>
     <div class="mt-auto">
         <Footer />

@@ -2,16 +2,16 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
+import FancyBg from "@components/subcomponents/FancyBg.astro";
 
 const { blok } = Astro.props;
 ---
 
 <Layout>
+    <FancyBg />
     <Nav />
     <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16">
-        <h1>title</h1>
-        <p>description</p>
-        content
+        <h1>Hello there</h1>
     </main>
     <div class="mt-auto">
         <Footer />
