@@ -27,7 +27,9 @@ const { blok } = Astro.props;
 
 <Layout>
     <FancyBg />
-    <Nav />
+    <div class="w-full z-10 fixed naviczek">
+        <Nav />
+    </div>
     <main
         class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16"
         {...storyblokEditable(blok)}
