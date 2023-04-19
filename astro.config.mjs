@@ -9,6 +9,7 @@ import storyblok from "@storyblok/astro";
 
 import vue from "@astrojs/vue";
 import compressor from "astro-compressor";
+import htmlMinifier from "astro-html-minifier";
 
 // https://astro.build/config
 export default defineConfig({
@@ -36,6 +37,7 @@ export default defineConfig({
             bridge: false,
         }),
         // purgecss(),
+        htmlMinifier({ minifyCSS: true, minifyJs: true }),
         compressor({
             gzip: false,
             brotli: true,
