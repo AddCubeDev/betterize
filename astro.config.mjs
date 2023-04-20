@@ -1,14 +1,13 @@
 import { defineConfig } from "astro/config";
-import windicss from "astro-windicss";
-import { astroImageTools } from "astro-imagetools";
-// import critters from "astro-critters";
-// import compressor from "astro-compressor";
-// import partytown from "@astrojs/partytown";
-// import purgecss from "astro-purgecss";
 
+import { astroImageTools } from "astro-imagetools";
+import windicss from "astro-windicss";
+import critters from "astro-critters";
 import vue from "@astrojs/vue";
-import compressor from "astro-compressor";
+// import partytown from "@astrojs/partytown";
+import purgecss from "astro-purgecss";
 import htmlMinifier from "astro-html-minifier";
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,10 +15,13 @@ export default defineConfig({
     integrations: [
         astroImageTools,
         windicss(),
-        //critters(),
+        critters({
+            pruneSource: true,
+            preload: "body",
+        }),
         vue(),
-        //partytown(),
-        // purgecss(),
+        //partytown()
+        purgecss(),
         htmlMinifier({ minifyCSS: true, minifyJs: true }),
         compressor({
             gzip: false,
