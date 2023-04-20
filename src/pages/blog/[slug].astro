@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import FancyBg from "@components/subcomponents/FancyBg.astro";
+import { getPost, getPosts } from "@typescript/strapiApi";
+import type { BlogPost } from "@typescript/types/BlogPost";
+
+export async function getStaticPaths() {
+    const posts = await getPosts();
+
+    return posts.map((post: BlogPost) => ({
+        params: { slug: post.slug },
+    }));
+}
+
+const slug = Astro.params.slug;
+const postItem = await getPost(slug as string);
+---
+
+<Layout>
+    <FancyBg />
+    <Nav />
+    <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16">
+        <h1>{postItem.title}</h1>
+        <p>{postItem.excerpt}</p>
+
+        <Fragment set:html={postItem.content} />
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

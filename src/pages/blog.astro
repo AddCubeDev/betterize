@@ -1,14 +1,31 @@
 ---
-import { useStoryblokApi } from '@storyblok/astro'
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-import BlogPage from 'src/storyblok/BlogPage.astro';
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import FancyBg from "@components/subcomponents/FancyBg.astro";
+import BlogPostListElement from "@components/blogcomponents/BlogPostListElement.astro";
+import Proof from "@components/Proof.astro";
+import { getPosts } from "@typescript/strapiApi";
+import type { BlogPost } from "@typescript/types/BlogPost";
 
+const posts = await getPosts();
 
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories/blog_landing', {
-  version: import.meta.env.DEV ? "draft" : "published",
-});
-const content = data.story.content;
+const { blok } = Astro.props;
 ---
 
-<BlogPage blok={content} />
+<Layout>
+    <FancyBg />
+    <Nav />
+    <main class="flex-col flex mx-auto min-h-screen pt-16 gap-2 lg:gap-16">
+        <Proof />
+        <h2 class="pt-24 pb-16 header-1">Artykuły:</h2>
+        <ul
+            class="w-full grid pb-24 gap-4 grid-cols-1 main-content md:grid-cols-2 lg:grid-cols-3"
+        >
+            {posts.map((post: BlogPost) => <BlogPostListElement post={post} />)}
+        </ul>
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

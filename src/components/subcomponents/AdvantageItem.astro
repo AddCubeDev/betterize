@@ -1,37 +1,24 @@
 ---
 import { Img } from "astro-imagetools/components";
 
-const { blok } = Astro.props;
+interface Props {
+    src: string;
+    width?: number;
+    title: string;
+    description: string;
+}
 
-// const {
-//     alt = "descriptive text",
-//     format = "avif",
-//     title = "Tytuł komponentu AdvantageItem ...",
-//     ...props
-// } = Astro.props;
-
-// if (blok.src === undefined || blok.src === null) {
-//     console.error("Missing required 'src' attribute");
-// }
-
-// if (blok.width === undefined || blok.width === null) {
-//     console.error("Missing required 'width' attribute");
-// }
+const { src, width = 200, title, description } = Astro.props;
 ---
 
 <div class="border-t border-sky-200/50 p-4">
     <div class="flex-none p-8 pb-12 lg:flex lg:(p-0 pb-8)">
-        <Img
-            src={blok.image.filename}
-            alt="advantage_item"
-            placeholder="none"
-            width={200}
-        />
+        <Img src={src} alt="advantage_item" placeholder="none" width={width} />
     </div>
     <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
-        {blok.title}
+        {title}
     </h2>
     <p class="text-base text-left">
-        {blok.description}
+        {description}
     </p>
 </div>
