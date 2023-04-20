@@ -50,30 +50,6 @@ import { ImageSupportDetection } from "astro-imagetools/components";
         />
     </head>
     <body>
-        <script type="module">
-            import { onMount } from "astro";
-
-            function loadAfterLCP(url, callback) {
-                // ...
-            }
-
-            onMount(() => {
-                // Wywołaj funkcję "loadAfterLCP" dla każdego linku na stronie (tj. <a href="...">...</a>)
-                const links = document.querySelectorAll("a");
-                links.forEach((link) => {
-                    link.addEventListener("click", (event) => {
-                        // Zablokuj domyślną akcję dla kliknięcia na link (przejście do innej strony)
-                        event.preventDefault();
-                        const url = link.href;
-
-                        // Wywołaj funkcję "loadAfterLCP", aby załadować LCP przed przejściem do żądanej strony
-                        loadAfterLCP(url, () => {
-                            window.location.href = url;
-                        });
-                    });
-                });
-            });
-        </script>
         <slot />
     </body>
 </html>
