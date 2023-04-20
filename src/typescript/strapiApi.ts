@@ -1,10 +1,10 @@
-import { strapiBaseUrl } from "@typescript/consts";
+import { strapiApiBaseUrl, strapiUploadsBaseUrl } from "@typescript/consts";
 import type { BlogPost } from "@typescript/types/BlogPost";
 import type { Image } from "@typescript/types/Image";
 
 export async function getPost(slug: string) {
     const post = await fetch(
-        strapiBaseUrl + `/api/posts?filters[slug][$eq]=${slug}&populate=*`
+        strapiApiBaseUrl + `/posts?filters[slug][$eq]=${slug}&populate=*`
     ).then((x) => x.json().then((data) => data.data[0].attributes));
 
     const result: BlogPost = {
@@ -27,7 +27,7 @@ export async function getPost(slug: string) {
 }
 
 export async function getPosts() {
-    const posts = await fetch(strapiBaseUrl + `/api/posts?&populate=*`).then(
+    const posts = await fetch(strapiApiBaseUrl + `/posts?&populate=*`).then(
         (x) => x.json().then((content) => content.data)
     );
 
@@ -57,7 +57,7 @@ export async function getPosts() {
 }
 
 export function getImageUrl(image: Image) {
-    return strapiBaseUrl + image.attributes.url;
+    return strapiUploadsBaseUrl + image.attributes.url;
 }
 
 // TODO
