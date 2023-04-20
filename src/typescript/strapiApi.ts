@@ -32,8 +32,8 @@ export async function getPosts() {
     );
 
     const result: [BlogPost] = posts
-        .map((post) => post.attributes)
-        .map((post) => {
+        .map((post: any) => post.attributes)
+        .map((post: any) => {
             const result: BlogPost = {
                 title: post.title,
                 content: post.content,
