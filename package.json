@@ -24,6 +24,7 @@
     "astro-imagetools": "^0.8.1",
     "astro-purgecss": "^2.0.1",
     "epic-spinners": "^2.0.0",
+    "marked": "^4.3.0",
     "swiper": "^9.2.2",
     "vue": "^3.2.47",
     "vue3-circle-progress": "^1.0.7"
