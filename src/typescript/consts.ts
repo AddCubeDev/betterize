@@ -1,2 +1,3 @@
-export const strapiApiBaseUrl = "https://dhvphotography.pl:1443/api";
-export const strapiUploadsBaseUrl = "http://146.59.126.101:1337";
+const strapiBaseUrl = "https://dhvphotography.pl:1443/strapi";
+export const strapiApiBaseUrl = strapiBaseUrl + "/api";
+export const strapiUploadsBaseUrl = strapiBaseUrl;
