@@ -1,21 +1,30 @@
 <template>
     <div class="flex mx-auto pb-4 gap-2 justify-center">
-        <input
-            id="url"
-            type="text"
-            name="url"
-            class="bg-inherit border rounded-md border-gray-600/50 w-full p-2 text-gray-300 lg:w-96 focus:(border-gray-200/50)"
-            v-model="url"
-        />
-
-        <button
-            id="btnStartTest"
-            type="button"
-            class="bg-gradient-to-t border-none from-indigo-900 via-indigo-700 to-indigo-800 p-2 px-6 transition text-gray-200 duration-300 capitalize lg:px-12 hover:(shadow-lg shadow-indigo-800) focus:(border-blue-200 border)"
-            @click="runTest"
-        >
-            Testuj
-        </button>
+        <div class="flex flex-col mx-auto w-full items-center md:w-auto">
+            <label
+                for="url"
+                class="font-light mr-auto text-left text-sm pl-2 text-gray-500"
+                >Adres url strony</label
+            >
+            <div class="flex w-full gap-2 md:w-auto lg:gap-4">
+                <input
+                    id="url"
+                    type="text"
+                    name="url"
+                    aria-label="adres URL"
+                    class="border rounded-md bg-gray-900 border-gray-200 w-full p-2 text-gray-300 lg:w-96 focus:(border-gray-200)"
+                    v-model="url"
+                />
+                <button
+                    id="btnStartTest"
+                    type="button"
+                    class="bg-gradient-to-t border-none rounded-lg from-indigo-900 via-indigo-700 to-indigo-800 p-2 px-6 transition text-gray-200 capitalize lg:px-12 hover:(shadow-lg shadow-indigo-800)"
+                    @click="runTest"
+                >
+                    Testuj
+                </button>
+            </div>
+        </div>
 
         <div id="spinner" hidden="true">
             <div class="flex flex-col items-center">
