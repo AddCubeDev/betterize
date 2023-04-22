@@ -22,10 +22,15 @@ export default defineConfig({
         vue(),
         //partytown()
         // purgecss(),
-        htmlMinifier({ minifyCSS: true, minifyJs: true }),
+        htmlMinifier({
+            reportCompressedSize: true,
+            minifyCSS: true,
+            minifyJs: true,
+        }),
         compressor({
             gzip: false,
             brotli: true,
+            img: false,
         }),
     ],
 });

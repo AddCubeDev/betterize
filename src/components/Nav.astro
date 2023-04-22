@@ -1,5 +1,4 @@
 ---
-import { Img, Picture } from "astro-imagetools/components";
 import ButtonContact from "./subcomponents/ButtonContact.astro";
 import {
     Astronav,
@@ -8,6 +7,10 @@ import {
     Dropdown,
     DropdownItems,
 } from "astro-navbar";
+
+import logo1x from "/src/assets/logo@1x.png";
+import logo2x from "/src/assets/logo@2x.png";
+import logo3x from "/src/assets/logo@3x.png";
 ---
 
 <header
@@ -18,12 +21,11 @@ import {
         <div class="flex gap-4 items-center justify-between lg:gap-10">
             <div class="flex lg:flex-1 lg:w-0">
                 <a href="/" class="image-animation hover:opacity-80">
-                    <Img
-                        src="/src/assets/logo.png"
-                        placeholder="none"
+                    <img
+                        srcset={`${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`}
+                        sizes="(max-width: 640px) 80px, (min-width: 640px) 120px"
+                        style="width:80px;"
                         loading="eager"
-                        width={80}
-                        format="avif"
                         alt="descriptive text"
                     />
                 </a>

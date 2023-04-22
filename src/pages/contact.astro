@@ -18,33 +18,38 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
         <div class="mx-auto w-full lg:w-128">
             <form id="contactForm" class="space-y-4">
                 <div>
-                    <label class="sr-only" for="name">Twoje Imię</label>
+                    <label for="name" class="sr-only">Twoje Imię</label>
                     <input
                         class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
                         placeholder="Twoje Imię"
                         type="text"
                         id="name"
+                        name="name"
+                        aria-label="Twoje Imię"
                     />
                 </div>
 
                 <div>
-                    <label class="sr-only" for="email">Email</label>
+                    <label for="email" class="sr-only">Email</label>
                     <input
                         class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
                         placeholder="Twój Adres Email"
                         type="email"
                         id="email"
+                        name="email"
+                        aria-label="Twój Adres Email"
                     />
                 </div>
 
                 <div>
-                    <label class="sr-only" for="message">Message</label>
-
+                    <label for="message" class="sr-only">Wiadomość</label>
                     <textarea
                         class="rounded-lg bg-neutral-800 border-gray-200 text-sm w-full p-3"
                         placeholder="Wiadomość"
                         rows="8"
-                        id="message"></textarea>
+                        id="message"
+                        name="message"
+                        aria-label="Wiadomość"></textarea>
                 </div>
                 <!-- TODO dodaj stylowanie -->
                 <div id="responseInfo"></div>
