@@ -28,6 +28,20 @@ summary::-webkit-details-marker {
     margin-inline-end: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+button,
+a,
+img,
+video,
+form {
+    z-index: 10;
+}
+
 img,
 video,
 iframe {
@@ -176,30 +190,6 @@ button {
     mix-blend-mode: overlay;
     pointer-events: none;
 }
-.noise-panel {
-    position: relative;
-    isolation: isolate;
-    border-width: 1px;
-    --tw-border-opacity: 1;
-    border-color: rgb(52 56 65 / var(--tw-border-opacity));
-    --tw-bg-opacity: 1;
-    background-color: rgb(35 38 45 / var(--tw-bg-opacity));
-    --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-        0 8px 10px -6px rgb(0 0 0 / 0.1);
-    --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
-        0 8px 10px -6px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-        var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.noise-panel:before {
-    position: absolute;
-    inset: 0;
-    z-index: -20;
-    opacity: 0.4;
-    mix-blend-mode: overlay;
-    content: "";
-    background-image: url(/src/assets/noise.webp);
-}
 
 .blur-radial {
     background: radial-gradient(
@@ -210,12 +200,8 @@ button {
     backdrop-filter: blur(50px);
 }
 
-.bg-blur {
-    filter: blur(192px);
-}
-
 @media (min-width: 1280px) {
-    .noise2 {
+    .noidssdse2 {
         background-color: #1b1a1a80;
         background-image: url("/src/assets/noise.webp");
         background-blend-mode: overlay;

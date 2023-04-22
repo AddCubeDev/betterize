@@ -1,0 +1,22 @@
+---
+interface Props {
+    color?: string;
+    direction?: "top" | "bottom";
+}
+
+const {
+    prefix = "from-[",
+    color = "#151317",
+    sufix = "]",
+    direction = "top",
+} = Astro.props;
+
+const gradientDirection =
+    direction === "top" ? "bg-gradient-to-b" : "bg-gradient-to-t";
+const position = direction === "top" ? "top-0" : "bottom-0";
+---
+
+<div
+    class={` ${gradientDirection} ${prefix}${color}${sufix} to-transparent  h-1/3 w-full ${position} z-1 absolute`}
+>
+</div>

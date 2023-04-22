@@ -6,10 +6,15 @@ import {
     BackgroundPicture,
     BackgroundImage,
 } from "astro-imagetools/components";
+
+import Faded from "./elements/Faded.astro";
 const bg = "/src/assets/bg7.jpg";
 ---
 
-<div class="lg:faded-full">
+<div class="relative lg:faded-full">
+    <Faded color="#151317" direction="bottom" />
+    <Faded color="#151317" direction="top" />
+
     <BackgroundImage
         src={bg}
         format="avif"
