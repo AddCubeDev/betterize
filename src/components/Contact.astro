@@ -10,10 +10,13 @@ import {
 
 import ButtonContact from "./subcomponents/ButtonContact.astro";
 import FAQsection from "./subcomponents/FAQsection.astro";
+import Faded from "./elements/Faded.astro";
 ---
 
 <div class="flex flex-col relative items-center justify-center lg:pb-40">
-    <div class="bg-grid inset-0 bottom-0 -z-1 faded-top absolute"></div>
+    <div class="bg-grid inset-0 bottom-0 -z-1 faded-top absolute">
+        <Faded direction="top" />
+    </div>
 
     <div
         class="bg-gradient-to-b from-transparent to-sky-800/30 h-32 w-full bottom-0 -z-2 absolute"

@@ -3,6 +3,7 @@ const bg = "/src/assets/bgkupa.png";
 // import herobg from "@assets/hero-bg.png";
 
 import { BackgroundImage } from "astro-imagetools/components";
+import Faded from "./elements/Faded.astro";
 
 interface Props {
     image: {
@@ -15,7 +16,8 @@ interface Props {
 const { image } = Astro.props;
 ---
 
-<div class="faded-bottom">
+<div class="relative">
+    <Faded direction="bottom" />
     <BackgroundImage
         src={image.src}
         format="avif"

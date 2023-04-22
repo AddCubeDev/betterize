@@ -1,19 +1,13 @@
 ---
 import PageSpeed from "@components/PageSpeed.vue";
-import {
-    Img,
-    Picture,
-    BackgroundPicture,
-    BackgroundImage,
-} from "astro-imagetools/components";
-
-import Faded from "./elements/Faded.astro";
+import { BackgroundImage } from "astro-imagetools/components";
+import Faded from "@components/elements/Faded.astro";
 const bg = "/src/assets/bg7.jpg";
 ---
 
-<div class="relative lg:faded-full">
-    <Faded color="#151317" direction="bottom" />
+<div class="relative">
     <Faded color="#151317" direction="top" />
+    <Faded color="#151317" direction="bottom" />
 
     <BackgroundImage
         src={bg}
