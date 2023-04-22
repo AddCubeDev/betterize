@@ -1,32 +1,34 @@
 ---
-import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
-import AdvantageItem from "@components/subcomponents/AdvantageItem.astro";
 const seo = "/src/assets/seo.png";
 const bounce = "/src/assets/bounce.png";
 const reputation = "/src/assets/reputation.png";
-import {
-    Img,
-    Picture,
-    BackgroundPicture,
-    BackgroundImage,
-} from "astro-imagetools/components";
 
-import { storyblokEditable } from "@storyblok/astro";
-
-const { blok } = Astro.props;
+import AdvantageItem from "@components/subcomponents/AdvantageItem.astro";
 ---
 
-<div class="main-content" {...storyblokEditable(blok)}>
+<div class="main-content">
     <div class="pb-16">
-        <h2 class="header-1">{blok.title}</h2>
-        <p class="header-2">{blok.subtitle}</p>
+        <h2 class="header-1">need for speed</h2>
+        <p class="header-2">
+            Dlaczego wydajność strony jest kluczowa dla biznesu?
+        </p>
     </div>
 
     <div class="max-w-md grid gap-16 grid-cols-1 lg:(grid-cols-3 max-w-6xl)">
-        {
-            blok.advantages.map((blok) => {
-                return <StoryblokComponent blok={blok} />;
-            })
-        }
+        <AdvantageItem
+            title="Prędkość a SEO"
+            description="Google uważa szybkość strony internetowej za czynnik wpływający na pozycjonowanie w wyszukiwarkach. Szybsze strony są bardziej prawdopodobne do zajęcia wyższych miejsc w wynikach wyszukiwania i mogą przyczynić się do uzyskania o 33% więcej organicznego ruchu. "
+            src={seo}
+        />
+        <AdvantageItem
+            title="Wskaźnik Odrzuceń"
+            description="Według Google, jeśli strona ładuje się od 1 do 3 sekund, prawdopodobieństwo odrzucenia wzrasta o 32%. Dla stron, które ładują się od 1 do 5 sekund, prawdopodobieństwo odrzucenia wzrasta o 90%. "
+            src={bounce}
+        />
+        <AdvantageItem
+            title="Reputacja Marki "
+            description="Wolna strona internetowa może uszkodzić reputację marki, prowadząc do zmniejszenia zaufania i lojalności klientów. Ankieta przeprowadzona przez Akamai wykazała, że 79% klientów, którzy doświadczają problemów z wydajnością strony internetowej, jest mniej skłonna do powrotu na tę samą stronę "
+            src={reputation}
+        />
     </div>
 </div>

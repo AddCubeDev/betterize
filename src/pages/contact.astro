@@ -16,12 +16,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
     >
         <h1 class="pt-20 header-1">Skontaktuj Się z nami</h1>
         <div class="mx-auto w-full lg:w-128">
-            <form
-                action="mailto:test@test.com"
-                method="post"
-                enctype="text/plain"
-                class="space-y-4"
-            >
+            <form id="contactForm" class="space-y-4">
                 <div>
                     <label class="sr-only" for="name">Twoje Imię</label>
                     <input
@@ -51,9 +46,11 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         rows="8"
                         id="message"></textarea>
                 </div>
-
+                <!-- TODO dodaj stylowanie -->
+                <div id="responseInfo"></div>
                 <div class="mt-4">
                     <button
+                        id="contactButton"
                         type="submit"
                         class="rounded-lg flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth inline-block hover:(bg-transparent border border-blue-600 shadow-xl shadow-blue-600/20)"
                     >
@@ -66,4 +63,27 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
         <FAQsection />
     </main>
     <Footer />
+
+    <script>
+        import { sendContactRequest } from "src/typescript/contactForm";
+
+        function onSuccess() {
+            const responseInfo = document.getElementById("responseInfo");
+
+            responseInfo.innerHTML = `Gratki byq! W kontakcie.`;
+        }
+
+        function onError(error) {
+            const responseInfo = document.getElementById("responseInfo");
+
+            responseInfo.innerHTML = error;
+        }
+
+        async function onSubmit(event) {
+            sendContactRequest(event, onSuccess, onError);
+        }
+
+        const form = document.getElementById("contactForm") as HTMLFormElement;
+        form.addEventListener("submit", onSubmit);
+    </script>
 </Layout>

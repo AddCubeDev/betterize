@@ -17,7 +17,6 @@
     "@astrojs/vue": "^2.1.1",
     "@astrolib/seo": "^0.3.0",
     "@cubejs-client/core": "^0.31.0",
-    "@storyblok/astro": "^2.1.0",
     "astro": "^2.3.0",
     "astro-compressor": "^0.4.0",
     "astro-google-fonts-optimizer": "^0.2.2",
@@ -25,6 +24,7 @@
     "astro-imagetools": "^0.8.1",
     "astro-purgecss": "^2.0.1",
     "epic-spinners": "^2.0.0",
+    "marked": "^4.3.0",
     "swiper": "^9.2.2",
     "vue": "^3.2.47",
     "vue3-circle-progress": "^1.0.7"

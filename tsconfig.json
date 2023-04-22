@@ -5,10 +5,13 @@
         "paths": {
             "@components/*": ["src/components/*"],
             "@assets/*": ["src/assets/*"],
-            "@layouts/*": ["src/layouts/*"]
+            "@layouts/*": ["src/layouts/*"],
+            "@typescript/*": ["src/typescript/*"]
         },
         // Needed for TypeScript intellisense in the template inside Vue files
         "jsx": "preserve",
-        "verbatimModuleSyntax": true
+        "verbatimModuleSyntax": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
     }
 }

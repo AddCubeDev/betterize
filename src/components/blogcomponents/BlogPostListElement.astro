@@ -1,0 +1,46 @@
+---
+import { Picture } from "astro-imagetools/components";
+import type { BlogPost } from "@typescript/types/BlogPost";
+import { getImageUrl } from "@typescript/strapiApi";
+
+interface Props {
+    post: BlogPost;
+}
+
+const { post } = Astro.props;
+---
+
+<div
+    class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
+>
+    <a class="hover:text-sky-200/50" href={"/blog/" + post.slug}>
+        <div class="rounded-t-md h-64 overflow-hidden">
+            <Picture
+                src={getImageUrl(post.featuredImage)}
+                alt="blog-post-image"
+                objectFit="cover"
+                layout="fill"
+                loading="eager"
+                quality="70"
+                placeholder="blurred"
+                height={500}
+                sizes="600px"
+            />
+        </div>
+
+        <div class="p-4 pb-8 overflow-hidden relative">
+            <div class="bg-grid inset-0 -z-0 absolute"></div>
+            <time class="text-sm text-gray-400/30 items-left"
+                >{post.updatedAt}</time
+            >
+            <h2
+                class="font-medium font-bold pb-2 text-2xl text-gray-100 capitalize"
+            >
+                {post.title}
+            </h2>
+            <p class="max-w-md text-base text-left text-gray-300">
+                {post.excerpt}
+            </p>
+        </div>
+    </a>
+</div>
