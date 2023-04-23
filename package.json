@@ -18,9 +18,7 @@
     "@astrolib/seo": "^0.3.0",
     "@cubejs-client/core": "^0.31.0",
     "astro": "^2.3.0",
-    "astro-compressor": "^0.4.0",
     "astro-google-fonts-optimizer": "^0.2.2",
-    "astro-html-minifier": "^0.4.1",
     "astro-imagetools": "^0.8.1",
     "astro-purgecss": "^2.0.1",
     "epic-spinners": "^2.0.0",
@@ -30,6 +28,8 @@
     "vue3-circle-progress": "^1.0.7"
   },
   "devDependencies": {
+    "astro-compress": "^1.1.41",
+    "astro-compressor": "^0.4.0",
     "astro-critters": "^1.1.33",
     "astro-windicss": "^0.2.0"
   }
