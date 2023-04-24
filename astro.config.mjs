@@ -16,7 +16,7 @@ export default defineConfig({
         astroImageTools,
         windicss(),
         // critters({}),
-        vue(),
+        vue({ appEntrypoint: "/src/pages/_app" }),
         // partytown()
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
