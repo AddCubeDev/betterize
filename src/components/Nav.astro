@@ -8,9 +8,9 @@ import {
     DropdownItems,
 } from "astro-navbar";
 
-import logo1x from "/src/assets/logo@1x.png";
-import logo2x from "/src/assets/logo@2x.png";
-import logo3x from "/src/assets/logo@3x.png";
+import logo1x from "/src/assets/logo_1x.webp";
+import logo2x from "/src/assets/logo_2x.webp";
+import logo3x from "/src/assets/logo_3x.webp";
 ---
 
 <header
@@ -24,7 +24,7 @@ import logo3x from "/src/assets/logo@3x.png";
                     <img
                         srcset={`${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`}
                         sizes="(max-width: 640px) 80px, (min-width: 640px) 120px"
-                        style="width:80px;"
+                        style="width:80px; height:64px"
                         loading="eager"
                         alt="descriptive text"
                     />
