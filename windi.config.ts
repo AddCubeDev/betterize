@@ -16,7 +16,7 @@ export default defineConfig({
         "transition-smooth":
             "transition duration-200 hover:(transition duration-200)",
         "image-animation":
-            "transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 )",
+            "md:(transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 ))",
         "main-content": "px-4 xl:px-0 max-w-screen lg:max-w-6xl mx-auto",
         "outlined-text":
             "text-stroke-width-2 text-stroke-sky-500/40 text-transparent font-bold",
