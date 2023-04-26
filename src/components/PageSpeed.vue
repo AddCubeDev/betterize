@@ -60,12 +60,8 @@
 </template>
 
 <script setup lang="ts">
-import "vue3-circle-progress/dist/circle-progress.css";
-import CircleProgress from "vue3-circle-progress";
-
 import PageSpeedQuery from "@components/PageSpeedQuery.vue";
 import { type PagespeedTestResult } from "../PageSpeed";
-
 import { ref } from "vue";
 
 const performance = ref(0);
