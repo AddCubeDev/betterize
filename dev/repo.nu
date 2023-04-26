@@ -18,3 +18,15 @@ export def clone [
         npm install --install-links
     }
 }
+
+export def pull [
+    --output_dir: string,
+] {
+    if ($output_dir | path exists) {
+        enter $output_dir
+        git pull
+        exit
+    } else {
+        print $"Directory ($output_dir) doesn't exist!"
+    }
+}

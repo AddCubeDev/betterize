@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "clone-circle-progress": "nu dev/clone-circle-progress.nu"
+    "clone-circle-progress": "nu dev/clone-circle-progress.nu",
+    "pull-circle-progress": "nu dev/pull-circle-progress.nu",
+    "reinstall": "npm install --install-links"
   },
   "keywords": [],
   "author": "",
