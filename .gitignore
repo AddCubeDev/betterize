@@ -1,8 +1,7 @@
 # build output
 .output/
 .cache
-dist
-dist.dhvphotography*
+dist*
 
 # dependencies
 node_modules/
