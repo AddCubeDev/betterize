@@ -7,8 +7,8 @@ export default defineConfig({
     darkMode: "class", // or 'media'
     shortcuts: {
         "header-1":
-            "text-4xl lg:text-6xl max-w-5xl font-bold text-gray-100 mx-auto uppercase",
-        "header-2": "text-lg lg:text-2xl text-gray-200 lg:px-32",
+            "text-4xl lg:text-6xl max-w-5xl font-bold text-gray-100 mx-auto uppercase text-center",
+        "header-2": "text-lg lg:text-2xl text-gray-200 text-left",
         "ordinary-text": "text-sm lg:text-md text-gray-300 max-w-2xl mx-auto",
         "button-cta": "px-16 py-4",
         "fancy-shadow":
