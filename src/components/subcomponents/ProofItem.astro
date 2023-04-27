@@ -2,19 +2,20 @@
 import {
     Img,
     Picture,
+    BackgroundPicture,
+    BackgroundImage,
 } from "astro-imagetools/components";
 
 const {
     title = "Jestem tytułem artykułu",
     paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
     src = "/src/assets/swiperight.jpg",
-    loading = "lazy",
     href = "/projects/swiperight",
 } = Astro.props;
 ---
 
 <div
-    class="rounded-md flex flex-col mx-auto max-w-md bg-gray-800 w-full transition-smooth shadow-2xl main-content relative xl:max-w-auto xl:shadow-sky-500/20 lg:hover:(transform scale-105) "
+    class="rounded-md flex flex-col mx-auto max-w-md bg-gray-800 w-full transition-smooth shadow-2xl main-content relative xl:max-w-auto xl:shadow-sky-500/20 lg:hover:(transform scale-105)"
 >
     <a class="hover:text-sky-200/50" href={href}>
         <div class="rounded-t-md h-64 w-full overflow-hidden">
@@ -23,7 +24,7 @@ const {
                 alt="blog-post-image"
                 objectFit="cover"
                 layout="fill"
-                loading={loading}
+                loading="eager"
                 quality="70"
                 placeholder="blurred"
             />
@@ -43,4 +44,3 @@ const {
         </div>
     </a>
 </div>
-
