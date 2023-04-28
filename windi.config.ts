@@ -1,6 +1,8 @@
 import { defineConfig } from "windicss/helpers";
 // import colors from "windicss/colors";
-// import plugin from "windicss/plugin";
+import plugin from "windicss/plugin";
+import filters from "windicss/filters";
+import forms from "windicss/forms";
 
 export default defineConfig({
     attributify: true,
@@ -8,7 +10,8 @@ export default defineConfig({
     shortcuts: {
         "header-1":
             "text-4xl lg:text-6xl max-w-5xl font-bold text-gray-100 mx-auto uppercase",
-        "header-2": "text-lg lg:text-2xl text-gray-200 lg:px-32",
+        "header-2": "text-lg lg:text-2xl text-gray-200 max-w-xl  mx-auto",
+        "blog-header": "lg:text-3xl text-left font-medium mb-12",
         "ordinary-text": "text-sm lg:text-md text-gray-300 max-w-2xl mx-auto",
         "button-cta": "px-16 py-4",
         "fancy-shadow":
@@ -37,7 +40,27 @@ export default defineConfig({
                 sidecol2: "ffffff",
                 background: "151317",
             },
+            filter: {
+                none: "none",
+                grayscale: "grayscale(1)",
+                invert: "invert(1)",
+                sepia: "sepia(1)",
+            },
+            backdropFilter: {
+                none: "none",
+                blur: "blur(20px)",
+            },
         },
     },
+    variants: {
+        filter: ["responsive"],
+        backdropFilter: ["responsive"],
+    },
+    plugins: [
+        require("@windicss/plugin-question-mark"),
+        require("windicss/plugin/filters"),
+        require("windicss/plugin/forms"),
+        // ...
+    ],
     // purge: ["./src/**/*.html", "./src/**/*.css", "./src/**/*.js"],
 });

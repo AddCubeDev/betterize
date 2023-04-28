@@ -1,0 +1,172 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import { Img } from "astro-imagetools/components";
+const adam = "/src/assets/adam.jpg";
+const cover = "/src/assets/post-betterize/cover.jpg";
+---
+
+<Layout>
+    <div class="mb-10 lg:mb-20">
+        <Nav />
+    </div>
+    <main
+        class="flex flex-col mx-auto min-h-screen max-w-6xl p-4 gap-2 xl:(p-0 gap-28)"
+    >
+        <div class="grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
+            <div class="flex flex-col justify-between">
+                <div class="mb-4">
+                    <h1 class="mb-4 header-1">Betterize.pl Case Study</h1>
+                    <p class="header-3">
+                        SEO businesses feel the Jamstack vibes. When Google
+                        announced their upcoming Page Experience update,
+                        Backlinko realized that they needed to improve their
+                        website. We are happy we could help.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-16 h-16 overflow-hidden rounded-full">
+                        <Img
+                            src={adam}
+                            width={500}
+                            objectFit="cover"
+                            alt="descriptive text"
+                        />
+                    </div>
+                    <p>Adam Naworski</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-xl">
+                <Img src={cover} width={600} alt="descriptive text" />
+            </div>
+        </div>
+
+        <article class="flex flex-col max-w-2xl mx-auto text-left gap-28">
+            <section>
+                <h2 class="blog-header">Wstęp</h2>
+                <p class="">
+                    W Betterize skupiamy się na dostarczeniu klientowi bardzo
+                    szybkich i nowoczesnych stron, <br /> które jednocześnie są łatwe
+                    w edycji i utrzymaniu. <br />
+                    <br /> Poniżej przedstawiamy najważniejsze problemy, z jakimi
+                    trzeba się zmierzyć, aby to osiągnąć.
+                </p>
+            </section>
+            <div>
+                <h2 class="blog-header">
+                    Prosty sposób edycji treści na stronie
+                </h2>
+                <p>
+                    Standardowo klienci używają narzędzi takich jak WordPress
+                    bądź Drupal, żeby móc łatwo edytować i dodawać treści na
+                    swojej stronie. Są to narzędzia z grupy CMS (Content
+                    Management System), których jednak jedną z największych wad
+                    jest wolne ładownie stron oraz stosunkowo skomplikowany
+                    interfejs użytkownika. <br /><br />
+                </p>
+                <p>
+                    W Betterize zależało nam, aby nasi specjaliści mogli w łatwy
+                    sposób zarządzać treścią strony, która będzie przy tym
+                    bardzo szybko działać. Dlatego właśnie zdecydowaliśmy się na
+                    użycie rozwiązania typu Headless CMS, które pozwala zapewnić
+                    prosty i intuicyjny panel zarządzania treścią. <br /><br />
+                </p>
+                <p>
+                    Rozwiązanie to nie ma także wad związanych z utratą
+                    wydajności strony. Oddzielenie wyglądu strony od części
+                    zarządzania treścią pozwala na użycie statycznego
+                    generowania każdej z podstron, co pozwala osiągnąć efekt
+                    bardzo szybkiego ich ładowania w przeglądarce użytkownika.
+                </p>
+            </div>
+            <div>
+                <h2 class="blog-header">
+                    Dlaczego hostujemy na dedykowanym serwerze, zamiast używać
+                    gotowych serwisów ?
+                </h2>
+                <p>
+                    Bardzo częstym podejściem jest korzystanie z zewnętrznych
+                    rozwiązań serwerowych takich jak Vercel czy Netlify, które
+                    bardzo upraszczają proces hostowania i utrzymywania strony.
+                    Jednak serwery, które są używane w tych narzędziach,
+                    znajdują się w różnych częściach Europy. <br />
+                    <br /> Im większa odległość między użytkownikiem strony a serwerem,
+                    tym większe opóźnienia co przekłada się na wolniejsze ładowanie
+                    strony. <br /><br /> Dlatego skorzystaliśmy z serwera znajdującego
+                    się w centrum Polski, żeby zminimalizować te opóźnienia i zapewnić
+                    maksymalną prędkość dla wszystkich użytkowników z Polski. <br
+                    /><br /> Ponadto takie rozwiązanie daje nam pełną kontrolę nad
+                    wszystkimi parametrami serwera, dzięki czemu mamy 100% gwarancję,
+                    że wszystkie parametry strony są ustawione w najbardziej wydajny
+                    sposób.
+                </p>
+            </div>
+            <div>
+                <h2 class="blog-header">
+                    Prędkość dzięki nowoczesnym technologiom
+                </h2>
+                <p>
+                    Narzędziem, które używamy przy tworzeniu stron internetowych
+                    jest [Astro](https://astro.build/). Optymalizuje ono strony
+                    internetowe lepiej niż wszystkie inne narzędzia. Zastosowane
+                    przez Astro podejście zero-JS po stronie użytkownika
+                    zwiększa szybkość strony, co przekłada się na lepsze SEO. <br
+                    />
+                    <br />
+                    Szybciej działająca strona powoduje, że więcej osób podejmie
+                    akcję na stronie (zapisze się na newsletter, wypełnienie formularza
+                    kontaktowego).
+                </p>
+            </div>
+            <div>
+                <h2 class="blog-header">
+                    Sekcja ze sprawdzaniem prędkości naszej strony
+                </h2>
+                <p>
+                    Aby zwrócić uwagę klientów na to, jak duży problem stanowi
+                    podejście do wydajności stron zapewniliśmy sekcję
+                    umożliwiającą w łatwy sposób sprawdzenie wyniku wybranej
+                    strony w teście Google Lighthouse. <br /><br /> W 2021 Google
+                    wprowadził nowe standardy oceniania i pozycjonowania stron internetowych,
+                    w których wydajność stanowi ogromną część ogólnej oceny strony.
+                </p>
+            </div>
+            <div>
+                <h2 class="blog-header">
+                    Połączenie SSG z elastycznością bloga to duże wyzwanie
+                </h2>
+                <p>
+                    Przy tworzeniu stron internetowych z funkcją bloga można
+                    zdecydować się na 3 różne podejścia: <br /><br />
+                </p>
+                <ul>
+                    <li class="dotted-bullet">SSG - server site generating</li>
+                    <li class="dotted-bullet">SSR - server site rendering</li>
+                    <li class="dotted-bullet">CSR - client site rendering</li>
+                </ul>
+                <br />
+                <p>
+                    Ponad 98% stron w internecie jest stworzonych używając
+                    technologi CSR lub SSR, gdyż jest to wygodniejsze i prostsze
+                    dla programistów, ale za to strona przy tym podejściu nigdy
+                    nie będzie szybka. <br /><br /> SSG jest najbardziej wymagającym
+                    z tych rozwiązań, jednak jeśli zostanie zaimplementowane poprawnie,
+                    zapewnia najlepszą prędkość ładowania i użytkowania strony.
+                </p>
+            </div>
+        </article>
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>
+<style>
+    .dotted-bullet::before {
+        content: "•";
+        display: inline-block;
+        margin-right: 0.5rem;
+        color: currentColor;
+        font-size: 1.25rem;
+    }
+</style>
