@@ -1,0 +1,35 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import Proof from "@components/Proof.astro";
+import ProofItem from "@components/subcomponents/ProofItem.astro";
+const agree = "/src/assets/agreement.png";
+import { Img } from "astro-imagetools/components";
+---
+
+<Layout>
+    <div class="mb-10 lg:mb-20">
+        <Nav />
+    </div>
+    <main
+        class="flex flex-col mx-auto max-w-6xl min-h-screen p-4 gap-12 items-center xl:(p-0 gap-28)"
+    >
+        <div class="flex flex-col items-center">
+            <h1 class="mb-2 header-1">Dziękujemy!</h1>
+            <Img src={agree} alt="descriptive text" width={200} />
+            <p class="max-w-lg mb-2">
+                Odezwiemy się do Ciebie w ciągu 24h. W międzyczasie może
+                przeczytasz któryś z tych postów?
+            </p>
+        </div>
+        <div class="grid max-w-3xl grid-cols-3 gap-8">
+            <ProofItem />
+            <ProofItem />
+            <ProofItem />
+        </div>
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

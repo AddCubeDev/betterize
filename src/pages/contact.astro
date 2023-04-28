@@ -30,6 +30,9 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         id="name"
                         name="name"
                         aria-label="Twoje Imię"
+                        pattern="[a-zA-Z0-9-]{1,30}"
+                        title="W to pole można wpisać maksymalnie 30 znaków, używając liter, cyfr oraz myślników."
+                        required
                     />
                 </div>
 
@@ -46,6 +49,9 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         id="email"
                         name="email"
                         aria-label="jan.kowalski@gmail.com"
+                        data-error="Email nie może mieć więcej niż 30 znaków."
+                        maxlength="30"
+                        required
                     />
                 </div>
 
@@ -87,7 +93,8 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
         function onSuccess() {
             const responseInfo = document.getElementById("responseInfo");
 
-            responseInfo.innerHTML = `Gratki byq! W kontakcie.`;
+            // Przekierowanie na inną stronę, np. /thank-you
+            window.location.assign("/ThankYou");
         }
 
         function onError(error) {
