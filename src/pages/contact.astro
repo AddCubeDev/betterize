@@ -17,7 +17,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
         <h1 class="pt-20 header-1">Skontaktuj Się z nami</h1>
         <div class="w-full mx-auto lg:w-128">
             <form id="contactForm" class="space-y-4">
-                <div>
+                <div data-error="W to pole można wpisać maksymalnie 50 znaków.">
                     <label
                         for="name"
                         class="block pl-2 font-medium text-left text-gray-300"
@@ -30,8 +30,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         id="name"
                         name="name"
                         aria-label="Twoje Imię"
-                        pattern="[a-zA-Z0-9-]{1,30}"
-                        title="W to pole można wpisać maksymalnie 30 znaków, używając liter, cyfr oraz myślników."
+                        pattern="[a-zA-Z-]{1,50}"
                         required
                     />
                 </div>
@@ -86,28 +85,60 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
         <FAQsection />
     </main>
     <Footer />
-
-    <script>
-        import { sendContactRequest } from "src/typescript/contactForm";
-
-        function onSuccess() {
-            const responseInfo = document.getElementById("responseInfo");
-
-            // Przekierowanie na inną stronę, np. /thank-you
-            window.location.assign("/ThankYou");
-        }
-
-        function onError(error) {
-            const responseInfo = document.getElementById("responseInfo");
-
-            responseInfo.innerHTML = error;
-        }
-
-        async function onSubmit(event) {
-            sendContactRequest(event, onSuccess, onError);
-        }
-
-        const form = document.getElementById("contactForm") as HTMLFormElement;
-        form.addEventListener("submit", onSubmit);
-    </script>
 </Layout>
+
+<style>
+    /* Twoje istniejące style CSS */
+
+    input:invalid,
+    textarea:invalid {
+        border: 1px solid red;
+    }
+
+    #responseInfo {
+        font-weight: bold;
+        color: red;
+        font-size: 34px;
+        padding: 8px;
+    }
+    .error-message {
+        display: none;
+        font-weight: bold;
+        color: red;
+        font-size: 14px;
+        padding: 8px;
+        margin-top: 4px;
+    }
+
+    .error-message.visible {
+        display: block;
+    }
+
+    div[data-error] .input {
+        border-color: red;
+        background-color: #fffafa;
+    }
+</style>
+<script>
+    import { sendContactRequest } from "src/typescript/contactForm";
+
+    function onSuccess() {
+        const responseInfo = document.getElementById("responseInfo");
+
+        // Przekierowanie na inną stronę, np. /thank-you
+        window.location.assign("/ThankYou");
+    }
+
+    function onError(error) {
+        const responseInfo = document.getElementById("responseInfo");
+
+        responseInfo.innerHTML = error;
+    }
+
+    async function onSubmit(event) {
+        sendContactRequest(event, onSuccess, onError);
+    }
+
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    form.addEventListener("submit", onSubmit);
+</script>

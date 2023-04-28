@@ -1,98 +1,140 @@
 ---
 import ButtonContact from "./subcomponents/ButtonContact.astro";
-import {
-    Astronav,
-    MenuItems,
-    MenuIcon,
-    Dropdown,
-    DropdownItems,
-} from "astro-navbar";
 
 import logo1x from "/src/assets/logo_1x.webp";
 import logo2x from "/src/assets/logo_2x.webp";
 import logo3x from "/src/assets/logo_3x.webp";
+import { Icon } from "astro-iconify";
+import NavBarItem from "./subcomponents/NavBarItem.astro";
 ---
 
 <header
     aria-label="Site Header"
-    class="w-full shadow-lg bg-gray-800/50 shadow-gray-900"
+    class="z-10 w-full shadow-lg bg-neutral-900 shadow-gray-900"
 >
-    <section class="z-20 max-w-screen-xl px-8 py-4 mx-auto">
-        <div class="flex items-center justify-between gap-10">
-            <div class="flex lg:flex-1 lg:w-0">
-                <a href="/" class="image-animation hover:opacity-80">
-                    <img
-                        srcset={`${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`}
-                        sizes="(max-width: 640px) 40px, (min-width: 640px) 120px"
-                        width="80"
-                        height="64"
-                        loading="eager"
-                        alt="descriptive text"
-                    />
-                </a>
-            </div>
-
-            <nav
-                aria-label="Site Nav"
-                class="hidden gap-8 text-sm font-medium text-md md:flex"
-            >
-                <!-- <a
-                    class="text-gray-300 ease-in-out transition-smooth"
-                    href="/blog">Blog</a
-                > -->
-                <a
-                    class="text-gray-300 ease-in-out transition-smooth"
-                    href="/projects">Projekty</a
-                >
-            </nav>
-
-            <div class="items-center justify-end flex-1 hidden gap-4 md:flex">
-                <ButtonContact />
-            </div>
-            <div class="flex items-center md:hidden">
-                <button class="outline-none mobile-menu-button">
-                    <svg
-                        class="w-8 h-8 text-gray-500 hover:text-sky-500"
-                        x-show="!showMenu"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
+    <section
+        class="flex items-center justify-between h-20 max-w-screen-xl gap-10 px-8 mx-auto"
+    >
+        <!-- menu stacjonarne -->
+        <div class="flex lg:flex-1 lg:w-0">
+            <a href="/" class="image-animation hover:opacity-80">
+                <img
+                    srcset={`${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`}
+                    sizes="(max-width: 640px) 40px, (min-width: 640px) 120px"
+                    width="80"
+                    height="64"
+                    loading="eager"
+                    alt="descriptive text"
+                />
+            </a>
         </div>
-        <div class="hidden mobile-menu">
-            <ul class="">
-                <li>
+
+        <nav
+            aria-label="Site Nav"
+            class="hidden gap-8 text-sm font-medium text-md md:flex"
+        >
+            <!-- ... -->
+            <div class="relative group">
+                <li class="relative list-none group">
                     <a
-                        href="index.html"
-                        class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500"
-                        >Strona Główna</a
+                        class="inline-flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
+                        href="#"
                     >
-                </li>
-                <!-- <li><a href="/blog" class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500">Blog</a></li> -->
-                <li>
-                    <a
-                        href="/projects"
-                        class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500"
-                        >Projekty</a
-                    >
-                </li>
-                <li>
+                        <div class="flex items-center justify-center">
+                            Projekty
+                            <Icon
+                                name="material-symbols:arrow-drop-down"
+                                style="color: white; width:30px; height:30px"
+                            />
+                        </div>
+                    </a>
                     <div
-                        class="items-center justify-center flex-1 gap-4 py-4 mx-auto sm:flex"
+                        class="absolute invisible transition duration-500 ease-in-out transform translate-y-0 opacity-0 top-10 -left-52 group-hover:transform group-hover:visible group-hover:translate-y-5 group-hover:opacity-100 z-1 min-w-max"
                     >
-                        <ButtonContact />
+                        <div
+                            class="relative w-full p-4 shadow-xl group bg-neutral-900 top-4 rounded-xl"
+                        >
+                            <div class="relative z-10">
+                                <div class="grid grid-cols-3 gap-6 text-md">
+                                    <div>
+                                        <ul>
+                                            <NavBarItem
+                                                title="swiperight.pl"
+                                                src="/src/assets/swiperight.jpg"
+                                            />
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <NavBarItem
+                                                title="betterize.pl"
+                                                src="/src/assets/betterize.jpg"
+                                            />
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <NavBarItem
+                                                title="dubbleup.com"
+                                                src="/src/assets/marketliners.jpg"
+                                            />
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </li>
-            </ul>
+            </div>
+        </nav>
+
+        <div class="items-center justify-end flex-1 hidden gap-4 md:flex">
+            <ButtonContact />
+        </div>
+        <!-- menu mobilne -->
+        <div class="flex items-center md:hidden">
+            <button class="outline-none mobile-menu-button">
+                <svg
+                    class="w-8 h-8 text-gray-500 hover:text-sky-500"
+                    x-show="!showMenu"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </section>
+    <div class="hidden mobile-menu">
+        <ul class="">
+            <li>
+                <a
+                    href="index.html"
+                    class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500"
+                    >Strona Główna</a
+                >
+            </li>
+            <!-- <li><a href="/blog" class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500">Blog</a></li> -->
+            <li>
+                <a
+                    href="/projects"
+                    class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500"
+                    >Projekty</a
+                >
+            </li>
+            <li>
+                <div
+                    class="items-center justify-center flex-1 gap-4 py-4 mx-auto sm:flex"
+                >
+                    <ButtonContact />
+                </div>
+            </li>
+        </ul>
+    </div>
 </header>
 
 <script>
