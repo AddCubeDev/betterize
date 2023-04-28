@@ -30,6 +30,9 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         id="name"
                         name="name"
                         aria-label="Twoje Imię"
+                        data-error="Imię nie może mieć więcej niż 30 znaków."
+                        maxlength="30"
+                        required
                     />
                 </div>
 
@@ -46,6 +49,9 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         id="email"
                         name="email"
                         aria-label="jan.kowalski@gmail.com"
+                        data-error="Email nie może mieć więcej niż 30 znaków."
+                        maxlength="30"
+                        required
                     />
                 </div>
 
@@ -61,6 +67,9 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         rows="8"
                         id="message"
                         name="message"
+                        required
+                        maxlength="500"
+                        data-error="Wiadomość nie może mieć więcej niż 500 znaków."
                         aria-label="Wiadomość"></textarea>
                 </div>
                 <!-- TODO dodaj stylowanie -->
@@ -81,26 +90,71 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
     </main>
     <Footer />
 
-    <script>
-        import { sendContactRequest } from "src/typescript/contactForm";
+    <script type="text/typescript">
+        document.addEventListener("DOMContentLoaded", () => {
+            const contactForm = document.getElementById(
+                "contactForm"
+            ) as HTMLFormElement;
+            const responseInfo = document.getElementById(
+                "responseInfo"
+            ) as HTMLElement;
+            const contactButton = document.getElementById(
+                "contactButton"
+            ) as HTMLButtonElement;
 
-        function onSuccess() {
-            const responseInfo = document.getElementById("responseInfo");
+            const displayError = (element: HTMLElement, message: string) => {
+                responseInfo.textContent = message;
+                responseInfo.classList.add("text-red-500");
+                element.classList.add("border-red-500");
+            };
 
-            responseInfo.innerHTML = `Gratki byq! W kontakcie.`;
-        }
+            const clearError = (element: HTMLElement) => {
+                responseInfo.textContent = "";
+                responseInfo.classList.remove("text-red-500");
+                element.classList.remove("border-red-500");
+            };
 
-        function onError(error) {
-            const responseInfo = document.getElementById("responseInfo");
+            const validateInput = (
+                inputElement: HTMLInputElement | HTMLTextAreaElement
+            ) => {
+                const maxLength = parseInt(
+                    inputElement.getAttribute("maxlength") || "0",
+                    10
+                );
+                const errorMessage =
+                    inputElement.getAttribute("data-error") || "Błąd";
+                const valueLength = inputElement.value.length;
 
-            responseInfo.innerHTML = error;
-        }
+                if (valueLength > maxLength) {
+                    displayError(inputElement, errorMessage);
+                    return false;
+                } else {
+                    clearError(inputElement);
+                    return true;
+                }
+            };
 
-        async function onSubmit(event) {
-            sendContactRequest(event, onSuccess, onError);
-        }
+            contactForm.addEventListener("submit", (event) => {
+                event.preventDefault();
 
-        const form = document.getElementById("contactForm") as HTMLFormElement;
-        form.addEventListener("submit", onSubmit);
+                const nameInput = document.getElementById(
+                    "name"
+                ) as HTMLInputElement;
+                const emailInput = document.getElementById(
+                    "email"
+                ) as HTMLInputElement;
+                const messageInput = document.getElementById(
+                    "message"
+                ) as HTMLTextAreaElement;
+
+                const isNameValid = validateInput(nameInput);
+                const isEmailValid = validateInput(emailInput);
+                const isMessageValid = validateInput(messageInput);
+
+                if (isNameValid && isEmailValid && isMessageValid) {
+                    // Tutaj możesz wysłać formularz na serwer, jeśli wszystko jest poprawne.
+                }
+            });
+        });
     </script>
 </Layout>

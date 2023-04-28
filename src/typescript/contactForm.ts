@@ -21,18 +21,18 @@ export async function sendContactRequest(
         message: form.elements.namedItem("message"),
     };
 
-    if (formData.name.value == "") {
-        onErrror(`Pole '${formData.name.placeholder}' nie może być puste !`);
+    if (formData.name.value.length > 30) {
+        onError(`Pole '${formData.name.placeholder}' nie może być puste !`);
         return;
     }
 
-    if (formData.email.value == "") {
-        onErrror(`Pole '${formData.email.placeholder}' nie może być puste !`);
+    if (formData.email.value.length > 30) {
+        onError(`Pole '${formData.email.placeholder}' nie może być puste !`);
         return;
     }
 
-    if (formData.message.value == "") {
-        onErrror(`Pole '${formData.message.placeholder}' nie może być puste !`);
+    if (formData.message.value.length > 300) {
+        onError(`Pole '${formData.message.placeholder}' nie może być puste !`);
         return;
     }
 
