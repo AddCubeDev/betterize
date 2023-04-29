@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  betterize_build:
+    container_name: betterize_build
+    build: .
+    image: betterize_build:latest
+    volumes:
+      - ./.env:/app/.env
+      - ./node_modules:/app/node_modules
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./dist.preview:/app/dist
+      - ./astro.config.mjs:/app/astro.config.mjs
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./windi.config.ts:/app/windi.config.ts
+    
+volumes:
+  betterize-data:
