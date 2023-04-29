@@ -15,6 +15,7 @@ services:
       - ./package-lock.json:/app/package-lock.json
       - ./src:/app/src
       - ./public:/app/public
+      - ./.cache:/app/.cache
       - ./astro.config.mjs:/app/astro.config.mjs
       - ./tsconfig.json:/app/tsconfig.json
       - ./windi.config.ts:/app/windi.config.ts
