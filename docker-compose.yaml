@@ -8,14 +8,17 @@ services:
     volumes:
       - ./.env:/app/.env
       - ./node_modules:/app/node_modules
+      - ../vue3-circle-progress/package.json:/vue3-circle-progress/package.json
+      - ../vue3-circle-progress/package-lock.json:/vue3-circle-progress/package-lock.json
+      - ../vue3-circle-progress/dist:/vue3-circle-progress/dist
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
       - ./src:/app/src
       - ./public:/app/public
-      - ./dist.preview:/app/dist
       - ./astro.config.mjs:/app/astro.config.mjs
       - ./tsconfig.json:/app/tsconfig.json
       - ./windi.config.ts:/app/windi.config.ts
+      - ./dist.preview:/app/dist
     
 volumes:
   betterize-data:

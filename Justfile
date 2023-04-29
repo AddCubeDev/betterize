@@ -36,7 +36,7 @@ pull_vue3-circle-progress:
     nu dev/pull-circle-progress.nu
 
 build_image:
-    nu dev/build-image.nu
+    docker compose build
 
 prod_reinstall_packages:
     docker compose run --rm betterize_build npm install --install-links
