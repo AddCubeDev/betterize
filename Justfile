@@ -38,9 +38,9 @@ pull_vue3-circle-progress:
 build_image:
     docker compose build
 
-prod_reinstall_packages:
+preview_reinstall_packages:
     docker compose run --rm betterize_build npm install --install-links
 
-prod_reinstall_packages:
+preview_build:
     docker compose run --rm betterize_build astro build
 
