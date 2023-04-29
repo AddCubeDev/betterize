@@ -1,9 +1,11 @@
 <template>
-    <div class="flex mx-auto pb-4 gap-2 justify-center">
-        <div class="flex flex-col mx-auto w-full items-center md:w-auto">
+    <div class="flex justify-center gap-2 pb-4 mx-auto">
+        <div
+            class="flex flex-col items-center justify-center w-full mx-auto md:w-auto"
+        >
             <label
                 for="url"
-                class="font-light mr-auto text-left text-sm pl-2 text-gray-500"
+                class="pl-2 mr-auto text-sm font-light text-left text-gray-500"
                 >Adres url strony</label
             >
             <div class="flex w-full gap-2 md:w-auto lg:gap-4">
@@ -27,7 +29,7 @@
         </div>
 
         <div id="spinner" hidden="true">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center justify-center">
                 <atom-spinner
                     :animation-duration="1500"
                     :size="64"

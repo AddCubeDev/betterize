@@ -9,9 +9,9 @@ interface Props {
 }
 
 const {
-    title = "I am a title of this component",
+    title = "Jak drastycznie przyśpieszyć działanie strony internetowej dzięki formacie AVIF",
     paragraph = "Paragraph is very important thing in components. It usually provide usefull infomations to the reader. It would be nice if paragraph would be longer than title so i am writing this.",
-    src = "/src/assets/swiperight.jpg",
+    src = "/src/assets/article3.png",
     href = "/projects/swiperight",
 } = Astro.props;
 ---
@@ -19,19 +19,19 @@ const {
 <li>
     <a
         href={href}
-        class="block font-bold text-gray-100 transition duration-300 ease-in-out rounded-lg hover:bg-gray-800 hover:transform hover:scale-105 hover:text-gray-400"
+        class="block text-gray-100 transition duration-300 ease-in-out rounded-lg hover:transform hover:scale-102 hover:text-gray-400"
     >
-        <div class="flex items-center justify-center">
-            <div class="w-64 h-[50px] rounded-lg overflow-hidden">
+        <div class="flex items-center justify-center gap-2 max-w-96">
+            <div class="overflow-hidden rounded-md">
                 <Img
                     src={src}
-                    width={100}
+                    width={40}
                     layout="fill"
                     objectFit="cover"
                     alt="descriptive text"
                 />
             </div>
-            <p class="font-medium">{title}</p>
+            <p class="text-sm font-medium text-left">{title}</p>
         </div>
     </a>
 </li>
