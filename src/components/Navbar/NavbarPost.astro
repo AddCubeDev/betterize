@@ -1,0 +1,37 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    title?: string;
+    paragraph?: string;
+    src?: string;
+    href?: string;
+}
+
+const {
+    title = "I am a title of this component",
+    paragraph = "Paragraph is very important thing in components. It usually provide usefull infomations to the reader. It would be nice if paragraph would be longer than title so i am writing this.",
+    src = "/src/assets/swiperight.jpg",
+    href = "/projects/swiperight",
+} = Astro.props;
+---
+
+<li>
+    <a
+        href={href}
+        class="block font-bold text-gray-100 transition duration-300 ease-in-out rounded-lg hover:bg-gray-800 hover:transform hover:scale-105 hover:text-gray-400"
+    >
+        <div class="flex items-center justify-center">
+            <div class="w-64 h-[50px] rounded-lg overflow-hidden">
+                <Img
+                    src={src}
+                    width={100}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="descriptive text"
+                />
+            </div>
+            <p class="font-medium">{title}</p>
+        </div>
+    </a>
+</li>

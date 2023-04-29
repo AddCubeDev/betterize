@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Nav from "@components/Nav.astro";
+import Nav from "@components/Navbar/Nav.astro";
 import Hero from "@components/Hero.astro";
 import Footer from "@components/Footer.astro";
 import FAQcard from "@components/subcomponents/FAQcard.astro";
@@ -30,6 +30,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         id="name"
                         name="name"
                         aria-label="Twoje Imię"
+                        data-error="Email nie może mieć więcej niż 30 znaków."
                         pattern="[a-zA-Z-]{1,50}"
                         required
                     />
@@ -61,11 +62,12 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         >Wiadomość</label
                     >
                     <textarea
-                        class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
+                        class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800 max-h-96 min-h-32"
                         placeholder="Chciałbym zamówić wycenę strony internetowej."
                         rows="8"
                         id="message"
                         name="message"
+                        maxlength="500"
                         aria-label="Wiadomość"></textarea>
                 </div>
                 <!-- TODO dodaj stylowanie -->
