@@ -1,6 +1,7 @@
 <template>
-    <div class="flex justify-center gap-2 pb-4 mx-auto">
+    <div class="flex flex-col justify-center gap-2 pb-4 mx-auto">
         <div
+            ref="speedTestInputDataBlock"
             class="flex flex-col items-center justify-center w-full mx-auto md:w-auto"
         >
             <label
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-        <div id="spinner" hidden="true">
+        <div ref="spinner" hidden="true">
             <div class="flex flex-col items-center justify-center">
                 <atom-spinner
                     :animation-duration="1500"
@@ -47,9 +48,9 @@ import {
     runPagespeedTest,
     type PagespeedTestResultOrError,
     type PagespeedTestResult,
-} from "../PageSpeed";
+} from "@typescript/PageSpeed";
 import { AtomSpinner } from "epic-spinners";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 // component properties/events (emits)
 // ------------------------------------------------------------------------
@@ -62,7 +63,27 @@ interface Emits {
 
 const emits = defineEmits<Emits>();
 
-const url = ref("https://swiperight.pl");
+// ------------------------------------------------------------------------
+
+onMounted(() => {
+    setupDefaultResults();
+});
+
+// ------------------------------------------------------------------------
+
+const speedTestInputDataBlock: Ref<HTMLDivElement> = ref(null);
+const spinner: Ref<HTMLDivElement> = ref(null);
+
+const url = ref("https://betterize.pl");
+function setupDefaultResults() {
+    const test_data: PagespeedTestResultOrError = {
+        performance: 96,
+        seo: 100,
+        best_practices: 100,
+        accessibility: 100,
+    };
+    onPagespeedDataLoaded(test_data);
+}
 
 function runTest() {
     if (!url.value.startsWith("http")) {
@@ -70,12 +91,8 @@ function runTest() {
     }
     // console.log("start runTest with url=", url.value);
 
-    const urlInput = document.getElementById("url");
-    const button = document.getElementById("btnStartTest");
-    const spinner = document.getElementById("spinner");
-    urlInput.hidden = true;
-    button.hidden = true;
-    spinner.hidden = false;
+    speedTestInputDataBlock.value.style.display = "none";
+    spinner.value.hidden = false;
 
     emits("testStart");
 
@@ -96,13 +113,8 @@ function runTest() {
 }
 
 function onPagespeedDataLoaded(data: PagespeedTestResultOrError) {
-    const urlInput = document.getElementById("url");
-    const button = document.getElementById("btnStartTest");
-    const spinner = document.getElementById("spinner");
-
-    urlInput.hidden = false;
-    button.hidden = false;
-    spinner.hidden = true;
+    speedTestInputDataBlock.value.style.display = "";
+    spinner.value.hidden = true;
 
     if ((data as PagespeedTestResult).performance) {
         // console.log("emits testResult:", data);
