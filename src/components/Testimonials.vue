@@ -25,8 +25,6 @@ const props = defineProps<{
     testimonials_data: Testimonial[];
 }>();
 
-console.log("props.testimonials_data=", props.testimonials_data);
-
 onMounted(() => {
     // swiper element
     const swiperEl = document.querySelector("swiper-container");
