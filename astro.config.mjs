@@ -16,7 +16,15 @@ export default defineConfig({
         astroImageTools,
         windicss(),
         // critters({}),
-        vue({ appEntrypoint: "/src/pages/_app" }),
+        vue({
+            appEntrypoint: "/src/pages/_app",
+            template: {
+                compilerOptions: {
+                    // treat any tag that starts with ion- as custom elements
+                    isCustomElement: (tag) => tag.startsWith("swiper-"),
+                },
+            },
+        }),
         // partytown()
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
