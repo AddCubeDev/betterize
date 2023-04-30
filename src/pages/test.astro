@@ -1,0 +1,20 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Navbar/Nav.astro";
+import Footer from "@components/Footer.astro";
+import CardsHoverGradient from "@components/elements/CardsHoverGradient.astro";
+---
+
+<Layout>
+    <div class="mb-10 lg:mb-20">
+        <Nav />
+    </div>
+    <main
+        class="flex flex-col mx-auto min-h-screen max-w-6xl p-4 gap-2 items-center xl:(p-0 gap-28)"
+    >
+        <CardsHoverGradient />
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

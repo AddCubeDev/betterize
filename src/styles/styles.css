@@ -157,3 +157,28 @@ select {
     --tw-backdrop-blur: blur(20px);
     --tw-backdrop-brightness: brightness(0.5);
 }
+
+.schowaj {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100%);
+    transition: all 1s;
+}
+@media (prefers-reduced-motion) {
+    .schowaj {
+        transition: none;
+    }
+}
+
+.pokaz {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.elementy:nth-child(2) {
+    transition-delay: 200ms;
+}
+.elementy:nth-child(3) {
+    transition-delay: 400ms;
+}

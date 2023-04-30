@@ -1,11 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Nav from "@components/Nav.astro";
+import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 ---
 
 <Layout>
-    <div class="flex flex-col h-screen justify-between">
+    <div class="flex flex-col justify-between h-screen">
         <Nav />
 
         <div>
@@ -14,7 +14,7 @@ import Footer from "@components/Footer.astro";
                 Przepraszamy, strona na którą chciałeś wejść nie istnieje.
             </p>
         </div>
-        <div class="mx-auto bg-red-500 h-64 w-64 relative"></div>
+        <div class="relative w-64 h-64 mx-auto bg-red-500"></div>
         <Footer />
     </div>
 </Layout>

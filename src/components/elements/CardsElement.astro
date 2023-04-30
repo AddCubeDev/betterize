@@ -1,0 +1,19 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    title?: string;
+    paragraph?: string;
+    src?: string;
+}
+
+const {
+    title = "I am a title of this component",
+    paragraph = "Paragraph is very important thing in components. It usually provide usefull infomations to the reader. It would be nice if paragraph would be longer than title so i am writing this.",
+    src = "/src/assets/seo.png",
+} = Astro.props;
+---
+
+<div class="card">
+    <div class="card-content"></div>
+</div>

@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 // import FancyBg from "@components/subcomponents/FancyBg.astro";
-import Nav from "@components/Nav.astro";
+import Nav from "@components/Navbar/Nav.astro";
 
 import Hero from "@components/Hero.astro";
 import Marketing1 from "@components/Marketing1.astro";
@@ -17,10 +17,12 @@ const bg = "/src/assets/bgkupa.png";
 const { blok } = Astro.props;
 ---
 
+<script defer src="/src/typescript/scroll.js"></script>
+
 <Layout>
     <!-- <FancyBg /> -->
     <Nav />
-    <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16">
+    <main class="flex flex-col min-h-screen gap-2 mx-auto lg:gap-16">
         <Hero
             image={{
                 src: bg,

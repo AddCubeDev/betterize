@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Nav from "@components/Nav.astro";
+import Nav from "@components/Navbar/Nav.astro";
 import Hero from "@components/Hero.astro";
 import Footer from "@components/Footer.astro";
 import FAQcard from "@components/subcomponents/FAQcard.astro";
@@ -12,55 +12,62 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
     <FancyBg />
     <Nav />
     <main
-        class="flex flex-col mx-auto min-h-screen gap-16 main-content items-center justify-center xl:p-0"
+        class="flex flex-col items-center justify-center min-h-screen gap-16 mx-auto main-content xl:p-0"
     >
         <h1 class="pt-20 header-1">Skontaktuj Się z nami</h1>
-        <div class="mx-auto w-full lg:w-128">
+        <div class="w-full mx-auto lg:w-128">
             <form id="contactForm" class="space-y-4">
-                <div>
+                <div data-error="W to pole można wpisać maksymalnie 50 znaków.">
                     <label
                         for="name"
-                        class="font-medium text-left pl-2 text-gray-300 block"
+                        class="block pl-2 font-medium text-left text-gray-300"
                         >Twoje Imię</label
                     >
                     <input
-                        class="rounded-lg font-light bg-neutral-800 border-gray-200 text-sm w-full p-3"
+                        class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
                         placeholder="Jan Kowalski"
                         type="text"
                         id="name"
                         name="name"
                         aria-label="Twoje Imię"
+                        data-error="Email nie może mieć więcej niż 30 znaków."
+                        pattern="[a-zA-Z-]{1,50}"
+                        required
                     />
                 </div>
 
                 <div>
                     <label
                         for="email"
-                        class="font-medium text-left pl-2 text-gray-100 block"
+                        class="block pl-2 font-medium text-left text-gray-100"
                         >Email</label
                     >
                     <input
-                        class="rounded-lg font-light bg-neutral-800 border-gray-200 text-sm w-full p-3"
+                        class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
                         placeholder="Twój Adres Email"
                         type="email"
                         id="email"
                         name="email"
                         aria-label="jan.kowalski@gmail.com"
+                        data-error="Email nie może mieć więcej niż 30 znaków."
+                        maxlength="30"
+                        required
                     />
                 </div>
 
                 <div>
                     <label
                         for="message"
-                        class="font-medium text-left pl-2 text-gray-300 block"
+                        class="block pl-2 font-medium text-left text-gray-300"
                         >Wiadomość</label
                     >
                     <textarea
-                        class="rounded-lg font-light bg-neutral-800 border-gray-200 text-sm w-full p-3"
+                        class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800 max-h-96 min-h-32"
                         placeholder="Chciałbym zamówić wycenę strony internetowej."
                         rows="8"
                         id="message"
                         name="message"
+                        maxlength="500"
                         aria-label="Wiadomość"></textarea>
                 </div>
                 <!-- TODO dodaj stylowanie -->
@@ -69,7 +76,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                     <button
                         id="contactButton"
                         type="submit"
-                        class="rounded-lg flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth inline-block hover:(bg-transparent border border-blue-600 shadow-xl shadow-blue-600/20)"
+                        class="rounded-lg flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth hover:(bg-transparent border border-blue-600 shadow-xl shadow-blue-600/20)"
                     >
                         Wyślij
                     </button>
@@ -80,27 +87,60 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
         <FAQsection />
     </main>
     <Footer />
-
-    <script>
-        import { sendContactRequest } from "src/typescript/contactForm";
-
-        function onSuccess() {
-            const responseInfo = document.getElementById("responseInfo");
-
-            responseInfo.innerHTML = `Gratki byq! W kontakcie.`;
-        }
-
-        function onError(error) {
-            const responseInfo = document.getElementById("responseInfo");
-
-            responseInfo.innerHTML = error;
-        }
-
-        async function onSubmit(event) {
-            sendContactRequest(event, onSuccess, onError);
-        }
-
-        const form = document.getElementById("contactForm") as HTMLFormElement;
-        form.addEventListener("submit", onSubmit);
-    </script>
 </Layout>
+
+<style>
+    /* Twoje istniejące style CSS */
+
+    input:invalid,
+    textarea:invalid {
+        border: 1px solid red;
+    }
+
+    #responseInfo {
+        font-weight: bold;
+        color: red;
+        font-size: 34px;
+        padding: 8px;
+    }
+    .error-message {
+        display: none;
+        font-weight: bold;
+        color: red;
+        font-size: 14px;
+        padding: 8px;
+        margin-top: 4px;
+    }
+
+    .error-message.visible {
+        display: block;
+    }
+
+    div[data-error] .input {
+        border-color: red;
+        background-color: #fffafa;
+    }
+</style>
+<script>
+    import { sendContactRequest } from "src/typescript/contactForm";
+
+    function onSuccess() {
+        const responseInfo = document.getElementById("responseInfo");
+
+        // Przekierowanie na inną stronę, np. /thank-you
+        window.location.assign("/ThankYou");
+    }
+
+    function onError(error) {
+        const responseInfo = document.getElementById("responseInfo");
+
+        responseInfo.innerHTML = error;
+    }
+
+    async function onSubmit(event) {
+        sendContactRequest(event, onSuccess, onError);
+    }
+
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    form.addEventListener("submit", onSubmit);
+</script>

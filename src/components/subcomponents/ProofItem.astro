@@ -18,7 +18,7 @@ const {
     class="rounded-md flex flex-col mx-auto max-w-md bg-gray-800 w-full transition-smooth shadow-2xl main-content relative xl:max-w-auto xl:shadow-sky-500/20 lg:hover:(transform scale-105)"
 >
     <a class="hover:text-sky-200/50" href={href}>
-        <div class="rounded-t-md h-64 w-full overflow-hidden">
+        <div class="w-full h-64 overflow-hidden rounded-t-md">
             <Picture
                 src={src}
                 alt="blog-post-image"
@@ -31,11 +31,9 @@ const {
         </div>
 
         <div class="p-4 pb-8 overflow-hidden">
-            <div class="bg-grid inset-0 -z-0 absolute"></div>
+            <div class="absolute inset-0 bg-grid -z-0"></div>
             <time class="text-sm text-gray-400/30 items-left">01.01.2023</time>
-            <h2
-                class="font-medium font-bold h-28 pb-2 text-2xl text-gray-100 capitalize"
-            >
+            <h2 class="pb-2 text-2xl font-bold text-gray-100 capitalize h-28">
                 {title}
             </h2>
             <p class="max-w-md text-base text-left text-gray-300">
