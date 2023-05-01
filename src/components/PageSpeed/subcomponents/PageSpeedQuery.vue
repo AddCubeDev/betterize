@@ -44,11 +44,12 @@
 </template>
 
 <script setup lang="ts">
+import { runPagespeedTest } from "../PageSpeed";
 import {
-    runPagespeedTest,
+    Strategy,
     type PagespeedTestResultOrError,
     type PagespeedTestResult,
-} from "./PageSpeed";
+} from "../types/pageSpeed.types";
 import { AtomSpinner } from "epic-spinners";
 import { ref, onMounted } from "vue";
 
