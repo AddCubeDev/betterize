@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { runPagespeedTest } from "../PageSpeed";
+import { runPageSpeedTest } from "../utils/runTest";
 import {
     Strategy,
     type PagespeedTestResultOrError,
@@ -100,7 +100,7 @@ function runTest() {
     // TODO: change 'prod' to true before deployment
     const prod = true;
     if (prod) {
-        runPagespeedTest(onPagespeedDataLoaded, url.value, "mobile");
+        runPageSpeedTest(onPagespeedDataLoaded, url.value, "mobile");
     } else {
         // TEST:
         const test_data: PagespeedTestResultOrError = {
