@@ -15,9 +15,9 @@
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex mx-auto pb-4 gap-6 justify-center">
-                <p class="font-bold text-[#f90000]">0-40 Poor</p>
-                <p class="font-bold text-[#f9f900]">41-89 Average</p>
-                <p class="font-bold text-[#00f900]">89-100 Excelent</p>
+                <p class="font-bold text-[#f90000]">0-49 Poor</p>
+                <p class="font-bold text-[#f9f900]">50-89 Average</p>
+                <p class="font-bold text-[#00f900]">90-100 Excelent</p>
             </div>
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
