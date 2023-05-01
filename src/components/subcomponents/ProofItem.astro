@@ -1,16 +1,12 @@
 ---
-import {
-    Img,
-    Picture,
-    BackgroundPicture,
-    BackgroundImage,
-} from "astro-imagetools/components";
+import { Img, Picture } from "astro-imagetools/components";
 
 const {
     title = "Jestem tytułem artykułu",
     paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
     src = "/src/assets/swiperight.jpg",
     href = "/projects/swiperight",
+    loading = "lazy",
 } = Astro.props;
 ---
 
@@ -24,7 +20,7 @@ const {
                 alt="blog-post-image"
                 objectFit="cover"
                 layout="fill"
-                loading="eager"
+                loading={loading}
                 quality="70"
                 placeholder="blurred"
             />
