@@ -11,8 +11,6 @@ import StepByStep from "@components/StepByStep.astro";
 import Section1 from "@components/Section1.astro";
 import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
-
-const bg = "src/assets/bgkupa.png";
 ---
 
 <script src="/src/typescript/scroll.js"></script>
@@ -21,14 +19,7 @@ const bg = "src/assets/bgkupa.png";
     <!-- <FancyBg /> -->
     <Nav />
     <main class="flex flex-col min-h-screen gap-2 mx-auto lg:gap-56">
-        <Hero
-            image={{
-                src: bg,
-                brightness: 0.8,
-                saturation: 0.1,
-            }}
-        />
-
+        <Hero />
         <Marketing1 />
         <Marketing2 />
         <Proof />
