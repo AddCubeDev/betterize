@@ -1,34 +1,27 @@
 ---
-const bg = "/src/assets/bgkupa.png";
-// import herobg from "@assets/hero-bg.png";
+const bghero = "/src/assets/bg-hero.png";
 
 import { BackgroundImage } from "astro-imagetools/components";
 import Faded from "./elements/Faded.astro";
 
-interface Props {
-    image: {
-        src: string;
-        brightness: number;
-        saturation: number;
-    };
-}
-
-const { image } = Astro.props;
+/*
+artDirectives attribute (see below) is used ONLY to make Lighhouse happy !
+*/
 ---
 
 <div class="relative">
     <Faded direction="bottom" />
     <BackgroundImage
-        src={image.src}
+        src={bghero}
         format="avif"
         placeholder="blurred"
-        brightness={image.brightness}
-        saturation={image.saturation}
+        brightness={0.8}
+        saturation={0.1}
         backgroundSize="cover"
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
         artDirectives={[
             {
-                src: "/src/assets/bgkupa.png",
+                src: bghero,
                 media: "(orientation: potrait)",
             },
         ]}
