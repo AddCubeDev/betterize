@@ -162,6 +162,7 @@ select {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(100%);
+
     transition: all 1s;
 }
 @media (prefers-reduced-motion) {
@@ -176,9 +177,18 @@ select {
     transform: translateY(0);
 }
 
-.elementy:nth-child(2) {
-    transition-delay: 200ms;
+.element:nth-child(2) {
+    transition-delay: 150ms;
 }
-.elementy:nth-child(3) {
-    transition-delay: 400ms;
+.element:nth-child(3) {
+    transition-delay: 300ms;
+}
+.element:nth-child(4) {
+    transition-delay: 450ms;
+}
+.element:nth-child(5) {
+    transition-delay: 600ms;
+}
+.element:nth-child(6) {
+    transition-delay: 750ms;
 }

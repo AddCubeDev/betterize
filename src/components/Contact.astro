@@ -13,21 +13,21 @@ import FAQsection from "./subcomponents/FAQsection.astro";
 import Faded from "./elements/Faded.astro";
 ---
 
-<div class="flex flex-col relative items-center justify-center lg:pb-40">
-    <div class="bg-grid inset-0 bottom-0 -z-1 faded-top absolute">
+<div class="relative flex flex-col items-center justify-center lg:pb-40">
+    <div class="absolute inset-0 bottom-0 bg-grid -z-1 faded-top">
         <Faded direction="top" />
     </div>
 
     <div
-        class="bg-gradient-to-b from-transparent to-sky-800/30 h-32 w-full bottom-0 -z-2 absolute"
+        class="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-sky-800/30 -z-2"
     >
     </div>
 
     <section
-        class="flex flex-col py-20 gap-6 items-center justify-center main-content"
+        class="flex flex-col items-center justify-center gap-6 py-20 main-content schowaj"
     >
         <span
-            class="bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 text-transparent header-1"
+            class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
         >
             Pozwól googlowi zdobywać dla Ciebie klientów dzięki nowoczesnej
             stronie internetowej.
