@@ -60,8 +60,20 @@
 </template>
 
 <script setup lang="ts">
-import PageSpeedQuery from "@components/PageSpeedQuery.vue";
-import { type PagespeedTestResult } from "@typescript/PageSpeed";
+import PageSpeedQuery from "./subcomponents/PageSpeedQuery.vue";
+import {
+    type PagespeedTestResult,
+    EvaluationResult,
+} from "./types/pageSpeed.types";
+import { getEvaluationResult } from "./utils/scores";
+import {
+    BACKGROUND_GREEN,
+    BACKGROUND_RED,
+    BACKGROUND_YELLOW,
+    FILL_GREEN,
+    FILL_RED,
+    FILL_YELLOW,
+} from "./utils/pageSpeedConstants";
 import { ref } from "vue";
 
 const performance = ref(0);
@@ -100,32 +112,34 @@ function onTestHasFailed(error: string) {
 }
 
 function getFillColor(value: number): string {
-    if (value > 85) {
-        // green
-        return "#00f900";
+    let result = getEvaluationResult(value);
+    switch (result) {
+        case EvaluationResult.Good:
+            return FILL_GREEN;
+        case EvaluationResult.NeedsImprovement:
+            return FILL_YELLOW;
+        case EvaluationResult.Poor:
+            return FILL_RED;
+        default:
+            throw new Error(
+                `Developer error. getFillColor is missing implementation for EvaluationResult value: ${result}`
+            );
     }
-
-    if (value > 40) {
-        // yeallow
-        return "#f9f900";
-    }
-
-    // red
-    return "#f90000";
 }
 
 function getBackgroundColor(value: number): string {
-    if (value > 85) {
-        // green
-        return "#00f90040";
+    let result = getEvaluationResult(value);
+    switch (result) {
+        case EvaluationResult.Good:
+            return BACKGROUND_GREEN;
+        case EvaluationResult.NeedsImprovement:
+            return BACKGROUND_YELLOW;
+        case EvaluationResult.Poor:
+            return BACKGROUND_RED;
+        default:
+            throw new Error(
+                `Developer error. getBackgroundColor is missing implementation for EvaluationResult value: ${result}`
+            );
     }
-
-    if (value > 40) {
-        // yeallow
-        return "#f9f90040";
-    }
-
-    // red
-    return "#470000";
 }
 </script>

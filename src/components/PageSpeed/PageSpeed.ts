@@ -1,12 +1,8 @@
-export interface PagespeedTestResult {
-    performance: number;
-    best_practices: number;
-    seo: number;
-    accessibility: number;
-}
-
-export type Strategy = "mobile" | "desktop";
-export type PagespeedTestResultOrError = PagespeedTestResult | string;
+import {
+    type PagespeedTestResult,
+    type PagespeedTestResultOrError,
+    Strategy,
+} from "./types/pageSpeed.types";
 
 export function runPagespeedTest(
     callback: (result: PagespeedTestResultOrError) => void,
@@ -34,10 +30,14 @@ export function runPagespeedTest(
         .then((json) => {
             const categories = json["lighthouseResult"]["categories"];
             const data = {
-                performance: Math.round( categories["performance"].score * 100 ),
-                best_practices: Math.round( categories["best-practices"].score * 100 ),
-                seo: Math.round( categories["seo"].score * 100 ),
-                accessibility: Math.round( categories["accessibility"].score * 100 ),
+                performance: Math.round(categories["performance"].score * 100),
+                best_practices: Math.round(
+                    categories["best-practices"].score * 100
+                ),
+                seo: Math.round(categories["seo"].score * 100),
+                accessibility: Math.round(
+                    categories["accessibility"].score * 100
+                ),
             };
 
             callback(data);

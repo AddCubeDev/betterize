@@ -1,5 +1,5 @@
 ---
-import PageSpeed from "@components/PageSpeed.vue";
+import PageSpeed from "@components/PageSpeed";
 import { BackgroundImage } from "astro-imagetools/components";
 import Faded from "@components/elements/Faded.astro";
 const bg = "/src/assets/bg7.jpg";
@@ -35,7 +35,7 @@ const bg = "/src/assets/bg7.jpg";
                     </p>
                 </div>
 
-                <PageSpeed client:only />
+                <PageSpeed client:visible />
             </div>
         </section>
     </BackgroundImage>
