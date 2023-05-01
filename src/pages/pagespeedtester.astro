@@ -4,7 +4,7 @@ import Footer from "@components/Footer.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Section1 from "@components/Section1.astro";
 
-import PageSpeed from "@components/PageSpeed.vue";
+import PageSpeed from "@components/PageSpeed";
 import { BackgroundImage } from "astro-imagetools/components";
 import Faded from "@components/elements/Faded.astro";
 const bg = "/src/assets/bg7.jpg";
@@ -43,7 +43,7 @@ const bg = "/src/assets/bg7.jpg";
                         </p>
                     </div>
 
-                    <PageSpeed client:only />
+                    <PageSpeed client:only="vue" />
                 </div>
             </section>
         </BackgroundImage>

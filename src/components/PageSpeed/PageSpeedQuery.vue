@@ -48,7 +48,7 @@ import {
     runPagespeedTest,
     type PagespeedTestResultOrError,
     type PagespeedTestResult,
-} from "@typescript/PageSpeed";
+} from "./PageSpeed";
 import { AtomSpinner } from "epic-spinners";
 import { ref, onMounted } from "vue";
 

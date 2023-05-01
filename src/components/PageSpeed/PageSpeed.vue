@@ -60,8 +60,8 @@
 </template>
 
 <script setup lang="ts">
-import PageSpeedQuery from "@components/PageSpeedQuery.vue";
-import { type PagespeedTestResult } from "@typescript/PageSpeed";
+import PageSpeedQuery from "./PageSpeedQuery.vue";
+import { type PagespeedTestResult } from "./PageSpeed";
 import { ref } from "vue";
 
 const performance = ref(0);
