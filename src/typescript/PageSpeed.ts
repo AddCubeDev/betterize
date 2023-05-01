@@ -34,10 +34,10 @@ export function runPagespeedTest(
         .then((json) => {
             const categories = json["lighthouseResult"]["categories"];
             const data = {
-                performance: categories["performance"].score * 100,
-                best_practices: categories["best-practices"].score * 100,
-                seo: categories["seo"].score * 100,
-                accessibility: categories["accessibility"].score * 100,
+                performance: Math.round( categories["performance"].score * 100 ),
+                best_practices: Math.round( categories["best-practices"].score * 100 ),
+                seo: Math.round( categories["seo"].score * 100 ),
+                accessibility: Math.round( categories["accessibility"].score * 100 ),
             };
 
             callback(data);

@@ -1,82 +1,61 @@
 ---
-import SwiperSlider from "./subcomponents/SwiperSlider.astro";
+import { renderImg } from "astro-imagetools/api";
+import Testimonials from "./Testimonials.vue";
+import { Testimonial } from "@typescript/Testimonials";
 
-const guy = "/src/assets/guy.png";
-const olek = "/src/assets/profilowka.jpg";
+const testimonialsData: Testimonial[] = [
+    {
+        src: "/src/assets/adam.jpg",
+        name: "Adam Psikut",
+        company: "FatForLife.pl",
+        paragraph:
+            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
+    },
+    {
+        src: "/src/assets/guy.png",
+        name: "Marek Pompa",
+        company: "2gonecup.pl",
+        paragraph:
+            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
+    },
+    {
+        src: "/src/assets/profilowka.jpg",
+        name: "Ignacy Trąbasz",
+        company: "onliners.pl",
+        paragraph:
+            "Dzięki firmie Betterize, moja strona internetowa jest teraz piękna i funkcjonalna. Zespół był bardzo kreatywny i elastyczny w dostosowaniu się do moich potrzeb. Gorąco polecam ich usługi.",
+    },
+];
+
+async function render_img_html(src: string) {
+    const renderedHTML = await renderImg({
+        src: src,
+        alt: "Person",
+        width: 400,
+        height: 400,
+        aspect: 1,
+    });
+
+    return renderedHTML;
+}
+
+async function processTestimonialsData() {
+    const updatedTestimonialsData = await Promise.all(
+        testimonialsData.map(async (testimonial) => {
+            const renderedHTML = await render_img_html(testimonial.src);
+            return {
+                ...testimonial,
+                src: renderedHTML,
+            };
+        })
+    );
+
+    return updatedTestimonialsData;
+}
+
+const testimonialsWithSrcAsImg = await processTestimonialsData().then(
+    (updatedData) => updatedData
+);
 ---
 
-<div class="mx-auto max-w-full p-4 py-20 lg:max-w-6xl">
-    <swiper-container init="false">
-        <SwiperSlider
-            src="/src/assets/adam.jpg"
-            name="Adam Psikut"
-            company="FatForLife.pl"
-            paragraph="Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych."
-        />
-        <SwiperSlider
-            src={guy}
-            name=" Marek Pompa"
-            company="2gonecup.pl"
-            paragraph="Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych."
-        />
-        <SwiperSlider
-            src={olek}
-            name=" Ignacy Trąbasz"
-            company="onliners.pl"
-            paragraph="Dzięki firmie Betterize, moja strona internetowa jest teraz piękna i funkcjonalna. Zespół był bardzo kreatywny i elastyczny w dostosowaniu się do moich potrzeb. Gorąco polecam ich usługi."
-        />
-    </swiper-container>
-</div>
-
-<style>
-    swiper-container {
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
-<script>
-    import { register } from "swiper/element/bundle";
-    import "swiper/css";
-
-    // swiper element
-    const swiperEl = document.querySelector("swiper-container");
-
-    if (swiperEl != null) {
-        register();
-
-        // swiper parameters
-        const swiperParams = {
-            cssMode: false,
-            keyboard: true,
-            mousewheel: false,
-            navigation: true,
-            pagination: true,
-            paginationClickable: true,
-            grabCursor: true,
-            centeredSlides: true,
-            // effect: "cards",   // powinno być wyłączone na telefonie
-            effect: "creative",
-            slidesPerView: 1,
-            breakpoints: {
-                1024: {
-                    effect: "cards",
-                    // navigation: false,
-                },
-            },
-            on: {
-                init() {
-                    // ...
-                },
-            },
-        };
-
-        // now we need to assign all parameters to Swiper element
-        Object.assign(swiperEl, swiperParams);
-
-        // and now initialize it
-        swiperEl.initialize();
-
-        // swiperEl.swiper.
-    }
-</script>
+<Testimonials testimonials_data={testimonialsWithSrcAsImg} client:visible />

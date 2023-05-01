@@ -1,1 +1,0 @@
-<section class="main-content"></section>
