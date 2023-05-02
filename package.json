@@ -20,7 +20,7 @@
     "@astrojs/vue": "^2.1.1",
     "@astrolib/seo": "^0.3.0",
     "@cubejs-client/core": "^0.31.0",
-    "astro": "^2.3.0",
+    "astro": "^2.3.3",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-icon": "^0.8.0",
     "astro-iconify": "^1.2.0",
