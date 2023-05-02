@@ -1,0 +1,37 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    title?: string;
+    paragraph?: string;
+    src?: string;
+    href?: string;
+}
+
+const {
+    title = "Jak drastycznie przyśpieszyć działanie strony internetowej dzięki formacie AVIF",
+    paragraph = "Paragraph is very important thing in components. It usually provide usefull infomations to the reader. It would be nice if paragraph would be longer than title so i am writing this.",
+    src = "/src/assets/article3.png",
+    href = "/projects/swiperight",
+} = Astro.props;
+---
+
+<li>
+    <a
+        href={href}
+        class="block text-gray-100 transition duration-300 ease-in-out rounded-lg hover:transform hover:scale-102 hover:text-gray-400"
+    >
+        <div class="flex items-center justify-center gap-2 max-w-96">
+            <div class="overflow-hidden rounded-md">
+                <Img
+                    src={src}
+                    width={40}
+                    layout="fill"
+                    objectFit="cover"
+                    alt="descriptive text"
+                />
+            </div>
+            <p class="text-sm font-medium text-left">{title}</p>
+        </div>
+    </a>
+</li>

@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Nav from "@components/Nav.astro";
+import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
 import BlogPostListElement from "@components/blogcomponents/BlogPostListElement.astro";
@@ -18,15 +18,22 @@ const { blok } = Astro.props;
 <Layout>
     <!-- <FancyBg /> -->
     <Nav />
-    <main class="flex-col flex mx-auto min-h-screen pt-16 gap-2 lg:gap-16">
+    <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">
         <h2 class="pb-16 header-1">Artykuły:</h2>
         <ul
-            class="w-full grid pb-24 gap-4 grid-cols-1 main-content md:grid-cols-2 lg:grid-cols-3"
+            class="grid w-full grid-cols-1 gap-4 pb-24 main-content md:grid-cols-2 lg:grid-cols-3"
         >
             {posts.map((post: BlogPost) => <BlogPostListElement post={post} />)}
         </ul>
     </main>
 
+    <div class="relative w-64 h-64 mx-auto bg-white">
+        <Faded color="#151317" direction="top" />
+        <!-- <div
+            class="bg-gradient-to-b to-transparent from-[#151317] h-1/3 w-full top-0 z-1 absolute"
+        >
+        </div> -->
+    </div>
     <div class="mt-auto">
         <Footer />
     </div>

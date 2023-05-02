@@ -1,0 +1,225 @@
+---
+import logo1x from "/src/assets/logo_1x.webp";
+import logo2x from "/src/assets/logo_2x.webp";
+import logo3x from "/src/assets/logo_3x.webp";
+import { Icon } from "astro-iconify";
+
+import ButtonContact from "@components/subcomponents/ButtonContact.astro";
+import NavBarSubItem from "./NavbarSubItem.astro";
+import NavbarItemGroup from "./NavbarItemGroup.astro";
+import NavbarPost from "./NavbarPost.astro";
+---
+
+<header
+    aria-label="Site Header"
+    class="z-10 w-full shadow-lg bg-zinc-900 shadow-gray-900"
+>
+    <section
+        class="flex items-center justify-between h-20 max-w-screen-xl gap-10 px-8 mx-auto"
+    >
+        <!-- menu stacjonarne -->
+        <div class="flex">
+            <a href="/" class="image-animation hover:opacity-80">
+                <img
+                    srcset={`${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`}
+                    sizes="(max-width: 640px) 40px, (min-width: 640px) 120px"
+                    width="80"
+                    height="64"
+                    loading="eager"
+                    alt="descriptive text"
+                />
+            </a>
+        </div>
+
+        <nav
+            aria-label="Site Nav"
+            class="hidden gap-8 text-sm font-medium text-md md:flex"
+        >
+            <div class="relative group">
+                <a
+                    class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth group"
+                    href="#"
+                >
+                    <div class="flex items-center justify-center">
+                        Blog
+                        <div
+                            class="group-hover:(transform translate-y-0.5) transition-smooth"
+                        >
+                            <Icon
+                                name="material-symbols:arrow-drop-down"
+                                style="color: white; width:30px; height:30px"
+                            />
+                        </div>
+                    </div>
+                </a>
+                <div
+                    class="absolute z-30 invisible transition duration-500 ease-in-out transform translate-y-0 opacity-0 top-10 -left-42 group-hover:transform group-hover:visible group-hover:translate-y-6 group-hover:opacity-100 min-w-max"
+                >
+                    <div
+                        class="relative w-full p-4 shadow-xl bg-gradient-to-b from-zinc-900 to-zinc-800 group top-4 rounded-xl"
+                    >
+                        <div class="grid grid-cols-1 gap-6 mb-4 text-md">
+                            <div
+                                class="flex flex-col gap-4 divide-y divide-dashed divide-gray-100/10"
+                            >
+                                <ul>
+                                    <li>
+                                        <NavbarPost
+                                            title="Jak drastycznie przyśpieszyć działanie strony internetowej dzięki formatowi AVIF "
+                                        />
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <NavbarPost
+                                            title="Jak drastycznie przyśpieszyć działanie strony internetowej dzięki formatowi AVIF "
+                                        />
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <NavbarPost
+                                            title="Jak drastycznie przyśpieszyć działanie strony internetowej dzięki formatowi AVIF "
+                                        />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full border-gray-800 border-t-1">
+                            <a
+                                href="/blog"
+                                class="flex items-center justify-center h-8 mx-auto mt-2 hover:text-gray-400 transition-smooth"
+                            >
+                                Zobacz wszystkie</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative group">
+                <a
+                    class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
+                    href="#"
+                >
+                    <div class="flex items-center justify-center">
+                        Projekty
+                        <div
+                            class="group-hover:(transform translate-y-0.5) transition-smooth"
+                        >
+                            <Icon
+                                name="material-symbols:arrow-drop-down"
+                                style="color: white; width:30px; height:30px"
+                            />
+                        </div>
+                    </div>
+                </a>
+                <div
+                    class="absolute z-30 invisible transition duration-500 ease-in-out transform translate-y-0 opacity-0 top-10 -left-62 group-hover:transform group-hover:visible group-hover:translate-y-6 group-hover:opacity-100 min-w-max"
+                >
+                    <div
+                        class="relative w-full p-4 shadow-xl bg-gradient-to-b from-zinc-900 to-zinc-800 group top-4 rounded-xl"
+                    >
+                        <div class="grid grid-cols-3 gap-6 mb-4 text-md">
+                            <div>
+                                <ul>
+                                    <NavBarSubItem
+                                        href="/projects/swiperight"
+                                        title="swiperight.pl"
+                                        src="/src/assets/swiperight.jpg"
+                                    />
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <NavBarSubItem
+                                        href="/projects/betterize"
+                                        title="betterize.pl"
+                                        src="/src/assets/betterize.jpg"
+                                    />
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <NavBarSubItem
+                                        href="/projects/dubbleup"
+                                        title="dubbleup.com"
+                                        src="/src/assets/marketliners.jpg"
+                                    />
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full border-gray-800 border-t-1">
+                            <a
+                                href="/projects"
+                                class="flex items-center justify-center h-8 mx-auto mt-2 hover:text-gray-400 transition-smooth"
+                            >
+                                Zobacz wszystkie</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a
+                class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth hover:opacity-50"
+                href="/pagespeedtester">PageSpeedTester</a
+            >
+
+            <!-- menu mobilne -->
+            <div class="flex items-center md:hidden">
+                <button class="outline-none mobile-menu-button">
+                    <svg
+                        class="w-8 h-8 text-gray-500 hover:text-sky-500"
+                        x-show="!showMenu"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div class="items-center hidden gap-4 md:flex">
+            <ButtonContact />
+        </div>
+        <div class="hidden mobile-menu">
+            <ul class="">
+                <li>
+                    <a
+                        href="index.html"
+                        class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500"
+                        >Strona Główna</a
+                    >
+                </li>
+                <!-- <li><a href="/blog" class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500">Blog</a></li> -->
+                <li>
+                    <a
+                        href="/projects"
+                        class="block px-2 py-4 text-sm transition duration-300 hover:bg-sky-500"
+                        >Projekty</a
+                    >
+                </li>
+                <li>
+                    <div
+                        class="items-center justify-center flex-1 gap-4 py-4 mx-auto sm:flex"
+                    >
+                        <ButtonContact />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</header>

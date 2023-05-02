@@ -15,9 +15,9 @@
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex mx-auto pb-4 gap-6 justify-center">
-                <p class="font-bold text-[#f90000]">0-40 Poor</p>
-                <p class="font-bold text-[#f9f900]">41-89 Average</p>
-                <p class="font-bold text-[#00f900]">89-100 Excelent</p>
+                <p class="font-bold text-[#f90000]">0-49 Poor</p>
+                <p class="font-bold text-[#f9f900]">50-89 Average</p>
+                <p class="font-bold text-[#00f900]">90-100 Excelent</p>
             </div>
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
@@ -60,12 +60,20 @@
 </template>
 
 <script setup lang="ts">
-import "vue3-circle-progress/dist/circle-progress.css";
-import CircleProgress from "vue3-circle-progress";
-
-import PageSpeedQuery from "@components/PageSpeedQuery.vue";
-import { type PagespeedTestResult } from "../PageSpeed";
-
+import PageSpeedQuery from "./subcomponents/PageSpeedQuery.vue";
+import {
+    type PagespeedTestResult,
+    EvaluationResult,
+} from "./types/pageSpeed.types";
+import { getEvaluationResult } from "./utils/scores";
+import {
+    BACKGROUND_GREEN,
+    BACKGROUND_RED,
+    BACKGROUND_YELLOW,
+    FILL_GREEN,
+    FILL_RED,
+    FILL_YELLOW,
+} from "./utils/pageSpeedConstants";
 import { ref } from "vue";
 
 const performance = ref(0);
@@ -104,32 +112,34 @@ function onTestHasFailed(error: string) {
 }
 
 function getFillColor(value: number): string {
-    if (value > 85) {
-        // green
-        return "#00f900";
+    let result = getEvaluationResult(value);
+    switch (result) {
+        case EvaluationResult.Good:
+            return FILL_GREEN;
+        case EvaluationResult.NeedsImprovement:
+            return FILL_YELLOW;
+        case EvaluationResult.Poor:
+            return FILL_RED;
+        default:
+            throw new Error(
+                `Developer error. getFillColor is missing implementation for EvaluationResult value: ${result}`
+            );
     }
-
-    if (value > 40) {
-        // yeallow
-        return "#f9f900";
-    }
-
-    // red
-    return "#f90000";
 }
 
 function getBackgroundColor(value: number): string {
-    if (value > 85) {
-        // green
-        return "#00f90040";
+    let result = getEvaluationResult(value);
+    switch (result) {
+        case EvaluationResult.Good:
+            return BACKGROUND_GREEN;
+        case EvaluationResult.NeedsImprovement:
+            return BACKGROUND_YELLOW;
+        case EvaluationResult.Poor:
+            return BACKGROUND_RED;
+        default:
+            throw new Error(
+                `Developer error. getBackgroundColor is missing implementation for EvaluationResult value: ${result}`
+            );
     }
-
-    if (value > 40) {
-        // yeallow
-        return "#f9f90040";
-    }
-
-    // red
-    return "#470000";
 }
 </script>

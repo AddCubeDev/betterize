@@ -1,0 +1,55 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Footer from "@components/Footer.astro";
+import Nav from "@components/Navbar/Nav.astro";
+import Section1 from "@components/Section1.astro";
+
+import PageSpeed from "@components/PageSpeed";
+import { BackgroundImage } from "astro-imagetools/components";
+import Faded from "@components/elements/Faded.astro";
+const bg = "/src/assets/bg7.jpg";
+---
+
+<Layout>
+    <div class="">
+        <Nav />
+    </div>
+    <div class="relative">
+        <Faded color="#151317" direction="bottom" />
+
+        <BackgroundImage
+            src={bg}
+            format="avif"
+            placeholder="blurred"
+            backgroundSize="cover"
+            quality={90}
+            brightness={0.5}
+            breakpoints={{ count: 6, minWidth: 400, maxWidth: 2560 }}
+        >
+            <section
+                class="flex flex-col items-center justify-start min-h-screen pt-20 rounded-lg main-content"
+            >
+                <div
+                    class="px-4 py-20 bg-black border rounded-lg shadow-2xl bg-clip-padding bg-opacity-60 border-gray-300/20 shadow-sky-800/50 backdrop-filter backdrop-blur-xl"
+                >
+                    <div class="pb-12">
+                        <h2 class="pb-4 header-1">
+                            Sprawdź wydajność swojej strony
+                        </h2>
+                        <p class="ordinary-text">
+                            Google w 2021 wprowadził nowe standardy oceniania i
+                            pozycjonowania stron internetowych. Sprawdź czy
+                            twoja strona spełnia nowe wymagania Googla
+                        </p>
+                    </div>
+
+                    <PageSpeed client:only="vue" />
+                </div>
+            </section>
+        </BackgroundImage>
+    </div>
+
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

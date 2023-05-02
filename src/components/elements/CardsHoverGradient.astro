@@ -1,0 +1,368 @@
+---
+import { Img } from "astro-imagetools/components";
+---
+
+<script>
+    document.getElementById("cards").onmousemove = (e) => {
+        for (const card of document.getElementsByClassName("card")) {
+            const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+
+            // Obliczenie kąta nachylenia (w radianach) na podstawie pozycji myszy
+            const angleRadians = Math.atan2(y, x);
+
+            // Konwersja radianów na stopnie
+            const angleDegrees = angleRadians * (180 / Math.PI);
+
+            // Uaktualnienie wartości zmiennych CSS
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+            card.style.setProperty("--angle", `${angleDegrees}deg`);
+        }
+    };
+</script>
+<div class="grid w-full max-w-6xl grid-cols-3 gap-2 schowaj" id="cards">
+    <div
+        class="relative flex flex-col w-full rounded-lg element h-70 bg-white/10 card schowaj"
+    >
+        <div
+            class="flex flex-col items-center justify-start px-2 py-4 element card-content"
+        >
+            <div class="pb-6">
+                <svg
+                    height="100px"
+                    width="100px"
+                    version="1.1"
+                    id="_x32_"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 512 512"
+                    xml:space="preserve"
+                    fill="#000000"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                        <style type="text/css">
+                            .st0 {
+                                fill: #ffd700;
+                            }
+                        </style>
+                        <g>
+                            <path
+                                class="st0"
+                                d="M435.244,391.19c32.805-41.18,52.518-93.432,52.503-150.118c0.015-66.486-27.029-126.93-70.608-170.464 C373.593,27.021,313.149-0.016,246.667,0C180.181-0.016,119.742,27.021,76.2,70.608C32.616,114.142,5.576,174.586,5.591,241.072 C5.576,307.55,32.616,367.994,76.2,411.536c43.542,43.587,103.982,70.624,170.468,70.608c50.948,0.016,98.312-15.91,137.281-42.94 L456.756,512l49.653-49.653L435.244,391.19z M378.508,372.916c-33.826,33.773-80.267,54.591-131.841,54.606 c-51.574-0.015-98.015-20.833-131.845-54.606c-33.784-33.834-54.595-80.271-54.61-131.844 c0.015-51.574,20.826-98.011,54.61-131.844c33.83-33.78,80.271-54.591,131.845-54.606c51.574,0.015,98.014,20.826,131.841,54.606 c33.791,33.833,54.602,80.271,54.617,131.844C433.11,292.646,412.299,339.082,378.508,372.916z"
+                            ></path>
+                            <path
+                                class="st0"
+                                d="M155.926,235.105l-5.696-0.792c-14.558-2.058-19.782-7.117-19.782-14.555c0-8.389,6.012-14.402,16.932-14.402 c9.018,0,17.088,2.691,25.794,8.39c0.789,0.473,1.582,0.313,2.214-0.48l7.597-11.704c0.633-0.953,0.473-1.585-0.32-2.218 c-8.542-6.484-21.359-10.76-34.809-10.76c-22.156,0-36.398,12.977-36.398,32.44c0,17.877,11.712,27.852,32.44,30.694l5.696,0.792 c14.875,2.058,19.622,7.125,19.622,14.875c0,9.022-7.437,15.507-20.255,15.507c-12.024,0-22.312-5.852-29.273-11.392 c-0.632-0.632-1.581-0.632-2.214,0.16l-9.811,11.392c-0.632,0.792-0.316,1.737,0.316,2.378 c8.386,7.909,23.733,14.234,39.561,14.234c26.739,0,40.509-14.234,40.509-33.384C188.049,247.762,176.652,237.956,155.926,235.105z "
+                            ></path>
+                            <path
+                                class="st0"
+                                d="M275.566,190.322h-67.408c-0.949,0-1.581,0.632-1.581,1.585v104.435c0,0.953,0.632,1.585,1.581,1.585h67.408 c0.953,0,1.585-0.632,1.585-1.585v-13.602c0-0.952-0.632-1.585-1.585-1.585h-49.368l-0.949-0.953V252.99l0.949-0.952h41.614 c0.953,0,1.586-0.633,1.586-1.586v-13.609c0-0.945-0.633-1.577-1.586-1.577h-41.614l-0.949-0.953v-26.266l0.949-0.945h49.368 c0.953,0,1.585-0.64,1.585-1.585v-13.61C277.151,190.954,276.519,190.322,275.566,190.322z"
+                            ></path>
+                            <path
+                                class="st0"
+                                d="M334.448,188.584c-18.514,0-32.439,8.863-37.975,25.954c-2.218,6.645-2.85,12.658-2.85,29.589 c0,16.932,0.632,22.944,2.85,29.589c5.536,17.092,19.462,25.947,37.975,25.947c18.677,0,32.591-8.855,38.139-25.947 c2.21-6.645,2.85-12.657,2.85-29.589c0-16.932-0.64-22.944-2.85-29.589C367.039,197.447,353.124,188.584,334.448,188.584z M354.542,268.81c-3.003,8.702-9.327,14.082-20.095,14.082c-10.6,0-16.932-5.38-19.938-14.082 c-1.265-3.955-1.898-9.495-1.898-24.682c0-15.355,0.633-20.734,1.898-24.69c3.007-8.702,9.339-14.082,19.938-14.082 c10.768,0,17.092,5.38,20.095,14.082c1.265,3.955,1.904,9.335,1.904,24.69C356.447,259.315,355.807,264.854,354.542,268.81z"
+                            ></path>
+                        </g>
+                    </g></svg
+                >
+            </div>
+            <h2 class="mb-2 text-lg font-bold">SEO</h2>
+            <p class="px-2 text-sm">
+                Szybsze strony mają wyższe pozycje w wynikach Google, co
+                prowadzi do większej ilości ruchu organicznego (Google PageSpeed
+                Insights)
+            </p>
+        </div>
+    </div>
+    <div
+        class="relative flex flex-col w-full rounded-lg element h-70 bg-white/10 card schowaj"
+    >
+        <div
+            class="flex flex-col items-center justify-start px-2 py-4 card-content"
+        >
+            <div class="pb-6">
+                <svg
+                    height="100px"
+                    width="100px"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 512 512"
+                    xml:space="preserve"
+                    fill="#000000"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                        <polygon
+                            style="fill:#FFE98F;"
+                            points="265.004,122.99 309.779,203.962 400.614,221.517 337.453,289.125 348.824,380.948 265.004,341.755 181.18,380.948 192.554,289.125 129.393,221.517 220.23,203.962 "
+                        ></polygon>
+                        <polygon
+                            style="fill:#FFDA44;"
+                            points="265.004,122.99 309.779,203.962 400.614,221.517 337.453,289.125 348.824,380.948 265.004,341.755 "
+                        ></polygon>
+                        <polygon
+                            style="fill:#FFE98F;"
+                            points="126.077,10.134 148.465,50.619 193.883,59.397 162.301,93.201 167.987,139.113 126.077,119.516 84.165,139.113 89.852,93.201 58.271,59.397 103.689,50.619 "
+                        ></polygon>
+                        <polygon
+                            style="fill:#FFDA44;"
+                            points="126.077,10.134 148.465,50.619 193.883,59.397 162.301,93.201 167.987,139.113 126.077,119.516 "
+                        ></polygon>
+                        <g>
+                            <polygon
+                                style="fill:#FFE98F;"
+                                points="377.125,35.894 395.04,68.294 431.388,75.318 406.115,102.371 410.664,139.113 377.125,123.431 343.584,139.113 348.135,102.371 322.862,75.318 359.21,68.294 "
+                            ></polygon>
+                            <polygon
+                                style="fill:#FFE98F;"
+                                points="139.205,397.071 157.121,429.469 193.469,436.495 168.195,463.548 172.745,500.288 139.205,484.607 105.664,500.288 110.214,463.548 84.941,436.495 121.289,429.469 "
+                            ></polygon>
+                        </g>
+                        <g>
+                            <polygon
+                                style="fill:#FFDA44;"
+                                points="377.125,35.894 395.04,68.294 431.388,75.318 406.115,102.371 410.664,139.113 377.125,123.431 "
+                            ></polygon>
+                            <polygon
+                                style="fill:#FFDA44;"
+                                points="139.205,397.071 157.121,429.469 193.469,436.495 168.195,463.548 172.745,500.288 139.205,484.607 "
+                            ></polygon>
+                            <polygon
+                                style="fill:#FFDA44;"
+                                points="473.859,268.092 486.452,290.865 512,295.801 494.236,314.818 497.433,340.642 473.859,329.62 450.283,340.642 453.482,314.818 435.719,295.801 461.266,290.865 "
+                            ></polygon>
+                            <polygon
+                                style="fill:#FFDA44;"
+                                points="333.088,429.316 345.68,452.088 371.229,457.025 353.464,476.041 356.662,501.866 333.088,490.843 309.513,501.866 312.711,476.041 294.946,457.025 320.495,452.088 "
+                            ></polygon>
+                            <polygon
+                                style="fill:#FFDA44;"
+                                points="46.616,219.725 62.007,247.557 93.232,253.591 71.52,276.833 75.429,308.398 46.616,294.924 17.802,308.398 21.712,276.833 0,253.591 31.226,247.557 "
+                            ></polygon>
+                        </g>
+                    </g></svg
+                >
+            </div>
+            <h2 class="mb-2 text-lg font-bold">Wyższa retencja klientów</h2>
+            <p class="px-2 text-sm">
+                79% klientów, którzy doświadczyli problemów z wydajnością
+                strony, nie wraca do tego sklepu
+            </p>
+        </div>
+    </div>
+    <div
+        class="relative flex flex-col w-full rounded-lg element h-70 bg-white/10 card schowaj"
+    >
+        <div
+            class="flex flex-col items-center justify-start px-2 py-4 card-content"
+        >
+            <div class="pb-6">
+                <svg
+                    width="100px"
+                    height="100px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="#FFD700"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke="#CCCCCC"
+                        stroke-width="0.144"></g><g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M19 7C17.8954 7 17 6.10457 17 5C17 3.89543 17.8954 3 19 3C20.1046 3 21 3.89543 21 5C21 6.10457 20.1046 7 19 7Z"
+                            stroke="#FFD700"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M4 15.5C7 14.5 9.5 15 12 20C12.5 17 14 12.5 15.5 10"
+                            stroke="#FFD700"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </g></svg
+                >
+            </div>
+            <h2 class="mb-2 text-lg font-bold">Współczynnik odrzuceń</h2>
+            <p class="px-2 text-sm">
+                Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a
+                te ładujące się 1-5s aż o 90% większe!.
+            </p>
+        </div>
+    </div>
+    <div
+        class="relative flex flex-col w-full rounded-lg element h-70 bg-white/10 card schowaj"
+    >
+        <div
+            class="flex flex-col items-center justify-start px-2 py-4 card-content"
+        >
+            <div class="pb-6">
+                <svg
+                    width="100px"
+                    height="100px"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#ffd700"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier"
+                        ><path
+                            d="M8.827 6.956c2.265.662 5.109-.295 8.172-1.867l.001.079c0 1.3-1.642 2.897-3.248 4.288a3.818 3.818 0 0 0-.752.898v6.726c1.321.372 2.815 2.089 3.827 3.655-.027.088-.043.179-.077.265h-8.5c-.034-.087-.057-.17-.082-.254 1.01-1.57 2.509-3.293 3.833-3.666v-6.729a3.819 3.819 0 0 0-.73-.88 17.898 17.898 0 0 1-2.443-2.515zM17.922 2H20v1h-1.516A5.594 5.594 0 0 1 19 5.319c0 2.15-1.479 4.294-3.545 6.092a1.544 1.544 0 0 0-.62 1.089 1.544 1.544 0 0 0 .62 1.089C17.521 15.387 19 17.53 19 19.68a5.595 5.595 0 0 1-.516 2.32H20v1H5v-1h1.5a5.666 5.666 0 0 1-.5-2.319c0-2.15 1.479-4.294 3.545-6.092a1.544 1.544 0 0 0 .62-1.089 1.544 1.544 0 0 0-.62-1.089C7.479 9.613 6 7.47 6 5.32A5.666 5.666 0 0 1 6.5 3H5V2zm-.545 1H7.624A4.68 4.68 0 0 0 7 5.32c0 1.645 1.137 3.54 3.2 5.336a2.435 2.435 0 0 1 .966 1.844 2.432 2.432 0 0 1-.965 1.843c-2.064 1.797-3.2 3.692-3.2 5.338A4.68 4.68 0 0 0 7.623 22h9.753A4.646 4.646 0 0 0 18 19.68c0-1.645-1.137-3.54-3.2-5.336a2.435 2.435 0 0 1-.966-1.844 2.432 2.432 0 0 1 .965-1.843c2.064-1.797 3.2-3.692 3.2-5.338A4.646 4.646 0 0 0 17.378 3z"
+                        ></path><path fill="none" d="M0 0h24v24H0z"></path></g
+                    ></svg
+                >
+            </div>
+            <h2 class="mb-2 text-lg font-bold">Większa aktywność</h2>
+            <p class="px-2 text-sm">
+                Szybsze strony poprawiają wskaźniki aktywności użytkowników,
+                takie jak dłuższy czas na stronie i więcej odwiedzanych podstron
+            </p>
+        </div>
+    </div>
+    <div
+        class="relative flex flex-col w-full rounded-lg element h-70 bg-white/10 card schowaj"
+    >
+        <div
+            class="flex flex-col items-center justify-start px-2 py-4 card-content"
+        >
+            <div class="pb-6">
+                <svg
+                    fill="#ffd700"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="100px"
+                    height="100px"
+                    viewBox="0 0 100 100"
+                    enable-background="new 0 0 100 100"
+                    xml:space="preserve"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path
+                                d="M79.4,28.8l-5.2-3.9c-0.8-0.5-1.5-0.8-2.4-0.8H54V22c0-1.1-0.9-2-2-2h-4c-1.1,0-2,0.9-2,2v2H26 c-1.1,0-2,0.9-2,2v8c0,1.1,0.9,2,2,2h45.8c0.9,0,1.8-0.2,2.4-0.8l5.2-3.9C80.2,30.6,80.2,29.4,79.4,28.8z M74,46H54v-3 c0-0.6-0.4-1-1-1h-6c-0.6,0-1,0.4-1,1v3H28.3c-0.9,0-1.8,0.2-2.4,0.8l-5.2,3.9c-0.9,0.6-0.9,1.9,0,2.6l5.2,3.9 c0.8,0.5,1.5,0.8,2.4,0.8H74c1.1,0,2-0.9,2-2v-8C76,46.9,75.1,46,74,46z M54,71.6v-4.9c0-0.6-0.4-1-1-1h-6c-0.6,0-1,0.4-1,1v4.9 c-4,1.1-6.2,3.5-6.9,6.5C38.9,79,39.6,80,40.6,80h18.9c1,0,1.8-0.9,1.5-1.9C60.3,75.1,58,72.8,54,71.6z"
+                            ></path>
+                        </g>
+                    </g></svg
+                >
+            </div>
+            <h2 class="mb-2 text-lg font-bold">Skrócony czas decyzji</h2>
+            <p class="px-2 text-sm">
+                Szybko ładujące się strony pozwalają użytkownikom szybciej
+                podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)
+            </p>
+        </div>
+    </div>
+    <div
+        class="relative flex flex-col w-full rounded-lg element h-70 bg-white/10 card schowaj"
+    >
+        <div
+            class="flex flex-col items-center justify-start px-2 py-4 card-content"
+        >
+            <div class="pb-6">
+                <svg
+                    fill="#ffd700"
+                    width="100px"
+                    height="100px"
+                    viewBox="0 0 64 64"
+                    id="Layer_1_1_"
+                    version="1.1"
+                    xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path
+                                d="M63,18c0-9.374-7.626-17-17-17S29,8.626,29,18c0,1.527,0.214,3.032,0.612,4.489C24.966,24.783,19.822,26,14.546,26H8 c-1.302,0-2.402,0.839-2.816,2H4c-1.654,0-3,1.346-3,3v6c0,1.654,1.346,3,3,3h1.184C5.598,41.161,6.698,42,8,42h4.007L9.058,58.586 C9.02,58.803,9,59.022,9,59.243C9,61.314,10.686,63,12.757,63h2.885c1.862,0,3.423-1.335,3.711-3.174L20.268,54H23 c1.103,0,2-0.897,2-2v-2c0-1.103-0.897-2-2-2h-1.791l0.811-5.167c5.657,1.27,10.931,3.969,15.312,7.91L37.616,51H43V40.92 c3.151-0.454,5.633-3.007,5.962-6.197C57.019,33.306,63,26.272,63,18z M60.7,19.077c-1.409,0.173-2.747-0.048-3.869-0.632 c-0.816-0.424-1.734-0.548-2.656-0.362c-1.574,0.318-2.824,1.599-3.109,3.185c-0.127,0.7-0.069,1.417,0.167,2.072 c0.458,1.272,0.524,2.49,0.197,3.619c-0.479,1.653-0.551,3.368-0.232,5.1c-0.748,0.276-1.522,0.497-2.323,0.653 c-0.547-2.922-2.913-5.205-5.876-5.632V23h1.57c2.994,0,5.43-2.436,5.43-5.43c0-1.943-1.048-3.749-2.736-4.714l-0.942-0.538 C44.273,11.146,43,8.953,43,6.594c0-1.075-0.212-2.139-0.606-3.137c0.933-0.232,1.899-0.373,2.892-0.42 C45.098,3.61,45,4.21,45,4.821c0,2.331,1.385,4.431,3.528,5.35l2.252,0.966c0.741,0.317,1.22,1.044,1.22,1.85 C52,15.199,53.8,17,56.013,17c1.702,0,3.335-0.427,4.801-1.239C60.924,16.493,61,17.237,61,18c0,0.358-0.024,0.71-0.049,1.062 C60.868,19.069,60.782,19.067,60.7,19.077z M60.358,13.674C59.059,14.528,57.577,15,56.013,15C54.903,15,54,14.097,54,12.986 c0-1.607-0.955-3.055-2.432-3.688l-2.252-0.966C47.909,7.729,47,6.352,47,4.821c0-0.611,0.152-1.206,0.436-1.749 C53.567,3.658,58.63,7.948,60.358,13.674z M40.489,4.063C40.824,4.864,41,5.725,41,6.594c0,3.075,1.659,5.935,4.33,7.461 l0.942,0.538C47.338,15.202,48,16.343,48,17.57c0,1.892-1.539,3.43-3.43,3.43H43v-4h-5.384l-0.285,0.257 c-0.107,0.096-0.219,0.186-0.327,0.281c0-0.013-0.004-0.025-0.004-0.038c0-2.783-2.08-5.084-4.765-5.445 C33.812,8.416,36.793,5.529,40.489,4.063z M31,18c0-1.385,0.204-2.72,0.557-3.994C33.46,14.037,35,15.59,35,17.5 c0,0.511,0.094,1.006,0.231,1.491c-1.219,0.933-2.493,1.777-3.815,2.531C31.14,20.375,31,19.195,31,18z M3,37v-6 c0-0.552,0.449-1,1-1h1v8H4C3.449,38,3,37.552,3,37z M7,39V29c0-0.552,0.449-1,1-1h6.546c8.193,0,16.082-2.774,22.454-7.847v27.695 C30.629,42.774,22.739,40,14.546,40H8C7.449,40,7,39.552,7,39z M17.378,59.516C17.243,60.376,16.513,61,15.642,61h-2.885 c-0.846,0-1.555-0.602-1.72-1.4l1.354-0.677c1.565-0.782,2.731-2.128,3.292-3.812c0.451-1.353,1.522-2.396,2.833-2.854 L17.378,59.516z M23,50v2h-2.419l0.314-2H23z M18.853,50.113c-2.327,0.42-4.309,2.091-5.075,4.39 c-0.384,1.153-1.194,2.087-2.282,2.631l-0.164,0.082L14.038,42h0.509c1.858,0,3.698,0.16,5.508,0.456L18.853,50.113z M41,49h-2V19 h2V49z M43,38.899v-9.798c2.279,0.465,4,2.484,4,4.899S45.279,38.434,43,38.899z M53.097,31.218 c-0.168-1.259-0.093-2.503,0.254-3.703c0.44-1.521,0.358-3.199-0.236-4.854c-0.119-0.329-0.146-0.679-0.08-1.039 c0.139-0.775,0.771-1.425,1.538-1.579c0.469-0.095,0.932-0.035,1.337,0.177c1.406,0.73,3.048,1.013,4.761,0.856 C59.756,25.435,56.951,29.143,53.097,31.218z"
+                            ></path>
+                            <path
+                                d="M15,32c0-1.103-0.897-2-2-2h-2c-1.103,0-2,0.897-2,2v4c0,1.103,0.897,2,2,2h2c1.103,0,2-0.897,2-2V32z M11,36v-4h2l0.001,4 H11z"
+                            ></path>
+                        </g>
+                    </g></svg
+                >
+            </div>
+            <h2 class="mb-2 text-lg font-bold">Skuteczniejsze reklamy</h2>
+            <p class="px-2 text-sm">
+                Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC)
+                i wyższych współczynników konwersji w kampaniach reklamowych
+                (WordStream)
+            </p>
+        </div>
+    </div>
+</div>
+<style>
+    :root {
+        --bg-color: rgb(20, 20, 20);
+        --card-color: rgb(23, 23, 23);
+    }
+    #cards {
+        width: calc(100% - 20px);
+    }
+
+    #cards:hover > .card::after {
+        opacity: 1;
+    }
+
+    .card {
+        position: relative;
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card::before,
+    .card::after {
+        border-radius: inherit;
+        content: "";
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+    }
+
+    .card::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%
+        );
+
+        z-index: 3;
+    }
+
+    .card::after {
+        background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.4),
+            transparent 40%
+        );
+        z-index: 1;
+    }
+
+    .card > .card-content {
+        background-color: var(--card-color);
+        border-radius: inherit;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        inset: 1px;
+        position: absolute;
+        z-index: 2;
+    }
+</style>

@@ -31,6 +31,10 @@ export async function getPosts() {
         (x) => x.json().then((content) => content.data)
     );
 
+    if (!posts) {
+        return [];
+    }
+
     const result: [BlogPost] = posts
         .map((post: any) => post.attributes)
         .map((post: any) => {

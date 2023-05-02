@@ -157,3 +157,38 @@ select {
     --tw-backdrop-blur: blur(20px);
     --tw-backdrop-brightness: brightness(0.5);
 }
+
+.schowaj {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100%);
+
+    transition: all 1s;
+}
+@media (prefers-reduced-motion) {
+    .schowaj {
+        transition: none;
+    }
+}
+
+.pokaz {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.element:nth-child(2) {
+    transition-delay: 150ms;
+}
+.element:nth-child(3) {
+    transition-delay: 300ms;
+}
+.element:nth-child(4) {
+    transition-delay: 450ms;
+}
+.element:nth-child(5) {
+    transition-delay: 600ms;
+}
+.element:nth-child(6) {
+    transition-delay: 750ms;
+}
