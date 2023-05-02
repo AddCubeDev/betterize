@@ -15,9 +15,16 @@
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex mx-auto pb-4 gap-6 justify-center">
-                <p class="font-bold text-[#f90000]">0-49 Poor</p>
-                <p class="font-bold text-[#f9f900]">50-89 Average</p>
-                <p class="font-bold text-[#00f900]">90-100 Excelent</p>
+                <p
+                    v-for="result in [
+                        EvaluationResult.Poor,
+                        EvaluationResult.Average,
+                        EvaluationResult.Excelent,
+                    ]"
+                    :class="`font-bold text-[${getFillColorForResult(result)}]`"
+                >
+                    {{ getRangeValuesWithLabel(result) }}
+                </p>
             </div>
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
@@ -33,12 +40,9 @@
                         </p>
 
                         <div
-                            :style="
-                                'background-color: ' +
-                                getBackgroundColor(
-                                    pageSpeedTest.test_result.value
-                                )
-                            "
+                            :style="`background-color: ${getBackgroundColor(
+                                pageSpeedTest.test_result.value
+                            )}`"
                             class="rounded-full h-[120px] w-[120px] absolute"
                         ></div>
 
@@ -65,15 +69,8 @@ import {
     type PagespeedTestResult,
     EvaluationResult,
 } from "./types/pageSpeed.types";
-import { getEvaluationResult } from "./utils/scores";
-import {
-    BACKGROUND_GREEN,
-    BACKGROUND_RED,
-    BACKGROUND_YELLOW,
-    FILL_GREEN,
-    FILL_RED,
-    FILL_YELLOW,
-} from "./utils/pageSpeedConstants";
+import { getEvaluationResult, getRangeValuesWithLabel } from "./utils/scores";
+import { EvaluationResult2Colors } from "./utils/pageSpeedConstants";
 import { ref } from "vue";
 
 const performance = ref(0);
@@ -112,34 +109,16 @@ function onTestHasFailed(error: string) {
 }
 
 function getFillColor(value: number): string {
-    let result = getEvaluationResult(value);
-    switch (result) {
-        case EvaluationResult.Good:
-            return FILL_GREEN;
-        case EvaluationResult.NeedsImprovement:
-            return FILL_YELLOW;
-        case EvaluationResult.Poor:
-            return FILL_RED;
-        default:
-            throw new Error(
-                `Developer error. getFillColor is missing implementation for EvaluationResult value: ${result}`
-            );
-    }
+    return getFillColorForResult(getEvaluationResult(value));
+}
+
+function getFillColorForResult(result: EvaluationResult): string {
+    return EvaluationResult2Colors.get(result)?.fill_color;
 }
 
 function getBackgroundColor(value: number): string {
     let result = getEvaluationResult(value);
-    switch (result) {
-        case EvaluationResult.Good:
-            return BACKGROUND_GREEN;
-        case EvaluationResult.NeedsImprovement:
-            return BACKGROUND_YELLOW;
-        case EvaluationResult.Poor:
-            return BACKGROUND_RED;
-        default:
-            throw new Error(
-                `Developer error. getBackgroundColor is missing implementation for EvaluationResult value: ${result}`
-            );
-    }
+
+    return EvaluationResult2Colors.get(result)?.background_color;
 }
 </script>

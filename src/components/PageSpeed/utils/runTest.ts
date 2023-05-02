@@ -2,9 +2,13 @@ import {
     type PagespeedTestResult,
     type PagespeedTestResultOrError,
     Strategy,
-} from "./types/pageSpeed.types";
+} from "../types/pageSpeed.types";
 
-export function runPagespeedTest(
+function adjustScoreValue(score: Number): Number {
+    return Math.round(score * 100);
+}
+
+export function runPageSpeedTest(
     callback: (result: PagespeedTestResultOrError) => void,
     test_url: string,
     strategy: Strategy = "mobile"
@@ -30,13 +34,13 @@ export function runPagespeedTest(
         .then((json) => {
             const categories = json["lighthouseResult"]["categories"];
             const data = {
-                performance: Math.round(categories["performance"].score * 100),
-                best_practices: Math.round(
-                    categories["best-practices"].score * 100
+                performance: adjustScoreValue(categories["performance"].score),
+                best_practices: adjustScoreValue(
+                    categories["best-practices"].score
                 ),
-                seo: Math.round(categories["seo"].score * 100),
-                accessibility: Math.round(
-                    categories["accessibility"].score * 100
+                seo: adjustScoreValue(categories["seo"].score),
+                accessibility: adjustScoreValue(
+                    categories["accessibility"].score
                 ),
             };
 
@@ -46,4 +50,4 @@ export function runPagespeedTest(
         .finally();
 }
 
-// const data = await runPagespeedTest("https://invalid.test");
+// const data = await runPageSpeedTest("https://invalid.test");

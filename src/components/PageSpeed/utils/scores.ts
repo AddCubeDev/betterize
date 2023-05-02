@@ -10,12 +10,27 @@ import { EvaluationResult } from "../types/pageSpeed.types";
 
 export function getEvaluationResult(value: number): EvaluationResult {
     if (value >= 90) {
-        return EvaluationResult.Good;
+        return EvaluationResult.Excelent;
     }
 
     if (value >= 50) {
-        return EvaluationResult.NeedsImprovement;
+        return EvaluationResult.Average;
     }
 
     return EvaluationResult.Poor;
+}
+
+export function getRangeValuesWithLabel(result: EvaluationResult): String {
+    switch (result) {
+        case EvaluationResult.Poor:
+            return "0-49 Poor";
+        case EvaluationResult.Average:
+            return "50-89 Average";
+        case EvaluationResult.Excelent:
+            return "90-100 Excelent";
+        default:
+            throw new Error(
+                `Developer error. getRangeValuesWithLabel is missing implementation for EvaluationResult value: ${result}`
+            );
+    }
 }
