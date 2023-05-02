@@ -1,0 +1,10 @@
+---
+interface Props {
+    text: string;
+    level?: number;
+}
+
+const { text } = Astro.props;
+---
+
+<h2 class="blog-header mt-20">{text}</h2>

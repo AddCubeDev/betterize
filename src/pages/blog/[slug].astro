@@ -5,7 +5,10 @@ import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
 import { getPost, getPosts } from "@typescript/strapiApi";
 import type { BlogPost } from "@typescript/types/BlogPost";
-import { marked } from "marked";
+import { strapiUploadsBaseUrl } from "@typescript/consts";
+import Header from "@components/democomponents/Header.astro";
+import Image from "@components/democomponents/Image.astro";
+import Paragraph from "@components/democomponents/Paragraph.astro";
 
 export async function getStaticPaths() {
     const posts = await getPosts();
@@ -17,16 +20,44 @@ export async function getStaticPaths() {
 
 const slug = Astro.params.slug;
 const postItem = await getPost(slug as string);
+
+const blocks = JSON.parse(postItem.content).blocks;
 ---
 
 <Layout>
     <FancyBg />
     <Nav />
     <main class="flex flex-col mx-auto min-h-screen gap-2 lg:gap-16">
-        <h1>{postItem.title}</h1>
-        <p>{postItem.excerpt}</p>
+        <article class="flex flex-col max-w-2xl mx-auto text-left">
+            <h1 class="blog-header mt-20">{postItem.title}</h1>
+            <p>{postItem.excerpt}</p>
+            {
+                blocks.map((block: any) => {
+                    switch (block.type) {
+                        case "header":
+                            return <Header text={block.data.text} />;
 
-        <Fragment set:html={marked.parse(postItem.content)} />
+                        case "paragraph":
+                            return <Paragraph text={block.data.text} />;
+
+                        case "image":
+                            return (
+                                <Image
+                                    src={
+                                        strapiUploadsBaseUrl +
+                                        block.data.file.url
+                                    }
+                                    caption={block.data.caption}
+                                />
+                            );
+
+                        default:
+                            <p>I am default</p>;
+                            break;
+                    }
+                })
+            }
+        </article>
     </main>
     <div class="mt-auto">
         <Footer />

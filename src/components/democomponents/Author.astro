@@ -1,0 +1,17 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    src: string;
+    name: string;
+}
+
+const { src, name } = Astro.props;
+---
+
+<div class="flex items-center gap-2 py-3">
+    <div class="w-16 h-16 overflow-hidden rounded-full">
+        <Img src={src} width={500} objectFit="cover" alt="descriptive text" />
+    </div>
+    <p>{name}</p>
+</div>
