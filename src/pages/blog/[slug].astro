@@ -4,7 +4,7 @@ import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
 import { getPost, getPosts } from "@typescript/strapiApi";
-import type { BlogPost } from "@typescript/types/BlogPost";
+import type { ApiPostPost } from "@typescript/types/schemas";
 import { strapiUploadsBaseUrl } from "@typescript/consts";
 import Header from "@components/democomponents/Header.astro";
 import Image from "@components/democomponents/Image.astro";
@@ -13,15 +13,17 @@ import Paragraph from "@components/democomponents/Paragraph.astro";
 export async function getStaticPaths() {
     const posts = await getPosts();
 
-    return posts.map((post: BlogPost) => ({
-        params: { slug: post.slug },
+    return posts.map((post: ApiPostPost) => ({
+        params: { slug: post.attributes.slug },
     }));
 }
 
 const slug = Astro.params.slug;
 const postItem = await getPost(slug as string);
 
-const blocks = JSON.parse(postItem.content).blocks;
+const postAttributes = postItem.attributes;
+
+const blocks = JSON.parse(postAttributes.content).blocks;
 ---
 
 <Layout>
@@ -29,8 +31,8 @@ const blocks = JSON.parse(postItem.content).blocks;
     <Nav />
     <main class="flex flex-col min-h-screen gap-2 mx-auto lg:gap-16">
         <article class="flex flex-col max-w-2xl mx-auto text-left">
-            <h1 class="blog-header mt-20">{postItem.title}</h1>
-            <p>{postItem.excerpt}</p>
+            <h1 class="blog-header mt-20">{postAttributes.title}</h1>
+            <p>{postAttributes.excerpt}</p>
             {
                 blocks.map((block: any) => {
                     switch (block.type) {
