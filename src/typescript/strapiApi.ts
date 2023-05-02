@@ -1,29 +1,17 @@
 import { strapiApiBaseUrl, strapiUploadsBaseUrl } from "@typescript/consts";
-import type { BlogPost } from "@typescript/types/BlogPost";
 import type { Image } from "@typescript/types/Image";
+import type {
+    ApiPostPost,
+    ApiDemoDemo,
+    ApiAuthorAuthor,
+} from "@typescript/types/schemas";
 
 export async function getPost(slug: string) {
-    const post = await fetch(
+    const post: ApiPostPost = await fetch(
         strapiApiBaseUrl + `/posts?filters[slug][$eq]=${slug}&populate=*`
-    ).then((x) => x.json().then((data) => data.data[0].attributes));
+    ).then((x) => x.json().then((data) => data.data[0]));
 
-    const result: BlogPost = {
-        title: post.title,
-        content: post.content,
-        excerpt: post.excerpt,
-        visibility: post.visibility,
-        readingTime: post.readingTime,
-        slug: post.slug,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
-        publishedAt: post.publishedAt,
-        featuredImage: {
-            id: post.featuredImage.data.id,
-            attributes: post.featuredImage.data.attributes,
-        },
-    };
-
-    return result;
+    return post;
 }
 
 export async function getPosts() {
@@ -35,33 +23,27 @@ export async function getPosts() {
         return [];
     }
 
-    const result: [BlogPost] = posts
-        .map((post: any) => post.attributes)
-        .map((post: any) => {
-            const result: BlogPost = {
-                title: post.title,
-                content: post.content,
-                excerpt: post.excerpt,
-                visibility: post.visibility,
-                readingTime: post.readingTime,
-                slug: post.slug,
-                createdAt: post.createdAt,
-                updatedAt: post.updatedAt,
-                publishedAt: post.publishedAt,
-                featuredImage: {
-                    id: post.featuredImage.data.id,
-                    attributes: post.featuredImage.data.attributes,
-                },
-            };
+    return posts as [ApiPostPost];
+}
 
-            return result;
-        });
+export async function getDemo() {
+    const demo: ApiDemoDemo = await fetch(
+        strapiApiBaseUrl + `/demo?populate=*`
+    ).then((x) => x.json().then((content) => content.data));
 
-    return result;
+    return demo;
+}
+
+export async function getAllAuthors() {
+    const authors_all_data: [ApiAuthorAuthor] = await fetch(
+        strapiApiBaseUrl + `/authors?populate=*`
+    ).then((x) => x.json().then((content) => content.data));
+
+    return authors_all_data;
 }
 
 export function getImageUrl(image: Image) {
-    return strapiUploadsBaseUrl + image.attributes.url;
+    return strapiUploadsBaseUrl + image.data.attributes.url;
 }
 
 // TODO
