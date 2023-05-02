@@ -1,0 +1,15 @@
+---
+interface Props {
+    text: string;
+    caption: string;
+    alignment: string;
+}
+
+const { text, caption, alignment } = Astro.props;
+---
+
+<div class="bg-gray-600">
+    <Fragment set:html={text} />
+    <Fragment set:html={caption} />
+    <p>alignment: {alignment}</p>
+</div>
