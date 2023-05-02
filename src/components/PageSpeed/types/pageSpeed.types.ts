@@ -6,10 +6,15 @@ export interface PagespeedTestResult {
 }
 
 export enum EvaluationResult {
-    Good,
-    NeedsImprovement,
     Poor,
+    Average,
+    Excelent,
 }
+
+export type EvaluationResultColors = {
+    fill_color: string;
+    background_color: string;
+};
 
 export type Strategy = "mobile" | "desktop";
 export type PagespeedTestResultOrError = PagespeedTestResult | string;
