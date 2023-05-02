@@ -8,6 +8,9 @@
     background-color: #151317;
     margin: auto;
 
+    --bg-color: rgb(20, 20, 20);
+    --card-color: rgb(23, 23, 23);
+
     font-family: "Roboto";
     font-size: 100%;
     font-size: 18px;
@@ -191,4 +194,12 @@ select {
 }
 .element:nth-child(6) {
     transition-delay: 750ms;
+}
+
+#cards {
+    width: calc(100% - 20px);
+}
+
+#cards:hover > .card::after {
+    opacity: 1;
 }

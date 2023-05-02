@@ -1,29 +1,23 @@
 ---
 const bg = "/src/assets/bgkupa.png";
-// import herobg from "@assets/hero-bg.png";
-
-import { BackgroundImage } from "astro-imagetools/components";
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
 import Faded from "./elements/Faded.astro";
-
-interface Props {
-    image: {
-        src: string;
-        brightness: number;
-        saturation: number;
-    };
-}
-
-const { image } = Astro.props;
+// import herobg from "@assets/hero-bg.png";
 ---
 
 <div class="relative">
     <Faded direction="bottom" />
     <BackgroundImage
-        src={image.src}
+        src={bg}
         format="avif"
         placeholder="blurred"
-        brightness={image.brightness}
-        saturation={image.saturation}
+        brightness="0.8"
+        saturation="0.2"
         backgroundSize="cover"
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
         artDirectives={[
@@ -53,18 +47,13 @@ const { image } = Astro.props;
 </div>
 
 <!-- <div class="absolute inset-y-0 right-0 z-0 overflow-hidden lg:h-auto">
-            <Picture
-                src={rocket}
-                alt="haha"
-                layout="fixed"
-                placeholder="none"
-                blur={5}
-                brightness={0.7}
-                breakpoints={{ count: 3, minWidth: 150, maxWidth: 700 }}
-            />
-        </div> -->
-
-<!-- sizes="(max-width: 600px) 150px, (max-width:1200px) 300px, 600px" -->
-<!-- <div class="relative mx-auto bg-slate-500 h-128 w-128 -z-100">
-    <div class="absolute w-32 h-32 mx-auto top-1/2 noise noise-panel"></div>
+    <Picture
+        src={rocket}
+        alt="haha"
+        layout="fixed"
+        placeholder="none"
+        blur={5}
+        brightness={0.7}
+        breakpoints={{ count: 3, minWidth: 150, maxWidth: 700 }}
+    />
 </div> -->

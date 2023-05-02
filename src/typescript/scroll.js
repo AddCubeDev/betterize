@@ -2,8 +2,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add("pokaz");
-        } else {
-            entry.target.classList.remove("pokaz");
+            observer.unobserve(entry.target); // przestajemy obserwować element, gdy został już pokazany
         }
     });
 });
