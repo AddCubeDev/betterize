@@ -4,9 +4,7 @@ import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import { Img } from "astro-imagetools/components";
 import Author from "@components/democomponents/Author.astro";
-import Header from "@components/democomponents/Header.astro";
-import Image from "@components/democomponents/Image.astro";
-import Paragraph from "@components/democomponents/Paragraph.astro";
+import EditorContent from "@components/editorjs/EditorContent.astro";
 import { strapiApiBaseUrl, strapiUploadsBaseUrl } from "@typescript/consts";
 
 const demo = await fetch(strapiApiBaseUrl + `/demos?populate=*`).then((x) =>
@@ -63,32 +61,7 @@ const blocks = JSON.parse(demo.attributes.body).blocks;
         </div>
 
         <article class="flex flex-col max-w-2xl mx-auto text-left">
-            {
-                blocks.map((block: any) => {
-                    switch (block.type) {
-                        case "header":
-                            return <Header text={block.data.text} />;
-
-                        case "paragraph":
-                            return <Paragraph text={block.data.text} />;
-
-                        case "image":
-                            return (
-                                <Image
-                                    src={
-                                        strapiUploadsBaseUrl +
-                                        block.data.file.url
-                                    }
-                                    caption={block.data.caption}
-                                />
-                            );
-
-                        default:
-                            <p>I am default</p>;
-                            break;
-                    }
-                })
-            }
+            <EditorContent blocks={blocks} />
         </article>
     </main>
     <div class="mt-auto">

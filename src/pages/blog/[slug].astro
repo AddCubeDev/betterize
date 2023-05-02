@@ -5,10 +5,7 @@ import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
 import { getPost, getPosts } from "@typescript/strapiApi";
 import type { ApiPostPost } from "@typescript/types/schemas";
-import { strapiUploadsBaseUrl } from "@typescript/consts";
-import Header from "@components/democomponents/Header.astro";
-import Image from "@components/democomponents/Image.astro";
-import Paragraph from "@components/democomponents/Paragraph.astro";
+import EditorContent from "@components/editorjs/EditorContent.astro";
 
 export async function getStaticPaths() {
     const posts = await getPosts();
@@ -33,32 +30,7 @@ const blocks = JSON.parse(postAttributes.content).blocks;
         <article class="flex flex-col max-w-2xl mx-auto text-left">
             <h1 class="blog-header mt-20">{postAttributes.title}</h1>
             <p>{postAttributes.excerpt}</p>
-            {
-                blocks.map((block: any) => {
-                    switch (block.type) {
-                        case "header":
-                            return <Header text={block.data.text} />;
-
-                        case "paragraph":
-                            return <Paragraph text={block.data.text} />;
-
-                        case "image":
-                            return (
-                                <Image
-                                    src={
-                                        strapiUploadsBaseUrl +
-                                        block.data.file.url
-                                    }
-                                    caption={block.data.caption}
-                                />
-                            );
-
-                        default:
-                            <p>I am default</p>;
-                            break;
-                    }
-                })
-            }
+            <EditorContent blocks={blocks} />
         </article>
     </main>
     <div class="mt-auto">

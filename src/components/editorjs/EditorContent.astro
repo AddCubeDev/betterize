@@ -1,0 +1,35 @@
+---
+import Header from "@components/editorjs/subcomponents/Header.astro";
+import Image from "@components/editorjs/subcomponents/Image.astro";
+import { strapiUploadsBaseUrl } from "@typescript/consts";
+
+const { blocks } = Astro.props;
+---
+
+{
+    blocks.map((block: any) => {
+        switch (block.type) {
+            case "header":
+                return <Header text={block.data.text} />;
+
+            case "paragraph":
+                return (
+                    <div class="flex items-center gap-2 py-3">
+                        <p>{block.data.text}</p>
+                    </div>
+                );
+
+            case "image":
+                return (
+                    <Image
+                        src={strapiUploadsBaseUrl + block.data.file.url}
+                        caption={block.data.caption}
+                    />
+                );
+
+            default:
+                console.log(block);
+                return <p>Unrecognized editor element</p>;
+        }
+    })
+}
