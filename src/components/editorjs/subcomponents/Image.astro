@@ -4,14 +4,40 @@ import { Img } from "astro-imagetools/components";
 interface Props {
     src: string;
     caption: string;
+    height: number;
+    width: number;
+    stretched: boolean;
 }
 
-const { src, caption } = Astro.props;
+const { src, caption, height, width, stretched } = Astro.props;
 ---
 
 <div class="items-center gap-2 py-3 text-center">
     <div class="w-full overflow-hidden">
-        <Img src={src} width={1200} objectFit="cover" alt="descriptive text" />
+        {
+            () => {
+                if (stretched) {
+                    return (
+                        <Img
+                            src={src}
+                            width={1400}
+                            objectFit="cover"
+                            alt="descriptive text"
+                        />
+                    );
+                } else {
+                    return (
+                        <Img
+                            src={src}
+                            height={height}
+                            width={width}
+                            objectFit="cover"
+                            alt="descriptive text"
+                        />
+                    );
+                }
+            }
+        }
     </div>
     <p>{caption}</p>
 </div>

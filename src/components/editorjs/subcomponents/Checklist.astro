@@ -1,0 +1,32 @@
+---
+interface CheckedListItem {
+    text: string;
+    checked: boolean;
+}
+
+interface Props {
+    items: [CheckedListItem];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="bg-gray-700">
+    {
+        items.map((item: CheckedListItem) => {
+            if (item.checked) {
+                return (
+                    <p class="bg-green-500">
+                        <Fragment set:html={item.text} />
+                    </p>
+                );
+            } else {
+                return (
+                    <p class="bg-red-500">
+                        <Fragment set:html={item.text} />
+                    </p>
+                );
+            }
+        })
+    }
+</div>

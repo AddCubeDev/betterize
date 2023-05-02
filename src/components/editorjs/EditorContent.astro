@@ -1,6 +1,13 @@
 ---
 import Header from "@components/editorjs/subcomponents/Header.astro";
 import Image from "@components/editorjs/subcomponents/Image.astro";
+import Delimeter from "@components/editorjs/subcomponents/Delimeter.astro";
+import Warning from "@components/editorjs/subcomponents/Warning.astro";
+import List from "@components/editorjs/subcomponents/List.astro";
+import Checklist from "@components/editorjs/subcomponents/Checklist.astro";
+import Quote from "@components/editorjs/subcomponents/Quote.astro";
+import Code from "@components/editorjs/subcomponents/Code.astro";
+import Paragraph from "@components/editorjs/subcomponents/Paragraph.astro";
 import { strapiUploadsBaseUrl } from "@typescript/consts";
 
 const { blocks } = Astro.props;
@@ -10,22 +17,54 @@ const { blocks } = Astro.props;
     blocks.map((block: any) => {
         switch (block.type) {
             case "header":
-                return <Header text={block.data.text} />;
+                return (
+                    <Header text={block.data.text} level={block.data.level} />
+                );
 
             case "paragraph":
-                return (
-                    <div class="flex items-center gap-2 py-3">
-                        <p>{block.data.text}</p>
-                    </div>
-                );
+                return <Paragraph text={block.data.text} />;
 
             case "image":
                 return (
                     <Image
                         src={strapiUploadsBaseUrl + block.data.file.url}
                         caption={block.data.caption}
+                        height={block.data.file.height}
+                        width={block.data.file.width}
+                        stretched={block.data.stretched}
                     />
                 );
+
+            case "delimiter":
+                return <Delimeter />;
+
+            case "warning":
+                return (
+                    <Warning
+                        title={block.data.title}
+                        message={block.data.message}
+                    />
+                );
+
+            case "list":
+                return (
+                    <List style={block.data.style} items={block.data.items} />
+                );
+
+            case "quote":
+                return (
+                    <Quote
+                        text={block.data.text}
+                        caption={block.data.caption}
+                        alignment={block.data.alignment}
+                    />
+                );
+
+            case "checklist":
+                return <Checklist items={block.data.items} />;
+
+            case "code":
+                return <Code code={block.data.code} />;
 
             default:
                 console.log(block);

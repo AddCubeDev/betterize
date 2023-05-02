@@ -1,10 +1,20 @@
 ---
 interface Props {
     text: string;
-    level?: number;
+    level: number;
 }
 
-const { text } = Astro.props;
+const { text, level } = Astro.props;
+
+function getHeader() {
+    if (level >= 2 && level <= 6) {
+        return `<h${level} class="blog-header mt-20">${text}</h${level}>`;
+    } else {
+        return `<h2 class="blog-header mt-20">Invalid header value given</h2>`;
+    }
+}
+
+const htmlString = getHeader();
 ---
 
-<h2 class="blog-header mt-20">{text}</h2>
+<Fragment set:html={htmlString} />

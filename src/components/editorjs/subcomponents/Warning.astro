@@ -1,0 +1,13 @@
+---
+interface Props {
+    title: string;
+    message: string;
+}
+
+const { title, message } = Astro.props;
+---
+
+<div class="bg-red-300">
+    <Fragment set:html={title} />
+    <Fragment set:html={message} />
+</div>
