@@ -5,21 +5,17 @@ import Footer from "@components/Footer.astro";
 import { Img } from "astro-imagetools/components";
 import Author from "@components/democomponents/Author.astro";
 import EditorContent from "@components/editorjs/EditorContent.astro";
-import { strapiApiBaseUrl, strapiUploadsBaseUrl } from "@typescript/consts";
+import { getImageUrl, getDemo, getAllAuthors } from "@typescript/strapiApi";
 
-const demo = await fetch(strapiApiBaseUrl + `/demos?populate=*`).then((x) =>
-    x.json().then((content) => content.data[0])
-);
+const demo = await getDemo();
 
-const autors_all_data = await fetch(
-    strapiApiBaseUrl + `/authors?populate=*`
-).then((x) => x.json().then((content) => content.data));
+const autors_all_data = await getAllAuthors();
 
 const authors = demo.attributes.authors.data.map((author: any) => {
     let result = author.attributes;
-    result.image_url = autors_all_data.find(
+    result.image = autors_all_data.find(
         (i: any) => i.id == author.id
-    ).attributes.image.data.attributes.url;
+    )?.attributes.image;
     return result;
 });
 
@@ -44,7 +40,7 @@ const blocks = JSON.parse(demo.attributes.body).blocks;
                 {
                     authors.map((author: any) => (
                         <Author
-                            src={strapiUploadsBaseUrl + author.image_url}
+                            src={getImageUrl(author.image)}
                             name={author.name}
                         />
                     ))
@@ -52,8 +48,7 @@ const blocks = JSON.parse(demo.attributes.body).blocks;
             </div>
             <div class="overflow-hidden rounded-xl">
                 <Img
-                    src={strapiUploadsBaseUrl +
-                        demo.attributes.image.data.attributes.url}
+                    src={getImageUrl(demo.attributes.image)}
                     width={600}
                     alt="descriptive text"
                 />
