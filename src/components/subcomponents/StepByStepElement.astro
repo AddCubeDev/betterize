@@ -3,39 +3,55 @@ interface Props {
     title?: string;
     paragraph?: string;
     src?: string;
-    number?: any;
+    number?: number;
+    connect?: string;
 }
 const {
     title = "Jestem pytaniem, które ktoś mógłby zadać",
     paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
     number = "1",
     src = "/src/assets/search.png",
+    connect = "hidden",
 } = Astro.props;
 ---
 
-<div
-    data-tilt
-    data-tilt-max="2"
-    data-tilt-speed="200"
-    data-tilt-perspective="600"
-    class="relative flex flex-col w-full h-64 rounded-lg element lg:h-84 bg-white/10 card schowaj"
->
+<div>
     <div
-        class="flex flex-col items-center justify-start px-2 py-4 element card-content"
+        data-tilt
+        data-tilt-axis="x"
+        data-tilt-max="4"
+        data-tilt-speed="800"
+        data-tilt-perspective="1000"
+        class="relative flex w-full text-left rounded-lg shadow-xl border-1 border-sky-500/50 element h-84 card schowaj"
     >
-        <div class="pb-6">
-            <img src={src} alt={title} width="200" height="200" />
+        <div
+            class="grid items-center justify-start grid-cols-2 px-2 py-4 element card-content"
+        >
+            <div class="pl-12">
+                <h2 class="mb-2 text-4xl font-bold">
+                    {title}
+                </h2>
+                <p class="text-sm">
+                    {paragraph}
+                </p>
+            </div>
+            <div class="pb-6 mx-auto">
+                <img src={src} alt={title} width="250" height="250" />
+            </div>
         </div>
-        <h2 class="mb-2 text-lg font-bold">{title}</h2>
-        <p class="px-2 text-sm">
-            {paragraph}
+        <p class="left-2 top-1 text-[100px] outlined-text absolute">
+            {number}
         </p>
+        <div
+            class="absolute inset-0 rounded-lg animate-pulse bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 bg-blur2 -z-1"
+        >
+        </div>
     </div>
-    <p class="top-0 left-0 text-[150px] outlined-text absolute">
-        {number}
-    </p>
+    <div
+        class="w-6 h-20 mx-auto bg-gradient-to-b from-sky-900 via-sky-500 to-sky-900 ${connect}"
+    >
+    </div>
 </div>
-
 <style>
     #cards {
         width: calc(100% - 20px);
@@ -46,10 +62,6 @@ const {
     }
     .card {
         position: relative;
-    }
-
-    .card:hover::before {
-        opacity: 1;
     }
 
     .card::before,
@@ -87,9 +99,7 @@ const {
     .card > .card-content {
         background-color: var(--card-color);
         border-radius: inherit;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
+
         inset: 1px;
         position: absolute;
         z-index: 2;
