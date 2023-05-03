@@ -50,6 +50,27 @@ export default defineConfig({
                 none: "none",
                 blur: "blur(20px)",
             },
+            animation: {
+                spin: "spin 1s linear infinite",
+                ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+                pulse: "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                bounce: "bounce 1s infinite",
+                shock: {
+                    animation: "shock",
+                    transformOrigin: "center bottom",
+                },
+                flash: "flash",
+                bubble: "bubble infinite",
+                "rubber-band": "rubberBand",
+                "shake-x": "shakeX",
+                // ...
+            },
+            keyframes: {
+                wiggle: {
+                    "0%, 100%": { transform: "rotate(-3deg)" },
+                    "50%": { transform: "rotate(3deg)" },
+                },
+            },
         },
     },
     variants: {
