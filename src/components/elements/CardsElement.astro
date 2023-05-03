@@ -2,18 +2,22 @@
 interface Props {
     title?: string;
     paragraph?: string;
-    // src?: string;
+    src?: string;
 }
 
 const {
-    src = "@assets/advantages/time.svg",
+    src = "/src/assets/advantages/time.svg",
     title = "SEO",
     paragraph = "Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)",
 } = Astro.props;
 ---
 
 <div
-    class="relative flex flex-col w-full h-64 rounded-lg element lg:h-70 bg-white/10 card lg:schowaj"
+    data-tilt
+    data-tilt-max="2"
+    data-tilt-speed="300"
+    data-tilt-perspective="400"
+    class="relative flex flex-col w-full h-64 rounded-lg element lg:h-70 bg-white/10 card schowaj"
 >
     <div
         class="flex flex-col items-center justify-start px-2 py-4 element card-content"
@@ -80,3 +84,4 @@ const {
         z-index: 2;
     }
 </style>
+<script type="text/javascript" src="/src/typescript/vanilla-tilt.js"></script>

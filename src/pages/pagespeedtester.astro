@@ -14,40 +14,31 @@ const bg = "/src/assets/bg7.jpg";
     <div class="">
         <Nav />
     </div>
-    <div class="relative">
-        <Faded color="#151317" direction="bottom" />
 
-        <BackgroundImage
-            src={bg}
-            format="avif"
-            placeholder="blurred"
-            backgroundSize="cover"
-            quality={90}
-            brightness={0.5}
-            breakpoints={{ count: 6, minWidth: 400, maxWidth: 2560 }}
+    <section
+        class="flex flex-col justify-center h-screen py-0 rounded-lg main-content lg:h-screen"
+    >
+        <div
+            class="relative px-4 pt-20 pb-10 border rounded-lg shadow-2xl bg-black/90 bg-opacity bg-clip-padding border-gray-300/50"
         >
-            <section
-                class="flex flex-col items-center justify-start min-h-screen pt-20 rounded-lg main-content"
+            <div class="pb-12">
+                <h2 class="pb-4 header-1">Sprawdź wydajność swojej strony</h2>
+                <p class="ordinary-text">
+                    Google w 2021 wprowadził nowe standardy oceniania i
+                    pozycjonowania stron internetowych. Sprawdź czy twoja strona
+                    spełnia nowe wymagania Googla
+                </p>
+            </div>
+            <div
+                class="absolute inset-0 rounded-lg bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 bg-blur -z-1"
             >
-                <div
-                    class="px-4 py-20 bg-black border rounded-lg shadow-2xl bg-clip-padding bg-opacity-60 border-gray-300/20 shadow-sky-800/50 backdrop-filter backdrop-blur-xl"
-                >
-                    <div class="pb-12">
-                        <h2 class="pb-4 header-1">
-                            Sprawdź wydajność swojej strony
-                        </h2>
-                        <p class="ordinary-text">
-                            Google w 2021 wprowadził nowe standardy oceniania i
-                            pozycjonowania stron internetowych. Sprawdź czy
-                            twoja strona spełnia nowe wymagania Googla
-                        </p>
-                    </div>
+            </div>
 
-                    <PageSpeed client:only />
-                </div>
-            </section>
-        </BackgroundImage>
-    </div>
+            <div class="flex items-start justify-center h-128 lg:h-96">
+                <PageSpeed client:only />
+            </div>
+        </div>
+    </section>
 
     <div class="mt-auto">
         <Footer />

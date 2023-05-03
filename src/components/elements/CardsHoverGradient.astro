@@ -1,14 +1,42 @@
 ---
-import { Img } from "astro-imagetools/components";
 import CardsElement from "./CardsElement.astro";
-
-import seo from "@assets/advantages/seo.svg";
-import retention from "@assets/advantages/retention.svg";
-import bounce from "@assets/advantages/bounce.svg";
-import activity from "@assets/advantages/activity.svg";
-import time from "@assets/advantages/time.svg";
-import adds from "@assets/advantages/adds.svg";
 ---
+
+<div
+    class="grid w-full max-w-6xl grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3"
+    id="cards"
+>
+    <CardsElement
+        title="SEO"
+        paragraph="Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)"
+        src="/src/assets/advantages/seo.svg"
+    />
+    <CardsElement
+        title="Wyższa retencja klientów"
+        paragraph="79% klientów, którzy doświadczyli problemów z wydajnością strony, nie wraca do tego sklepu"
+        src="/src/assets/advantages/retention.svg"
+    />
+    <CardsElement
+        title="Niższy współczynnik odrzuceń"
+        paragraph="Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a te ładujące się 1-5s aż o 90% większe!."
+        src="/src/assets/advantages/bounce.svg"
+    />
+    <CardsElement
+        title="Większa aktywność na stronie"
+        paragraph="Szybsze strony poprawiają wskaźniki aktywności użytkowników, takie jak dłuższy czas na stronie i więcej odwiedzanych podstron"
+        src="/src/assets/advantages/activity.svg"
+    />
+    <CardsElement
+        title="Skrócony czas decyzji"
+        paragraph="Szybko ładujące się strony pozwalają użytkownikom szybciej podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)"
+        src="/src/assets/advantages/time.svg"
+    />
+    <CardsElement
+        title="Skuteczniejsze reklamy"
+        paragraph="Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC) i wyższych współczynników konwersji w kampaniach reklamowych (WordStream)"
+        src="/src/assets/advantages/adds.svg"
+    />
+</div>
 
 <script>
     document.getElementById("cards").onmousemove = (e) => {
@@ -17,49 +45,8 @@ import adds from "@assets/advantages/adds.svg";
                 x = e.clientX - rect.left,
                 y = e.clientY - rect.top;
 
-            // Obliczenie kąta nachylenia (w radianach) na podstawie pozycji myszy
-            const angleRadians = Math.atan2(y, x);
-
-            // Konwersja radianów na stopnie
-            const angleDegrees = angleRadians * (180 / Math.PI);
-
-            // Uaktualnienie wartości zmiennych CSS
             card.style.setProperty("--mouse-x", `${x}px`);
             card.style.setProperty("--mouse-y", `${y}px`);
-            card.style.setProperty("--angle", `${angleDegrees}deg`);
         }
     };
 </script>
-
-<div class="grid w-full max-w-6xl grid-cols-3 gap-2 schowaj" id="cards">
-    <CardsElement
-        title="SEO"
-        paragraph="Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)"
-        src={seo}
-    />
-    <CardsElement
-        title="Wyższa retencja klientów"
-        paragraph="79% klientów, którzy doświadczyli problemów z wydajnością strony, nie wraca do tego sklepu"
-        src={retention}
-    />
-    <CardsElement
-        title="Niższy współczynnik odrzuceń"
-        paragraph="Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a te ładujące się 1-5s aż o 90% większe!."
-        src={bounce}
-    />
-    <CardsElement
-        title="Większa aktywność na stronie"
-        paragraph="Szybsze strony poprawiają wskaźniki aktywności użytkowników, takie jak dłuższy czas na stronie i więcej odwiedzanych podstron"
-        src={activity}
-    />
-    <CardsElement
-        title="Skrócony czas decyzji"
-        paragraph="Szybko ładujące się strony pozwalają użytkownikom szybciej podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)"
-        src={time}
-    />
-    <CardsElement
-        title="Skuteczniejsze reklamy"
-        paragraph="Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC) i wyższych współczynników konwersji w kampaniach reklamowych (WordStream)"
-        src={adds}
-    />
-</div>

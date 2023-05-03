@@ -149,7 +149,7 @@ select {
     }
 }
 .bg-blur {
-    filter: blur(80px);
+    filter: blur(50px);
 }
 
 .naviczek {
@@ -181,19 +181,19 @@ select {
 }
 
 .element:nth-child(2) {
-    transition-delay: 150ms;
+    transition-delay: 250ms;
 }
 .element:nth-child(3) {
-    transition-delay: 300ms;
+    transition-delay: 500ms;
 }
 .element:nth-child(4) {
-    transition-delay: 450ms;
+    transition-delay: 750ms;
 }
 .element:nth-child(5) {
-    transition-delay: 600ms;
+    transition-delay: 1000ms;
 }
 .element:nth-child(6) {
-    transition-delay: 750ms;
+    transition-delay: 1250ms;
 }
 
 #cards {

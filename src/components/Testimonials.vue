@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto max-w-full p-4 py-20 lg:max-w-6xl">
+    <div class="max-w-full p-4 mx-auto lg:max-w-6xl">
         <swiper-container init="false">
             <SwiperSlider
                 v-for="(item, index) in props.testimonials_data"
