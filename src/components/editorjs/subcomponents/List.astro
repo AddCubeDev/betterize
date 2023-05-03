@@ -17,7 +17,6 @@ const { style, items } = Astro.props;
         () => {
             if (style == Style.Ordered) {
                 return items.map((item: string, index: number) => (
-                    // index + 1 is needed to start with 1 not 0
                     <p>
                         {index + 1}
                         <Fragment set:html={item} />
