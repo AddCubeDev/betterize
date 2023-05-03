@@ -57,7 +57,6 @@ const { blocks } = Astro.props;
                     <Quote
                         text={block.data.text}
                         caption={block.data.caption}
-                        alignment={block.data.alignment}
                     />
                 );
 
@@ -65,6 +64,7 @@ const { blocks } = Astro.props;
                 return <Checklist items={block.data.items} />;
 
             case "code":
+                console.log(block);
                 return <Code code={block.data.code} />;
 
             case "LinkTool":
