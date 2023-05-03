@@ -1,8 +1,12 @@
 ---
-const bg = "/src/assets/bgkupa.png";
+const bg = "/src/assets/bg-hero.png";
 import { BackgroundImage } from "astro-imagetools/components";
 import Faded from "./elements/Faded.astro";
 // import herobg from "@assets/hero-bg.png";
+
+/*
+artDirectives attribute (see below) is used ONLY to make Lighthouse happy !
+*/
 ---
 
 <div class="relative">
@@ -17,7 +21,7 @@ import Faded from "./elements/Faded.astro";
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
         artDirectives={[
             {
-                src: bghero,
+                src: bg,
                 media: "(orientation: potrait)",
             },
         ]}

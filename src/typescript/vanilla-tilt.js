@@ -81,12 +81,14 @@ var VanillaTilt = (function () {
                     this.onMouseMoveBind
                 ),
                 (this.glare || this.fullPageListening) &&
-                    window.addEventListener("resize", this.onWindowResizeBind),
+                    window.addEventListener("resize", this.onWindowResizeBind);
+                /* pdodev 03.05.2023: warning w kosoli:  Use of the orientation sensor is deprecated.
                 this.gyroscope &&
                     window.addEventListener(
                         "deviceorientation",
                         this.onDeviceOrientationBind
                     );
+                    */
         }
         removeEventListeners() {
             this.elementListener.removeEventListener(
@@ -101,16 +103,19 @@ var VanillaTilt = (function () {
                     "mousemove",
                     this.onMouseMoveBind
                 ),
-                this.gyroscope &&
-                    window.removeEventListener(
-                        "deviceorientation",
-                        this.onDeviceOrientationBind
-                    ),
                 (this.glare || this.fullPageListening) &&
                     window.removeEventListener(
                         "resize",
                         this.onWindowResizeBind
                     );
+                /* pdodev 03.05.2023: see comment above
+                this.gyroscope &&
+                    window.removeEventListener(
+                        "deviceorientation",
+                        this.onDeviceOrientationBind
+                    ),
+                */
+
         }
         destroy() {
             clearTimeout(this.transitionTimeout),
