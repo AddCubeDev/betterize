@@ -8,6 +8,7 @@ import Checklist from "@components/editorjs/subcomponents/Checklist.astro";
 import Quote from "@components/editorjs/subcomponents/Quote.astro";
 import Code from "@components/editorjs/subcomponents/Code.astro";
 import Paragraph from "@components/editorjs/subcomponents/Paragraph.astro";
+import Link from "@components/editorjs/subcomponents/Link.astro";
 import { strapiUploadsBaseUrl } from "@typescript/consts";
 
 const { blocks } = Astro.props;
@@ -56,7 +57,6 @@ const { blocks } = Astro.props;
                     <Quote
                         text={block.data.text}
                         caption={block.data.caption}
-                        alignment={block.data.alignment}
                     />
                 );
 
@@ -65,6 +65,16 @@ const { blocks } = Astro.props;
 
             case "code":
                 return <Code code={block.data.code} />;
+
+            case "LinkTool":
+                return (
+                    <Link
+                        link={block.data.link}
+                        title={block.data.meta.title}
+                        description={block.data.meta.description}
+                        image_url={block.data.meta.image.url}
+                    />
+                );
 
             default:
                 console.log(block);

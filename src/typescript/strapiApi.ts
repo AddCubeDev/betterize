@@ -4,6 +4,7 @@ import type {
     ApiPostPost,
     ApiDemoDemo,
     ApiAuthorAuthor,
+    ApiProjectProject,
 } from "@typescript/types/schemas";
 
 export async function getPost(slug: string) {
@@ -46,10 +47,22 @@ export function getImageUrl(image: Image) {
     return strapiUploadsBaseUrl + image.data.attributes.url;
 }
 
-// TODO
-// if (posts == null || posts.data == null) {
-//     console.error(
-//         "Unable to fetch posts data. Check strapi connection. Message: " +
-//             JSON.stringify(posts)
-//     );
-// }
+export async function getProjects() {
+    const projects = await fetch(
+        strapiApiBaseUrl + `/projects?&populate=*`
+    ).then((x) => x.json().then((content) => content.data));
+
+    if (!projects) {
+        return [];
+    }
+
+    return projects as [ApiProjectProject];
+}
+
+export async function getProject(slug: string) {
+    const project: ApiProjectProject = await fetch(
+        strapiApiBaseUrl + `/projects?filters[slug][$eq]=${slug}&populate=*`
+    ).then((x) => x.json().then((data) => data.data[0]));
+
+    return project;
+}

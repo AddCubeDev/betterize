@@ -18,8 +18,10 @@ import {
   DecimalAttribute,
   SetMinMax,
   MediaAttribute,
+  SingleTypeSchema,
   RichTextAttribute,
   UIDAttribute,
+  DateAttribute,
 } from '@strapi/strapi';
 
 export interface AdminPermission extends CollectionTypeSchema {
@@ -744,18 +746,17 @@ export interface ApiContactFormContactForm extends CollectionTypeSchema {
   };
 }
 
-export interface ApiDemoDemo extends CollectionTypeSchema {
+export interface ApiDemoDemo extends SingleTypeSchema {
   info: {
     singularName: 'demo';
     pluralName: 'demos';
     displayName: 'Demo';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    body: RichTextAttribute;
+    body: RichTextAttribute & RequiredAttribute;
     authors: RelationAttribute<
       'api::demo.demo',
       'oneToMany',
@@ -821,6 +822,8 @@ export interface ApiProjectProject extends CollectionTypeSchema {
       'api::author.author'
     >;
     body: RichTextAttribute & RequiredAttribute;
+    slug: UIDAttribute<'api::project.project', 'title'> & RequiredAttribute;
+    date: DateAttribute & RequiredAttribute;
     createdAt: DateTimeAttribute;
     updatedAt: DateTimeAttribute;
     publishedAt: DateTimeAttribute;
