@@ -11,6 +11,7 @@ import {
 import ButtonContact from "./subcomponents/ButtonContact.astro";
 import FAQsection from "./subcomponents/FAQsection.astro";
 import Faded from "./elements/Faded.astro";
+import ContactForm from "@components/subcomponents/ContactForm.astro";
 ---
 
 <div class="relative flex flex-col items-center justify-center lg:pb-40">
@@ -24,24 +25,26 @@ import Faded from "./elements/Faded.astro";
     </div>
 
     <section
-        class="flex flex-col items-center justify-center gap-6 py-20 main-content schowaj"
+        class="flex flex-col items-center justify-center gap-20 py-20 main-content"
     >
-        <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
-        >
-            Pozwól googlowi zdobywać dla Ciebie klientów dzięki nowoczesnej
-            stronie internetowej.
-        </span>
+        <div class="schowaj">
+            <h2
+                class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
+            >
+                Popraw swoje wyniki dzięki nowoczesnej stronie www
+            </h2>
 
-        <p class="ordinary-text">
-            Napisz do nas na kontakt@betterize.pl lub użyj formularza
-            kontaktowego klikając w przycisk poniżej
-        </p>
-        <ButtonContact />
-
-        <!-- <div class="mx-auto mt-auto">
-        <Img src={arrow} alt="asdasdasd" placeholder="none" />
-    </div> -->
+            <p class="ordinary-text">
+                Napisz do nas na kontakt@betterize.pl lub użyj formularza
+                kontaktowego klikając w przycisk poniżej
+            </p>
+        </div>
+        <div>
+            <ContactForm />
+        </div>
+        <div class="flex flex-col gap-8">
+            <h2 class="text-4xl header-1">najczęściej zadawane pytania</h2>
+            <FAQsection />
+        </div>
     </section>
-    <FAQsection />
 </div>

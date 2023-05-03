@@ -12,19 +12,21 @@ interface Props {
 const { style, items } = Astro.props;
 ---
 
-<div class="px-10">
+<div class="px-4 pb-4">
     {
         () => {
             if (style == Style.Ordered) {
                 return items.map((item: string, index: number) => (
-                    <p>
+                    <li>
                         {index + 1}
                         <Fragment set:html={item} />
-                    </p>
+                    </li>
                 ));
             } else {
                 return items.map((item: string) => (
-                    <Fragment set:html={item} />
+                    <li>
+                        <Fragment set:html={item} />
+                    </li>
                 ));
             }
         }
