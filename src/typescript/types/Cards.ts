@@ -3,3 +3,5 @@ export interface Card {
     paragraph: string;
     src: string;
 }
+
+export type Cards = Card[];

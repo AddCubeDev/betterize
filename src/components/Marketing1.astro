@@ -1,25 +1,43 @@
 ---
 import CardsHoverGradient from "./elements/CardsHoverGradient.astro";
-import { Card } from "@typescript/Card.ts";
+import { Cards } from "@typescript/types/Cards";
 
-const CardsData: Card[] = [
+const cards: Cards = [
     {
         title: "SEO",
         paragraph:
-            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
-        src: "/src/assests/advantages/seo.svg",
+            "Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)",
+        src: "/src/assets/advantages/seo.svg",
     },
     {
-        title: "SEO",
+        title: "Wyższa retencja klientów",
         paragraph:
-            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
-        src: "/src/assests/advantages/seo.svg",
+            "79% klientów, którzy doświadczyli problemów z wydajnością strony, nie wraca do tego sklepu",
+        src: "/src/assets/advantages/retention.svg",
     },
     {
-        title: "SEO",
+        title: "Niższy współczynnik odrzuceń",
         paragraph:
-            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
-        src: "/src/assests/advantages/seo.svg",
+            "Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a te ładujące się 1-5s aż o 90% większe!.",
+        src: "/src/assets/advantages/bounce.svg",
+    },
+    {
+        title: "Większa aktywność na stronie",
+        paragraph:
+            "Szybsze strony poprawiają wskaźniki aktywności użytkowników, takie jak dłuższy czas na stronie i więcej odwiedzanych podstron",
+        src: "/src/assets/advantages/activity.svg",
+    },
+    {
+        title: "Skrócony czas decyzji",
+        paragraph:
+            "Szybko ładujące się strony pozwalają użytkownikom szybciej podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)",
+        src: "/src/assets/advantages/time.svg",
+    },
+    {
+        title: "Skuteczniejsze reklamy",
+        paragraph:
+            "Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC) i wyższych współczynników konwersji w kampaniach reklamowych (WordStream)",
+        src: "/src/assets/advantages/adds.svg",
     },
 ];
 ---
@@ -32,6 +50,6 @@ const CardsData: Card[] = [
         </p>
     </div>
     <div class="flex justify-center w-full">
-        <CardsHoverGradient />
+        <CardsHoverGradient cards={cards} />
     </div>
 </div>

@@ -1,41 +1,45 @@
 ---
 import CardsElement from "./CardsElement.astro";
+import { Cards } from "@typescript/types/Cards";
+
+interface Props {
+    cards?: Cards;
+}
+
+const {
+    cards = [
+        {
+            title: "Title 1",
+            paragraph: "Paragraph 1",
+            src: "/src/assets/advantages/seo.svg",
+        },
+        {
+            title: "Title 2",
+            paragraph: "Paragraph 2",
+            src: "/src/assets/advantages/seo.svg",
+        },
+        {
+            title: "Title 3",
+            paragraph: "Paragraph 3",
+            src: "/src/assets/advantages/seo.svg",
+        },
+    ],
+} = Astro.props;
 ---
 
 <div
     class="grid w-full max-w-6xl grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3"
     id="cards"
 >
-    <CardsElement
-        title="SEO"
-        paragraph="Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)"
-        src="/src/assets/advantages/seo.svg"
-    />
-    <CardsElement
-        title="Wyższa retencja klientów"
-        paragraph="79% klientów, którzy doświadczyli problemów z wydajnością strony, nie wraca do tego sklepu"
-        src="/src/assets/advantages/retention.svg"
-    />
-    <CardsElement
-        title="Niższy współczynnik odrzuceń"
-        paragraph="Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a te ładujące się 1-5s aż o 90% większe!."
-        src="/src/assets/advantages/bounce.svg"
-    />
-    <CardsElement
-        title="Większa aktywność na stronie"
-        paragraph="Szybsze strony poprawiają wskaźniki aktywności użytkowników, takie jak dłuższy czas na stronie i więcej odwiedzanych podstron"
-        src="/src/assets/advantages/activity.svg"
-    />
-    <CardsElement
-        title="Skrócony czas decyzji"
-        paragraph="Szybko ładujące się strony pozwalają użytkownikom szybciej podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)"
-        src="/src/assets/advantages/time.svg"
-    />
-    <CardsElement
-        title="Skuteczniejsze reklamy"
-        paragraph="Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC) i wyższych współczynników konwersji w kampaniach reklamowych (WordStream)"
-        src="/src/assets/advantages/adds.svg"
-    />
+    {
+        cards.map((card) => (
+            <CardsElement
+                title={card.title}
+                paragraph={card.paragraph}
+                src={card.src}
+            />
+        ))
+    }
 </div>
 
 <script>
