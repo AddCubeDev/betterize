@@ -32,7 +32,15 @@ const {
     </div>
 </div>
 
+<script src="/src/typescript/vanilla-tilt.js"></script>
 <style>
+    #cards {
+        width: calc(100% - 20px);
+    }
+
+    #cards:hover > .card::after {
+        opacity: 1;
+    }
     .card {
         position: relative;
     }
@@ -84,4 +92,3 @@ const {
         z-index: 2;
     }
 </style>
-<script src="/src/typescript/vanilla-tilt.js"></script>
