@@ -1,10 +1,27 @@
 ---
-const seo = "/src/assets/seo.png";
-const bounce = "/src/assets/bounce.png";
-const reputation = "/src/assets/reputation.png";
-
-import AdvantageItem from "@components/subcomponents/AdvantageItem.astro";
 import CardsHoverGradient from "./elements/CardsHoverGradient.astro";
+import { Card } from "@typescript/Card.ts";
+
+const CardsData: Card[] = [
+    {
+        title: "SEO",
+        paragraph:
+            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
+        src: "/src/assests/advantages/seo.svg",
+    },
+    {
+        title: "SEO",
+        paragraph:
+            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
+        src: "/src/assests/advantages/seo.svg",
+    },
+    {
+        title: "SEO",
+        paragraph:
+            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
+        src: "/src/assests/advantages/seo.svg",
+    },
+];
 ---
 
 <div>

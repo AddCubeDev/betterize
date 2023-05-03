@@ -33,6 +33,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         data-error="Email nie może mieć więcej niż 30 znaków."
                         pattern="[a-zA-Z-]{1,50}"
                         required
+                        autocomplete="off"
                     />
                 </div>
 
@@ -52,6 +53,7 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
                         data-error="Email nie może mieć więcej niż 30 znaków."
                         maxlength="30"
                         required
+                        autocomplete="off"
                     />
                 </div>
 
@@ -91,11 +93,6 @@ import FancyBg from "@components/subcomponents/FancyBg.astro";
 
 <style>
     /* Twoje istniejące style CSS */
-
-    input:invalid,
-    textarea:invalid {
-        border: 1px solid red;
-    }
 
     #responseInfo {
         font-weight: bold;
