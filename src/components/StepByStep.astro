@@ -53,13 +53,16 @@ import { Cards } from "@typescript/types/Cards";
 </section>
 
 <script>
-    import { createObserversForChildrenOfElementWithId } from "/src/typescript/mousePosition.ts";
+    import { createObserversForChildrenOfElementWithId } from "@typescript/mousePosition.ts";
+    import { isMobileDevice } from "@typescript/isMobile.ts";
 
     // "card" is the class name used in a div element by StepByStepElement
-    const observers = createObserversForChildrenOfElementWithId({
-        id: "StepByStepAllCards",
-        class: "card",
-    });
+    const observers =
+        !isMobileDevice() &&
+        createObserversForChildrenOfElementWithId({
+            id: "StepByStepAllCards",
+            class: "card",
+        });
 </script>
 
 <style>
