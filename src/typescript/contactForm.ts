@@ -40,6 +40,7 @@ export async function sendContactRequest(
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.PUBLIC_STRAPI_TOKEN}`,
         },
         body: JSON.stringify({
             data: {
