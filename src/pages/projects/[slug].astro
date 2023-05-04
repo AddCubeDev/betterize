@@ -12,6 +12,8 @@ import {
 } from "@typescript/strapiApi";
 import type { ApiProjectProject } from "@typescript/types/schemas";
 import EditorContent from "@components/editorjs/EditorContent.astro";
+import Proof from "@components/Proof.astro";
+import ProofItem from "@components/subcomponents/ProofItem.astro";
 
 export async function getStaticPaths() {
     const projects = await getProjects();
@@ -39,21 +41,37 @@ const authors = attributes.authors.data.map((author: any) => {
 const blocks = JSON.parse(attributes.body).blocks;
 ---
 
+<script src="/src/typescript/vanilla-tilt.js"></script>
 <Layout>
     <div class="mb-10 lg:mb-20">
         <Nav />
     </div>
-    <main
-        class="flex flex-col mx-auto min-h-screen max-w-6xl p-4 gap-2 xl:(p-0 gap-28)"
+    <div
+        style="transform-style: preserve-3d"
+        data-tilt-max="5"
+        data-tilt-speed="400"
+        data-tilt-perspective="1000"
+        data-tilt
+        data-tilt-glare
+        data-tilt-max-glare="0.1"
+        class="relative grid max-w-6xl grid-cols-1 gap-8 px-4 py-4 lg:(px-8 py-8) mx-2 text-left xl:mx-auto rounded-xl bg-zinc-900 lg:grid-cols-2"
     >
-        <div class="grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
-            <div class="flex flex-col justify-between">
-                <div class="mb-4">
-                    <h1 class="mb-4 header-1">{attributes.title}</h1>
-                    <p class="header-3">
-                        {attributes.subtitle}
-                    </p>
-                </div>
+        <div
+            class="absolute inset-0 rounded-lg opacity-10 bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 bg-blur -z-1"
+        >
+        </div>
+        <div class="flex flex-col justify-between order-2 lg:order-1">
+            <div class="mb-4">
+                <h1 class="mb-4 text-4xl font-bold uppercase lg:text-5xl">
+                    {attributes.title}
+                </h1>
+                <p class="text-gray-300 header-3">
+                    {attributes.subtitle}
+                </p>
+            </div>
+            <div
+                class="flex gap-8 flex-col lg:flex-row overflow-hidden max-w-[600px]"
+            >
                 {
                     authors.map((author: any) => (
                         <Author
@@ -63,19 +81,66 @@ const blocks = JSON.parse(attributes.body).blocks;
                     ))
                 }
             </div>
-            <div class="overflow-hidden rounded-xl">
-                <Img
-                    src={getImageUrl(attributes.image)}
-                    width={600}
-                    alt="descriptive text"
-                />
-            </div>
         </div>
-
+        <div
+            style="transform: translateZ(30px)"
+            class="order-1 mx-auto my-auto overflow-hidden shadow-2xl lg:order-2 rounded-xl shadow-black/50"
+        >
+            <Img
+                src={getImageUrl(attributes.image)}
+                width={600}
+                alt="descriptive text"
+            />
+        </div>
+    </div>
+    <main
+        class="flex flex-col max-w-6xl min-h-screen gap-2 p-4 mx-auto xl:gap-28"
+    >
         <article class="flex flex-col max-w-2xl mx-auto text-left">
             <EditorContent blocks={blocks} />
         </article>
     </main>
+
+    <div class="flex flex-col max-w-2xl gap-8 mx-auto my-10">
+        <div
+            class="flex gap-8 overflow-hidden border-t border-b border-gray-100/30 lg:flex-row"
+        >
+            {
+                authors.map((author: any) => (
+                    <Author
+                        src={getImageUrl(author.image)}
+                        name={author.name}
+                    />
+                ))
+            }
+        </div>
+    </div>
+    <section class="my-10 mb-20">
+        <h2 class="mx-auto mb-8 text-2xl font-medium">Inne artykuły:</h2>
+        <div
+            class="grid w-full gap-8 mx-auto rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl"
+        >
+            <ProofItem
+                title="zwiększenie leadów o 180% dla firmy Marketliners"
+                paragraph="Dzięki poprawie jakości i przejrzystości informacji na stronie Marketliners, skróceniu formularzy kontaktowych i wykorzystaniu opinii klientów oraz elementów społecznościowych, udało mi się zwiększyć o 180% wzrost zapisów na rozmowę wstępną na temat produktu."
+                src="/src/assets/marketliners.jpg"
+                href="/projects/dubbleup"
+            />
+            <ProofItem
+                title="Jak poprawiliśmy wydajność swiperight.pl"
+                paragraph="Swiperight to firma skupiająca się na robieniu zdjęć dla randkowiczów. Bardzo ważne było dla niech zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób."
+                src="/src/assets/swiperight.jpg"
+                href="/projects/swiperight"
+            />
+            <ProofItem
+                title="Perfekcyjny wynik GoogleLighthouse na Betterize"
+                paragraph="Betterize to firma skupiająca się na robieniu stron internetowych. Bardzo ważne było dla niech zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób."
+                src="/src/assets/betterize.jpg"
+                href="/projects/betterize"
+            />
+        </div>
+    </section>
+
     <div class="mt-auto">
         <Footer />
     </div>

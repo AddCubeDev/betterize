@@ -13,14 +13,14 @@ const { src, caption, height, width, stretched } = Astro.props;
 ---
 
 <div class="items-center gap-2 py-3 text-center">
-    <div class="w-full overflow-hidden">
+    <div class="w-full mb-2 overflow-hidden rounded-lg shadow-2xl shadow-black">
         {
             () => {
                 if (stretched) {
                     return (
                         <Img
                             src={src}
-                            width={1400}
+                            width={800}
                             objectFit="cover"
                             alt="descriptive text"
                         />
@@ -39,5 +39,5 @@ const { src, caption, height, width, stretched } = Astro.props;
             }
         }
     </div>
-    <p>{caption}</p>
+    <p class="font-light text-gray-400">{caption}</p>
 </div>
