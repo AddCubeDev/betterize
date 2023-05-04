@@ -11,7 +11,7 @@ const {
     paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
     number = "1",
     src = "/src/assets/search.png",
-    connect = "hidden",
+    connect = "",
 } = Astro.props;
 ---
 
@@ -48,7 +48,7 @@ const {
         </div>
     </div>
     <div
-        class="w-6 h-20 mx-auto bg-gradient-to-b from-sky-900 via-sky-500 to-sky-900 ${connect}"
+        class=`w-6 h-20 mx-auto bg-gradient-to-b from-sky-900 via-sky-500 to-sky-900 ${connect}`
     >
     </div>
 </div>

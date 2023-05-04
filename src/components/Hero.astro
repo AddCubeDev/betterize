@@ -1,6 +1,6 @@
 ---
 const bg = "/src/assets/bg-hero.png";
-import { BackgroundImage } from "astro-imagetools/components";
+import { Img, BackgroundImage } from "astro-imagetools/components";
 import Faded from "./elements/Faded.astro";
 // import herobg from "@assets/hero-bg.png";
 
@@ -15,7 +15,7 @@ artDirectives attribute (see below) is used ONLY to make Lighthouse happy !
         src={bg}
         format="avif"
         placeholder="blurred"
-        brightness="0.8"
+        brightness="0.2"
         saturation="0.2"
         backgroundSize="cover"
         breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
@@ -27,7 +27,7 @@ artDirectives attribute (see below) is used ONLY to make Lighthouse happy !
         ]}
     >
         <section class="relative z-10 flex h-128 main-content">
-            <div class="flex flex-col items-center justify-center mx-auto">
+            <div class="flex flex-col justify-center mx-auto text-left">
                 <h1 class="header-1">
                     robimy <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
@@ -40,6 +40,13 @@ artDirectives attribute (see below) is used ONLY to make Lighthouse happy !
                     Chcesz mieć lepsze pozycjonowanie i większe zyski? Postaw na
                     szybkość i jakość swojej strony internetowej z Betterize!
                 </h2>
+            </div>
+            <div class="flex items-center justify-center">
+                <Img
+                    src="/src/assets/hero2.png"
+                    width={1300}
+                    alt="descriptive text"
+                />
             </div>
         </section>
     </BackgroundImage>
