@@ -1,15 +1,10 @@
 ---
 import { Img, Picture } from "astro-imagetools/components";
 import ProofItem from "./subcomponents/ProofItem.astro";
-
-const blog1 = "/src/assets/swiperight.jpg";
-const blog2 = "/src/assets/betterize.jpg";
-const blog3 = "/src/assets/marketliners.jpg";
-
 const { loading = "lazy" } = Astro.props;
 ---
 
-<div class="mx-auto max-w-screen main-content lg:schowaj">
+<div class="mx-auto main-content lg:schowaj">
     <h2 class="pb-16 header-1">Nasze Projekty:</h2>
     <div
         class="grid w-full gap-8 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl"
