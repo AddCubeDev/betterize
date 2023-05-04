@@ -5,7 +5,7 @@ import { Cards } from "@typescript/types/Cards";
 
 <section>
     <h2 class="pb-16 header-1">Jak Będzie wyglądać nasza współpraca</h2>
-    <div class="flex flex-col max-w-4xl mx-auto" id="cards-alt">
+    <div class="flex flex-col max-w-4xl mx-auto" id="StepByStepAllCards">
         <StepByStepElement
             id="start"
             title="Konsultacje"
@@ -54,17 +54,12 @@ import { Cards } from "@typescript/types/Cards";
 </section>
 
 <script>
-    document.getElementById("cards-alt").onmousemove = (e) => {
-        for (const card of document.getElementsByClassName("card")) {
-            const rect = card.getBoundingClientRect(),
-                x = e.clientX - rect.left,
-                y = e.clientY - rect.top;
+    import { traceMousePosition } from "/src/typescript/mousePosition.ts";
 
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
-        }
-    };
+    // "card" is the class name used in a div element by StepByStepElement
+    traceMousePosition({ id: "StepByStepAllCards", class: "card" });
 </script>
+
 <style>
     #cards {
         width: calc(100% - 20px);
@@ -124,6 +119,7 @@ import { Cards } from "@typescript/types/Cards";
         z-index: 2;
     }
 </style>
+
 <style>
     .divik {
         position: absolute;
@@ -160,50 +156,54 @@ import { Cards } from "@typescript/types/Cards";
         pointer-events: none;
     }
 </style>
+
 <script>
-    var canvas = document.getElementById("canvas"),
-        ctx = canvas.getContext("2d"),
-        $1 = $("#start"),
-        $2 = $("#end");
+    // TODO: gdzie jest element z id=canvas ?
+    var canvas = document.getElementById("canvas");
+    if (canvas) {
+        var ctx = canvas.getContext("2d"),
+            $1 = $("#start"),
+            $2 = $("#end");
 
-    var drawThatShit = function () {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        var drawThatShit = function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
-        var ramp = ctx.createLinearGradient(0, 0, canvas.width / 1.5, 0);
-        ramp.addColorStop("0", "blue");
-        ramp.addColorStop("0.8", "magenta");
-        ramp.addColorStop("1", "red");
+            var ramp = ctx.createLinearGradient(0, 0, canvas.width / 1.5, 0);
+            ramp.addColorStop("0", "blue");
+            ramp.addColorStop("0.8", "magenta");
+            ramp.addColorStop("1", "red");
 
-        ctx.setLineDash([20, 10]);
-        ctx.strokeStyle = ramp;
-        ctx.lineWidth = 5;
+            ctx.setLineDash([20, 10]);
+            ctx.strokeStyle = ramp;
+            ctx.lineWidth = 5;
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        var $1_left = $1.offset().left,
-            $1_top = $1.offset().top,
-            $2_left = $2.offset().left,
-            $2_top = $2.offset().top;
+            var $1_left = $1.offset().left,
+                $1_top = $1.offset().top,
+                $2_left = $2.offset().left,
+                $2_top = $2.offset().top;
 
-        ctx.beginPath();
-        ctx.moveTo($1_left + $1.width() / 2, $1_top + $1.height() / 2);
-        ctx.quadraticCurveTo(
-            $1.width() * 2,
-            $1.height() * 2,
-            $2_left,
-            $2_top + $2.height() / 2
-        );
-        ctx.stroke();
-    };
+            ctx.beginPath();
+            ctx.moveTo($1_left + $1.width() / 2, $1_top + $1.height() / 2);
+            ctx.quadraticCurveTo(
+                $1.width() * 2,
+                $1.height() * 2,
+                $2_left,
+                $2_top + $2.height() / 2
+            );
+            ctx.stroke();
+        };
 
-    drawThatShit();
-
-    $(window).resize(function () {
         drawThatShit();
-    });
 
-    $(document).ready(function () {
-        // Usunięto kod odpowiedzialny za przemieszczanie elementów
-    });
+        $(window).resize(function () {
+            drawThatShit();
+        });
+
+        $(document).ready(function () {
+            // Usunięto kod odpowiedzialny za przemieszczanie elementów
+        });
+    }
 </script>

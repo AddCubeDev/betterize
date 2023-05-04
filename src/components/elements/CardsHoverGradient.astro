@@ -43,14 +43,7 @@ const {
 </div>
 
 <script>
-    document.getElementById("cards").onmousemove = (e) => {
-        for (const card of document.getElementsByClassName("card")) {
-            const rect = card.getBoundingClientRect(),
-                x = e.clientX - rect.left,
-                y = e.clientY - rect.top;
+    import { traceMousePosition } from "/src/typescript/mousePosition.ts";
 
-            card.style.setProperty("--mouse-x", `${x}px`);
-            card.style.setProperty("--mouse-y", `${y}px`);
-        }
-    };
+    traceMousePosition({ id: "cards", class: "card" });
 </script>
