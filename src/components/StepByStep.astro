@@ -1,13 +1,13 @@
 ---
 import StepByStepElement from "./subcomponents/StepByStepElement.astro";
+import { Cards } from "@typescript/types/Cards";
 ---
 
 <section>
     <h2 class="pb-16 header-1">Jak Będzie wyglądać nasza współpraca</h2>
-    <div
-        class="mx-auto max-w-md grid py-8 px-4 gap-16 grid-cols-1 main-content lg:(max-w-6xl grid-cols-2)"
-    >
+    <div class="flex flex-col max-w-4xl mx-auto" id="StepByStepAllCards">
         <StepByStepElement
+            id="start"
             title="Konsultacje"
             paragraph="Pierwszy krok to konsultacje z klientem, aby zrozumieć jego potrzeby i cele biznesowe. W tym etapie ustalamy, jakie funkcjonalności i elementy mają znaleźć się na stronie internetowej."
             number="1"
@@ -15,6 +15,7 @@ import StepByStepElement from "./subcomponents/StepByStepElement.astro";
         />
 
         <StepByStepElement
+            id="end"
             title="Projektowanie"
             paragraph="Następnie tworzymy projekt wizualny strony internetowej. Przedstawiamy klientowi różne opcje, aby wybrał projekt, który najlepiej odpowiada jego potrzebom i oczekiwaniom."
             number="2"
@@ -25,28 +26,187 @@ import StepByStepElement from "./subcomponents/StepByStepElement.astro";
             title="Kodowanie"
             paragraph="Po zatwierdzeniu projektu, przechodzimy do etapu kodowania, w którym przekształcamy projekt graficzny w funkcjonalną stronę internetową. Skupiamy się na tym, aby strona była szybka, wydajna i przyjazna SEO."
             number="3"
-            src="/src/assets/steps/programming.png"
+            src="/src/assets/steps/coding.png"
         />
 
         <StepByStepElement
             title="Testowanie"
             paragraph="Po zakończeniu kodowania, przeprowadzamy testy, aby upewnić się, że strona działa prawidłowo na różnych urządzeniach i przeglądarkach. Upewniamy się że wydajność twojej strony jest na najwyższym możliwym poziomie."
             number="4"
-            src="/src/assets/steps/test.png"
+            src="/src/assets/steps/data.png"
         />
 
         <StepByStepElement
             title="Wdrażanie"
             paragraph="Gdy strona internetowa jest gotowa, przeprowadzamy wdrażanie, czyli umieszczamy ją na serwerze i udostępniamy ją publicznie. Pomagamy również w konfiguracji systemów analitycznych i narzędzi marketingowych, aby klient mógł skutecznie zarządzać swoją stroną."
             number="5"
-            src="/src/assets/steps/development.png"
+            src="/src/assets/steps/global-server.png"
         />
 
         <StepByStepElement
             title="Wsparcie i rozwój"
             paragraph="Nasza praca nie kończy się po wdrożeniu strony. Oferujemy również dalsze wsparcie techniczne oraz rozwój strony internetowej, aby była zawsze aktualna i spełniała wymagania rynkowe.            "
             number="6"
-            src="/src/assets/steps/engineering.png"
+            src="/src/assets/steps/upgrade.png"
+            connect="hidden"
         />
     </div>
 </section>
+
+<script>
+    import { createObserversForChildrenOfElementWithId } from "/src/typescript/mousePosition.ts";
+
+    // "card" is the class name used in a div element by StepByStepElement
+    const observers = createObserversForChildrenOfElementWithId({
+        id: "StepByStepAllCards",
+        class: "card",
+    });
+</script>
+
+<style>
+    #cards {
+        width: calc(100% - 20px);
+    }
+
+    #cards:hover > .card::after {
+        opacity: 1;
+    }
+    .card {
+        position: relative;
+    }
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card::before,
+    .card::after {
+        border-radius: inherit;
+        content: "";
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+    }
+
+    .card::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(248, 0, 0, 0.06),
+            transparent 40%
+        );
+
+        z-index: 3;
+    }
+
+    .card::after {
+        background: radial-gradient(
+            600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.4),
+            transparent 40%
+        );
+        z-index: 1;
+    }
+
+    .card > .card-content {
+        background-color: var(--card-color);
+        border-radius: inherit;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        inset: 1px;
+        position: absolute;
+        z-index: 2;
+    }
+</style>
+
+<style>
+    .divik {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        background: ivory;
+        font-family: "Segoe UI", sans-serif;
+        border-radius: 5px;
+        cursor: grab;
+        user-select: none;
+    }
+
+    #start {
+        width: 100px;
+        height: 75px;
+        left: 50px;
+        top: 50px;
+    }
+
+    #end {
+        width: 150px;
+        height: 110px;
+        bottom: 100px;
+        right: 100px;
+    }
+
+    canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        pointer-events: none;
+    }
+</style>
+
+<script>
+    // TODO: gdzie jest element z id=canvas ?
+    var canvas = document.getElementById("canvas");
+    if (canvas) {
+        var ctx = canvas.getContext("2d"),
+            $1 = $("#start"),
+            $2 = $("#end");
+
+        var drawThatShit = function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            var ramp = ctx.createLinearGradient(0, 0, canvas.width / 1.5, 0);
+            ramp.addColorStop("0", "blue");
+            ramp.addColorStop("0.8", "magenta");
+            ramp.addColorStop("1", "red");
+
+            ctx.setLineDash([20, 10]);
+            ctx.strokeStyle = ramp;
+            ctx.lineWidth = 5;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            var $1_left = $1.offset().left,
+                $1_top = $1.offset().top,
+                $2_left = $2.offset().left,
+                $2_top = $2.offset().top;
+
+            ctx.beginPath();
+            ctx.moveTo($1_left + $1.width() / 2, $1_top + $1.height() / 2);
+            ctx.quadraticCurveTo(
+                $1.width() * 2,
+                $1.height() * 2,
+                $2_left,
+                $2_top + $2.height() / 2
+            );
+            ctx.stroke();
+        };
+
+        drawThatShit();
+
+        $(window).resize(function () {
+            drawThatShit();
+        });
+
+        $(document).ready(function () {
+            // Usunięto kod odpowiedzialny za przemieszczanie elementów
+        });
+    }
+</script>

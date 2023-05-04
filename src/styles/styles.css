@@ -151,6 +151,9 @@ select {
 .bg-blur {
     filter: blur(50px);
 }
+.bg-blur2 {
+    filter: blur(10px);
+}
 
 .naviczek {
     backdrop-filter: brightness(0.5);
@@ -194,12 +197,4 @@ select {
 }
 .element:nth-child(6) {
     transition-delay: 1250ms;
-}
-
-#cards {
-    width: calc(100% - 20px);
-}
-
-#cards:hover > .card::after {
-    opacity: 1;
 }

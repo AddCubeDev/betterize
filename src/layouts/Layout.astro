@@ -42,7 +42,41 @@ import { AstroSeo } from "@astrolib/seo";
             content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"
         />
 
-        <!-- <script type="text/partytown" src="fancy-analytics.js"></script> -->
+        <!-- Google Analitics -->
+        <script
+            type="text/partytown"
+            src="https://www.googletagmanager.com/gtag/js?id=G-HTVZ0JDPP8"
+        ></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-HTVZ0JDPP8");
+        </script>
+
+        <!-- Hotjar Tracking Code for https://www.betterize.pl -->
+        <script type="text/partytown">
+            (function (h, o, t, j, a, r) {
+                h.hj =
+                    h.hj ||
+                    function () {
+                        (h.hj.q = h.hj.q || []).push(arguments);
+                    };
+                h._hjSettings = { hjid: 3477502, hjsv: 6 };
+                a = o.getElementsByTagName("head")[0];
+                r = o.createElement("script");
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(
+                window,
+                document,
+                "https://static.hotjar.com/c/hotjar-",
+                ".js?sv="
+            );
+        </script>
 
         <meta name="keywords" content="" />
         <AstroSeo
