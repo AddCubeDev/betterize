@@ -54,10 +54,13 @@ import { Cards } from "@typescript/types/Cards";
 </section>
 
 <script>
-    import { traceMousePosition } from "/src/typescript/mousePosition.ts";
+    import { createObserversForChildrenOfElementWithId } from "/src/typescript/mousePosition.ts";
 
     // "card" is the class name used in a div element by StepByStepElement
-    traceMousePosition({ id: "StepByStepAllCards", class: "card" });
+    const observers = createObserversForChildrenOfElementWithId({
+        id: "StepByStepAllCards",
+        class: "card",
+    });
 </script>
 
 <style>

@@ -43,7 +43,10 @@ const {
 </div>
 
 <script>
-    import { traceMousePosition } from "/src/typescript/mousePosition.ts";
+    import { createObserversForChildrenOfElementWithId } from "/src/typescript/mousePosition.ts";
 
-    traceMousePosition({ id: "cards", class: "card" });
+    const observers = createObserversForChildrenOfElementWithId({
+        id: "cards",
+        class: "card",
+    });
 </script>
