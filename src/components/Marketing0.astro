@@ -7,7 +7,7 @@ import {
 } from "astro-imagetools/components";
 ---
 
-<div class="flex flex-col gap-20">
+<div class="flex flex-col gap-20 mx-4">
     <div
         class="grid w-full max-w-6xl grid-cols-1 gap-8 mx-auto lg:grid-cols-2 grid-"
     >
@@ -39,7 +39,7 @@ import {
         </div>
     </div>
     <div class="grid w-full max-w-6xl grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
-        <div class="order-2 overflow-hidden rounded-lg h-80">
+        <div class="order-1 overflow-hidden rounded-lg lg:order-2 h-80">
             <Img
                 src="/src/assets/adam.jpg"
                 width={650}
@@ -47,7 +47,7 @@ import {
                 alt="descriptive text"
             />
         </div>
-        <div class="flex flex-col justify-start order-1">
+        <div class="flex flex-col justify-start order-2 lg:order-1">
             <h2 class="pb-4 text-4xl font-bold text-left capitalize">
                 Skupiamy się na małych i średnich przedsiębiorstwach
             </h2>

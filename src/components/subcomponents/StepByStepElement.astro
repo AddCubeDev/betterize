@@ -1,4 +1,5 @@
 ---
+import { Img } from "astro-imagetools/components";
 interface Props {
     title?: string;
     paragraph?: string;
@@ -15,17 +16,17 @@ const {
 } = Astro.props;
 ---
 
-<div>
+<div class="mx-4">
     <div
         data-tilt
         data-tilt-axis="x"
         data-tilt-max="4"
         data-tilt-speed="800"
         data-tilt-perspective="1000"
-        class="relative flex w-full text-left rounded-lg shadow-xl border-1 border-sky-500/50 element h-84 card schowaj"
+        class="relative flex w-full text-left rounded-lg shadow-xl border-1 border-sky-500/50 element h-128 lg:h-84 card schowaj"
     >
         <div
-            class="grid items-center justify-start grid-cols-2 px-2 py-4 element card-content"
+            class="grid items-center justify-start grid-cols-1 px-2 py-4 lg:grid-cols-2 element card-content"
         >
             <div class="pl-12">
                 <h2 class="mb-2 text-4xl font-bold">
@@ -36,7 +37,7 @@ const {
                 </p>
             </div>
             <div class="pb-6 mx-auto">
-                <img src={src} alt={title} width="250" height="250" />
+                <Img src={src} width={250} alt="descriptive text" />
             </div>
         </div>
         <p class="left-2 top-1 text-[100px] outlined-text absolute">
