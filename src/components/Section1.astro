@@ -6,41 +6,23 @@ const bg = "/src/assets/bg7.jpg";
 import { Img } from "astro-imagetools/components";
 ---
 
-<div class="relative">
-    <!-- <Faded color="#151317" direction="top" />
-    <Faded color="#151317" direction="bottom" /> -->
-
-    <!-- <BackgroundImage
-        src={bg}
-        format="avif"
-        placeholder="blurred"
-        backgroundSize="cover"
-        quality={90}
-        preload="avif"
-        brightness={0.7}
-        breakpoints={{ count: 6, minWidth: 400, maxWidth: 2560 }}
-    > -->
-    <section
-        class="flex flex-col justify-center h-screen rounded-lg main-content lg:h-screen"
+<section class="flex flex-col justify-center rounded-lg main-content">
+    <div
+        class="relative px-4 pt-20 pb-10 border rounded-lg shadow-2xl bg-black/90 bg-opacity bg-clip-padding border-gray-300/50"
     >
-        <div
-            class="relative px-4 pt-20 pb-10 border rounded-lg shadow-2xl bg-black/90 bg-opacity bg-clip-padding border-gray-300/50"
-        >
-            <div class="pb-12">
-                <h2 class="pb-4 header-1">Sprawdź wydajność swojej strony</h2>
-                <p class="ordinary-text">
-                    Google w 2021 wprowadził nowe standardy oceniania i
-                    pozycjonowania stron internetowych. Sprawdź czy twoja strona
-                    spełnia nowe wymagania Googla
-                </p>
-            </div>
-            <div
-                class="absolute inset-0 rounded-lg animate-pulse bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 bg-blur -z-1"
-            >
-            </div>
-
-            <PageSpeed client:only />
+        <div class="pb-12">
+            <h2 class="pb-4 header-1">Sprawdź wydajność swojej strony</h2>
+            <p class="ordinary-text">
+                Google w 2021 wprowadził nowe standardy oceniania i
+                pozycjonowania stron internetowych. Sprawdź czy twoja strona
+                spełnia nowe wymagania Googla
+            </p>
         </div>
-    </section>
-</div>
-<!-- </BackgroundImage> -->
+        <div
+            class="absolute inset-0 rounded-lg animate-pulse bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 bg-blur -z-1"
+        >
+        </div>
+
+        <PageSpeed client:only />
+    </div>
+</section>
