@@ -2,7 +2,7 @@
 
 interface ImportMetaEnv {
     readonly PUBLIC_PAGESPEED: string;
-    readonly STRAPI_TOKEN: string;
+    readonly PUBLIC_STRAPI_TOKEN: string;
     // more env variables...
 }
 

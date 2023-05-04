@@ -7,25 +7,26 @@ import type {
     ApiProjectProject,
 } from "@typescript/types/schemas";
 
+const extras = {
+    headers: {
+        Authorization: `Bearer ${import.meta.env.PUBLIC_STRAPI_TOKEN}`,
+    },
+};
+
 export async function getPost(slug: string) {
     const post: ApiPostPost = await fetch(
         strapiApiBaseUrl + `/posts?filters[slug][$eq]=${slug}&populate=*`,
-        {
-            headers: {
-                Authorization: `Bearer ${import.meta.env.STRAPI_TOKEN}`,
-            },
-        }
+        extras
     ).then((x) => x.json().then((data) => data.data[0]));
 
     return post;
 }
 
 export async function getPosts() {
-    const posts = await fetch(strapiApiBaseUrl + `/posts?&populate=*`, {
-        headers: {
-            Authorization: `Bearer ${import.meta.env.STRAPI_TOKEN}`,
-        },
-    }).then((x) => x.json().then((content) => content.data));
+    const posts = await fetch(
+        strapiApiBaseUrl + `/posts?&populate=*`,
+        extras
+    ).then((x) => x.json().then((content) => content.data));
 
     if (!posts) {
         return [];
@@ -37,11 +38,7 @@ export async function getPosts() {
 export async function getDemo() {
     const demo: ApiDemoDemo = await fetch(
         strapiApiBaseUrl + `/demo?populate=*`,
-        {
-            headers: {
-                Authorization: `Bearer ${import.meta.env.STRAPI_TOKEN}`,
-            },
-        }
+        extras
     ).then((x) => x.json().then((content) => content.data));
 
     return demo;
@@ -50,11 +47,7 @@ export async function getDemo() {
 export async function getAllAuthors() {
     const authors_all_data: [ApiAuthorAuthor] = await fetch(
         strapiApiBaseUrl + `/authors?populate=*`,
-        {
-            headers: {
-                Authorization: `Bearer ${import.meta.env.STRAPI_TOKEN}`,
-            },
-        }
+        extras
     ).then((x) => x.json().then((content) => content.data));
 
     return authors_all_data;
@@ -65,11 +58,10 @@ export function getImageUrl(image: Image) {
 }
 
 export async function getProjects() {
-    const projects = await fetch(strapiApiBaseUrl + `/projects?&populate=*`, {
-        headers: {
-            Authorization: `Bearer ${import.meta.env.STRAPI_TOKEN}`,
-        },
-    }).then((x) => x.json().then((content) => content.data));
+    const projects = await fetch(
+        strapiApiBaseUrl + `/projects?&populate=*`,
+        extras
+    ).then((x) => x.json().then((content) => content.data));
 
     if (!projects) {
         return [];
@@ -81,11 +73,7 @@ export async function getProjects() {
 export async function getProject(slug: string) {
     const project: ApiProjectProject = await fetch(
         strapiApiBaseUrl + `/projects?filters[slug][$eq]=${slug}&populate=*`,
-        {
-            headers: {
-                Authorization: `Bearer ${import.meta.env.STRAPI_TOKEN}`,
-            },
-        }
+        extras
     ).then((x) => x.json().then((data) => data.data[0]));
 
     return project;
