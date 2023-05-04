@@ -42,7 +42,18 @@ import { AstroSeo } from "@astrolib/seo";
             content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0"
         />
 
-        <!-- <script type="text/partytown" src="fancy-analytics.js"></script> -->
+        <script
+            type="text/partytown"
+            src="https://www.googletagmanager.com/gtag/js?id=G-HTVZ0JDPP8"
+        ></script>
+        <script type="text/partytown">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-HTVZ0JDPP8");
+        </script>
 
         <meta name="keywords" content="" />
         <AstroSeo

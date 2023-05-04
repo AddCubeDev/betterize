@@ -1,13 +1,13 @@
 import { defineConfig } from "astro/config";
-
 import { astroImageTools } from "astro-imagetools";
 import windicss from "astro-windicss";
 // import critters from "astro-critters";
 import vue from "@astrojs/vue";
-// import partytown from "@astrojs/partytown";
 // import purgecss from "astro-purgecss";
 import compress from "astro-compress";
 import compressor from "astro-compressor";
+
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +25,11 @@ export default defineConfig({
                 },
             },
         }),
-        // partytown()
+        partytown({
+            config: {
+                forward: ["dataLayer.push"],
+            },
+        }),
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
         compress({
