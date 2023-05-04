@@ -43,10 +43,13 @@ const {
 </div>
 
 <script>
-    import { createObserversForChildrenOfElementWithId } from "/src/typescript/mousePosition.ts";
+    import { createObserversForChildrenOfElementWithId } from "@typescript/mousePosition.ts";
+    import { isMobileDevice } from "@typescript/isMobile.ts";
 
-    const observers = createObserversForChildrenOfElementWithId({
-        id: "cards",
-        class: "card",
-    });
+    const observers =
+        !isMobileDevice() &&
+        createObserversForChildrenOfElementWithId({
+            id: "cards",
+            class: "card",
+        });
 </script>
