@@ -1,3 +1,5 @@
+import { isMobileDevice } from "./isMobile.ts";
+
 interface TraceMousePositionArgs {
     id: string;
     class: string;
@@ -6,6 +8,10 @@ interface TraceMousePositionArgs {
 export function createObserversForChildrenOfElementWithId(
     args: TraceMousePositionArgs
 ): IntersectionObserver[] {
+    if (isMobileDevice()) {
+        return [];
+    }
+
     const element = document.getElementById(args.id);
 
     var observers: IntersectionObserver[] = [];
