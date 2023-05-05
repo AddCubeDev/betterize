@@ -1,3 +1,5 @@
+import { isMobileDevice } from "@typescript/isMobile.ts";
+
 var VanillaTilt = (function () {
     "use strict";
     class t {
@@ -82,7 +84,7 @@ var VanillaTilt = (function () {
                 ),
                 (this.glare || this.fullPageListening) &&
                     window.addEventListener("resize", this.onWindowResizeBind);
-                /* pdodev 03.05.2023: warning w kosoli:  Use of the orientation sensor is deprecated.
+            /* pdodev 03.05.2023: warning w kosoli:  Use of the orientation sensor is deprecated.
                 this.gyroscope &&
                     window.addEventListener(
                         "deviceorientation",
@@ -108,14 +110,13 @@ var VanillaTilt = (function () {
                         "resize",
                         this.onWindowResizeBind
                     );
-                /* pdodev 03.05.2023: see comment above
+            /* pdodev 03.05.2023: see comment above
                 this.gyroscope &&
                     window.removeEventListener(
                         "deviceorientation",
                         this.onDeviceOrientationBind
                     ),
                 */
-
         }
         destroy() {
             clearTimeout(this.transitionTimeout),
@@ -399,6 +400,11 @@ var VanillaTilt = (function () {
                     });
         }
     }
+
+    if (isMobileDevice()) {
+        return undefined;
+    }
+
     return (
         "undefined" != typeof document &&
             ((window.VanillaTilt = t),
