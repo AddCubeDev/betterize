@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run partytown && astro build",
     "preview": "astro preview",
     "clone-circle-progress": "nu dev/clone-circle-progress.nu",
     "pull-circle-progress": "nu dev/pull-circle-progress.nu",
-    "reinstall": "npm install --install-links"
+    "reinstall": "npm install --install-links",
+    "partytown": "partytown copylib public/~partytown"
   },
   "keywords": [],
   "author": "",
