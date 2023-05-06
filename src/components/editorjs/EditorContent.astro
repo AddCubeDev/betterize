@@ -77,7 +77,7 @@ const { blocks } = Astro.props;
                 );
 
             default:
-                console.log(block);
+                console.debug("Not supported (yet) block element:", block);
                 return <p>Unrecognized editor element</p>;
         }
     })

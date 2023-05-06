@@ -27,12 +27,12 @@ export function createObserversForChildrenOfElementWithId(
                 observers.push(observer);
             }
         } else {
-            console.log(
+            console.error(
                 `traceMousePosition. No element found with class="${args.class}"!`
             );
         }
     } else {
-        console.log(
+        console.error(
             `traceMousePosition. Element with id="${args.id}" doesn't exist!`
         );
     }
