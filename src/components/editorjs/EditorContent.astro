@@ -9,6 +9,7 @@ import Quote from "@components/editorjs/subcomponents/Quote.astro";
 import Code from "@components/editorjs/subcomponents/Code.astro";
 import Paragraph from "@components/editorjs/subcomponents/Paragraph.astro";
 import Link from "@components/editorjs/subcomponents/Link.astro";
+import UnsupportedContent from "@components/editorjs/subcomponents/UnsupportedContent.astro";
 import { strapiUploadsBaseUrl } from "@typescript/consts";
 
 const { blocks } = Astro.props;
@@ -77,8 +78,7 @@ const { blocks } = Astro.props;
                 );
 
             default:
-                console.debug("Not supported (yet) block element:", block);
-                return <p>Unrecognized editor element</p>;
+                return <UnsupportedContent data={block} />;
         }
     })
 }
