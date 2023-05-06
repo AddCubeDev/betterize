@@ -41,8 +41,6 @@ const authors = attributes.authors.data.map((author: any) => {
 const blocks = JSON.parse(attributes.body).blocks;
 ---
 
-<script src="vanilla-tilt"></script>
-
 <Layout>
     <div class="mb-10 lg:mb-20">
         <Nav />
@@ -144,7 +142,10 @@ const blocks = JSON.parse(attributes.body).blocks;
     <div class="mt-auto">
         <Footer />
     </div>
+
+    <script src="vanilla-tilt"></script>
 </Layout>
+
 <style>
     .dotted-bullet::before {
         content: "•";
