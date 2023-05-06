@@ -1,4 +1,4 @@
-import { isMobileDevice } from "./isMobile.ts";
+import { isMobileDevice } from "@typescript/isMobile.ts";
 
 interface TraceMousePositionArgs {
     id: string;
