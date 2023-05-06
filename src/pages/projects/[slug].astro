@@ -41,19 +41,17 @@ const authors = attributes.authors.data.map((author: any) => {
 const blocks = JSON.parse(attributes.body).blocks;
 ---
 
-<script src="/src/typescript/vanilla-tilt.js"></script>
 <Layout>
     <div class="mb-10 lg:mb-20">
         <Nav />
     </div>
     <div
         style="transform-style: preserve-3d"
-        data-tilt-max="5"
-        data-tilt-speed="400"
-        data-tilt-perspective="1000"
+        data-tilt-max="2"
         data-tilt
         data-tilt-glare
         data-tilt-max-glare="0.1"
+        data-glare-prerender="true"
         class="relative grid max-w-6xl grid-cols-1 gap-8 px-4 py-4 lg:(px-8 py-8) mx-2 text-left xl:mx-auto rounded-xl bg-zinc-900 lg:grid-cols-2"
     >
         <div
@@ -144,7 +142,10 @@ const blocks = JSON.parse(attributes.body).blocks;
     <div class="mt-auto">
         <Footer />
     </div>
+
+    <script src="vanilla-tilt"></script>
 </Layout>
+
 <style>
     .dotted-bullet::before {
         content: "•";

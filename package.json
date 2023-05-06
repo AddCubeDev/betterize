@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run partytown && astro build",
     "preview": "astro preview",
     "clone-circle-progress": "nu dev/clone-circle-progress.nu",
     "pull-circle-progress": "nu dev/pull-circle-progress.nu",
-    "reinstall": "npm install --install-links"
+    "reinstall": "npm install --install-links",
+    "partytown": "partytown copylib public/~partytown"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "epic-spinners": "^2.0.0",
     "marked": "^4.3.0",
     "swiper": "^9.2.2",
+    "vanilla-tilt": "^1.8.0",
     "vue": "^3.2.47",
     "vue3-circle-progress": "file:../vue3-circle-progress"
   },

@@ -52,19 +52,6 @@ import { Cards } from "@typescript/types/Cards";
     </div>
 </section>
 
-<script>
-    import { createObserversForChildrenOfElementWithId } from "@typescript/mousePosition.ts";
-    import { isMobileDevice } from "@typescript/isMobile.ts";
-
-    // "card" is the class name used in a div element by StepByStepElement
-    const observers =
-        !isMobileDevice() &&
-        createObserversForChildrenOfElementWithId({
-            id: "StepByStepAllCards",
-            class: "card",
-        });
-</script>
-
 <style>
     #cards {
         width: calc(100% - 20px);

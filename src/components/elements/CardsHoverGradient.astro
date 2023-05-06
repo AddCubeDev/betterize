@@ -44,12 +44,9 @@ const {
 
 <script>
     import { createObserversForChildrenOfElementWithId } from "@typescript/mousePosition.ts";
-    import { isMobileDevice } from "@typescript/isMobile.ts";
 
-    const observers =
-        !isMobileDevice() &&
-        createObserversForChildrenOfElementWithId({
-            id: "cards",
-            class: "card",
-        });
+    const observers = createObserversForChildrenOfElementWithId({
+        id: "cards",
+        class: "card",
+    });
 </script>
