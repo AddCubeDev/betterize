@@ -7,5 +7,5 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-const hiddenElements = document.querySelectorAll(".schowaj");
+const hiddenElements = document.querySelectorAll(".show-on-scroll");
 hiddenElements.forEach((el) => observer.observe(el));

@@ -9,7 +9,8 @@
     margin: auto;
 
     --bg-color: rgb(20, 20, 20);
-    --card-color: rgb(23, 23, 23);
+    --card-color: rgba(23, 23, 23, 0.8);
+    --card-color2: rgba(23, 23, 23);
 
     font-family: "Roboto";
     font-size: 100%;
@@ -164,15 +165,19 @@ select {
     --tw-backdrop-brightness: brightness(0.5);
 }
 
-.schowaj {
+.show-on-scroll {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(100%);
-
+    transition: all 1s;
+}
+.show-on-scroll-alt {
+    opacity: 0;
+    filter: blur(5px);
     transition: all 1s;
 }
 @media (prefers-reduced-motion) {
-    .schowaj {
+    .show-on-scroll {
         transition: none;
     }
 }
