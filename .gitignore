@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # localhost certificates
 localhost_https/*
+
+# folder with unracked files
+untracked/
