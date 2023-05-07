@@ -19,18 +19,3 @@ export function getEvaluationResult(value: number): EvaluationResult {
 
     return EvaluationResult.Poor;
 }
-
-export function getRangeValuesWithLabel(result: EvaluationResult): String {
-    switch (result) {
-        case EvaluationResult.Poor:
-            return "0-49 Poor";
-        case EvaluationResult.Average:
-            return "50-89 Average";
-        case EvaluationResult.Excelent:
-            return "90-100 Excelent";
-        default:
-            throw new Error(
-                `Developer error. getRangeValuesWithLabel is missing implementation for EvaluationResult value: ${result}`
-            );
-    }
-}
