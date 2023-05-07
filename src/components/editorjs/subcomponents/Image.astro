@@ -39,5 +39,7 @@ const { src, caption, height, width, stretched } = Astro.props;
             }
         }
     </div>
-    <p class="font-light text-gray-400">{caption}</p>
+    <div class="font-light text-gray-400">
+        <Fragment set:html={caption} />
+    </div>
 </div>

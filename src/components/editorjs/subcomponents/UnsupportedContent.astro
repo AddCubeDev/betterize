@@ -1,0 +1,14 @@
+---
+const { data } = Astro.props;
+---
+
+<script define:vars={{ data }}>
+    console.error("Not supported (yet) block element:", data);
+</script>
+
+<div class="my-10">
+    <p>
+        Dodałeś element niewspierany przez edytor. Usuń, aby poprawnie
+        wyświetlić treść.
+    </p>
+</div>
