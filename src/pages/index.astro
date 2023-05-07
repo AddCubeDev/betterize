@@ -31,6 +31,12 @@ import Footer from "@components/Footer.astro";
     <div class="mt-auto">
         <Footer />
     </div>
-    <script src="/src/typescript/scroll.js"></script>
+
+    <script>
+        import { showWhenInView } from "/src/typescript/scroll.ts";
+        showWhenInView(".show-on-scroll");
+        showWhenInView(".show-on-scroll-alt");
+    </script>
+
     <script src="vanilla-tilt"></script>
 </Layout>

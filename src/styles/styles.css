@@ -176,6 +176,7 @@ select {
     filter: blur(5px);
     transition: all 1s;
 }
+
 @media (prefers-reduced-motion) {
     .show-on-scroll {
         transition: none;

@@ -1,4 +1,5 @@
 /// <reference types="@astrojs/image/client" />
+/// <reference types="@astrojs/client" />
 
 interface ImportMetaEnv {
     readonly PUBLIC_PAGESPEED: string;
