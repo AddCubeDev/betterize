@@ -7,5 +7,7 @@ const { text } = Astro.props;
 ---
 
 <div class="flex items-center gap-2 py-2 text-gray-300">
-    <Fragment set:html={text} />
+    <p>
+        <Fragment set:html={text} />
+    </p>
 </div>
