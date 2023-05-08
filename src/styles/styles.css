@@ -204,3 +204,20 @@ select {
 .element:nth-child(6) {
     transition-delay: 1250ms;
 }
+
+a.anchor {
+    text-decoration: underline;
+    color: #0026ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover styles */
+a.anchor:hover {
+    color: #2990ff;
+}
+
+/* Active link styles */
+a.anchor:active {
+    color: #343a40;
+}

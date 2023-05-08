@@ -11,21 +11,27 @@ interface Props {
 const { link, title, description, image_url } = Astro.props;
 ---
 
-<div class="bg-neutral-500">
+<div
+    class="p-4 rounded-md bg-zinc-800 transition-smooth hover:(transform scale-102 text-indigo-600/50)"
+>
     <a href={link}>
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <div class="blog-header">
+        <div class="grid grid-cols-2 gap-6 text-gray-100">
+            <div class="flex flex-col justify-between">
+                <p class="text-xl font-medium">
                     <Fragment set:html={title} />
-                </div>
-                <Fragment set:html={description} />
+                </p>
+                <p class="font-light text-md">
+                    <Fragment set:html={description} />
+                </p>
             </div>
-            <Img
-                src={image_url}
-                alt="link_picture"
-                placeholder="none"
-                width={200}
-            />
+            <div class="flex items-start w-full">
+                <Img
+                    src={image_url}
+                    alt="link_picture"
+                    placeholder="none"
+                    width={400}
+                />
+            </div>
         </div>
     </a>
 </div>
