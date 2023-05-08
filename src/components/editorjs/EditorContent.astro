@@ -13,6 +13,7 @@ import UnsupportedContent from "@components/editorjs/subcomponents/UnsupportedCo
 import { strapiUploadsBaseUrl } from "@typescript/consts";
 
 const { blocks } = Astro.props;
+
 ---
 
 {
@@ -76,6 +77,14 @@ const { blocks } = Astro.props;
                         image_url={block.data.meta.image.url}
                     />
                 );
+
+            case "mediaLib":
+                if ( block.data.name == 'mediaLibraryStrapi' ) {
+                    // do nothing
+                    return '';
+                } else {
+                    return <UnsupportedContent data={block} />;
+                }
 
             default:
                 return <UnsupportedContent data={block} />;
