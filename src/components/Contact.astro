@@ -14,7 +14,7 @@ import Faded from "./elements/Faded.astro";
 import ContactForm from "@components/subcomponents/ContactForm.astro";
 ---
 
-<div class="relative flex flex-col items-center justify-center lg:pb-40">
+<div class="relative flex flex-col items-center justify-center">
     <div class="absolute inset-0 bottom-0 bg-grid -z-1 faded-top">
         <Faded direction="top" />
     </div>
@@ -25,7 +25,7 @@ import ContactForm from "@components/subcomponents/ContactForm.astro";
     </div>
 
     <section
-        class="flex flex-col items-center justify-center gap-20 py-20 main-content"
+        class="flex flex-col items-center justify-center gap-20 lg:py-20 main-content"
     >
         <div class="show-on-scroll">
             <h2
