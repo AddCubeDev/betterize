@@ -3,6 +3,7 @@
 .cache
 dist*
 public/~partytown
+.unlighthouse
 
 # dependencies
 node_modules/
