@@ -1,0 +1,42 @@
+---
+import { getImageUrl } from "@typescript/strapiApi";
+import type { Image } from "@typescript/types/Image";
+import HeroHorizontal from "@components/strapidynamic/subcomponents/HeroHorizontal.astro";
+import HeroVertical from "@components/strapidynamic/subcomponents/HeroVertical.astro";
+
+enum HeroType {
+    horizontal = "horizontal",
+    vertical = "vertical",
+}
+
+interface Props {
+    headline: string;
+    content?: string;
+    image: Image;
+    type: HeroType;
+}
+
+const { headline, content = "", image, type } = Astro.props;
+---
+
+{
+    () => {
+        if (type == HeroType.horizontal) {
+            return (
+                <HeroHorizontal
+                    headline={headline}
+                    image_url={getImageUrl(image)}
+                    content={content}
+                />
+            );
+        } else {
+            return (
+                <HeroVertical
+                    headline={headline}
+                    image_url={getImageUrl(image)}
+                    content={content}
+                />
+            );
+        }
+    }
+}

@@ -1,0 +1,50 @@
+---
+import Hero from "@components/strapidynamic/layout/Hero.astro";
+import AdvantageItem from "@components/strapidynamic/subcomponents/AdvantageItem.astro";
+import Editor from "@components/strapidynamic/layout/Editor.astro";
+
+const { blocks } = Astro.props;
+---
+
+{
+    blocks.map((component: any) => {
+        switch (component.__component) {
+            case "layout.hero":
+                return (
+                    <Hero
+                        headline={component.headline}
+                        content={component.content}
+                        image={component.image}
+                        type={component.type}
+                    />
+                );
+
+            case "layout.editor":
+                return <Editor content={component.content} />;
+
+            case "layout.advantages":
+                console.log(component.advantage_item);
+                return (
+                    <>
+                        <h2>{component.section_title}</h2>
+                        <p>{component.subtitle}</p>
+                        {component.advantage_item.map((item: any) => {
+                            return (
+                                <AdvantageItem
+                                    src="test"
+                                    title={item.title}
+                                    description={item.subtitle}
+                                />
+                            );
+                        })}
+                    </>
+                );
+
+            default:
+                console.log("-----------------");
+                console.log(component);
+                console.log("=================");
+                return <p>Not implemented</p>;
+        }
+    })
+}

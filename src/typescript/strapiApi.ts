@@ -6,6 +6,7 @@ import type {
     ApiAuthorAuthor,
     ApiProjectProject,
 } from "@typescript/types/schemas";
+import { getFullPopulation } from "@components/strapidynamic/typescript/populations";
 
 const extras = {
     headers: {
@@ -37,9 +38,8 @@ export async function getPosts() {
 
 export async function getDemo() {
     const demo: ApiDemoDemo = await fetch(
-        strapiApiBaseUrl + `/demo?populate=*`,
-        extras
-    ).then((x) => x.json().then((content) => content.data));
+        strapiApiBaseUrl + `/demo?` + getFullPopulation()
+    ).then((x) => x.json().then((content) => content.data.attributes.content));
 
     return demo;
 }

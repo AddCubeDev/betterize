@@ -1,0 +1,13 @@
+---
+import EditorContent from "@components/editorjs/EditorContent.astro";
+
+interface Props {
+    content: string;
+}
+
+const { content } = Astro.props;
+
+const blocks = JSON.parse(content).blocks;
+---
+
+<EditorContent blocks={blocks} />
