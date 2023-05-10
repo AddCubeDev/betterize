@@ -13,22 +13,24 @@ const { style, items } = Astro.props;
 ---
 
 <div class="px-4 pb-4">
-    {
-        () => {
-            if (style == Style.Ordered) {
-                return items.map((item: string, index: number) => (
-                    <li>
-                        {index + 1}
-                        <Fragment set:html={item} />
-                    </li>
-                ));
-            } else {
-                return items.map((item: string) => (
-                    <li>
-                        <Fragment set:html={item} />
-                    </li>
-                ));
+    <ul>
+        {
+            () => {
+                if (style == Style.Ordered) {
+                    return items.map((item: string, index: number) => (
+                        <li>
+                            {index + 1}
+                            <Fragment set:html={item} />
+                        </li>
+                    ));
+                } else {
+                    return items.map((item: string) => (
+                        <li>
+                            <Fragment set:html={item} />
+                        </li>
+                    ));
+                }
             }
         }
-    }
+    </ul>
 </div>

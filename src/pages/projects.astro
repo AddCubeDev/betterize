@@ -10,7 +10,7 @@ import type { ApiProjectProject } from "@typescript/types/schemas";
 const projects = await getProjects();
 ---
 
-<Layout>
+<Layout title="Betterize - nasze projekty">
     <FancyBg />
     <Nav />
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">
@@ -30,4 +30,12 @@ const projects = await getProjects();
     <div class="mt-auto">
         <Footer />
     </div>
+
+    <script>
+        const option = document.getElementById("nav-bar-menu-item-projekty");
+
+        if (option) {
+            option.classList.add("active");
+        }
+    </script>
 </Layout>

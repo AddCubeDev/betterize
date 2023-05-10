@@ -42,14 +42,20 @@ const cards: Cards = [
 ];
 ---
 
-<div class="mx-4">
-    <div class="pb-16 show-on-scroll">
-        <h2 class="header-1">need for speed</h2>
-        <p class="mx-auto header-2">
-            Dlaczego wydajność strony jest kluczowa dla biznesu?
-        </p>
+<div class="relative">
+    <div
+        class="absolute w-full transform bg-gradient-to-br from-gray-700/60 via-gray-800/60 to-purple-900/20 -skew-y-4 h-[2050px] lg:h-[920px] -translate-y-6 -z-10"
+    >
     </div>
-    <div class="flex justify-center w-full">
-        <CardsHoverGradient cards={cards} />
+    <div class="mx-4">
+        <div class="pb-16 show-on-scroll">
+            <h2 class="mb-2 header-1">need for speed</h2>
+            <p class="p-paragraph">
+                Dlaczego wydajność strony jest kluczowa dla biznesu?
+            </p>
+        </div>
+        <div class="flex justify-center w-full">
+            <CardsHoverGradient cards={cards} />
+        </div>
     </div>
 </div>

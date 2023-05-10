@@ -6,7 +6,7 @@
         >
             <label
                 for="url"
-                class="pl-2 mr-auto text-sm font-light text-left text-gray-500"
+                class="pl-2 mr-auto text-sm font-light text-left text-gray-300"
                 >Adres url strony</label
             >
             <div class="flex w-full gap-2 md:w-auto lg:gap-4">

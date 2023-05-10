@@ -10,10 +10,7 @@ import NavbarItemGroup from "./NavbarItemGroup.astro";
 import NavbarPost from "./NavbarPost.astro";
 ---
 
-<header
-    aria-label="Site Header"
-    class="z-10 w-full shadow-lg bg-zinc-900 shadow-gray-900"
->
+<header aria-label="Site Header" class="z-10 w-full">
     <section
         class="relative flex items-center justify-between h-20 max-w-screen-xl gap-10 px-8 mx-auto"
     >
@@ -35,6 +32,7 @@ import NavbarPost from "./NavbarPost.astro";
             aria-label="Site Nav"
             class="hidden gap-8 text-sm font-medium text-md md:flex"
         >
+            <!-- TO JEST SEKCJA "BLOG" W NAVBARZE -->
             <!-- <div class="relative group">
                 <a
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth group"
@@ -100,9 +98,12 @@ import NavbarPost from "./NavbarPost.astro";
             <div class="relative group">
                 <a
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
-                    href="#"
+                    href="/projects"
                 >
-                    <div class="flex items-center justify-center">
+                    <div
+                        id="nav-bar-menu-item-projekty"
+                        class="flex items-center justify-center font-bold nav-bar-menu-item"
+                    >
                         Projekty
                         <div
                             class="group-hover:(transform translate-y-0.5) transition-smooth"
@@ -162,9 +163,16 @@ import NavbarPost from "./NavbarPost.astro";
             </div>
 
             <a
-                class="flex items-center h-20 text-gray-300 ease-in-out nav-link transition-smooth hover:opacity-50"
-                href="/pagespeedtester">PageSpeedTester</a
+                class="flex items-center h-20 font-bold text-gray-300 ease-in-out nav-link transition-smooth hover:opacity-50"
+                href="/pagespeedtester"
             >
+                <p
+                    id="nav-bar-menu-item-pagespeedtester"
+                    class="nav-bar-menu-item"
+                >
+                    PageSpeedTester
+                </p>
+            </a>
 
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -227,14 +235,14 @@ import NavbarPost from "./NavbarPost.astro";
                     <li
                         class="w-full py-4 border-b border-gray-300 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block" href="/projects">Projekty</a>
+                        <a class="block" href="/projects"> Projekty</a>
                     </li>
                     <li
                         class="w-full py-4 border-b border-gray-300 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block" href="/pagespeedtester"
-                            >PageSpeedTester</a
-                        >
+                        <a class="block" href="/pagespeedtester">
+                            PageSpeedTester
+                        </a>
                     </li>
                     <li
                         class="w-full py-4 hover:text-sky-500 transition-smooth"
@@ -247,29 +255,28 @@ import NavbarPost from "./NavbarPost.astro";
             </div>
         </div>
     </section>
-</header>
-<script>
-    const menu_btn = document.getElementById("menu_btn");
-    const mobile_menu = document.getElementById("mobile_menu");
-    const menu_bars = document.getElementById("menu_bars");
-    const menu_close = document.getElementById("menu_close");
 
-    menu_btn.addEventListener("click", () => {
-        mobile_menu.classList.toggle("hidden");
-        menu_bars.classList.toggle("hidden");
-        menu_close.classList.toggle("hidden");
-    });
-</script>
-<script>
-    document.querySelectorAll(".nav-link").forEach((link) => {
-        if (link.href === window.location.href) {
-            link.setAttribute("aria-current", "page");
+    <script>
+        const menu_btn = document.getElementById("menu_btn");
+        const mobile_menu = document.getElementById("mobile_menu");
+        const menu_bars = document.getElementById("menu_bars");
+        const menu_close = document.getElementById("menu_close");
+
+        menu_btn.addEventListener("click", () => {
+            mobile_menu.classList.toggle("hidden");
+            menu_bars.classList.toggle("hidden");
+            menu_close.classList.toggle("hidden");
+        });
+    </script>
+
+    <style>
+        .nav-link[aria-current="page"] {
+            text-decoration: underline #fff 0.1rem;
+            text-underline-offset: 0.5rem;
         }
-    });
-</script>
-<style>
-    .nav-link[aria-current="page"] {
-        text-decoration: underline #fff 0.1rem;
-        text-underline-offset: 0.5rem;
-    }
-</style>
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+    </style>
+</header>

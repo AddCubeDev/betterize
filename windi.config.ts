@@ -9,8 +9,14 @@ export default defineConfig({
     darkMode: "class", // or 'media'
     shortcuts: {
         "header-1":
-            "text-4xl lg:text-5xl max-w-4xl font-bold text-gray-100 mx-auto uppercase",
-        "header-2": "text-lg lg:text-2xl text-gray-200 max-w-xl ",
+            "text-4xl lg:text-5xl max-w-4xl font-black text-gray-100 mb-4 lg:mb-6 mx-auto uppercase",
+        "header-2":
+            "text-3xl lg:text-4xl font-bold text-gray-100 max-w-xl mb-4 lg:mb-6 tracking-normal",
+        "header-3": "text-lg lg:text-xl font-bold text-gray-100 max-w-xl mb-2",
+        "p-paragraph":
+            "text-md lg:text-lg font-normal text-gray-300 max-w-xl pb-3 leading-relaxed mx-auto font-font",
+        "p-proof-paragraph":
+            "text-sm lg:text-md font-normal text-gray-300 max-w-xl pb-3 leading-relaxed mx-auto px-2 ",
         "blog-header": "lg:text-3xl text-left font-medium mb-6",
         "ordinary-text": "text-sm lg:text-md text-gray-300 max-w-2xl mx-auto",
         "button-cta": "px-16 py-4",
@@ -22,10 +28,13 @@ export default defineConfig({
             "md:(transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 ))",
         "main-content": "px-4 xl:px-0 max-w-screen lg:max-w-6xl mx-auto",
         "outlined-text":
-            "text-stroke-width-2 text-stroke-sky-500/40 text-transparent font-bold",
+            "text-stroke-width-2 text-stroke-sky-500/40 text-transparent bg-clip-text bg-gradient-to-br from-sky-500 via-indigo-500 to-teal-500 font-black",
     },
     theme: {
         extend: {
+            fontFamily: {
+                font1: ["Raleway"],
+            },
             screens: {
                 sm: "640px",
                 md: "768px",

@@ -3,11 +3,27 @@ interface Props {
     text: string;
     caption: string;
 }
-
+import { Img } from "astro-imagetools/components";
 const { text, caption } = Astro.props;
 ---
 
-<div class="bg-gray-600">
-    <Fragment set:html={text} />
-    <Fragment set:html={caption} />
+<div class="flex flex-col px-4 py-4 rounded-md bg-gray-700/20">
+    <div class="mb-8 text-xl italic font-thin text-center">
+        "<Fragment set:html={text} /> "
+    </div>
+    <div class="flex items-center pl-2">
+        <div class="w-20 h-20 overflow-hidden rounded-md">
+            <Img
+                src="/src/assets/adam.jpg"
+                alt="descriptive text"
+                width={100}
+            />
+        </div>
+        <div class="flex flex-col pl-2">
+            <div class="text-lg font-medium">
+                <Fragment set:html={caption} />
+            </div>
+            <p class="text-md">SEO Expert, Founder of marketing.com</p>
+        </div>
+    </div>
 </div>

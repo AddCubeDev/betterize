@@ -12,10 +12,11 @@
     --card-color: rgba(23, 23, 23, 0.8);
     --card-color2: rgba(23, 23, 23);
 
-    font-family: "Roboto";
+    font-family: "Roboto", "Raleway";
     font-size: 100%;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
+    line-height: 1.6;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -189,18 +190,43 @@ select {
     transform: translateY(0);
 }
 
-.element:nth-child(2) {
-    transition-delay: 250ms;
+@media (min-width: 1280px) {
+    .element:nth-child(2) {
+        transition-delay: 250ms;
+    }
+    .element:nth-child(3) {
+        transition-delay: 500ms;
+    }
+    .element:nth-child(4) {
+        transition-delay: 750ms;
+    }
+    .element:nth-child(5) {
+        transition-delay: 1000ms;
+    }
+    .element:nth-child(6) {
+        transition-delay: 1250ms;
+    }
 }
-.element:nth-child(3) {
-    transition-delay: 500ms;
+
+a.anchor {
+    text-decoration: underline;
+    color: #0026ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-.element:nth-child(4) {
-    transition-delay: 750ms;
+
+/* Hover styles */
+a.anchor:hover {
+    color: #2990ff;
 }
-.element:nth-child(5) {
-    transition-delay: 1000ms;
+
+/* Active link styles */
+a.anchor:active {
+    color: #343a40;
 }
-.element:nth-child(6) {
-    transition-delay: 1250ms;
+
+.nav-bar-menu-item.active {
+    border-bottom-width: 2px;
+    border-color: #1172c4;
+    border-style: solid;
 }

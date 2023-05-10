@@ -4,7 +4,7 @@ import windicss from "astro-windicss";
 // import critters from "astro-critters";
 import vue from "@astrojs/vue";
 // import purgecss from "astro-purgecss";
-import compress from "astro-compress";
+// import compress from "astro-compress";
 import compressor from "astro-compressor";
 
 import partytown from "@astrojs/partytown";
@@ -32,11 +32,11 @@ export default defineConfig({
         }),
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
-        compress({
-            path: "./dist/_astro",
-            gzip: true,
-            img: false,
-        }),
+        // compress({
+        //     path: "./dist/_astro",
+        //     gzip: true,
+        //     img: false,
+        // }),
         compressor({
             gzip: false,
             brotli: true,

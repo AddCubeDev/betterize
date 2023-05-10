@@ -2,60 +2,42 @@
 const bg = "/src/assets/bg-hero.png";
 import { Img, BackgroundImage } from "astro-imagetools/components";
 import Faded from "./elements/Faded.astro";
-// import herobg from "@assets/hero-bg.png";
-
-/*
-artDirectives attribute (see below) is used ONLY to make Lighthouse happy !
-*/
+import ButtonContact from "./subcomponents/ButtonContact.astro";
+import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
 ---
 
-<!-- <div class="relative">
-    <Faded direction="bottom" />
-    <BackgroundImage
-        src={bg}
-        format="avif"
-        placeholder="blurred"
-        brightness="0.2"
-        saturation="0.2"
-        backgroundSize="cover"
-        breakpoints={{ count: 4, minWidth: 400, maxWidth: 2560 }}
-        artDirectives={[
-            {
-                src: bg,
-                media: "(orientation: potrait)",
-            },
-        ]}
-    > -->
-<section class="relative z-10 flex flex-col lg:flex-row lg:h-128 main-content">
-    <div class="flex flex-col justify-center mx-auto text-left">
-        <h1 class="header-1">
-            robimy <span
-                class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
-            >
-                Szybkie i nowoczesne
-            </span>
-            strony internetowe
-        </h1>
-        <h2 class="header-2">
-            Chcesz mieć lepsze pozycjonowanie i większe zyski? Postaw na
-            szybkość i jakość swojej strony internetowej z Betterize!
-        </h2>
+<section class="relative z-10">
+    <div
+        class="absolute w-full transform bg-gradient-to-br from-gray-700/60 via-gray-800/60 to-purple-900/20 skew-y-4 h-120"
+    >
     </div>
-    <div class="items-center justify-center hidden md:flex">
-        <Img src="/src/assets/hero2.png" width={1300} alt="descriptive text" />
+    <div class="flex flex-col mt-16 mb-10 lg:flex-row main-content">
+        <div class="flex flex-col justify-center gap-6 mx-auto text-left">
+            <h1 class="mb-0 header-1">
+                robimy <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
+                >
+                    Szybkie i nowoczesne
+                </span>
+                strony internetowe
+            </h1>
+            <h2 class="font-normal header-3 font-f">
+                Chcesz mieć lepsze pozycjonowanie i większe zyski? Postaw na
+                szybkość i jakość swojej strony internetowej z Betterize!
+            </h2>
+            <div class="flex gap-2">
+                <ButtonContact />
+                <ButtonSecondary />
+            </div>
+        </div>
+        <div
+            class="items-center justify-center hidden overflow-hidden rounded-lg shadow-2xl md:flex"
+        >
+            <Img
+                src="/src/assets/hero6.jpg"
+                width={800}
+                alt="descriptive text"
+            />
+        </div>
     </div>
 </section>
-<!-- </BackgroundImage>
-</div> -->
-
-<!-- <div class="absolute inset-y-0 right-0 z-0 overflow-hidden lg:h-auto">
-    <Picture
-        src={rocket}
-        alt="haha"
-        layout="fixed"
-        placeholder="none"
-        blur={5}
-        brightness={0.7}
-        breakpoints={{ count: 3, minWidth: 150, maxWidth: 700 }}
-    />
-</div> -->
