@@ -1,0 +1,16 @@
+---
+import Icon from "@components/strapidynamic/subcomponents/Icon.astro";
+import type { CompanyList } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: CompanyList;
+}
+
+const { data } = Astro.props;
+---
+
+{
+    data.companies.map((item) => {
+        return <Icon data={item} />;
+    })
+}

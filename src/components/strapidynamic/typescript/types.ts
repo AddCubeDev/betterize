@@ -82,3 +82,34 @@ export interface CTAButton extends StrapiComponent {
     text: string;
     action: string;
 }
+
+// ----------
+
+export enum CompanyListType {
+    basic = "basic",
+    animated = "animated",
+}
+
+export interface Icon {
+    id: number;
+    icon: Image;
+}
+
+export interface CompanyList extends StrapiComponent {
+    type: CompanyListType;
+    companies: Icon[];
+}
+
+// ----------
+
+export enum TwoColumnOrientation {
+    left = "left",
+    right = "right",
+}
+
+export interface TwoColumnWithImage extends StrapiComponent {
+    headline: string;
+    content: string;
+    image_column: TwoColumnOrientation;
+    image: Image;
+}

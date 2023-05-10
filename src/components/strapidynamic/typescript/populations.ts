@@ -3,5 +3,6 @@ export function getFullPopulation() {
     &populate=content.advantage_item.image
     &populate=content.testimonial.image
     &populate=content.image
-    &populate=content.faq_element`;
+    &populate=content.faq_element
+    &populate=content.companies.icon`;
 }

@@ -6,6 +6,8 @@ import Redirection from "@components/strapidynamic/layout/buttons/Redirection.as
 import CTA from "@components/strapidynamic/layout/buttons/CTA.astro";
 import Testimonials from "@components/strapidynamic/layout/Testimonials.astro";
 import Editor from "@components/strapidynamic/layout/Editor.astro";
+import CompanyList from "@components/strapidynamic/layout/CompanyList.astro";
+import TwoColumnWithImage from "@components/strapidynamic/layout/TwoColumnWithImage.astro";
 
 const { blocks } = Astro.props;
 ---
@@ -33,6 +35,12 @@ const { blocks } = Astro.props;
 
             case "layout.call-to-action":
                 return <CTA data={component} />;
+
+            case "layout.icon-list":
+                return <CompanyList data={component} />;
+
+            case "layout.two-column-section":
+                return <TwoColumnWithImage data={component} />;
 
             default:
                 console.log("-----------------");

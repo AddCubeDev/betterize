@@ -1,0 +1,18 @@
+---
+import { getImageUrl } from "@typescript/strapiApi";
+import type { Icon } from "@components/strapidynamic/typescript/types";
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    data: Icon;
+}
+
+const { data } = Astro.props;
+---
+
+<Img
+    src={getImageUrl(data.icon)}
+    alt="advantage_item"
+    placeholder="none"
+    width={30}
+/>
