@@ -1,0 +1,19 @@
+---
+import Testimonial from "@components/strapidynamic/subcomponents/Testimonial.astro";
+import type { Testimonials } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: Testimonials;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex flex-col justify-center mx-auto text-left">
+    <h2>{data.headline}</h2>
+    {
+        data.testimonial.map((item) => {
+            return <Testimonial data={item} />;
+        })
+    }
+</div>

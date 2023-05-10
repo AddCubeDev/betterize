@@ -1,0 +1,20 @@
+---
+import AdvantageItem from "@components/strapidynamic/subcomponents/AdvantageItem.astro";
+import type { Advantages } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: Advantages;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex flex-col justify-center mx-auto text-left">
+    <h2>{data.headline}</h2>
+    <p>{data.subtitle}</p>
+    {
+        data.advantage_item.map((item) => {
+            return <AdvantageItem data={item} />;
+        })
+    }
+</div>

@@ -1,0 +1,22 @@
+---
+import TestimonialsAnimated from "@components/strapidynamic/subcomponents/TestimonialsAnimated.astro";
+import TestimonialsBasic from "@components/strapidynamic/subcomponents/TestimonialsBasic.astro";
+import type { Testimonials } from "@components/strapidynamic/typescript/types";
+import { TestimonialsType } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: Testimonials;
+}
+
+const { data } = Astro.props;
+---
+
+{
+    () => {
+        if (data.type == TestimonialsType.animated) {
+            return <TestimonialsAnimated data={data} />;
+        } else {
+            return <TestimonialsBasic data={data} />;
+        }
+    }
+}

@@ -1,10 +1,10 @@
 ---
 import { getImageUrl } from "@typescript/strapiApi";
-import type { AdvantageItem } from "@components/strapidynamic/typescript/types";
+import type { Testimonial } from "@components/strapidynamic/typescript/types";
 import { Img } from "astro-imagetools/components";
 
 interface Props {
-    data: AdvantageItem;
+    data: Testimonial;
 }
 
 const { data } = Astro.props;
@@ -14,15 +14,21 @@ const { data } = Astro.props;
     <div class="flex-none p-8 pb-12 lg:flex lg:(p-0 pb-8)">
         <Img
             src={getImageUrl(data.image)}
-            alt="advantage_item"
+            alt="testimonial_item"
             placeholder="none"
             width={300}
         />
     </div>
-    <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
-        {data.headline}
-    </h2>
     <p class="text-base text-left">
-        {data.content}
+        {data.company}
+    </p>
+    <p class="text-base text-left">
+        {data.body}
+    </p>
+    <p class="text-base text-left">
+        {data.name}
+    </p>
+    <p class="text-base text-left">
+        {data.website}
     </p>
 </div>
