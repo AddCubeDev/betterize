@@ -100,7 +100,10 @@ import NavbarPost from "./NavbarPost.astro";
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
                     href="/projects"
                 >
-                    <div class="flex items-center justify-center font-bold">
+                    <div
+                        id="nav-bar-menu-item-projekty"
+                        class="flex items-center justify-center font-bold nav-bar-menu-item"
+                    >
                         Projekty
                         <div
                             class="group-hover:(transform translate-y-0.5) transition-smooth"
@@ -161,8 +164,15 @@ import NavbarPost from "./NavbarPost.astro";
 
             <a
                 class="flex items-center h-20 font-bold text-gray-300 ease-in-out nav-link transition-smooth hover:opacity-50"
-                href="/pagespeedtester">PageSpeedTester</a
+                href="/pagespeedtester"
             >
+                <p
+                    id="nav-bar-menu-item-pagespeedtester"
+                    class="nav-bar-menu-item"
+                >
+                    PageSpeedTester
+                </p>
+            </a>
 
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -225,14 +235,14 @@ import NavbarPost from "./NavbarPost.astro";
                     <li
                         class="w-full py-4 border-b border-gray-300 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block" href="/projects">Projekty</a>
+                        <a class="block" href="/projects"> Projekty</a>
                     </li>
                     <li
                         class="w-full py-4 border-b border-gray-300 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block" href="/pagespeedtester"
-                            >PageSpeedTester</a
-                        >
+                        <a class="block" href="/pagespeedtester">
+                            PageSpeedTester
+                        </a>
                     </li>
                     <li
                         class="w-full py-4 hover:text-sky-500 transition-smooth"
@@ -245,26 +255,28 @@ import NavbarPost from "./NavbarPost.astro";
             </div>
         </div>
     </section>
-</header>
-<script>
-    const menu_btn = document.getElementById("menu_btn");
-    const mobile_menu = document.getElementById("mobile_menu");
-    const menu_bars = document.getElementById("menu_bars");
-    const menu_close = document.getElementById("menu_close");
 
-    menu_btn.addEventListener("click", () => {
-        mobile_menu.classList.toggle("hidden");
-        menu_bars.classList.toggle("hidden");
-        menu_close.classList.toggle("hidden");
-    });
-</script>
-<style>
-    .nav-link[aria-current="page"] {
-        text-decoration: underline #fff 0.1rem;
-        text-underline-offset: 0.5rem;
-    }
-    a {
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-</style>
+    <script>
+        const menu_btn = document.getElementById("menu_btn");
+        const mobile_menu = document.getElementById("mobile_menu");
+        const menu_bars = document.getElementById("menu_bars");
+        const menu_close = document.getElementById("menu_close");
+
+        menu_btn.addEventListener("click", () => {
+            mobile_menu.classList.toggle("hidden");
+            menu_bars.classList.toggle("hidden");
+            menu_close.classList.toggle("hidden");
+        });
+    </script>
+
+    <style>
+        .nav-link[aria-current="page"] {
+            text-decoration: underline #fff 0.1rem;
+            text-underline-offset: 0.5rem;
+        }
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+    </style>
+</header>

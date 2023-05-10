@@ -224,3 +224,9 @@ a.anchor:hover {
 a.anchor:active {
     color: #343a40;
 }
+
+.nav-bar-menu-item.active {
+    border-bottom-width: 2px;
+    border-color: #1172c4;
+    border-style: solid;
+}
