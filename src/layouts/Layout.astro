@@ -5,6 +5,17 @@ import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { AstroSeo } from "@astrolib/seo";
 
 // import partytown from "/src/utils/partytown.js";
+
+interface Props {
+    title?: string,
+    description?: string
+}
+
+const {
+    title,
+    description
+} = Astro.props as Props;
+
 ---
 
 <!DOCTYPE html>
@@ -80,9 +91,9 @@ import { AstroSeo } from "@astrolib/seo";
 
         <meta name="keywords" content="" />
         <AstroSeo
-            title="Flying Fast Websites"
-            description="A short description goes here."
-            canonical="https://betterize.pl"
+            canonical={Astro.url.href}
+            title={title}
+            description={description}
         />
     </head>
     <body>
