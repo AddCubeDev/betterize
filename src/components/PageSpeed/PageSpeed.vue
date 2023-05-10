@@ -7,7 +7,7 @@
         />
 
         <div :hidden="hiddenPageSpeedTestError">
-            <p class="font-bold">{{ pageSpeedTestError }}</p>
+            <p class="font-black">{{ pageSpeedTestError }}</p>
         </div>
 
         <div
@@ -15,9 +15,9 @@
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex mx-auto pb-4 gap-6 justify-center">
-                <p class="font-bold text-[#f90000]">0-49 Poor</p>
-                <p class="font-bold text-[#f9f900]">50-89 Average</p>
-                <p class="font-bold text-[#00f900]">90-100 Excelent</p>
+                <p class="font-black text-[#f90000]">0-49 Poor</p>
+                <p class="font-black text-[#f9f900]">50-89 Average</p>
+                <p class="font-black text-[#00f900]">90-100 Excelent</p>
             </div>
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
@@ -27,7 +27,7 @@
                 >
                     <div class="flex relative items-center justify-center">
                         <p
-                            class="font-bold transform top-1/2 left-1/2 text-2xl z-10 -translate-x-1/2 -translate-y-1/2 absolute"
+                            class="font-black transform top-1/2 left-1/2 text-2xl z-10 -translate-x-1/2 -translate-y-1/2 absolute"
                         >
                             {{ pageSpeedTest.test_result.value }}
                         </p>

@@ -14,31 +14,9 @@ const bg = "/src/assets/bg7.jpg";
     <div class="">
         <Nav />
     </div>
-
-    <section
-        class="flex flex-col justify-center py-16 rounded-lg main-content lg:h-screen"
-    >
-        <div
-            class="relative px-4 pt-20 pb-10 border rounded-lg shadow-2xl bg-black/90 bg-opacity bg-clip-padding border-gray-300/50"
-        >
-            <div class="pb-12">
-                <h2 class="pb-4 header-1">Sprawdź wydajność swojej strony</h2>
-                <p class="ordinary-text">
-                    Google w 2021 wprowadził nowe standardy oceniania i
-                    pozycjonowania stron internetowych. Sprawdź czy twoja strona
-                    spełnia nowe wymagania Googla
-                </p>
-            </div>
-            <div
-                class="absolute inset-0 rounded-lg bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 bg-blur -z-1"
-            >
-            </div>
-
-            <div class="flex items-start justify-center h-128 lg:h-96">
-                <PageSpeed client:only />
-            </div>
-        </div>
-    </section>
+    <div class="py-20">
+        <Section1 />
+    </div>
 
     <div class="mt-auto">
         <Footer />

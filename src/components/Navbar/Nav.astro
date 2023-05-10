@@ -100,9 +100,9 @@ import NavbarPost from "./NavbarPost.astro";
             <div class="relative group">
                 <a
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
-                    href="#"
+                    href="/projects"
                 >
-                    <div class="flex items-center justify-center border">
+                    <div class="flex items-center justify-center">
                         Projekty
                         <div
                             class="group-hover:(transform translate-y-0.5) transition-smooth"
@@ -260,13 +260,6 @@ import NavbarPost from "./NavbarPost.astro";
         menu_close.classList.toggle("hidden");
     });
 </script>
-<script>
-    document.querySelectorAll(".nav-link").forEach((link) => {
-        if (link.href === window.location.href) {
-            link.setAttribute("aria-current", "page");
-        }
-    });
-</script>
 <style>
     .nav-link[aria-current="page"] {
         text-decoration: underline #fff 0.1rem;
@@ -277,3 +270,20 @@ import NavbarPost from "./NavbarPost.astro";
         transition: all 0.3s ease;
     }
 </style>
+
+<script>
+    document.querySelectorAll(".nav-link").forEach((link) => {
+        if (link.href === window.location.href) {
+            link.setAttribute("aria-current", "page");
+        }
+        // Sprawdź, czy bieżący adres URL pasuje do linku "Projekty"
+        const projectsLink = document.querySelector(
+            '.nav-link[href="/projects"]'
+        );
+        if (projectsLink && window.location.href.includes("/projects")) {
+            projectsLink.setAttribute("aria-current", "page");
+        } else {
+            projectsLink.removeAttribute("aria-current");
+        }
+    });
+</script>
