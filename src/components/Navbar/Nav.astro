@@ -35,6 +35,7 @@ import NavbarPost from "./NavbarPost.astro";
             aria-label="Site Nav"
             class="hidden gap-8 text-sm font-medium text-md md:flex"
         >
+            <!-- TO JEST SEKCJA "BLOG" W NAVBARZE -->
             <!-- <div class="relative group">
                 <a
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth group"
@@ -270,20 +271,3 @@ import NavbarPost from "./NavbarPost.astro";
         transition: all 0.3s ease;
     }
 </style>
-
-<script>
-    document.querySelectorAll(".nav-link").forEach((link) => {
-        if (link.href === window.location.href) {
-            link.setAttribute("aria-current", "page");
-        }
-        // Sprawdź, czy bieżący adres URL pasuje do linku "Projekty"
-        const projectsLink = document.querySelector(
-            '.nav-link[href="/projects"]'
-        );
-        if (projectsLink && window.location.href.includes("/projects")) {
-            projectsLink.setAttribute("aria-current", "page");
-        } else {
-            projectsLink.removeAttribute("aria-current");
-        }
-    });
-</script>
