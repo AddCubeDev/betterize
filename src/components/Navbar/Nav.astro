@@ -10,10 +10,7 @@ import NavbarItemGroup from "./NavbarItemGroup.astro";
 import NavbarPost from "./NavbarPost.astro";
 ---
 
-<header
-    aria-label="Site Header"
-    class="z-10 w-full shadow-lg bg-zinc-900 shadow-gray-900"
->
+<header aria-label="Site Header" class="z-10 w-full">
     <section
         class="relative flex items-center justify-between h-20 max-w-screen-xl gap-10 px-8 mx-auto"
     >
@@ -103,7 +100,7 @@ import NavbarPost from "./NavbarPost.astro";
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
                     href="/projects"
                 >
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center justify-center font-bold">
                         Projekty
                         <div
                             class="group-hover:(transform translate-y-0.5) transition-smooth"
@@ -163,7 +160,7 @@ import NavbarPost from "./NavbarPost.astro";
             </div>
 
             <a
-                class="flex items-center h-20 text-gray-300 ease-in-out nav-link transition-smooth hover:opacity-50"
+                class="flex items-center h-20 font-bold text-gray-300 ease-in-out nav-link transition-smooth hover:opacity-50"
                 href="/pagespeedtester">PageSpeedTester</a
             >
 

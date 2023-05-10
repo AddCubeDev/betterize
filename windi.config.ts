@@ -28,7 +28,7 @@ export default defineConfig({
             "md:(transition duration-500 hover:(origin-bottom transform -translate-y-2 duration-500 ))",
         "main-content": "px-4 xl:px-0 max-w-screen lg:max-w-6xl mx-auto",
         "outlined-text":
-            "text-stroke-width-2 text-stroke-sky-500/40 text-transparent font-black",
+            "text-stroke-width-2 text-stroke-sky-500/40 text-transparent bg-clip-text bg-gradient-to-br from-sky-500 via-indigo-500 to-teal-500 font-black",
     },
     theme: {
         extend: {

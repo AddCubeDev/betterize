@@ -29,11 +29,11 @@ const {
         <div
             class="grid items-center justify-start grid-cols-1 px-2 py-4 lg:grid-cols-2 element card-content"
         >
-            <div class="pl-12">
+            <div class="px-4 lg:px-auto lg:pl-16">
                 <h2 class="mb-2 text-4xl font-black">
                     {title}
                 </h2>
-                <p class="text-sm">
+                <p class="text-sm p-paragraph">
                     {paragraph}
                 </p>
             </div>
@@ -44,7 +44,9 @@ const {
                 <Img src={src} width={250} alt="descriptive text" />
             </div>
         </div>
-        <p class="left-2 top-1 text-[100px] outlined-text absolute">
+        <p
+            class="left-1 -top-17 lg:(left-2) lg:top-1 text-[100px] outlined-text absolute -z-10 lg:z-10"
+        >
             {number}
         </p>
         <div
