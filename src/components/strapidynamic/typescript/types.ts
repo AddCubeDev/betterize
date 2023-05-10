@@ -55,3 +55,30 @@ export interface Testimonials extends StrapiComponent {
     type: TestimonialsType;
     testimonial: Testimonial[];
 }
+
+// ----------
+
+export interface FAQItem {
+    id: number;
+    question: string;
+    answer: string;
+}
+
+export interface FAQ extends StrapiComponent {
+    headline?: string;
+    faq_element: FAQItem[];
+}
+
+// ----------
+
+export interface RedirectionButton extends StrapiComponent {
+    text: string;
+    page: string;
+}
+
+// ----------
+
+export interface CTAButton extends StrapiComponent {
+    text: string;
+    action: string;
+}

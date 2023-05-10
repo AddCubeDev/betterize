@@ -1,0 +1,19 @@
+---
+import FAQItem from "@components/strapidynamic/subcomponents/FAQItem.astro";
+import type { FAQ } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: FAQ;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex flex-col justify-center mx-auto text-left">
+    <h2>{data.headline}</h2>
+    {
+        data.faq_element.map((item) => {
+            return <FAQItem data={item} />;
+        })
+    }
+</div>

@@ -1,0 +1,18 @@
+---
+import type { FAQItem } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: FAQItem;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="border-t border-sky-200/50 p-4">
+    <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
+        {data.question}
+    </h2>
+    <p class="text-base text-left">
+        {data.answer}
+    </p>
+</div>

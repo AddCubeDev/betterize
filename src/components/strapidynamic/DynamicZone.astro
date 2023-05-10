@@ -1,6 +1,9 @@
 ---
 import Hero from "@components/strapidynamic/layout/Hero.astro";
 import Advantages from "@components/strapidynamic/layout/Advantages.astro";
+import FAQ from "@components/strapidynamic/layout/FAQ.astro";
+import Redirection from "@components/strapidynamic/layout/buttons/Redirection.astro";
+import CTA from "@components/strapidynamic/layout/buttons/CTA.astro";
 import Testimonials from "@components/strapidynamic/layout/Testimonials.astro";
 import Editor from "@components/strapidynamic/layout/Editor.astro";
 
@@ -21,6 +24,15 @@ const { blocks } = Astro.props;
 
             case "layout.testimonials":
                 return <Testimonials data={component} />;
+
+            case "layout.faq":
+                return <FAQ data={component} />;
+
+            case "layout.redirect-button":
+                return <Redirection data={component} />;
+
+            case "layout.call-to-action":
+                return <CTA data={component} />;
 
             default:
                 console.log("-----------------");

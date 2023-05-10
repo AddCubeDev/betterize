@@ -1,0 +1,13 @@
+---
+import type { RedirectionButton } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: RedirectionButton;
+}
+
+const { data } = Astro.props;
+---
+
+<a href={data.page}>
+    {data.text}
+</a>

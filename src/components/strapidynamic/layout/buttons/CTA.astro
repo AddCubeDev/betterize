@@ -1,0 +1,13 @@
+---
+import type { CTAButton } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: CTAButton;
+}
+
+const { data } = Astro.props;
+---
+
+<a href={"#" + data.action}>
+    {data.text}
+</a>
