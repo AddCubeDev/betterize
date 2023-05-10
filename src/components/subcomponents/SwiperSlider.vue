@@ -8,7 +8,7 @@
             >
                 <p class="text-base text-gray-300">{{ props.paragraph }}</p>
                 <div>
-                    <p class="font-bold text-xl text-gray-100">
+                    <p class="font-black text-xl text-gray-100">
                         {{ props.name }}
                     </p>
                     <p class="text-sm text-gray-300">{{ props.company }}</p>
