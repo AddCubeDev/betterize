@@ -1,0 +1,25 @@
+---
+import type { Embed } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: Embed;
+}
+
+const { data } = Astro.props;
+
+function isAutoplayable() {
+    if (data.autoplay) {
+        return "&autoplay=1&muted=1";
+    } else {
+        return "";
+    }
+}
+---
+
+<iframe
+    src={data.url + isAutoplayable()}
+    width="640"
+    height="360"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen></iframe>
+<p>{data.caption}</p>

@@ -8,6 +8,8 @@ import Testimonials from "@components/strapidynamic/layout/Testimonials.astro";
 import Editor from "@components/strapidynamic/layout/Editor.astro";
 import CompanyList from "@components/strapidynamic/layout/CompanyList.astro";
 import TwoColumnWithImage from "@components/strapidynamic/layout/TwoColumnWithImage.astro";
+import TwoColumnWithEmbed from "@components/strapidynamic/layout/TwoColumnWithEmbed.astro";
+import Embed from "@components/strapidynamic/layout/embed/Embed.astro";
 
 const { blocks } = Astro.props;
 ---
@@ -41,6 +43,12 @@ const { blocks } = Astro.props;
 
             case "layout.two-column-section":
                 return <TwoColumnWithImage data={component} />;
+
+            case "layout.two-column-with-embed":
+                return <TwoColumnWithEmbed data={component} />;
+
+            case "layout.embed-video":
+                return <Embed data={component} />;
 
             default:
                 console.log("-----------------");

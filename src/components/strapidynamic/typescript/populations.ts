@@ -4,5 +4,6 @@ export function getFullPopulation() {
     &populate=content.testimonial.image
     &populate=content.image
     &populate=content.faq_element
-    &populate=content.companies.icon`;
+    &populate=content.companies.icon
+    &populate=content.embed`;
 }

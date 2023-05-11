@@ -1,0 +1,26 @@
+---
+import type { Embed } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: Embed;
+}
+
+const { data } = Astro.props;
+
+function isAutoplayable() {
+    if (data.autoplay) {
+        return "autoplay=1&mute=1&";
+    } else {
+        return "";
+    }
+}
+---
+
+<iframe
+    width="560"
+    height="315"
+    src={data.url + `?${isAutoplayable()}enablejsapi=1`}
+    title="YouTube video player"
+    allowfullscreen></iframe>
+
+<p>{data.caption}</p>

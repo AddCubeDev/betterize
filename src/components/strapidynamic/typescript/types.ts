@@ -102,6 +102,20 @@ export interface CompanyList extends StrapiComponent {
 
 // ----------
 
+export enum EmbedVideoPlatform {
+    youtube = "youtube",
+    vimeo = "vimeo",
+    unsupported = "unsupported",
+}
+
+export interface Embed extends StrapiComponent {
+    url: string;
+    caption?: string;
+    autoplay: boolean;
+}
+
+// ----------
+
 export enum TwoColumnOrientation {
     left = "left",
     right = "right",
@@ -112,4 +126,11 @@ export interface TwoColumnWithImage extends StrapiComponent {
     content: string;
     image_column: TwoColumnOrientation;
     image: Image;
+}
+
+export interface TwoColumnWithEmbed extends StrapiComponent {
+    headline: string;
+    content: string;
+    embed_column: TwoColumnOrientation;
+    embed: Embed;
 }

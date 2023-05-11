@@ -1,0 +1,44 @@
+---
+import type { TwoColumnWithEmbed } from "@components/strapidynamic/typescript/types";
+import { TwoColumnOrientation } from "@components/strapidynamic/typescript/types";
+import EditorContent from "@components/editorjs/EditorContent.astro";
+import Embed from "@components/strapidynamic/layout/embed/Embed.astro";
+
+interface Props {
+    data: TwoColumnWithEmbed;
+}
+
+const { data } = Astro.props;
+
+const blocks = JSON.parse(data.content).blocks;
+---
+
+{
+    () => {
+        if (data.embed_column == TwoColumnOrientation.left) {
+            return (
+                <div>
+                    <Embed data={data.embed} />
+                    <div>
+                        <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
+                            {data.headline}
+                        </h2>
+                        <EditorContent blocks={blocks} />
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <div>
+                        <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
+                            {data.headline}
+                        </h2>
+                        <EditorContent blocks={blocks} />
+                    </div>
+                    <Embed data={data.embed} />
+                </div>
+            );
+        }
+    }
+}
