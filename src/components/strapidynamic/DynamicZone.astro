@@ -12,7 +12,9 @@ import TwoColumnWithEmbed from "@components/strapidynamic/layout/TwoColumnWithEm
 import Embed from "@components/strapidynamic/layout/embed/Embed.astro";
 import SimpleHeadline from "@components/strapidynamic/layout/SimpleHeadline.astro";
 import Note from "@components/strapidynamic/layout/Note.astro";
+import Gallery from "@components/strapidynamic/layout/Gallery.astro";
 import ContactForm from "@components/strapidynamic/layout/ContactForm.astro";
+import StepByStep from "@components/strapidynamic/layout/StepByStep.astro";
 
 const { blocks } = Astro.props;
 ---
@@ -61,6 +63,12 @@ const { blocks } = Astro.props;
 
             case "layout.contact-form":
                 return <ContactForm data={component} />;
+
+            case "layout.gallery":
+                return <Gallery data={component} />;
+
+            case "layout.step-by-step":
+                return <StepByStep data={component} />;
 
             default:
                 console.log("-----------------");

@@ -1,9 +1,12 @@
 export function getFullPopulation() {
+    const poplualte = "&populate=content";
     return `fields=content
-    &populate=content.advantage_item.image
-    &populate=content.testimonial.image
-    &populate=content.image
-    &populate=content.faq_element
-    &populate=content.companies.icon
-    &populate=content.embed`;
+    ${poplualte}.advantage_item.image
+    ${poplualte}.testimonial.image
+    ${poplualte}.image
+    ${poplualte}.faq_element
+    ${poplualte}.companies.icon
+    ${poplualte}.embed
+    ${poplualte}.image.image
+    ${poplualte}.step.image`;
 }

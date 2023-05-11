@@ -160,3 +160,29 @@ export interface Note extends StrapiComponent {
 export interface ContactForm extends StrapiComponent {
     heading: string;
 }
+
+// ----------
+export interface GalleryImage {
+    id: number;
+    image: Image;
+}
+
+export interface Gallery extends StrapiComponent {
+    headline: string;
+    columns: number;
+    image: GalleryImage;
+}
+
+// ----------
+
+export interface Step {
+    id: number;
+    headline: string;
+    content: string;
+    image: Image;
+}
+
+export interface StepByStep extends StrapiComponent {
+    headline?: string;
+    step: Step[];
+}

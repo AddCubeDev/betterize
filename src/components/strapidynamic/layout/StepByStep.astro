@@ -1,0 +1,19 @@
+---
+import Step from "@components/strapidynamic/subcomponents/Step.astro";
+import type { StepByStep } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: StepByStep;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex flex-col justify-center mx-auto text-left">
+    <h2>{data.headline}</h2>
+    {
+        data.step.map((item, index) => {
+            return <Step data={item} index={index + 1} />;
+        })
+    }
+</div>
