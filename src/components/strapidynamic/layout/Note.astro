@@ -1,0 +1,44 @@
+---
+import type { Note } from "@components/strapidynamic/typescript/types";
+import { NoteType } from "@components/strapidynamic/typescript/types";
+
+interface Styling {
+    heder: string;
+    content: string;
+    div: string;
+}
+
+interface Props {
+    data: Note;
+}
+
+const { data } = Astro.props;
+
+function getStyling() {
+    let result: Styling = {
+        heder: "",
+        content: "",
+        div: "",
+    };
+
+    if (data.type == NoteType.info) {
+        result.heder = "bg-green-400";
+        result.content = "bg-yellow-400";
+    } else if (data.type == NoteType.warning) {
+        result.heder = "bg-yellow-400";
+        result.content = "bg-yellow-400";
+    } else {
+        result.div = "bg-red-400";
+    }
+
+    return result;
+}
+
+const styling = getStyling();
+---
+
+<!-- !!! Zrob stylowanie w funkcji getStyling !!! -->
+<div class={styling.div}>
+    <h2 class={styling.heder}>{data.headline}</h2>
+    <p class={styling.content}>{data.content}</p>
+</div>

@@ -10,6 +10,9 @@ import CompanyList from "@components/strapidynamic/layout/CompanyList.astro";
 import TwoColumnWithImage from "@components/strapidynamic/layout/TwoColumnWithImage.astro";
 import TwoColumnWithEmbed from "@components/strapidynamic/layout/TwoColumnWithEmbed.astro";
 import Embed from "@components/strapidynamic/layout/embed/Embed.astro";
+import SimpleHeadline from "@components/strapidynamic/layout/SimpleHeadline.astro";
+import Note from "@components/strapidynamic/layout/Note.astro";
+import ContactForm from "@components/strapidynamic/layout/ContactForm.astro";
 
 const { blocks } = Astro.props;
 ---
@@ -49,6 +52,15 @@ const { blocks } = Astro.props;
 
             case "layout.embed-video":
                 return <Embed data={component} />;
+
+            case "layout.simple-headline":
+                return <SimpleHeadline data={component} />;
+
+            case "layout.note":
+                return <Note data={component} />;
+
+            case "layout.contact-form":
+                return <ContactForm data={component} />;
 
             default:
                 console.log("-----------------");

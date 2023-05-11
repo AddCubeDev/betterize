@@ -134,3 +134,29 @@ export interface TwoColumnWithEmbed extends StrapiComponent {
     embed_column: TwoColumnOrientation;
     embed: Embed;
 }
+
+// ----------
+
+export interface SimpleHeadline extends StrapiComponent {
+    text: string;
+}
+
+// ----------
+
+export enum NoteType {
+    info = "info",
+    warning = "warning",
+    error = "error",
+}
+
+export interface Note extends StrapiComponent {
+    headline: string;
+    content: string;
+    type: NoteType;
+}
+
+// ----------
+
+export interface ContactForm extends StrapiComponent {
+    heading: string;
+}
