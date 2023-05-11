@@ -16,19 +16,25 @@ const { data } = Astro.props;
 
 function getStyling() {
     let result: Styling = {
-        heder: "",
+        header: "",
         content: "",
         div: "",
+        div2: "",
+        src: "",
     };
 
     if (data.type == NoteType.info) {
-        result.heder = "bg-green-400";
-        result.content = "bg-yellow-400";
+        result.div = "border-blue-400/80 ";
+        result.div2 = "bg-blue-400/20";
+        result.src = "/src/assets/info.svg";
     } else if (data.type == NoteType.warning) {
-        result.heder = "bg-yellow-400";
-        result.content = "bg-yellow-400";
+        result.div = "border-yellow-400/80";
+        result.div2 = "bg-yellow-400/20";
+        result.src = "/src/assets/yellow.svg";
     } else {
-        result.div = "bg-red-400";
+        result.div = "border-red-400/80";
+        result.div2 = "bg-red-400/20";
+        result.src = "/src/assets/red.svg";
     }
 
     return result;
@@ -38,7 +44,17 @@ const styling = getStyling();
 ---
 
 <!-- !!! Zrob stylowanie w funkcji getStyling !!! -->
-<div class={styling.div}>
-    <h2 class={styling.heder}>{data.headline}</h2>
-    <p class={styling.content}>{data.content}</p>
+<div
+    class={styling.div +
+        " border-1 rounded-md text-left max-w-xl mx-auto w-full bg-transparent"}
+>
+    <div class={styling.div2 + " flex p-2 gap-2"}>
+        <img width="30px" height="30px" src={styling.src} />
+        <h2 class={styling.header + " text-md font-semibold"}>
+            {data.headline}
+        </h2>
+    </div>
+    <p class={styling.content + " h-32 p-2 text-gray-300 text-md"}>
+        {data.content}
+    </p>
 </div>

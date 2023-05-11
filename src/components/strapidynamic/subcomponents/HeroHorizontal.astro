@@ -1,4 +1,6 @@
 ---
+import ButtonContact from "@components/subcomponents/ButtonContact.astro";
+import ButtonSecondary from "@components/subcomponents/ButtonSecondary.astro";
 import { Img } from "astro-imagetools/components";
 
 interface Props {
@@ -18,7 +20,12 @@ const { headline, content, image_url } = Astro.props;
         <h2 class="landing-p">
             {content}
         </h2>
+        <div class="flex gap-2 py-4">
+            <ButtonContact />
+            <ButtonSecondary />
+        </div>
     </div>
+
     <div class="items-center justify-center hidden md:flex">
         <Img src={image_url} width={400} alt="descriptive text" />
     </div>

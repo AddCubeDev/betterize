@@ -9,8 +9,10 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-{
-    data.companies.map((item) => {
-        return <Icon data={item} />;
-    })
-}
+<div class="flex max-w-6xl gap-12 mx-auto">
+    {
+        data.companies.map((item) => {
+            return <Icon data={item} />;
+        })
+    }
+</div>

@@ -9,10 +9,9 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
-<div class="flex flex-col justify-center max-w-6xl mx-auto text-left">
-    <h2>{data.headline}</h2>
-    <div class="w-full">
+<div class="flex flex-col max-w-6xl mx-auto">
+    <h2 class="mx-auto header-2">{data.headline}</h2>
+    <div class="flex flex-col max-w-6xl grid-cols-1 gap-4 pb-20 mx-auto w-2xl">
         {
             data.faq_element.map((item) => {
                 return <FAQItem data={item} />;
@@ -20,46 +19,3 @@ const { data } = Astro.props;
         }
     </div>
 </div>
-
-<div class="flex items-start justify-center my-2">
-    <div class="w-full my-1 sm:w-10/12 md:w-1/2">
-        <h2 class="mb-2 text-xl font-semibold text-vnet-blue">
-            {data.headline}
-        </h2>
-        <ul class="flex flex-col w-full">
-            {
-                data.faq_element.map((item) => {
-                    return <FAQItem data={item} />;
-                })
-            }
-        </ul>
-    </div>
-</div>
-<script>
-    document.addEventListener("alpine:init", () => {
-        Alpine.store("accordion", {
-            tab: 0,
-        });
-
-        Alpine.data("accordion", (idx) => ({
-            init() {
-                this.idx = idx;
-            },
-            idx: -1,
-            handleClick() {
-                this.$store.accordion.tab =
-                    this.$store.accordion.tab === this.idx ? 0 : this.idx;
-            },
-            handleRotate() {
-                return this.$store.accordion.tab === this.idx
-                    ? "rotate-180"
-                    : "";
-            },
-            handleToggle() {
-                return this.$store.accordion.tab === this.idx
-                    ? `max-height: ${this.$refs.tab.scrollHeight}px`
-                    : "";
-            },
-        }));
-    });
-</script>

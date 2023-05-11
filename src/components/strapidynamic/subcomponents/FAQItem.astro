@@ -16,32 +16,30 @@ const { data } = Astro.props;
         {data.answer}
     </p>
 </div> -->
-<li
-    class="w-full my-2 border border-white shadow-lg bg-neutral-900 shadow-gray-100/10"
-    x-data="accordion(1)"
->
-    <h2
-        @click="handleClick()"
-        class="flex flex-row items-center justify-between p-3 font-semibold cursor-pointer"
+<details class="w-full group [&_summary::-webkit-details-marker]:hidden">
+    <summary
+        class="flex items-center justify-between w-full p-4 border rounded-lg cursor-pointer border-gray-200/50"
     >
-        <span>{data.question}</span>
+        <h2 class="text-lg font-semibold text-gray-200">
+            {data.question}
+        </h2>
+
         <svg
-            :class="handleRotate()"
-            class="w-6 h-6 text-purple-700 transition-transform duration-500 transform fill-current"
-            viewBox="0 0 20 20"
+            class="flex-shrink-0 h-5 ml-1.5 transform transition w-5 rotate-0 duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
         >
             <path
-                d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"
-            ></path>
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
         </svg>
-    </h2>
-    <div
-        x-ref="tab"
-        :style="handleToggle()"
-        class="overflow-hidden transition-all duration-500 border-l-2 border-purple-600 bg-gradient-to-b from-neutral-800 to-neutral-800 max-h-0"
-    >
-        <p class="p-3 text-left text-gray-300">
-            {data.answer}
-        </p>
-    </div>
-</li>
+    </summary>
+
+    <p class="px-4 mt-4 text-left text-gray-300">
+        {data.answer}
+    </p>
+</details>
