@@ -170,7 +170,7 @@ export interface GalleryImage {
 export interface Gallery extends StrapiComponent {
     headline: string;
     columns: number;
-    image: GalleryImage;
+    image: GalleryImage[];
 }
 
 // ----------
