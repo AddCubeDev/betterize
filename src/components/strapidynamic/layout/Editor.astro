@@ -11,4 +11,6 @@ const { content } = Astro.props;
 const blocks = JSON.parse(content).blocks;
 ---
 
-<EditorContent blocks={blocks} />
+<div>
+    <EditorContent blocks={blocks} />
+</div>

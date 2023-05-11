@@ -9,12 +9,16 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="flex flex-col justify-center mx-auto text-left">
-    <h2>{data.headline}</h2>
-    <p>{data.subtitle}</p>
-    {
-        data.advantage_item.map((item) => {
-            return <AdvantageItem data={item} />;
-        })
-    }
+<div
+    class="flex flex-col items-center justify-center max-w-6xl mx-auto text-center"
+>
+    <h2 class="mb-2 header-2">{data.headline}</h2>
+    <p class="landing-p">{data.subtitle}</p>
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        {
+            data.advantage_item.map((item) => {
+                return <AdvantageItem data={item} />;
+            })
+        }
+    </div>
 </div>
