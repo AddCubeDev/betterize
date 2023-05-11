@@ -1,0 +1,18 @@
+---
+import PricingPlan from "@components/strapidynamic/subcomponents/PricingPlan.astro";
+import type { PricingSection } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: PricingSection;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="grid grid-cols-3">
+    {
+        data.plan.map((plan) => {
+            return <PricingPlan data={plan} />;
+        })
+    }
+</div>

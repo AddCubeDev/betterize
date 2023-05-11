@@ -8,5 +8,6 @@ export function getFullPopulation() {
     ${poplualte}.companies.icon
     ${poplualte}.embed
     ${poplualte}.image.image
-    ${poplualte}.step.image`;
+    ${poplualte}.step.image
+    ${poplualte}.plan.features`;
 }

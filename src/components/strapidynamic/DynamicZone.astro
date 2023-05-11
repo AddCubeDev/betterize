@@ -15,6 +15,8 @@ import Note from "@components/strapidynamic/layout/Note.astro";
 import Gallery from "@components/strapidynamic/layout/Gallery.astro";
 import ContactForm from "@components/strapidynamic/layout/ContactForm.astro";
 import StepByStep from "@components/strapidynamic/layout/StepByStep.astro";
+import BackgroundContent from "@components/strapidynamic/layout/BackgroundContent.astro";
+import PricingSection from "@components/strapidynamic/layout/PricingSection.astro";
 
 const { blocks } = Astro.props;
 ---
@@ -69,6 +71,12 @@ const { blocks } = Astro.props;
 
             case "layout.step-by-step":
                 return <StepByStep data={component} />;
+
+            case "layout.simple-content-with-background":
+                return <BackgroundContent data={component} />;
+
+            case "layout.pricing-section":
+                return <PricingSection data={component} />;
 
             default:
                 console.log("-----------------");

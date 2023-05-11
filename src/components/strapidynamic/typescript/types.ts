@@ -186,3 +186,32 @@ export interface StepByStep extends StrapiComponent {
     headline?: string;
     step: Step[];
 }
+
+// ----------
+
+export interface BackgroundContent extends StrapiComponent {
+    headline: string;
+    content?: string;
+    image: Image;
+}
+
+// ----------
+enum PricingPeriod {
+    monthly = "monthly",
+    yearly = "yearly",
+}
+
+export interface Feature {
+    id: number;
+    text: string;
+}
+export interface PricingPlan {
+    name: string;
+    price?: string;
+    period?: PricingPeriod;
+    features: Feature[];
+}
+
+export interface PricingSection extends StrapiComponent {
+    plan: PricingPlan[];
+}

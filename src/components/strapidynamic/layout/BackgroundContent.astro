@@ -1,0 +1,23 @@
+---
+import { Img } from "astro-imagetools/components";
+import { getImageUrl } from "@typescript/strapiApi";
+import type { BackgroundContent } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: BackgroundContent;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex flex-col justify-center mx-auto text-left">
+    <h1 class="header-1">
+        {data.headline}
+    </h1>
+    <h2 class="header-2">
+        {data.content}
+    </h2>
+</div>
+<div class="items-center justify-center hidden md:flex">
+    <Img src={getImageUrl(data.image)} width={400} alt="descriptive text" />
+</div>

@@ -1,0 +1,28 @@
+---
+import type { PricingPlan } from "@components/strapidynamic/typescript/types";
+
+interface Props {
+    data: PricingPlan;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="border-t border-sky-200/50 p-4">
+    <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
+        {data.name}
+    </h2>
+    <ul>
+        {
+            data.features.map((feture) => {
+                return <li>{feture.text}</li>;
+            })
+        }
+    </ul>
+    <p class="text-base text-left">
+        {data.price}
+    </p>
+    <p class="text-base text-left">
+        {data.period}
+    </p>
+</div>
