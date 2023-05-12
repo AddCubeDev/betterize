@@ -9,9 +9,11 @@ const {
 } = Astro.props;
 ---
 
-<details class="w-full group [&_summary::-webkit-details-marker]:hidden">
+<details
+    class="max-w-196 w-full group [&_summary::-webkit-details-marker]:hidden"
+>
     <summary
-        class="border rounded-lg cursor-pointer flex border-gray-200/50 w-full p-4 items-center justify-between"
+        class="flex items-center justify-between w-full p-4 border rounded-lg cursor-pointer lg:w-196 backdrop-filter backdrop-blur-20 border-gray-200/50"
     >
         <h2 class="font-medium text-gray-200">
             {question}
@@ -32,7 +34,7 @@ const {
         </svg>
     </summary>
 
-    <p class="mt-4 text-left px-4 text-gray-300">
+    <p class="w-full px-4 mt-4 text-left text-gray-300 lg:w-196">
         {answer}
     </p>
 </details>
