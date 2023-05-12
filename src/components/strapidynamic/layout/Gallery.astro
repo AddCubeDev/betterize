@@ -13,18 +13,27 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<h2>{data.headline}</h2>
-<div class={`grid grid-cols-${data.columns}`}>
-    {
-        data.image.map((item: GalleryImage) => {
-            return (
-                <Img
-                    src={getImageUrl(item.image)}
-                    alt="advantage_item"
-                    placeholder="none"
-                    width={300}
-                />
-            );
-        })
-    }
+<div>
+    <h2 class="mx-auto header-2">{data.headline}</h2>
+    <div
+        class={`max-w-6xl mx-auto gap-4 grid grid-cols-${String(data.columns)}`}
+    >
+        {
+            data.image.map((item: GalleryImage) => {
+                return (
+                    <div>
+                        <Img
+                            src={getImageUrl(item.image)}
+                            alt="advantage_item"
+                            placeholder="none"
+                            width={100}
+                            height={100}
+                        />
+                    </div>
+                );
+            })
+        }
+    </div>
 </div>
+
+<!-- data.columns -->

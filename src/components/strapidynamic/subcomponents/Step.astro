@@ -11,20 +11,25 @@ interface Props {
 const { index, data } = Astro.props;
 ---
 
-<div class="border-t border-sky-200/50 p-4">
-    <h2>{index}</h2>
-    <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
-        {data.headline}
-    </h2>
-    <p class="text-base text-left">
-        {data.content}
-    </p>
-    <div class="flex-none p-8 pb-12 lg:flex lg:(p-0 pb-8)">
+<div
+    class="grid grid-cols-1 gap-8 p-4 rounded-lg shadow-2xl bg-zinc-900 shadow-gray-500 md:grid-cols-2 lg:w-196"
+>
+    <div>
+        <h2>{index}</h2>
+        <h2 class="mb-2 text-2xl font-medium text-left lg:h-12">
+            {data.headline}
+        </h2>
+        <p class="text-base text-left">
+            {data.content}
+        </p>
+    </div>
+    <div class="w-full rounded-lg overflow-hidden h-[400px]">
         <Img
             src={getImageUrl(data.image)}
             alt="advantage_item"
             placeholder="none"
-            width={300}
+            layout="cover"
+            width={500}
         />
     </div>
 </div>
