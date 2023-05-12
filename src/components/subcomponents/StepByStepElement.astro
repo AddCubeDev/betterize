@@ -6,6 +6,9 @@ interface Props {
     src?: string;
     number?: number;
     connect?: string;
+    list1?: string;
+    list2?: string;
+    list3?: string;
 }
 const {
     title = "Jestem pytaniem, które ktoś mógłby zadać",
@@ -36,6 +39,11 @@ const {
                 <p class="text-sm p-paragraph">
                     {paragraph}
                 </p>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
             <div
                 style="transform: translateZ(30px)"
