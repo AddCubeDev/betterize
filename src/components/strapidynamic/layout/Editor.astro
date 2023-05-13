@@ -1,5 +1,5 @@
 ---
-import EditorContent from "@components/editorjs/EditorContent.astro";
+import EmbedEditorContent from "@components/editorjs/EmbedEditorContent.astro";
 
 // TODO: Add custom type
 interface Props {
@@ -11,6 +11,6 @@ const { content } = Astro.props;
 const blocks = JSON.parse(content).blocks;
 ---
 
-<div>
-    <EditorContent blocks={blocks} />
+<div class="px-4">
+    <EmbedEditorContent blocks={blocks} />
 </div>

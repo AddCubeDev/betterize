@@ -44,17 +44,22 @@ const styling = getStyling();
 ---
 
 <!-- !!! Zrob stylowanie w funkcji getStyling !!! -->
-<div class={styling.div + " border-l-6 text-left max-w-xl mx-auto w-full p-4"}>
-    <div class={styling.div2 + " flex gap-2 mb-2"}>
-        <img width="20px" height="20px" src={styling.src} />
-        <h2 class={styling.header + " text-md font-semibold"}>
-            {data.headline}
-        </h2>
-    </div>
-    <p
-        class={styling.content +
-            "min-h-24 text-gray-300 text-sm leading-relaxed"}
+<div class="px-4">
+    <div
+        class={styling.div +
+            " border-l-6 text-left max-w-xl mx-auto w-full p-4"}
     >
-        {data.content}
-    </p>
+        <div class={styling.div2 + " flex gap-2 mb-2"}>
+            <img width="20px" height="20px" src={styling.src} />
+            <h2 class={styling.header + " text-md font-semibold"}>
+                {data.headline}
+            </h2>
+        </div>
+        <p
+            class={styling.content +
+                "min-h-24 text-gray-300 text-sm leading-relaxed"}
+        >
+            {data.content}
+        </p>
+    </div>
 </div>

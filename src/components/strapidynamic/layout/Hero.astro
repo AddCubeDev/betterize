@@ -12,24 +12,26 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-{
-    () => {
-        if (data.type == HeroType.horizontal) {
-            return (
-                <HeroHorizontal
-                    headline={data.headline}
-                    image_url={getImageUrl(data.image)}
-                    content={data.content}
-                />
-            );
-        } else {
-            return (
-                <HeroVertical
-                    headline={data.headline}
-                    image_url={getImageUrl(data.image)}
-                    content={data.content}
-                />
-            );
+<div class="px-4">
+    {
+        () => {
+            if (data.type == HeroType.horizontal) {
+                return (
+                    <HeroHorizontal
+                        headline={data.headline}
+                        image_url={getImageUrl(data.image)}
+                        content={data.content}
+                    />
+                );
+            } else {
+                return (
+                    <HeroVertical
+                        headline={data.headline}
+                        image_url={getImageUrl(data.image)}
+                        content={data.content}
+                    />
+                );
+            }
         }
     }
-}
+</div>

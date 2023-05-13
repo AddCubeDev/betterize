@@ -13,15 +13,17 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-{
-    () => {
-        switch (getEmbedType(data.url)) {
-            case EmbedVideoPlatform.youtube:
-                return <Youtube data={data} />;
-            case EmbedVideoPlatform.vimeo:
-                return <Vimeo data={data} />;
-            default:
-                return <Unsupported />;
+<div class="px-4">
+    {
+        () => {
+            switch (getEmbedType(data.url)) {
+                case EmbedVideoPlatform.youtube:
+                    return <Youtube data={data} />;
+                case EmbedVideoPlatform.vimeo:
+                    return <Vimeo data={data} />;
+                default:
+                    return <Unsupported />;
+            }
         }
     }
-}
+</div>
