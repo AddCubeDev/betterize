@@ -11,12 +11,14 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-{
-    () => {
-        if (data.type == TestimonialsType.animated) {
-            return <TestimonialsAnimated data={data} />;
-        } else {
-            return <TestimonialsBasic data={data} />;
+<div class="">
+    {
+        () => {
+            if (data.type == TestimonialsType.animated) {
+                return <TestimonialsAnimated data={data} />;
+            } else {
+                return <TestimonialsBasic data={data} />;
+            }
         }
     }
-}
+</div>

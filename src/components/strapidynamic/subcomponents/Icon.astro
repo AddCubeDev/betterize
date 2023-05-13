@@ -10,9 +10,12 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<Img
+<!-- <Img
     src={getImageUrl(data.icon)}
     alt="advantage_item"
     placeholder="none"
     width={30}
-/>
+/> -->
+<div class="grayscale filter transition-smooth hover:(filter-none)">
+    <img width="100px" src={getImageUrl(data.icon)} />
+</div>

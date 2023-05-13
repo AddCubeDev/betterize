@@ -8,6 +8,6 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="flex flex-col justify-center mx-auto text-left">
-    <h2>{data.text}</h2>
+<div class="flex flex-col justify-center mx-auto">
+    <h2 class="capitalize header-2">{data.text}</h2>
 </div>

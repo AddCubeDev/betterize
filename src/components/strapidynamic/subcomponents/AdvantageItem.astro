@@ -10,19 +10,21 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="border-t border-sky-200/50 p-4">
-    <div class="flex-none p-8 pb-12 lg:flex lg:(p-0 pb-8)">
+<div class="p-4 mx-auto bg-zinc-900 rounded-xl">
+    <div
+        class="flex mx-auto items-center justify-center p-8 pb-12 lg:flex lg:(p-0 pb-8)"
+    >
         <Img
             src={getImageUrl(data.image)}
             alt="advantage_item"
             placeholder="none"
-            width={300}
+            width={200}
         />
     </div>
-    <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
+    <h2 class="mb-2 text-2xl font-semibold text-center lg:h-12">
         {data.headline}
     </h2>
-    <p class="text-base text-left">
+    <p class="text-center text-md">
         {data.content}
     </p>
 </div>

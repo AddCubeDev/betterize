@@ -18,35 +18,35 @@ const blocks = JSON.parse(data.content).blocks;
     () => {
         if (data.image_column == TwoColumnOrientation.left) {
             return (
-                <div>
+                <div class="grid max-w-6xl grid-cols-1 gap-8 px-4 mx-auto lg:grid-cols-2">
                     <Img
                         src={getImageUrl(data.image)}
                         alt="advantage_item"
                         placeholder="none"
-                        width={300}
+                        width={500}
                     />
-                    <div>
-                        <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
-                            {data.headline}
-                        </h2>
+
+                    <div class="">
                         <EditorContent blocks={blocks} />
                     </div>
                 </div>
             );
         } else {
             return (
-                <div>
+                <div class="grid max-w-6xl grid-cols-1 gap-8 px-4 mx-auto lg:grid-cols-2">
                     <div>
-                        <h2 class="font-medium text-left mb-2 text-2xl lg:h-12">
+                        <h2 class="mb-0 capitalize header-2">
                             {data.headline}
                         </h2>
-                        <EditorContent blocks={blocks} />
+                        <div>
+                            <EditorContent blocks={blocks} />
+                        </div>
                     </div>
                     <Img
                         src={getImageUrl(data.image)}
                         alt="advantage_item"
                         placeholder="none"
-                        width={300}
+                        width={500}
                     />
                 </div>
             );
