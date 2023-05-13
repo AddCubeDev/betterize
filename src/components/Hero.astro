@@ -8,10 +8,10 @@ import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
 
 <section class="relative z-10">
     <div
-        class="absolute w-full transform bg-gradient-to-br from-gray-700/60 via-gray-800/60 to-purple-900/20 skew-y-4 h-120"
+        class="absolute w-full transform -translate-y-10 h-128 sm:(h-96) lg:(h-128 translate-y-0) bg-gradient-to-br from-gray-700/60 via-gray-800/60 to-purple-900/20 skew-y-4"
     >
     </div>
-    <div class="flex flex-col mt-16 mb-10 lg:flex-row main-content">
+    <div class="flex flex-col mb-10 lg:mt-16 lg:flex-row main-content">
         <div class="flex flex-col justify-center gap-6 mx-auto text-left">
             <h1 class="mb-0 header-1">
                 robimy <span
@@ -31,7 +31,7 @@ import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
             </div>
         </div>
         <div
-            class="items-center justify-center hidden overflow-hidden rounded-lg shadow-2xl md:flex"
+            class="items-center justify-center hidden overflow-hidden rounded-lg shadow-2xl lg:flex"
         >
             <Img
                 src="/src/assets/hero6.jpg"
