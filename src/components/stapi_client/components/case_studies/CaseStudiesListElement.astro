@@ -1,0 +1,45 @@
+---
+import { Picture } from "astro-imagetools/components";
+import type { ApiProjectProject } from "./../../typescript/types/schemas";
+import { getImageUrl } from "./../../typescript/functions/media_plugin";
+import type { Image } from "./../../typescript/types/Image";
+
+interface Props {
+    project: ApiProjectProject;
+}
+
+const { project } = Astro.props;
+
+const attributes = project.attributes;
+---
+
+<div
+    class="max-h-[800px] rounded-md flex flex-col mx-auto max-w-md bg-zinc-900 w-full transition-smooth shadow-2xl main-content relative xl:max-w-auto xl:shadow-sky-500/20 lg:hover:(transform scale-105)"
+>
+    <a class="hover:text-sky-200/50" href={"/projects/" + attributes.slug}>
+        <div class="w-full h-64 overflow-hidden rounded-t-md">
+            <Picture
+                src={getImageUrl(attributes.image as Image)}
+                alt="project-image"
+                objectFit="cover"
+                layout="fill"
+                loading="lazy"
+                quality={70}
+                placeholder="blurred"
+            />
+        </div>
+
+        <div class="p-4 pb-8 overflow-hidden">
+            <div class="absolute inset-0 bg-grid -z-0"></div>
+            <time class="text-sm text-gray-400/30 items-left"
+                >{attributes.date}</time
+            >
+            <h2 class="pb-2 text-2xl font-black text-gray-100 capitalize h-28">
+                {attributes.title}
+            </h2>
+            <p class="max-w-md text-base text-left text-gray-300">
+                {attributes.subtitle}
+            </p>
+        </div>
+    </a>
+</div>

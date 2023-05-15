@@ -1,47 +1,13 @@
 ---
-import { Picture } from "astro-imagetools/components";
-import { getImageUrl } from "./../../typescript/functions/media_plugin";
+import { getPosts } from "./../../typescript/functions/blog_posts";
 import type { ApiPostPost } from "./../../typescript/types/schemas";
-import type { Image } from "./../../typescript/types/Image";
+import BlogPostsListElement from "./BlogPostsListElement.astro";
 
-interface Props {
-    post: ApiPostPost;
-}
-
-const { post } = Astro.props;
+const posts = await getPosts();
 ---
 
-<div
-    class="rounded-md flex flex-col bg-gray-800 transition-smooth shadow-2xl shadow-sky-900/20 hover:(transform scale-105)"
+<ul
+    class="grid w-full grid-cols-1 gap-4 pb-24 main-content md:grid-cols-2 lg:grid-cols-3"
 >
-    <a class="hover:text-sky-200/50" href={"/blog/" + post.attributes.slug}>
-        <div class="rounded-t-md h-64 overflow-hidden">
-            <Picture
-                src={getImageUrl(post.attributes.featuredImage as Image)}
-                alt="blog-post-image"
-                objectFit="cover"
-                layout="fill"
-                loading="eager"
-                quality={70}
-                placeholder="blurred"
-                height={500}
-                sizes="600px"
-            />
-        </div>
-
-        <div class="p-4 pb-8 overflow-hidden relative">
-            <div class="bg-grid inset-0 -z-0 absolute"></div>
-            <time class="text-sm text-gray-400/30 items-left"
-                >{post.attributes.updatedAt}</time
-            >
-            <h2
-                class="font-medium font-black pb-2 text-2xl text-gray-100 capitalize"
-            >
-                {post.attributes.title}
-            </h2>
-            <p class="max-w-md text-base text-left text-gray-300">
-                {post.attributes.excerpt}
-            </p>
-        </div>
-    </a>
-</div>
+    {posts.map((post: ApiPostPost) => <BlogPostsListElement post={post} />)}
+</ul>

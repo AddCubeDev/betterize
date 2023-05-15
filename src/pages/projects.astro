@@ -4,27 +4,16 @@ import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
 import CaseStudiesList from "@components/stapi_client/components/case_studies/CaseStudiesList.astro";
-import { getCaseStudies } from "@components/stapi_client";
-import type { ApiProjectProject } from "@components/stapi_client";
-
-const projects = await getCaseStudies();
 ---
 
 <Layout title="Betterize - nasze projekty">
     <FancyBg />
     <Nav />
+
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">
         <div class="mx-auto max-w-screen main-content lg:show-on-scroll">
             <h2 class="pb-16 header-1">Nasze Projekty:</h2>
-            <div
-                class="grid w-full gap-8 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl"
-            >
-                {
-                    projects.map((project: ApiProjectProject) => (
-                        <CaseStudiesList project={project} />
-                    ))
-                }
-            </div>
+            <CaseStudiesList />
         </div>
     </main>
     <div class="mt-auto">
