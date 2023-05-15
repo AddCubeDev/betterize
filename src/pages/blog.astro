@@ -2,9 +2,9 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import BlogPostListElement from "@components/blogcomponents/BlogPostListElement.astro";
-import { getPosts } from "@typescript/strapiApi";
-import type { ApiPostPost } from "@typescript/types/schemas";
+import BlogPostsList from "@components/stapi_client/components/blog/BlogPostsList.astro";
+import { getPosts } from "@components/stapi_client";
+import type { ApiPostPost } from "@components/stapi_client";
 
 import Faded from "@components/elements/Faded.astro";
 
@@ -19,11 +19,7 @@ const posts = await getPosts();
         <ul
             class="grid w-full grid-cols-1 gap-4 pb-24 main-content md:grid-cols-2 lg:grid-cols-3"
         >
-            {
-                posts.map((post: ApiPostPost) => (
-                    <BlogPostListElement post={post} />
-                ))
-            }
+            {posts.map((post: ApiPostPost) => <BlogPostsList post={post} />)}
         </ul>
     </main>
 

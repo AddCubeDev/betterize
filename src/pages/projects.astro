@@ -3,11 +3,11 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
-import ProjectListElement from "@components/projectscomponents/ProjectsListElement.astro";
-import { getProjects } from "@typescript/strapiApi";
-import type { ApiProjectProject } from "@typescript/types/schemas";
+import CaseStudiesList from "@components/stapi_client/components/case_studies/CaseStudiesList.astro";
+import { getCaseStudies } from "@components/stapi_client";
+import type { ApiProjectProject } from "@components/stapi_client";
 
-const projects = await getProjects();
+const projects = await getCaseStudies();
 ---
 
 <Layout title="Betterize - nasze projekty">
@@ -21,7 +21,7 @@ const projects = await getProjects();
             >
                 {
                     projects.map((project: ApiProjectProject) => (
-                        <ProjectListElement project={project} />
+                        <CaseStudiesList project={project} />
                     ))
                 }
             </div>

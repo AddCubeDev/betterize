@@ -2,8 +2,8 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import DynamicZone from "@components/strapidynamic/DynamicZone.astro";
-import { getDemo } from "@typescript/strapiApi";
+import DynamicZone from "@components/stapi_client/components/dynamic_zone/DynamicZone.astro";
+import { getDemo } from "@components/stapi_client";
 
 const dynamic = await getDemo();
 ---

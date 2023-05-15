@@ -1,0 +1,50 @@
+---
+import type { PricingPlan } from "./../../../../typescript/types/components";
+import ButtonContact from "./buttons/ButtonContact.astro";
+
+interface Props {
+    data: PricingPlan;
+}
+
+const { data } = Astro.props;
+---
+
+<div
+    class="flex flex-col justify-between w-full gap-4 p-8 my-20 overflow-hidden rounded-lg shadow-2xl n bg-neutral-900 shadow-black"
+>
+    <div class="flex flex-col pb-2 text-left border-b border-white/20">
+        <h2 class="py-2 text-4xl font-semibold">
+            {data.name}
+        </h2>
+        <p>krótki opis planu</p>
+    </div>
+    <div class="flex items-start justify-start h-full pb-2">
+        <ul class="flex flex-col gap-2 py-4 text-gray-300">
+            {
+                data.features.map((feture) => {
+                    return (
+                        <div class="flex gap-2 ">
+                            <img
+                                width="20px"
+                                class=""
+                                src="/src/assets/ok-2.svg"
+                            />
+                            <li>{feture.text}</li>
+                        </div>
+                    );
+                })
+            }
+        </ul>
+    </div>
+    <div class="flex flex-col h-24 gap-4 pt-4 border-t border-white/20">
+        <p class="text-2xl font-semibold text-center">
+            {data.price}
+        </p>
+        <div class="w-full">
+            <ButtonContact />
+        </div>
+        <p class="text-base text-left">
+            {data.period}
+        </p>
+    </div>
+</div>

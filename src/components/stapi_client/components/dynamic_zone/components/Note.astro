@@ -1,0 +1,67 @@
+---
+import type { Note } from "./../../../typescript/types/components";
+import { NoteType } from "./../../../typescript/types/components";
+
+interface Styling {
+    header: string;
+    content: string;
+    div: string;
+    div2: string;
+    src: string;
+}
+
+interface Props {
+    data: Note;
+}
+
+const { data } = Astro.props;
+
+function getStyling() {
+    let result: Styling = {
+        header: "",
+        content: "",
+        div: "",
+        div2: "",
+        src: "",
+    };
+
+    if (data.type == NoteType.info) {
+        result.div = "border-green-400 bg-green-400/20";
+        result.div2 = "";
+        result.src = "/src/assets/info.svg";
+    } else if (data.type == NoteType.warning) {
+        result.div = "border-yellow-400 bg-yellow-400/20";
+        result.div2 = "";
+        result.src = "/src/assets/yellow.svg";
+    } else {
+        result.div = " border-red-400 bg-red-400/20";
+        result.div2 = "";
+        result.src = "/src/assets/red.svg";
+    }
+
+    return result;
+}
+
+const styling = getStyling();
+---
+
+<!-- !!! Stylowanie w funkcji getStyling !!! -->
+<div class="px-4">
+    <div
+        class={styling.div +
+            " border-l-6 text-left max-w-xl mx-auto w-full p-4"}
+    >
+        <div class={styling.div2 + " flex gap-2 mb-2"}>
+            <img width="20px" height="20px" src={styling.src} />
+            <h2 class={styling.header + " text-md font-semibold"}>
+                {data.headline}
+            </h2>
+        </div>
+        <p
+            class={styling.content +
+                "min-h-24 text-gray-300 text-sm leading-relaxed"}
+        >
+            {data.content}
+        </p>
+    </div>
+</div>

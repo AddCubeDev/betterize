@@ -1,0 +1,16 @@
+---
+import EmbedEditorContent from "./../../richtext_editor/EmbedEditorContent.astro";
+
+// TODO: Add custom type
+interface Props {
+    content: string;
+}
+
+const { content } = Astro.props;
+
+const blocks = JSON.parse(content).blocks;
+---
+
+<div class="px-4">
+    <EmbedEditorContent blocks={blocks} />
+</div>
