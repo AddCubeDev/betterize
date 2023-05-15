@@ -1,0 +1,29 @@
+---
+import Youtube from "./subcomponents/Youtube.astro";
+import Vimeo from "./subcomponents/Vimeo.astro";
+import Unsupported from "./subcomponents/Unsupported.astro";
+import type { Embed } from "./../../../../typescript/types/components";
+import { EmbedVideoPlatform } from "./../../../../typescript/types/components";
+import { getEmbedType } from "./embedType";
+
+interface Props {
+    data: Embed;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="px-4">
+    {
+        () => {
+            switch (getEmbedType(data.url)) {
+                case EmbedVideoPlatform.youtube:
+                    return <Youtube data={data} />;
+                case EmbedVideoPlatform.vimeo:
+                    return <Vimeo data={data} />;
+                default:
+                    return <Unsupported />;
+            }
+        }
+    }
+</div>

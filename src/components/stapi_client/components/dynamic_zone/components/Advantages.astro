@@ -1,0 +1,24 @@
+---
+import AdvantageItem from "./subcomponents/AdvantageItem.astro";
+import type { Advantages } from "./../../../typescript/types/components";
+
+interface Props {
+    data: Advantages;
+}
+
+const { data } = Astro.props;
+---
+
+<div
+    class="flex flex-col items-center justify-center max-w-6xl px-4 mx-auto text-center"
+>
+    <h2 class="mb-2 header-2">{data.headline}</h2>
+    <p class="landing-p">{data.subtitle}</p>
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+        {
+            data.advantage_item.map((item) => {
+                return <AdvantageItem data={item} />;
+            })
+        }
+    </div>
+</div>

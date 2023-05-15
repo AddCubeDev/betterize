@@ -1,0 +1,39 @@
+---
+import { getImageUrl } from "./../../../../typescript/functions/media_plugin";
+import type { Step } from "./../../../../typescript/types/components";
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    index: number;
+    data: Step;
+}
+
+const { index, data } = Astro.props;
+---
+
+<div
+    class="grid grid-cols-1 gap-8 p-4 mx-auto rounded-lg shadow-2xl bg-zinc-900 shadow-gray-700 md:grid-cols-2 lg:w-196"
+>
+    <div>
+        <h2 class="mb-2 text-6xl font-black">{index}</h2>
+        <h2 class="text-2xl font-semibold text-left lg:h-12">
+            {data.headline}
+        </h2>
+        <p class="text-sm text-left">
+            {data.content}
+        </p>
+    </div>
+    <div
+        class="w-full h-[300px] overflow-hidden flex items-center justify-center"
+    >
+        <div class="overflow-hidden rounded-lg h-[300px]">
+            <Img
+                src={getImageUrl(data.image)}
+                alt="advantage_item"
+                placeholder="none"
+                layout="cover"
+                width={300}
+            />
+        </div>
+    </div>
+</div>

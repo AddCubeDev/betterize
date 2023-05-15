@@ -1,0 +1,45 @@
+---
+import { Picture } from "astro-imagetools/components";
+
+const {
+    title = "Jestem tytułem artykułu",
+    paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
+    src = "/src/assets/swiperight.jpg",
+    href = "/projects/swiperight",
+    loading = "lazy",
+} = Astro.props;
+---
+
+<div
+    class="rounded-md flex flex-col mx-auto max-w-md bg-zinc-900 w-full transition-smooth shadow-2xl main-content relative xl:max-w-auto xl:shadow-sky-500/20 lg:hover:(transform scale-105)"
+>
+    <a class="hover:text-sky-200/50 hover" href={href}>
+        <div class="w-full h-64 overflow-hidden rounded-t-md">
+            <Picture
+                src={src}
+                alt="blog-post-image"
+                objectFit="cover"
+                width={500}
+                layout="fill"
+                loading={loading}
+                quality="70"
+                placeholder="blurred"
+            />
+        </div>
+
+        <div class="p-4 pb-8 overflow-hidden">
+            <!-- <div class="absolute inset-0 bg-grid -z-0"></div> -->
+            <time class="text-sm text-gray-300 items-left">01.01.2023</time>
+            <h2 class="pb-4 text-2xl font-black text-gray-100 capitalize">
+                {title}
+            </h2>
+            <p class="max-w-md text-base text-left text-gray-300">
+                {paragraph}
+            </p>
+        </div>
+    </a>
+    <!-- <div
+        class="absolute inset-0 rounded-lg animate-pulse bg-gradient-to-br from-indigo-500 via-teal-500 to-sky-500 -z-10"
+    >
+    </div> -->
+</div>

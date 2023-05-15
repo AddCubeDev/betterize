@@ -1,0 +1,37 @@
+---
+import { getImageUrl } from "./../../../typescript/functions/media_plugin";
+import HeroHorizontal from "./subcomponents/HeroHorizontal.astro";
+import HeroVertical from "./subcomponents/HeroVertical.astro";
+import type { Hero } from "./../../../typescript/types/components";
+import { HeroType } from "./../../../typescript/types/components";
+
+interface Props {
+    data: Hero;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="px-4">
+    {
+        () => {
+            if (data.type == HeroType.horizontal) {
+                return (
+                    <HeroHorizontal
+                        headline={data.headline}
+                        image_url={getImageUrl(data.image)}
+                        content={data.content}
+                    />
+                );
+            } else {
+                return (
+                    <HeroVertical
+                        headline={data.headline}
+                        image_url={getImageUrl(data.image)}
+                        content={data.content}
+                    />
+                );
+            }
+        }
+    }
+</div>

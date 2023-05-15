@@ -1,0 +1,15 @@
+---
+import type { ApiProjectProject } from "./../../typescript/types/schemas";
+import { getCaseStudies } from "./../../typescript/functions/case_studies";
+import CaseStudiesListElement from "./CaseStudiesListElement.astro";
+
+const projects = await getCaseStudies();
+---
+
+<div class="grid w-full gap-8 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl">
+    {
+        projects.map((project: ApiProjectProject) => (
+            <CaseStudiesListElement project={project} />
+        ))
+    }
+</div>
