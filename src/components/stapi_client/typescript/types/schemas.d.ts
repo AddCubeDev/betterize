@@ -17,16 +17,16 @@ import {
     IntegerAttribute,
     DecimalAttribute,
     SetMinMax,
-    MediaAttribute,
     SingleTypeSchema,
-    DynamicZoneAttribute,
+    MediaAttribute,
+    TextAttribute,
     UIDAttribute,
-    RichTextAttribute,
+    DynamicZoneAttribute,
     DateAttribute,
     ComponentSchema,
     ComponentAttribute,
-    TextAttribute,
-} from "@typescript/types/strapi_inner_types";
+    RichTextAttribute,
+} from "@strapi/strapi";
 
 export interface AdminPermission extends CollectionTypeSchema {
     info: {
@@ -692,6 +692,37 @@ export interface PluginUsersPermissionsUser extends CollectionTypeSchema {
     };
 }
 
+export interface ApiAppStateAppState extends SingleTypeSchema {
+    info: {
+        singularName: "app-state";
+        pluralName: "app-states";
+        displayName: "AppState";
+    };
+    options: {
+        draftAndPublish: false;
+    };
+    attributes: {
+        AnyContentModifiedAfterBuild: BooleanAttribute &
+            RequiredAttribute &
+            DefaultTo<false>;
+        LastBuild: DateTimeAttribute;
+        createdAt: DateTimeAttribute;
+        updatedAt: DateTimeAttribute;
+        createdBy: RelationAttribute<
+            "api::app-state.app-state",
+            "oneToOne",
+            "admin::user"
+        > &
+            PrivateAttribute;
+        updatedBy: RelationAttribute<
+            "api::app-state.app-state",
+            "oneToOne",
+            "admin::user"
+        > &
+            PrivateAttribute;
+    };
+}
+
 export interface ApiAuthorAuthor extends CollectionTypeSchema {
     info: {
         singularName: "author";
@@ -723,14 +754,119 @@ export interface ApiAuthorAuthor extends CollectionTypeSchema {
     };
 }
 
+export interface ApiBlogPostBlogPost extends CollectionTypeSchema {
+    info: {
+        singularName: "blog-post";
+        pluralName: "blog-posts";
+        displayName: "BlogPost";
+        description: "";
+    };
+    options: {
+        draftAndPublish: true;
+    };
+    attributes: {
+        title: StringAttribute &
+            RequiredAttribute &
+            DefaultTo<"Domy\u015Blny tytu\u0142">;
+        excerpt: TextAttribute &
+            RequiredAttribute &
+            DefaultTo<"Domy\u015Blny opis">;
+        slug: UIDAttribute<"api::blog-post.blog-post", "title"> &
+            RequiredAttribute;
+        featured_image: MediaAttribute & RequiredAttribute;
+        body: DynamicZoneAttribute<
+            [
+                "layout.editor",
+                "layout.embed-video",
+                "layout.fancy-link",
+                "layout.note",
+                "layout.quote",
+                "layout.simple-image"
+            ]
+        > &
+            RequiredAttribute;
+        date: DateAttribute & RequiredAttribute;
+        createdAt: DateTimeAttribute;
+        updatedAt: DateTimeAttribute;
+        publishedAt: DateTimeAttribute;
+        createdBy: RelationAttribute<
+            "api::blog-post.blog-post",
+            "oneToOne",
+            "admin::user"
+        > &
+            PrivateAttribute;
+        updatedBy: RelationAttribute<
+            "api::blog-post.blog-post",
+            "oneToOne",
+            "admin::user"
+        > &
+            PrivateAttribute;
+    };
+}
+
+export interface ApiCaseStudyCaseStudy extends CollectionTypeSchema {
+    info: {
+        singularName: "case-study";
+        pluralName: "case-studies";
+        displayName: "CaseStudy";
+    };
+    options: {
+        draftAndPublish: true;
+    };
+    attributes: {
+        title: StringAttribute &
+            RequiredAttribute &
+            DefaultTo<"Domy\u015Blny tytu\u0142">;
+        subtitle: TextAttribute &
+            RequiredAttribute &
+            DefaultTo<"Domy\u015Blna tre\u015B\u0107">;
+        image: MediaAttribute & RequiredAttribute;
+        authors: RelationAttribute<
+            "api::case-study.case-study",
+            "oneToMany",
+            "api::author.author"
+        >;
+        slug: UIDAttribute<"api::case-study.case-study", "title"> &
+            RequiredAttribute;
+        date: DateAttribute & RequiredAttribute;
+        body: DynamicZoneAttribute<
+            [
+                "layout.editor",
+                "layout.embed-video",
+                "layout.fancy-link",
+                "layout.note",
+                "layout.quote",
+                "layout.simple-image"
+            ]
+        > &
+            RequiredAttribute;
+        createdAt: DateTimeAttribute;
+        updatedAt: DateTimeAttribute;
+        publishedAt: DateTimeAttribute;
+        createdBy: RelationAttribute<
+            "api::case-study.case-study",
+            "oneToOne",
+            "admin::user"
+        > &
+            PrivateAttribute;
+        updatedBy: RelationAttribute<
+            "api::case-study.case-study",
+            "oneToOne",
+            "admin::user"
+        > &
+            PrivateAttribute;
+    };
+}
+
 export interface ApiContactFormContactForm extends CollectionTypeSchema {
     info: {
         singularName: "contact-form";
         pluralName: "contact-forms";
         displayName: "ContactForm";
+        description: "";
     };
     options: {
-        draftAndPublish: true;
+        draftAndPublish: false;
     };
     attributes: {
         name: StringAttribute & RequiredAttribute;
@@ -738,7 +874,6 @@ export interface ApiContactFormContactForm extends CollectionTypeSchema {
         message: StringAttribute & RequiredAttribute;
         createdAt: DateTimeAttribute;
         updatedAt: DateTimeAttribute;
-        publishedAt: DateTimeAttribute;
         createdBy: RelationAttribute<
             "api::contact-form.contact-form",
             "oneToOne",
@@ -785,7 +920,11 @@ export interface ApiDemoDemo extends SingleTypeSchema {
                 "layout.simple-headline",
                 "layout.simple-content-with-background",
                 "layout.pricing-section",
-                "layout.two-column-with-embed"
+                "layout.two-column-with-embed",
+                "layout.code",
+                "layout.fancy-link",
+                "layout.quote",
+                "layout.simple-image"
             ]
         >;
         createdAt: DateTimeAttribute;
@@ -806,74 +945,31 @@ export interface ApiDemoDemo extends SingleTypeSchema {
     };
 }
 
-export interface ApiPostPost extends CollectionTypeSchema {
+export interface ApiWebsiteBuildWebsiteBuild extends CollectionTypeSchema {
     info: {
-        singularName: "post";
-        pluralName: "posts";
-        displayName: "Post";
-        description: "";
+        singularName: "website-build";
+        pluralName: "website-builds";
+        displayName: "WebsiteBuild";
     };
     options: {
-        draftAndPublish: true;
+        draftAndPublish: false;
     };
     attributes: {
-        title: StringAttribute;
-        excerpt: StringAttribute;
-        visibility: BooleanAttribute;
-        slug: UIDAttribute<"api::post.post", "title">;
-        featuredImage: MediaAttribute & RequiredAttribute;
-        body: DynamicZoneAttribute<["layout.editor", "layout.embed-video"]>;
+        state: EnumerationAttribute<["started", "finished", "failed"]> &
+            RequiredAttribute &
+            DefaultTo<"started">;
+        author: StringAttribute;
+        build_time: StringAttribute;
         createdAt: DateTimeAttribute;
         updatedAt: DateTimeAttribute;
-        publishedAt: DateTimeAttribute;
         createdBy: RelationAttribute<
-            "api::post.post",
+            "api::website-build.website-build",
             "oneToOne",
             "admin::user"
         > &
             PrivateAttribute;
         updatedBy: RelationAttribute<
-            "api::post.post",
-            "oneToOne",
-            "admin::user"
-        > &
-            PrivateAttribute;
-    };
-}
-
-export interface ApiProjectProject extends CollectionTypeSchema {
-    info: {
-        singularName: "project";
-        pluralName: "projects";
-        displayName: "Project";
-        description: "";
-    };
-    options: {
-        draftAndPublish: true;
-    };
-    attributes: {
-        title: StringAttribute & RequiredAttribute;
-        subtitle: StringAttribute & RequiredAttribute;
-        image: MediaAttribute & RequiredAttribute;
-        authors: RelationAttribute<
-            "api::project.project",
-            "oneToMany",
-            "api::author.author"
-        >;
-        body: RichTextAttribute & RequiredAttribute;
-        slug: UIDAttribute<"api::project.project", "title"> & RequiredAttribute;
-        date: DateAttribute & RequiredAttribute;
-        createdAt: DateTimeAttribute;
-        updatedAt: DateTimeAttribute;
-        publishedAt: DateTimeAttribute;
-        createdBy: RelationAttribute<
-            "api::project.project",
-            "oneToOne",
-            "admin::user"
-        > &
-            PrivateAttribute;
-        updatedBy: RelationAttribute<
-            "api::project.project",
+            "api::website-build.website-build",
             "oneToOne",
             "admin::user"
         > &
@@ -914,6 +1010,15 @@ export interface LayoutCallToAction extends ComponentSchema {
     };
 }
 
+export interface LayoutCode extends ComponentSchema {
+    info: {
+        displayName: "Code";
+    };
+    attributes: {
+        content: TextAttribute & RequiredAttribute;
+    };
+}
+
 export interface LayoutContactForm extends ComponentSchema {
     info: {
         displayName: "ContactForm";
@@ -947,6 +1052,15 @@ export interface LayoutEmbedVideo extends ComponentSchema {
     };
 }
 
+export interface LayoutFancyLink extends ComponentSchema {
+    info: {
+        displayName: "FancyLink";
+    };
+    attributes: {
+        url: StringAttribute & RequiredAttribute & DefaultTo<"betterize.pl">;
+    };
+}
+
 export interface LayoutFaq extends ComponentSchema {
     info: {
         displayName: "FAQ";
@@ -968,9 +1082,15 @@ export interface LayoutGallery extends ComponentSchema {
     attributes: {
         headline: StringAttribute &
             DefaultTo<"Domy\u015Blny nag\u0142\u00F3wek">;
-        columns: StringAttribute & RequiredAttribute & DefaultTo<"2">;
         image: ComponentAttribute<"subcomponents.gallery-image", true> &
             RequiredAttribute;
+        columns: IntegerAttribute &
+            RequiredAttribute &
+            SetMinMax<{
+                min: 1;
+                max: 6;
+            }> &
+            DefaultTo<2>;
     };
 }
 
@@ -1042,6 +1162,20 @@ export interface LayoutPricingSection extends ComponentSchema {
     };
 }
 
+export interface LayoutQuote extends ComponentSchema {
+    info: {
+        displayName: "Quote";
+    };
+    attributes: {
+        content: TextAttribute &
+            RequiredAttribute &
+            DefaultTo<"Domy\u015Blna tre\u015B\u0107">;
+        author: StringAttribute &
+            RequiredAttribute &
+            DefaultTo<"Domy\u015Blny Autor">;
+    };
+}
+
 export interface LayoutRedirectButton extends ComponentSchema {
     info: {
         displayName: "RedirectButton";
@@ -1076,6 +1210,15 @@ export interface LayoutSimpleHeadline extends ComponentSchema {
         text: StringAttribute &
             RequiredAttribute &
             DefaultTo<"Domy\u015Blny nag\u0142\u00F3wek">;
+    };
+}
+
+export interface LayoutSimpleImage extends ComponentSchema {
+    info: {
+        displayName: "SimpleImage";
+    };
+    attributes: {
+        img: MediaAttribute & RequiredAttribute;
     };
 }
 
@@ -1114,9 +1257,6 @@ export interface LayoutTwoColumnSection extends ComponentSchema {
         description: "";
     };
     attributes: {
-        headline: StringAttribute &
-            RequiredAttribute &
-            DefaultTo<"Domy\u015Blny nag\u0142\u00F3wek">;
         content: RichTextAttribute &
             RequiredAttribute &
             DefaultTo<"Domy\u015Blna tre\u015B\u0107">;
@@ -1133,9 +1273,6 @@ export interface LayoutTwoColumnWithEmbed extends ComponentSchema {
         description: "";
     };
     attributes: {
-        headline: StringAttribute &
-            RequiredAttribute &
-            DefaultTo<"Domy\u015Blny nag\u0142\u00F3wek">;
         content: RichTextAttribute & RequiredAttribute;
         embed: ComponentAttribute<"layout.embed-video">;
         embed_column: EnumerationAttribute<["left", "right"]> &
@@ -1198,6 +1335,7 @@ export interface SubcomponentsGalleryImage extends ComponentSchema {
 export interface SubcomponentsPricingPlan extends ComponentSchema {
     info: {
         displayName: "PricingPlan";
+        description: "";
     };
     attributes: {
         name: StringAttribute &
@@ -1208,6 +1346,12 @@ export interface SubcomponentsPricingPlan extends ComponentSchema {
         price: StringAttribute & DefaultTo<"200">;
         period: EnumerationAttribute<["monthly", "yearly"]> &
             DefaultTo<"monthly">;
+        is_highlighted: BooleanAttribute & RequiredAttribute & DefaultTo<false>;
+        currency: EnumerationAttribute<
+            ["z\u0142oty", "euro", "dolar", "funt"]
+        > &
+            RequiredAttribute &
+            DefaultTo<"z\u0142oty">;
     };
 }
 
@@ -1272,16 +1416,20 @@ declare global {
             "plugin::users-permissions.permission": PluginUsersPermissionsPermission;
             "plugin::users-permissions.role": PluginUsersPermissionsRole;
             "plugin::users-permissions.user": PluginUsersPermissionsUser;
+            "api::app-state.app-state": ApiAppStateAppState;
             "api::author.author": ApiAuthorAuthor;
+            "api::blog-post.blog-post": ApiBlogPostBlogPost;
+            "api::case-study.case-study": ApiCaseStudyCaseStudy;
             "api::contact-form.contact-form": ApiContactFormContactForm;
             "api::demo.demo": ApiDemoDemo;
-            "api::post.post": ApiPostPost;
-            "api::project.project": ApiProjectProject;
+            "api::website-build.website-build": ApiWebsiteBuildWebsiteBuild;
             "layout.advantages": LayoutAdvantages;
             "layout.call-to-action": LayoutCallToAction;
+            "layout.code": LayoutCode;
             "layout.contact-form": LayoutContactForm;
             "layout.editor": LayoutEditor;
             "layout.embed-video": LayoutEmbedVideo;
+            "layout.fancy-link": LayoutFancyLink;
             "layout.faq": LayoutFaq;
             "layout.gallery": LayoutGallery;
             "layout.hero": LayoutHero;
@@ -1289,9 +1437,11 @@ declare global {
             "layout.note": LayoutNote;
             "layout.posts-list": LayoutPostsList;
             "layout.pricing-section": LayoutPricingSection;
+            "layout.quote": LayoutQuote;
             "layout.redirect-button": LayoutRedirectButton;
             "layout.simple-content-with-background": LayoutSimpleContentWithBackground;
             "layout.simple-headline": LayoutSimpleHeadline;
+            "layout.simple-image": LayoutSimpleImage;
             "layout.step-by-step": LayoutStepByStep;
             "layout.testimonials": LayoutTestimonials;
             "layout.two-column-section": LayoutTwoColumnSection;

@@ -1,6 +1,6 @@
 ---
-import { getPost } from "@components/stapi_client";
-import EditorContent from "./../richtext_editor/EditorContent.astro";
+import { getBlogPost } from "@components/stapi_client";
+import DynamicZone from "./../dynamic_zone/DynamicZone.astro";
 
 interface Props {
     slug: string;
@@ -8,17 +8,15 @@ interface Props {
 
 const { slug } = Astro.props;
 
-const postItem = await getPost(slug as string);
+const postItem = await getBlogPost(slug as string);
 
 const postAttributes = postItem.attributes;
-
-const blocks = JSON.parse(postAttributes.content).blocks;
 ---
 
 <main class="flex flex-col min-h-screen gap-2 mx-auto lg:gap-16">
     <article class="flex flex-col max-w-2xl mx-auto text-left">
         <h1 class="blog-header mt-20">{postAttributes.title}</h1>
         <p>{postAttributes.excerpt}</p>
-        <EditorContent blocks={blocks} />
+        <DynamicZone blocks={postAttributes.body} />
     </article>
 </main>

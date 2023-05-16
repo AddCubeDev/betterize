@@ -2,9 +2,8 @@
 import { Img } from "astro-imagetools/components";
 import Author from "./Author.astro";
 import { getImageUrl } from "./../../typescript/functions/media_plugin";
-import { getAllAuthors } from "./../../typescript/functions/authors";
 import { getCaseStudy } from "./../../typescript/functions/case_studies";
-import EditorContent from "./../richtext_editor/EditorContent.astro";
+import DynamicZone from "./../dynamic_zone/DynamicZone.astro";
 import ProofItem from "./ProofItem.astro";
 
 interface Props {
@@ -15,18 +14,6 @@ const { slug } = Astro.props;
 const project = await getCaseStudy(slug as string);
 
 const attributes = project.attributes;
-
-const autors_all_data = await getAllAuthors();
-
-const authors = attributes.authors.data.map((author: any) => {
-    let result = author.attributes;
-    result.image = autors_all_data.find(
-        (i: any) => i.id == author.id
-    )?.attributes.image;
-    return result;
-});
-
-const blocks = JSON.parse(attributes.body).blocks;
 ---
 
 <div
@@ -55,10 +42,10 @@ const blocks = JSON.parse(attributes.body).blocks;
             class="flex gap-8 flex-col lg:flex-row overflow-hidden max-w-[600px]"
         >
             {
-                authors.map((author: any) => (
+                attributes.authors.data.map((author: any) => (
                     <Author
-                        src={getImageUrl(author.image)}
-                        name={author.name}
+                        src={getImageUrl(author.attributes.image)}
+                        name={author.attributes.name}
                     />
                 ))
             }
@@ -76,8 +63,8 @@ const blocks = JSON.parse(attributes.body).blocks;
     </div>
 </div>
 <main class="flex flex-col max-w-6xl min-h-screen gap-2 p-4 mx-auto xl:gap-28">
-    <article class="flex flex-col max-w-2xl mx-auto text-left">
-        <EditorContent blocks={blocks} />
+    <article class="flex flex-col max-w-2xl mt-20 mx-auto text-left">
+        <DynamicZone blocks={attributes.body} />
     </article>
 </main>
 
@@ -86,8 +73,11 @@ const blocks = JSON.parse(attributes.body).blocks;
         class="flex gap-8 overflow-hidden border-t border-b border-gray-100/30 lg:flex-row"
     >
         {
-            authors.map((author: any) => (
-                <Author src={getImageUrl(author.image)} name={author.name} />
+            attributes.authors.data.map((author: any) => (
+                <Author
+                    src={getImageUrl(author.attributes.image)}
+                    name={author.attributes.name}
+                />
             ))
         }
     </div>

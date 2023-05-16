@@ -1,5 +1,5 @@
 import { strapiApiBaseUrl } from "./../config";
-import type { ApiPostPost } from "./../types/schemas";
+import type { ApiBlogPostBlogPost } from "./../types/schemas";
 
 const extras = {
     headers: {
@@ -7,24 +7,58 @@ const extras = {
     },
 };
 
-export async function getPost(slug: string) {
-    const post: ApiPostPost = await fetch(
-        strapiApiBaseUrl + `/posts?filters[slug][$eq]=${slug}&populate=*`,
+export async function getBlogPost(slug: string) {
+    const post = await fetch(
+        strapiApiBaseUrl + `/blog-posts?filters[slug][$eq]=${slug}&populate=*`,
         extras
-    ).then((x) => x.json().then((data) => data.data[0]));
+    );
 
-    return post;
+    if (post.ok) {
+        const result = post
+            .json()
+            .then((data) => data.data[0] as ApiBlogPostBlogPost)
+            .catch((error) => {
+                throw new Error(
+                    `Unable to extract content of post with given slug. Check attributes names. Error message: ${error}`
+                );
+            });
+
+        return result;
+    } else {
+        const error = await post.json();
+
+        throw new Error(
+            `Unable to fetch post data from given url. Check fetch data. Error message: ${JSON.stringify(
+                error
+            )}`
+        );
+    }
 }
 
-export async function getPosts() {
+export async function getBlogPosts() {
     const posts = await fetch(
-        strapiApiBaseUrl + `/posts?&populate=*`,
+        strapiApiBaseUrl + `/blog-posts?&populate=*`,
         extras
-    ).then((x) => x.json().then((content) => content.data));
+    );
 
-    if (!posts) {
-        return [];
+    if (posts.ok) {
+        const result = posts
+            .json()
+            .then((content) => content.data as [ApiBlogPostBlogPost])
+            .catch((error) => {
+                throw new Error(
+                    `Unable to extract content of blog_posts. Check attributes names. Error message: ${error}`
+                );
+            });
+
+        return result;
+    } else {
+        const error = await posts.json();
+
+        throw new Error(
+            `Unable to fetch blog_posts data from given url. Check fetch data. Error message: ${JSON.stringify(
+                error
+            )}`
+        );
     }
-
-    return posts as [ApiPostPost];
 }

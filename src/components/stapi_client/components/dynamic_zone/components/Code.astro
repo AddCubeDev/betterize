@@ -1,0 +1,14 @@
+---
+import type { CodeBlock } from "./../../../typescript/types/components";
+import { Code as CodeComponent } from "astro/components";
+
+interface Props {
+    data: CodeBlock;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex items-center w-1/3 mx-auto p-4 mb-2 bg-gray-800 rounded-md">
+    <CodeComponent code={String(data.content)} lang="bash" />
+</div>

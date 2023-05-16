@@ -196,6 +196,7 @@ export interface BackgroundContent extends StrapiComponent {
 }
 
 // ----------
+
 enum PricingPeriod {
     monthly = "monthly",
     yearly = "yearly",
@@ -214,4 +215,33 @@ export interface PricingPlan {
 
 export interface PricingSection extends StrapiComponent {
     plan: PricingPlan[];
+}
+
+// ----------
+
+export interface SimpleImage extends StrapiComponent {
+    img: Image;
+    caption: string;
+}
+
+// ----------
+
+export interface Quote extends StrapiComponent {
+    content: string;
+    author: string;
+}
+
+// ----------
+
+export interface FancyLink extends StrapiComponent {
+    url: string;
+    title: string;
+    description: string;
+    image: Image;
+}
+
+// ----------
+
+export interface CodeBlock extends StrapiComponent {
+    content: string;
 }

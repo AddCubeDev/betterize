@@ -1,13 +1,17 @@
 ---
-import { getPosts } from "./../../typescript/functions/blog_posts";
-import type { ApiPostPost } from "./../../typescript/types/schemas";
+import { getBlogPosts } from "./../../typescript/functions/blog_posts";
+import type { ApiBlogPostBlogPost } from "./../../typescript/types/schemas";
 import BlogPostsListElement from "./BlogPostsListElement.astro";
 
-const posts = await getPosts();
+const posts = await getBlogPosts();
 ---
 
 <ul
     class="grid w-full grid-cols-1 gap-4 pb-24 main-content md:grid-cols-2 lg:grid-cols-3"
 >
-    {posts.map((post: ApiPostPost) => <BlogPostsListElement post={post} />)}
+    {
+        posts.map((post: ApiBlogPostBlogPost) => (
+            <BlogPostsListElement post={post} />
+        ))
+    }
 </ul>

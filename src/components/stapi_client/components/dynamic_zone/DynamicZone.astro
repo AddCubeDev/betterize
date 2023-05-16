@@ -17,6 +17,11 @@ import ContactForm from "./components/ContactForm.astro";
 import StepByStep from "./components/StepByStep.astro";
 import BackgroundContent from "./components/BackgroundContent.astro";
 import PricingSection from "./components/PricingSection.astro";
+import SimpleImage from "./components/SimpleImage.astro";
+import Quote from "./components/Quote.astro";
+import FancyLink from "./components/FancyLink.astro";
+import BlogPostsList from "./components/BlogPostsList.astro";
+import Code from "./components/Code.astro";
 
 const { blocks } = Astro.props;
 ---
@@ -77,6 +82,21 @@ const { blocks } = Astro.props;
 
             case "layout.pricing-section":
                 return <PricingSection data={component} />;
+
+            case "layout.simple-image":
+                return <SimpleImage data={component} />;
+
+            case "layout.quote":
+                return <Quote data={component} />;
+
+            case "layout.fancy-link":
+                return <FancyLink data={component} />;
+
+            case "layout.posts-list":
+                return <BlogPostsList headline={component.headline} />;
+
+            case "layout.code":
+                return <Code data={component} />;
 
             default:
                 console.log("-----------------");
