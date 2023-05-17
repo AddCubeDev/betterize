@@ -13,20 +13,13 @@ export async function getStaticPaths() {
         params: { slug: project.attributes.slug },
     }));
 }
-
-export interface Props {
-    slug?: string;
-}
-
-const { slug } = Astro.params as Props;
 ---
 
 <Layout>
     <div class="mb-10 lg:mb-20">
         <Nav />
     </div>
-
-    <CaseStudyPage slug={String(slug)} />
+    <CaseStudyPage slug={Astro.params.slug} />
 
     <div class="mt-auto">
         <Footer />

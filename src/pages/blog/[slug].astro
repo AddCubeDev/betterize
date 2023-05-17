@@ -14,14 +14,12 @@ export async function getStaticPaths() {
         params: { slug: post.attributes.slug },
     }));
 }
-
-const slug = Astro.params.slug;
 ---
 
 <Layout>
     <FancyBg />
     <Nav />
-    <BlogPage slug={String(slug)} />
+    <BlogPage slug={Astro.params.slug} />
     <div class="mt-auto">
         <Footer />
     </div>

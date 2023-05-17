@@ -3,7 +3,7 @@ import { getBlogPost } from "@components/stapi_client";
 import DynamicZone from "./../dynamic_zone/DynamicZone.astro";
 
 interface Props {
-    slug: string;
+    slug?: string;
 }
 
 const { slug } = Astro.props;
