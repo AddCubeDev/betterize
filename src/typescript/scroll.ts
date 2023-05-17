@@ -4,7 +4,10 @@ export { showWhenInView, CSS_CLASS_SHOW };
 // To 'register' new CSS class:
 // 1. Add new CSS_CLASS_XXX definition
 // 2. Add this definition to the knownCssClasses list
+// 3. Add this definition to the exported entities
 // E.g.:
+// export { showWhenInView, CSS_CLASS_SHOW, CSS_CLASS_SHOW2 };
+// ...
 // const CSS_CLASS_SHOW2 = "pokaz2";
 // ...
 // const knownCssClasses = [CSS_CLASS_SHOW, CSS_CLASS_SHOW2];
