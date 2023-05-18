@@ -7,8 +7,17 @@ import {
 } from "astro-imagetools/components";
 ---
 
-<div class="flex flex-col gap-16 mx-4 text-gray-100 lg:gap-32" id="marketing0">
-    <div class="grid w-full max-w-6xl grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
+<div
+    class="relative flex flex-col gap-16 mx-4 text-gray-100 lg:gap-32"
+    id="marketing0"
+>
+    <div
+        class="relative grid w-full max-w-6xl grid-cols-1 gap-4 mx-auto rounded-lg shadow-2xl bg-zinc-900 lg:grid-cols-2 shadow-zinc-800"
+    >
+        <div
+            class="absolute inset-0 rounded-lg bg-gradient-to-br from-sky-700 via-sky-500 to-sky-700 bg-blur -z-10"
+        >
+        </div>
         <div class="overflow-hidden rounded-lg">
             <Img
                 src="/src/assets/wireframe.jpg"
@@ -18,7 +27,7 @@ import {
                 alt="descriptive text"
             />
         </div>
-        <div class="flex flex-col text-left">
+        <div class="flex flex-col p-4 text-left">
             <h2 class="mx-auto header-2">
                 Prefabrykaty: Klucz do szybkości i niezawodności
             </h2>
@@ -100,4 +109,44 @@ import {
             </p>
         </div>
     </div>
+    <div class="absolute transform -translate-x-1/2 left-1/2 -top-80">
+        <Img src="/src/assets/moon.png" width={150} alt="descriptive text" />
+    </div>
+    <div
+        class="absolute w-[6px] h-60 bg-sky-500 left-1/2 transform -translate-x-1/2 -top-60 z-10"
+    >
+    </div>
+    <div
+        class="absolute z-10 w-16 h-16 transform -translate-x-1/2 rounded-full bg-sky-500 left-1/2 -top-70 bg-blur2"
+    >
+    </div>
+    <div class="absolute transform -translate-x-1/2 left-1/2 -top-35">
+        <svg
+            class="mx-auto"
+            width="1428"
+            height="1688"
+            viewBox="0 0 1428 1688"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M693.5 0.5V84C693.5 95.0457 684.546 104 673.5 104H23C11.9543 104 3 112.954 3 124V597.5C3 608.546 11.9543 617.5 23 617.5H1404.5C1415.55 617.5 1424.5 626.454 1424.5 637.5V1115.5C1424.5 1126.55 1415.55 1135.5 1404.5 1135.5H23C11.9543 1135.5 3 1144.45 3 1155.5V1630C3 1641.05 11.9543 1650 23 1650H681.5C692.546 1650 701.5 1658.95 701.5 1670V1687.5"
+                stroke="#BD00FF"
+                stroke-width="6"></path>
+        </svg>
+    </div>
 </div>
+
+<style>
+    svg path {
+        stroke-dasharray: 6050;
+        stroke-dashoffset: 6050;
+        animation: dash 10s forwards;
+    }
+
+    @keyframes dash {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+</style>

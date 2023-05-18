@@ -177,6 +177,11 @@ select {
     filter: blur(5px);
     transition: all 1s;
 }
+.show-on-scroll-alt2 {
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 2s;
+}
 
 @media (prefers-reduced-motion) {
     .show-on-scroll {

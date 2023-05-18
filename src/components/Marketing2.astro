@@ -58,7 +58,8 @@ const testimonialsWithSrcAsImg = await processTestimonialsData().then(
 );
 ---
 
-<div>
+<div class="relative">
     <h2 class="pb-12 header-1">Co mówią o nas klienci:</h2>
+
     <Testimonials testimonials_data={testimonialsWithSrcAsImg} client:visible />
 </div>
