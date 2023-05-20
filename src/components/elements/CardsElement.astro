@@ -26,7 +26,15 @@ const {
         class="flex flex-col items-center justify-start px-2 py-4 element card-content"
     >
         <div class="pb-6">
-            <img src={src} alt={title} width="100" height="100" />
+            <img
+                src={src}
+                alt={title}
+                width="100"
+                height="100"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+            />
         </div>
         <h2 class="header-3">{title}</h2>
         <p class="p-proof-paragraph">
