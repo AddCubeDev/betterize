@@ -9,8 +9,8 @@ import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
         class="absolute w-full transform -translate-y-10 h-128 sm:(h-96) lg:(h-128 translate-y-0) bg-gradient-to-br from-gray-700/60 via-gray-800/60 to-purple-900/20 skew-y-4"
     >
     </div>
-    <div class="flex flex-col mb-10 lg:mt-16 lg:flex-row main-content">
-        <div class="flex flex-col justify-center gap-6 mx-auto lg:text-left">
+    <div class="flex flex-col mb-10 lg:(mt-16 flex-row) main-content">
+        <div class="flex flex-col gap-6 text-center lg:text-left">
             <h1 class="mb-0 header-1">
                 Tworzymy <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
@@ -19,21 +19,22 @@ import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
                 </span>
                 strony internetowe
             </h1>
-            <h2 class="font-normal header-3 font-f">
+            <h2 class="mx-auto font-normal lg:mx-0 header-3">
                 Chcesz mieć lepsze pozycjonowanie i większe zyski? Postaw na
                 szybkość i jakość swojej strony internetowej z Betterize!
             </h2>
-            <div class="flex gap-2">
+            <div class="flex justify-center gap-2 lg:justify-start">
                 <ButtonContact />
                 <ButtonSecondary />
             </div>
         </div>
         <div
-            class="items-center justify-center hidden overflow-hidden rounded-lg shadow-2xl lg:flex"
+            class="hidden lg:(overflow-hidden rounded-lg shadow-2xl justify-center items-center flex)"
         >
             <Img
                 src="/src/assets/hero6.jpg"
-                width={800}
+                width={600}
+                breakpoints={[420, 600]}
                 loading="eager"
                 alt="descriptive text"
             />
