@@ -21,7 +21,7 @@
     "@astrojs/vue": "^2.2.0",
     "@astrolib/seo": "^0.3.0",
     "@cubejs-client/core": "^0.33.0",
-    "astro": "^2.5.1",
+    "astro": "^2.5.2",
     "astro-icon": "^0.8.0",
     "astro-iconify": "^1.2.0",
     "astro-imagetools": "^0.8.1",
