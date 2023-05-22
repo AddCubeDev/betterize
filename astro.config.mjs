@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import { astroImageTools } from "astro-imagetools";
 import windicss from "astro-windicss";
-// import critters from "astro-critters";
+import critters from "astro-critters";
 import vue from "@astrojs/vue";
 // import purgecss from "astro-purgecss";
 // import compress from "astro-compress";
@@ -25,6 +25,7 @@ export default defineConfig({
                 },
             },
         }),
+        critters(),
         partytown({
             config: {
                 forward: ["dataLayer.push"],

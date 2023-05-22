@@ -1,7 +1,6 @@
 ---
 import "../styles/styles.css";
 import { ImageSupportDetection } from "astro-imagetools/components";
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { AstroSeo } from "@astrolib/seo";
 
 // import partytown from "/src/utils/partytown.js";
@@ -40,9 +39,8 @@ const { title, description } = Astro.props as Props;
 
         <ImageSupportDetection />
 
-        <GoogleFontsOptimizer
-            url="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=block"
-        />
+        <link href="/assets/styles/fonts.css" rel="stylesheet" />
+
         <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width" />
 
         <meta
