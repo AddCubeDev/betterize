@@ -1,11 +1,7 @@
 ---
+import { Img } from "astro-imagetools/components";
+
 const logo = "/src/assets/logo.png";
-import {
-    Img,
-    Picture,
-    BackgroundPicture,
-    BackgroundImage,
-} from "astro-imagetools/components";
 ---
 
 <footer aria-label="Site Footer" class="bg-gray-800">
@@ -16,7 +12,7 @@ import {
                     src={logo}
                     width={80}
                     placeholder="none"
-                    format="avif"
+                    format="webp"
                     alt="descriptive text"
                 />
             </div>

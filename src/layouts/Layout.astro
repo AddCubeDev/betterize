@@ -1,21 +1,16 @@
 ---
 import "../styles/styles.css";
 import { ImageSupportDetection } from "astro-imagetools/components";
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import { AstroSeo } from "@astrolib/seo";
 
 // import partytown from "/src/utils/partytown.js";
 
 interface Props {
-    title?: string,
-    description?: string
+    title?: string;
+    description?: string;
 }
 
-const {
-    title,
-    description
-} = Astro.props as Props;
-
+const { title, description } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -43,12 +38,9 @@ const {
         <link rel="manifest" href="/site.webmanifest" />
 
         <ImageSupportDetection />
-        <GoogleFontsOptimizer
-            url="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=block"
-        />
-        <GoogleFontsOptimizer
-            url="https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap"
-        />
+
+        <link href="/assets/styles/fonts.css" rel="stylesheet" />
+
         <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width" />
 
         <meta
@@ -92,6 +84,24 @@ const {
             );
         </script>
 
+        <!-- Google Tag Manager -->
+        <script type="text/partytown">
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js",
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-MXS329Q");
+        </script>
+        <!-- End Google Tag Manager -->
+
         <meta name="keywords" content="" />
         <AstroSeo
             canonical={Astro.url.href}
@@ -100,6 +110,15 @@ const {
         />
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript type="text/partytown"
+            ><iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-MXS329Q"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"></iframe></noscript
+        >
+        <!-- End Google Tag Manager (noscript) -->
         <slot />
     </body>
 </html>

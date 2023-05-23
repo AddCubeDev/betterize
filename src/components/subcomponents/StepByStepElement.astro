@@ -6,6 +6,9 @@ interface Props {
     src?: string;
     number?: number;
     connect?: string;
+    list1?: string;
+    list2?: string;
+    list3?: string;
 }
 const {
     title = "Jestem pytaniem, które ktoś mógłby zadać",
@@ -24,7 +27,7 @@ const {
         data-tilt-max="5"
         data-tilt-perspective="1000"
         data-tilt-speed="1000"
-        class="relative flex w-full text-left rounded-lg shadow-xl border-1 border-sky-500/50 element h-128 lg:h-84 card show-on-scroll"
+        class="relative flex w-full text-left rounded-lg shadow-xl border-1 border-sky-500/50 element h-128 lg:h-84 card lg:show-on-scroll"
     >
         <div
             class="grid items-center justify-start grid-cols-1 px-2 py-4 lg:grid-cols-2 element card-content"
@@ -36,6 +39,11 @@ const {
                 <p class="text-sm p-paragraph">
                     {paragraph}
                 </p>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
             <div
                 style="transform: translateZ(30px)"

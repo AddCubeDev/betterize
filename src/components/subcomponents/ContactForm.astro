@@ -1,5 +1,5 @@
 <div class="w-full mx-auto max-w-196">
-    <form id="contactForm" class="space-y-4">
+    <form id="contactForm" onsubmit="onSubmit()" class="space-y-4">
         <div data-error="W to pole można wpisać maksymalnie 50 znaków.">
             <label
                 for="name"
@@ -59,7 +59,7 @@
         <button
             id="contactButton"
             type="submit"
-            class="rounded-lg flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth hover:(bg-blue-600/50 shadow-xl shadow-blue-600/20)"
+            class="rounded-lg w-full justify-center md:w-auto flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth hover:(bg-blue-600/50 shadow-xl shadow-blue-600/20)"
         >
             Wyślij
         </button>
@@ -115,7 +115,4 @@
     async function onSubmit(event) {
         sendContactRequest(event, onSuccess, onError);
     }
-
-    const form = document.getElementById("contactForm") as HTMLFormElement;
-    form.addEventListener("submit", onSubmit);
 </script>
