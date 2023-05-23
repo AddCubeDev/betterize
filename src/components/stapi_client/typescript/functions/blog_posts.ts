@@ -1,64 +1,43 @@
-import { strapiApiBaseUrl } from "./../config";
 import type { ApiBlogPostBlogPost } from "./../types/schemas";
-
-const extras = {
-    headers: {
-        Authorization: `Bearer ${import.meta.env.PUBLIC_STRAPI_TOKEN}`,
-    },
-};
+import {
+    getRequest,
+    StrapiCollectionName,
+} from "./../functions/strapi_requests";
 
 export async function getBlogPost(slug: string) {
-    const post = await fetch(
-        strapiApiBaseUrl + `/blog-posts?filters[slug][$eq]=${slug}&populate=*`,
-        extras
+    const result = await getRequest(
+        `/blog-posts?filters[slug][$eq]=${slug}&populate=*`,
+        StrapiCollectionName.blog_post,
+        (data: any) => {
+            return data.data[0] as ApiBlogPostBlogPost;
+        }
     );
 
-    if (post.ok) {
-        const result = post
-            .json()
-            .then((data) => data.data[0] as ApiBlogPostBlogPost)
-            .catch((error) => {
-                throw new Error(
-                    `Unable to extract content of post with given slug. Check attributes names. Error message: ${error}`
-                );
-            });
-
-        return result;
-    } else {
-        const error = await post.json();
-
-        throw new Error(
-            `Unable to fetch post data from given url. Check fetch data. Error message: ${JSON.stringify(
-                error
-            )}`
-        );
-    }
+    return result;
 }
 
 export async function getBlogPosts() {
-    const posts = await fetch(
-        strapiApiBaseUrl + `/blog-posts?&populate=*`,
-        extras
+    const result = await getRequest(
+        `/blog-posts?&populate=*`,
+        StrapiCollectionName.blog_post,
+        (data: any) => {
+            return data.data as [ApiBlogPostBlogPost];
+        }
     );
 
-    if (posts.ok) {
-        const result = posts
-            .json()
-            .then((content) => content.data as [ApiBlogPostBlogPost])
-            .catch((error) => {
-                throw new Error(
-                    `Unable to extract content of blog_posts. Check attributes names. Error message: ${error}`
-                );
-            });
+    return result;
+}
 
-        return result;
-    } else {
-        const error = await posts.json();
+export async function getBlogPostsSlugs() {
+    const result = await getRequest(
+        `/blog-posts`,
+        StrapiCollectionName.blog_post,
+        (data: any) => {
+            return data.data as [ApiBlogPostBlogPost];
+        }
+    );
 
-        throw new Error(
-            `Unable to fetch blog_posts data from given url. Check fetch data. Error message: ${JSON.stringify(
-                error
-            )}`
-        );
-    }
+    return (result as [ApiBlogPostBlogPost]).map(
+        (element) => element.attributes.slug as string
+    );
 }

@@ -3,15 +3,15 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
-import { getBlogPosts } from "@components/stapi_client";
+import { getBlogPostsSlugs } from "@components/stapi_client";
 import type { ApiBlogPostBlogPost } from "@components/stapi_client";
 import BlogPage from "@components/stapi_client/components/blog/BlogPage.astro";
 
 export async function getStaticPaths() {
-    const posts = await getBlogPosts();
+    const slugs = await getBlogPostsSlugs();
 
-    return posts.map((post: ApiBlogPostBlogPost) => ({
-        params: { slug: post.attributes.slug },
+    return slugs.map((slug: string) => ({
+        params: { slug: slug },
     }));
 }
 ---

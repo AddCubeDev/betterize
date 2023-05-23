@@ -1,9 +1,13 @@
 export { default as DynamicZone } from "./components/dynamic_zone/DynamicZone.astro";
-export { getDemo } from "./typescript/functions/demo";
-export { getBlogPost, getBlogPosts } from "./typescript/functions/blog_posts";
+export {
+    getBlogPost,
+    getBlogPosts,
+    getBlogPostsSlugs,
+} from "./typescript/functions/blog_posts";
 export {
     getCaseStudies,
     getCaseStudy,
+    getCaseStudiesSlugs,
 } from "./typescript/functions/case_studies";
 export { sendContactRequest } from "./typescript/functions/contact_form";
 export type {

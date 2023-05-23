@@ -2,15 +2,15 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import { getCaseStudies } from "@components/stapi_client/index";
+import { getCaseStudiesSlugs } from "@components/stapi_client/index";
 import type { ApiCaseStudyCaseStudy } from "@components/stapi_client/index";
 import CaseStudyPage from "@components/stapi_client/components/case_studies/CaseStudyPage.astro";
 
 export async function getStaticPaths() {
-    const projects = await getCaseStudies();
+    const slugs = await getCaseStudiesSlugs();
 
-    return projects.map((project: ApiCaseStudyCaseStudy) => ({
-        params: { slug: project.attributes.slug },
+    return slugs.map((slug: string) => ({
+        params: { slug: slug },
     }));
 }
 ---
