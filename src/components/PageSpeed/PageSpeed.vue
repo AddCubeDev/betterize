@@ -14,7 +14,7 @@
             :hidden="hiddenPageSpeedTestResults"
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
-            <div class="flex mx-auto pb-4 gap-6 justify-center">
+            <div class="flex justify-center gap-6 pb-4 mx-auto">
                 <p class="font-black text-[#f90000]">0-49 Poor</p>
                 <p class="font-black text-[#f9f900]">50-89 Average</p>
                 <p class="font-black text-[#00f900]">90-100 Excelent</p>
@@ -22,12 +22,12 @@
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
                 <div
-                    class="grid gap-y-3 grid-cols-1"
+                    class="grid grid-cols-1 gap-y-3"
                     v-for="pageSpeedTest in pageSpeedTests"
                 >
-                    <div class="flex relative items-center justify-center">
+                    <div class="relative flex items-center justify-center">
                         <p
-                            class="font-black transform top-1/2 left-1/2 text-2xl z-10 -translate-x-1/2 -translate-y-1/2 absolute"
+                            class="absolute z-10 text-2xl font-black transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                         >
                             {{ pageSpeedTest.test_result.value }}
                         </p>
@@ -49,7 +49,7 @@
                             :border-bg-width="10"
                         />
                     </div>
-                    <p class="font-medium text-lg">{{ pageSpeedTest.label }}</p>
+                    <p class="text-lg font-medium">{{ pageSpeedTest.label }}</p>
                 </div>
             </div>
         </div>
