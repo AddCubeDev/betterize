@@ -1,0 +1,42 @@
+---
+import type {
+    Gallery,
+    GalleryImage,
+} from "./../../../typescript/types/components";
+import { Img } from "astro-imagetools/components";
+import { getImageUrl } from "./../../../typescript/functions/media_plugin";
+
+interface Props {
+    data: Gallery;
+}
+
+const { data } = Astro.props;
+
+// string concatenation used on purpose
+// not working with interpolation ¯\_(ツ)_/¯
+---
+
+<div>
+    <h2 class="mx-auto header-2">{data.headline}</h2>
+    <div
+        class={"max-w-6xl mx-auto gap-4 grid grid-cols-" + String(data.columns)}
+    >
+        {
+            data.image.map((item: GalleryImage) => {
+                return (
+                    <div>
+                        <Img
+                            src={getImageUrl(item.image)}
+                            alt="advantage_item"
+                            placeholder="none"
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                );
+            })
+        }
+    </div>
+</div>
+
+<!-- data.columns -->

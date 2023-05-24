@@ -1,0 +1,20 @@
+---
+interface Props {
+    text: string;
+    level: number;
+}
+
+const { text, level } = Astro.props;
+
+function getHeader() {
+    if (level >= 2 && level <= 6) {
+        return `<h${level} class="max-w-2xl mx-auto mt-20 mb-2 text-4xl font-bold capitalize">${text}</h${level}>`;
+    } else {
+        return `<h2 class="max-w-2xl mx-auto mt-20 mb-2 text-4xl capitalize">Invalid header value given</h2>`;
+    }
+}
+
+const htmlString = getHeader();
+---
+
+<Fragment set:html={htmlString} />

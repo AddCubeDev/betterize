@@ -1,0 +1,19 @@
+---
+import { EmbedVideoPlatform } from "./../../../../../typescript/types/components";
+---
+
+<h2>Nie rozpoznano platformy</h2>
+<p>
+    Podany adres url jest nieprawidłowy lub platforma z linku nie jest jescze
+    wpierana. Upewnij się, że podałeś dobry adres.
+</p>
+<h3>Wpierane platformy:</h3>
+<ul>
+    {
+        Object.keys(EmbedVideoPlatform)
+            .filter((key) => key != EmbedVideoPlatform.unsupported)
+            .map((key) => {
+                return <li>{key}</li>;
+            })
+    }
+</ul>

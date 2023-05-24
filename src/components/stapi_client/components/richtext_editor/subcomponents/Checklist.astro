@@ -1,0 +1,38 @@
+---
+interface CheckedListItem {
+    text: string;
+    checked: boolean;
+}
+
+interface Props {
+    items: [CheckedListItem];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="flex flex-col gap-2 text-left">
+    {
+        items.map((item: CheckedListItem) => {
+            if (item.checked) {
+                return (
+                    <div class="flex items-center gap-2">
+                        <img src="/src/assets/checked.svg" width="30px" />
+                        <p class="">
+                            <Fragment set:html={item.text} />
+                        </p>
+                    </div>
+                );
+            } else {
+                return (
+                    <div class="flex items-center gap-2">
+                        <img src="/src/assets/unchecked.svg" width="30px" />
+                        <p class="">
+                            <Fragment set:html={item.text} />
+                        </p>
+                    </div>
+                );
+            }
+        })
+    }
+</div>

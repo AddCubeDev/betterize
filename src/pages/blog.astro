@@ -2,13 +2,9 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import BlogPostListElement from "@components/blogcomponents/BlogPostListElement.astro";
-import { getPosts } from "@typescript/strapiApi";
-import type { ApiPostPost } from "@typescript/types/schemas";
+import BlogPostsList from "@components/stapi_client/components/blog/BlogPostsList.astro";
 
 import Faded from "@components/elements/Faded.astro";
-
-const posts = await getPosts();
 ---
 
 <Layout>
@@ -16,15 +12,7 @@ const posts = await getPosts();
     <Nav />
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">
         <h2 class="pb-16 header-1">Artykuły:</h2>
-        <ul
-            class="grid w-full grid-cols-1 gap-4 pb-24 main-content md:grid-cols-2 lg:grid-cols-3"
-        >
-            {
-                posts.map((post: ApiPostPost) => (
-                    <BlogPostListElement post={post} />
-                ))
-            }
-        </ul>
+        <BlogPostsList />
     </main>
 
     <div class="relative w-64 h-64 mx-auto bg-white">

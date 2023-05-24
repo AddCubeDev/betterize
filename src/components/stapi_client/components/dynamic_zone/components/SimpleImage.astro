@@ -1,0 +1,25 @@
+---
+import { Img } from "astro-imagetools/components";
+import type { SimpleImage } from "./../../../typescript/types/components";
+import { getImageUrl } from "./../../../typescript/functions/media_plugin";
+
+interface Props {
+    data: SimpleImage;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="items-center gap-2 py-3 text-center">
+    <div class="w-full mb-2 overflow-hidden rounded-lg shadow-2xl shadow-black">
+        <Img
+            src={getImageUrl(data.img)}
+            width={800}
+            objectFit="cover"
+            alt="descriptive text"
+        />
+    </div>
+    <div class="font-light text-gray-400">
+        <Fragment set:html={data.caption} />
+    </div>
+</div>

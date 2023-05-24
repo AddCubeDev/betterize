@@ -1,0 +1,108 @@
+---
+import Hero from "./components/Hero.astro";
+import Advantages from "./components/Advantages.astro";
+import FAQ from "./components/FAQ.astro";
+import Redirection from "./components/buttons/Redirection.astro";
+import CTA from "./components/buttons/CTA.astro";
+import Testimonials from "./components/Testimonials.astro";
+import Editor from "./components/Editor.astro";
+import CompanyList from "./components/CompanyList.astro";
+import TwoColumnWithImage from "./components/TwoColumnWithImage.astro";
+import TwoColumnWithEmbed from "./components/TwoColumnWithEmbed.astro";
+import Embed from "./components/embed/Embed.astro";
+import SimpleHeadline from "./components/SimpleHeadline.astro";
+import Note from "./components/Note.astro";
+import Gallery from "./components/Gallery.astro";
+import ContactForm from "./components/ContactForm.astro";
+import StepByStep from "./components/StepByStep.astro";
+import BackgroundContent from "./components/BackgroundContent.astro";
+import PricingSection from "./components/PricingSection.astro";
+import SimpleImage from "./components/SimpleImage.astro";
+import Quote from "./components/Quote.astro";
+import FancyLink from "./components/FancyLink.astro";
+import BlogPostsList from "./components/BlogPostsList.astro";
+import Code from "./components/Code.astro";
+
+const { blocks } = Astro.props;
+---
+
+{
+    blocks.map((component: any) => {
+        switch (component.__component) {
+            case "layout.hero":
+                return <Hero data={component} />;
+
+            case "layout.editor":
+                return <Editor content={component.content} />;
+
+            case "layout.advantages":
+                return <Advantages data={component} />;
+
+            case "layout.testimonials":
+                return <Testimonials data={component} />;
+
+            case "layout.faq":
+                return <FAQ data={component} />;
+
+            case "layout.redirect-button":
+                return <Redirection data={component} />;
+
+            case "layout.call-to-action":
+                return <CTA data={component} />;
+
+            case "layout.icon-list":
+                return <CompanyList data={component} />;
+
+            case "layout.two-column-section":
+                return <TwoColumnWithImage data={component} />;
+
+            case "layout.two-column-with-embed":
+                return <TwoColumnWithEmbed data={component} />;
+
+            case "layout.embed-video":
+                return <Embed data={component} />;
+
+            case "layout.simple-headline":
+                return <SimpleHeadline data={component} />;
+
+            case "layout.note":
+                return <Note data={component} />;
+
+            case "layout.contact-form":
+                return <ContactForm data={component} />;
+
+            case "layout.gallery":
+                return <Gallery data={component} />;
+
+            case "layout.step-by-step":
+                return <StepByStep data={component} />;
+
+            case "layout.simple-content-with-background":
+                return <BackgroundContent data={component} />;
+
+            case "layout.pricing-section":
+                return <PricingSection data={component} />;
+
+            case "layout.simple-image":
+                return <SimpleImage data={component} />;
+
+            case "layout.quote":
+                return <Quote data={component} />;
+
+            case "layout.fancy-link":
+                return <FancyLink data={component} />;
+
+            case "layout.posts-list":
+                return <BlogPostsList headline={component.headline} />;
+
+            case "layout.code":
+                return <Code data={component} />;
+
+            default:
+                console.log("-----------------");
+                console.log(component);
+                console.log("=================");
+                return <p>Not implemented</p>;
+        }
+    })
+}

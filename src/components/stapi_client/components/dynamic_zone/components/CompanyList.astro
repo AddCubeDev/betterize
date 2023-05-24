@@ -1,0 +1,18 @@
+---
+import Icon from "./subcomponents/Icon.astro";
+import type { CompanyList } from "./../../../typescript/types/components";
+
+interface Props {
+    data: CompanyList;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="flex max-w-6xl gap-4 px-4 mx-auto lg:gap-12">
+    {
+        data.companies.map((item) => {
+            return <Icon data={item} />;
+        })
+    }
+</div>

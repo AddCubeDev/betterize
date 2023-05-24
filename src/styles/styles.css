@@ -187,6 +187,9 @@ select {
     .show-on-scroll {
         transition: none;
     }
+    .show-on-scroll-alt {
+        transition: none;
+    }
 }
 
 .pokaz {

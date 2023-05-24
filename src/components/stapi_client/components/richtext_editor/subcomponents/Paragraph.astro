@@ -1,0 +1,15 @@
+---
+interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div
+    class="flex items-center max-w-xl gap-2 py-2 mx-auto font-normal text-left text-gray-300"
+>
+    <p>
+        <Fragment set:html={text} />
+    </p>
+</div>

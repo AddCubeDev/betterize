@@ -20,6 +20,7 @@ export default defineConfig({
         "blog-header": "lg:text-3xl text-left font-medium mb-6",
         "ordinary-text": "text-sm lg:text-md text-gray-300 max-w-2xl mx-auto",
         "button-cta": "px-16 py-4",
+        "landing-p": "text-md text-gray-300 max-w-2xl mb-2 max-w-xl",
         "fancy-shadow":
             "box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;",
         "transition-smooth":

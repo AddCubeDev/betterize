@@ -1,0 +1,100 @@
+---
+import Header from "./subcomponents/Header.astro";
+import Image from "./subcomponents/Image.astro";
+import Delimeter from "./subcomponents/Delimeter.astro";
+import Warning from "./subcomponents/Warning.astro";
+import List from "./subcomponents/List.astro";
+import Checklist from "./subcomponents/Checklist.astro";
+import Quote from "./subcomponents/Quote.astro";
+import Code from "./subcomponents/Code.astro";
+import Paragraph from "./subcomponents/Paragraph.astro";
+import Link from "./subcomponents/Link.astro";
+import UnsupportedContent from "./subcomponents/UnsupportedContent.astro";
+import { strapiUploadsBaseUrl } from "./../../typescript/config";
+
+const { blocks } = Astro.props;
+---
+
+<div class="">
+    {
+        blocks.map((block: any) => {
+            switch (block.type) {
+                case "header":
+                    return (
+                        <Header
+                            text={block.data.text}
+                            level={block.data.level}
+                        />
+                    );
+
+                case "paragraph":
+                    return <Paragraph text={block.data.text} />;
+
+                case "image":
+                    return (
+                        <Image
+                            src={strapiUploadsBaseUrl + block.data.file.url}
+                            caption={block.data.caption}
+                            height={block.data.file.height}
+                            width={block.data.file.width}
+                            stretched={block.data.stretched}
+                        />
+                    );
+
+                case "delimiter":
+                    return <Delimeter />;
+
+                case "warning":
+                    return (
+                        <Warning
+                            title={block.data.title}
+                            message={block.data.message}
+                        />
+                    );
+
+                case "list":
+                    return (
+                        <List
+                            style={block.data.style}
+                            items={block.data.items}
+                        />
+                    );
+
+                case "quote":
+                    return (
+                        <Quote
+                            text={block.data.text}
+                            caption={block.data.caption}
+                        />
+                    );
+
+                case "checklist":
+                    return <Checklist items={block.data.items} />;
+
+                case "code":
+                    return <Code code={block.data.code} />;
+
+                case "LinkTool":
+                    return (
+                        <Link
+                            link={block.data.link}
+                            title={block.data.meta.title}
+                            description={block.data.meta.description}
+                            image_url={block.data.meta.image.url}
+                        />
+                    );
+
+                case "mediaLib":
+                    if (block.data.name == "mediaLibraryStrapi") {
+                        // do nothing
+                        return "";
+                    } else {
+                        return <UnsupportedContent data={block} />;
+                    }
+
+                default:
+                    return <UnsupportedContent data={block} />;
+            }
+        })
+    }
+</div>

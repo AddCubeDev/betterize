@@ -1,0 +1,36 @@
+---
+import { Img } from "astro-imagetools/components";
+import type { FancyLink } from "./../../../typescript/types/components";
+import { getImageUrl } from "./../../../typescript/functions/media_plugin";
+
+interface Props {
+    data: FancyLink;
+}
+
+const { data } = Astro.props;
+---
+
+<div
+    class="p-4 rounded-md bg-zinc-800 transition-smooth hover:(transform scale-102 text-indigo-600/50)"
+>
+    <a href={data.url}>
+        <div class="grid grid-cols-2 gap-6 text-gray-100">
+            <div class="flex flex-col justify-start mt-8">
+                <p class="text-xl font-medium">
+                    <Fragment set:html={data.title} />
+                </p>
+                <p class="font-light text-md">
+                    <Fragment set:html={data.description} />
+                </p>
+            </div>
+            <div class="flex items-start w-full border">
+                <Img
+                    src={getImageUrl(data.image)}
+                    alt="link_picture"
+                    placeholder="none"
+                    width={300}
+                />
+            </div>
+        </div>
+    </a>
+</div>

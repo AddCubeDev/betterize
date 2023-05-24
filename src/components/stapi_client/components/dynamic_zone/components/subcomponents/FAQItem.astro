@@ -1,0 +1,45 @@
+---
+import type { FAQItem } from "./../../../../typescript/types/components";
+
+interface Props {
+    data: FAQItem;
+}
+
+const { data } = Astro.props;
+---
+
+<!-- <div class="p-4 border-t border-sky-200/50">
+    <h2 class="mb-2 text-2xl font-medium text-left lg:h-12">
+        {data.question}
+    </h2>
+    <p class="text-base text-left">
+        {data.answer}
+    </p>
+</div> -->
+<details class="w-full group [&_summary::-webkit-details-marker]:hidden">
+    <summary
+        class="flex items-center justify-between w-full p-4 border rounded-lg cursor-pointer border-gray-200/50"
+    >
+        <h2 class="text-lg font-semibold text-gray-200">
+            {data.question}
+        </h2>
+
+        <svg
+            class="flex-shrink-0 h-5 ml-1.5 transform transition w-5 rotate-0 duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+        </svg>
+    </summary>
+
+    <p class="px-4 mt-4 text-left text-gray-300">
+        {data.answer}
+    </p>
+</details>

@@ -1,0 +1,132 @@
+---
+import type { ContactForm } from "./../../../typescript/types/components";
+
+interface Props {
+    data: ContactForm;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="w-full px-4 mx-auto max-w-196">
+    <h2 class="mx-auto header-2">{data.heading}</h2>
+    <form id="contactForm" class="space-y-4">
+        <div data-error="W to pole można wpisać maksymalnie 50 znaków.">
+            <label
+                for="name"
+                class="block pl-2 font-medium text-left text-gray-300"
+                >Twoje Imię</label
+            >
+            <input
+                class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
+                placeholder="Jan Kowalski"
+                type="text"
+                id="name"
+                name="name"
+                aria-label="Twoje Imię"
+                data-error="Email nie może mieć więcej niż 30 znaków."
+                pattern="{1,50}"
+                required
+                autocomplete="off"
+            />
+        </div>
+
+        <div>
+            <label
+                for="email"
+                class="block pl-2 font-medium text-left text-gray-100"
+                >Email</label
+            >
+            <input
+                class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
+                placeholder="Twój Adres Email"
+                type="email"
+                id="email"
+                name="email"
+                aria-label="jan.kowalski@gmail.com"
+                data-error="Email nie może mieć więcej niż 30 znaków."
+                maxlength="30"
+                required
+                autocomplete="off"
+            />
+        </div>
+
+        <div>
+            <label
+                for="message"
+                class="block pl-2 font-medium text-left text-gray-300"
+                >Wiadomość</label
+            >
+            <textarea
+                class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800 max-h-96 min-h-32"
+                placeholder="Chciałbym zamówić wycenę strony internetowej."
+                rows="8"
+                id="message"
+                name="message"
+                maxlength="500"
+                aria-label="Wiadomość"></textarea>
+        </div>
+
+        <button
+            id="contactButton"
+            type="submit"
+            class="rounded-lg w-full items-center justify-center md:w-auto flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth hover:(bg-blue-600/50 shadow-xl shadow-blue-600/20)"
+        >
+            Wyślij
+        </button>
+
+        <!-- TODO dodaj stylowanie -->
+        <!-- <div class="" id="responseInfo"></div> -->
+    </form>
+</div>
+
+<style>
+    /* Twoje istniejące style CSS */
+
+    #responseInfo {
+        font-weight: bold;
+        color: red;
+        font-size: 34px;
+        padding: 8px;
+    }
+    .error-message {
+        display: none;
+        font-weight: bold;
+        color: red;
+        font-size: 14px;
+        padding: 8px;
+        margin-top: 4px;
+    }
+
+    .error-message.visible {
+        display: block;
+    }
+
+    div[data-error] .input {
+        border-color: red;
+        background-color: #fffafa;
+    }
+</style>
+<script>
+    import { sendContactRequest } from "./../../../typescript/functions/contact_form";
+
+    function onSuccess() {
+        const responseInfo = document.getElementById("responseInfo");
+
+        // Przekierowanie na inną stronę, np. /thank-you
+        window.location.assign("/ThankYou");
+    }
+
+    function onError(error) {
+        const responseInfo = document.getElementById("responseInfo");
+
+        responseInfo.innerHTML = error;
+    }
+
+    async function onSubmit(event) {
+        sendContactRequest(event, onSuccess, onError);
+    }
+
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    form.addEventListener("submit", onSubmit);
+</script>

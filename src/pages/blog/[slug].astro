@@ -3,36 +3,23 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
-import { getPost, getPosts } from "@typescript/strapiApi";
-import type { ApiPostPost } from "@typescript/types/schemas";
-import EditorContent from "@components/editorjs/EditorContent.astro";
+import { getBlogPostsSlugs } from "@components/stapi_client";
+import type { ApiBlogPostBlogPost } from "@components/stapi_client";
+import BlogPage from "@components/stapi_client/components/blog/BlogPage.astro";
 
 export async function getStaticPaths() {
-    const posts = await getPosts();
+    const slugs = await getBlogPostsSlugs();
 
-    return posts.map((post: ApiPostPost) => ({
-        params: { slug: post.attributes.slug },
+    return slugs.map((slug: string) => ({
+        params: { slug: slug },
     }));
 }
-
-const slug = Astro.params.slug;
-const postItem = await getPost(slug as string);
-
-const postAttributes = postItem.attributes;
-
-const blocks = JSON.parse(postAttributes.content).blocks;
 ---
 
 <Layout>
     <FancyBg />
     <Nav />
-    <main class="flex flex-col min-h-screen gap-2 mx-auto lg:gap-16">
-        <article class="flex flex-col max-w-2xl mx-auto text-left">
-            <h1 class="blog-header mt-20">{postAttributes.title}</h1>
-            <p>{postAttributes.excerpt}</p>
-            <EditorContent blocks={blocks} />
-        </article>
-    </main>
+    <BlogPage slug={Astro.params.slug} />
     <div class="mt-auto">
         <Footer />
     </div>
