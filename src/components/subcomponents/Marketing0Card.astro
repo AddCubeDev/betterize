@@ -1,0 +1,49 @@
+---
+import { Img } from "astro-imagetools/components";
+
+interface Props {
+    title?: string;
+    paragraph?: string;
+    src?: string;
+    reverseorder?: boolean;
+}
+
+const {
+    title = "I am a title of this component",
+    paragraph = "Paragraph is very important thing in components. It usually provide usefull infomations to the reader. It would be nice if paragraph would be longer than title so i am writing this.",
+    src = "/src/assets/wireframe.jpg",
+    reverseorder = false,
+} = Astro.props;
+---
+
+<div
+    class="relative grid w-full max-w-6xl grid-cols-1 gap-4 mx-auto rounded-lg shadow-2xl bg-zinc-900 lg:grid-cols-2 shadow-zinc-800 xl:h-[400px]"
+>
+    <div
+        class="absolute inset-0 rounded-lg bg-gradient-to-br from-violet-900 via-blue-800 to-sky-900 bg-blur -z-5"
+    >
+    </div>
+    <div
+        class={`overflow-hidden xl:h-[400px] rounded-lg ${
+            reverseorder ? "order-1 lg:order-2" : ""
+        }`}
+    >
+        <Img
+            src={src}
+            width={600}
+            loading="eager"
+            layout="fill"
+            alt="descriptive text"
+        />
+    </div>
+    <div
+        class={`flex flex-col p-4 text-left ${
+            reverseorder ? "order-2 lg:order-1" : ""
+        } `}
+    >
+        <h2 class="mx-auto header-2">
+            {title}
+        </h2>
+        <slot />
+    </div>
+</div>

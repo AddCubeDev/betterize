@@ -1,147 +1,150 @@
 ---
-import {
-    Img,
-    Picture,
-    BackgroundPicture,
-    BackgroundImage,
-} from "astro-imagetools/components";
+import { Img, BackgroundImage } from "astro-imagetools/components";
+import Marketing0Card from "./subcomponents/Marketing0Card.astro";
 ---
 
 <div
     class="relative flex flex-col gap-16 mx-4 text-gray-100 lg:gap-32"
     id="marketing0"
 >
-    <div
-        class="relative grid w-full max-w-6xl grid-cols-1 gap-4 mx-auto rounded-lg shadow-2xl bg-zinc-900 lg:grid-cols-2 shadow-zinc-800"
+    <Marketing0Card title="Prefabrykaty: Klucz do szybkości i niezawodności">
+        <p class="p-paragraph">
+            Dzięki naszej wiedzy i doświadczeniu, jesteśmy w stanie dostosować
+            usługi do <strong>indywidualnych potrzeb i wymagań</strong>, aby
+            wspólnie osiągnąć sukces w biznesie.
+        </p>
+        <p class="p-paragraph">
+            Stawiamy na <strong
+                >szybkość, solidność oraz dbałość o detale</strong
+            >, by spełnić oczekiwania naszych klientów i pomóc im się wyróżnić
+            na rynku.
+        </p>
+    </Marketing0Card>
+    <Marketing0Card
+        title="Skupiamy się na małych i średnich przedsiębiorstwach"
+        src="/src/assets/small.jpg"
+        reverseorder="true"
     >
+        <p class="p-paragraph">
+            <strong>Analizujemy rynek i konkurencję</strong>, aby zrozumieć
+            kluczowe aspekty Twojej działalności i dostarczyć strony
+            internetowe, które będą w pełni odzwierciedlały
+            <strong>wartości i cele Twojej firmy.</strong>
+        </p>
+        <p class="p-paragraph">
+            W ten sposób, tworzymy strony szybko, solidnie i z dbałością o
+            detale, spełniając wymagania waszych celów biznesowych.
+        </p>
+    </Marketing0Card>
+    <Marketing0Card
+        title="Dopasowanie rozwiązań do potrzeb branży"
+        src="/src/assets/analytics1.jpg"
+    >
+        <p class="p-paragraph">
+            W Betterize zdajemy sobie sprawę, że każda branża ma swoje unikalne
+            potrzeby i wymagania. Dlatego naszym priorytetem jest <strong
+                >dopasowanie rozwiązań</strong
+            > do specyfiki Twojego biznesu.
+        </p>
+        <p class="p-paragraph">
+            Wspólnie z Tobą tworzymy rozwiązania, które sprawią, że Twoje
+            przedsiębiorstwo będzie się <strong
+                >wyróżniać na tle konkurencji</strong
+            > i zyska przewagę na rynku.
+        </p>
+    </Marketing0Card>
+    <section class="hidden overflow-hidden 2xl:block">
+        <div class="absolute transform -translate-x-1/2 left-1/2 -top-80">
+            <Img
+                brightness={0.85}
+                tint="251754"
+                src="/src/assets/moon.png"
+                width={150}
+                alt="descriptive text"
+            />
+        </div>
+
+        <!-- <div class="absolute left-0 top-80 -z-10">
+            <Img
+                src="/src/assets/bg-stars-1.webp"
+                width={1300}
+                alt="descriptive text"
+            />
+        </div>
+        <div class="absolute left-0 left-1/2 -top-70 -z-10">
+            <Img
+                src="/src/assets/galaxy.png"
+                width={1300}
+                brightness={0.8}
+                saturation={0.6}
+                alt="descriptive text"
+            />
+        </div> -->
+
         <div
-            class="absolute inset-0 rounded-lg bg-gradient-to-br from-sky-700 via-sky-500 to-sky-700 bg-blur -z-10"
+            class="absolute z-10 w-12 h-12 transform -translate-x-1/2 rounded-full bg-violet-600 left-1/2 -top-68 bg-blur2 z-22"
         >
         </div>
-        <div class="overflow-hidden rounded-lg">
-            <Img
-                src="/src/assets/wireframe.jpg"
-                width={650}
-                loading="eager"
-                layout="cover"
-                alt="descriptive text"
-            />
-        </div>
-        <div class="flex flex-col p-4 text-left">
-            <h2 class="mx-auto header-2">
-                Prefabrykaty: Klucz do szybkości i niezawodności
-            </h2>
 
-            <p class="p-paragraph">
-                Dzięki naszej wiedzy i doświadczeniu, jesteśmy w stanie
-                dostosować usługi do <strong
-                    >indywidualnych potrzeb i wymagań</strong
-                >, aby wspólnie osiągnąć sukces w biznesie.
-            </p>
-            <p class="p-paragraph">
-                Stawiamy na <strong
-                    >szybkość, solidność oraz dbałość o detale</strong
-                >, by spełnić oczekiwania naszych klientów i pomóc im się
-                wyróżnić na rynku.
-            </p>
-        </div>
-    </div>
-    <div class="grid w-full max-w-6xl grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
-        <div class="order-1 overflow-hidden rounded-lg lg:order-2">
-            <Img
-                src="/src/assets/small.jpg"
-                width={650}
-                layout="cover"
-                alt="descriptive text"
-            />
-        </div>
-        <div class="flex flex-col justify-start order-2 text-left lg:order-1">
-            <h2 class="mx-auto header-2">
-                Skupiamy się na małych i średnich przedsiębiorstwach
-            </h2>
-
-            <p class="p-paragraph">
-                W Betterize zdajemy sobie sprawę, że każda branża ma swoje
-                unikalne potrzeby i wymagania. Dlatego naszym priorytetem jest <strong
-                    >dopasowanie rozwiązań</strong
-                > do specyfiki Twojego biznesu.
-            </p>
-            <p class="p-paragraph">
-                <strong>Analizujemy rynek i konkurencję</strong>, aby zrozumieć
-                kluczowe aspekty Twojej działalności i dostarczyć strony
-                internetowe, które będą w pełni odzwierciedlały
-                <strong>wartości i cele Twojej firmy.</strong>
-            </p>
-            <p class="p-paragraph">
-                W ten sposób, tworzymy strony szybko, solidnie i z dbałością o
-                detale, spełniając wymagania waszych celów biznesowych.
-            </p>
-        </div>
-    </div>
-    <div class="grid w-full max-w-6xl grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
-        <div class="overflow-hidden rounded-lg">
-            <Img
-                src="/src/assets/analytics1.jpg"
-                width={650}
-                layout="cover"
-                alt="descriptive text"
-            />
-        </div>
-        <div class="flex flex-col text-left">
-            <h2 class="mx-auto header-2">
-                Dopasowanie rozwiązań do potrzeb branży
-            </h2>
-
-            <p class="p-paragraph">
-                W Betterize używamy gotowych komponentów, czyli prefabrykatów,
-                żeby stworzyć dla Ciebie stronę, która jest
-                <strong>niezawodna i dobrze wykonana</strong>.
-            </p>
-            <p class="p-paragraph">
-                Dzięki tym gotowym elementom, wszystko idzie szybciej i
-                sprawniej, bo nie musimy zaczynać od zera.
-            </p>
-            <p class="p-paragraph">
-                Wspólnie z Tobą tworzymy rozwiązania, które sprawią, że Twoje
-                przedsiębiorstwo będzie się <strong
-                    >wyróżniać na tle konkurencji</strong
-                > i zyska przewagę na rynku.
-            </p>
-        </div>
-    </div>
-    <div class="absolute transform -translate-x-1/2 left-1/2 -top-80">
-        <Img src="/src/assets/moon.png" width={150} alt="descriptive text" />
-    </div>
-    <div
-        class="absolute w-[6px] h-60 bg-sky-500 left-1/2 transform -translate-x-1/2 -top-60 z-10"
-    >
-    </div>
-    <div
-        class="absolute z-10 w-16 h-16 transform -translate-x-1/2 rounded-full bg-sky-500 left-1/2 -top-70 bg-blur2"
-    >
-    </div>
-    <div class="absolute transform -translate-x-1/2 left-1/2 -top-35">
-        <svg
-            class="mx-auto"
-            width="1428"
-            height="1688"
-            viewBox="0 0 1428 1688"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div
+            class="absolute z-20 overflow-hidden transform -translate-x-1/2 left-1/2 -top-61"
         >
-            <path
-                d="M693.5 0.5V84C693.5 95.0457 684.546 104 673.5 104H23C11.9543 104 3 112.954 3 124V597.5C3 608.546 11.9543 617.5 23 617.5H1404.5C1415.55 617.5 1424.5 626.454 1424.5 637.5V1115.5C1424.5 1126.55 1415.55 1135.5 1404.5 1135.5H23C11.9543 1135.5 3 1144.45 3 1155.5V1630C3 1641.05 11.9543 1650 23 1650H681.5C692.546 1650 701.5 1658.95 701.5 1670V1687.5"
-                stroke="#BD00FF"
-                stroke-width="6"></path>
-        </svg>
-    </div>
+            <svg
+                width="1434"
+                height="1975"
+                viewBox="0 0 1434 1975"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M717 0V182.942C717 193.988 708.046 202.942 697 202.942L23 202.942C11.9543 202.942 3 211.896 3 222.942V728.402C3 739.448 11.9543 748.402 23 748.402H1411C1422.05 748.402 1431 757.357 1431 768.402V1278.64C1431 1289.69 1422.05 1298.64 1411 1298.64H23C11.9543 1298.64 3 1307.6 3 1318.64V1825.17C3 1836.21 11.9543 1845.17 23 1845.17H697C708.046 1845.17 717 1854.12 717 1865.17V1975"
+                    stroke="#BD00FF"
+                    stroke-width="6"></path>
+            </svg>
+            <div
+                class="absolute transform -translate-x-1/2 left-1/2 -top-0 z-21"
+            >
+                <svg
+                    width="1434"
+                    height="1975"
+                    viewBox="0 0 1434 1975"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M717 0V182.942C717 193.988 708.046 202.942 697 202.942L23 202.942C11.9543 202.942 3 211.896 3 222.942V728.402C3 739.448 11.9543 748.402 23 748.402H1411C1422.05 748.402 1431 757.357 1431 768.402V1278.64C1431 1289.69 1422.05 1298.64 1411 1298.64H23C11.9543 1298.64 3 1307.6 3 1318.64V1825.17C3 1836.21 11.9543 1845.17 23 1845.17H697C708.046 1845.17 717 1854.12 717 1865.17V1975"
+                        stroke="#fff"
+                        id="linia"
+                        stroke-width="3"></path>
+                </svg>
+            </div>
+        </div>
+        <div
+            class="absolute z-10 w-12 h-12 transform -translate-x-1/2 rounded-full bg-violet-600 left-1/2 -bottom-20 bg-blur2 z-22"
+        >
+        </div>
+        <div class="absolute transform -translate-x-1/2 left-1/2 -bottom-32">
+            <Img
+                brightness={0.85}
+                tint="251754"
+                src="/src/assets/moon.png"
+                width={150}
+                alt="descriptive text"
+            />
+        </div>
+    </section>
 </div>
 
 <style>
     svg path {
-        stroke-dasharray: 6050;
-        stroke-dashoffset: 6050;
+        stroke-dasharray: 6190;
+        stroke-dashoffset: 6190;
         animation: dash 10s forwards;
+    }
+
+    #linia {
+        -webkit-animation: dash 120s linear infinite;
+        stroke-dasharray: 10;
     }
 
     @keyframes dash {
