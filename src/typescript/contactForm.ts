@@ -1,38 +1,30 @@
 import { strapiApiBaseUrl } from "./consts";
 
-interface FormData {
-    name: string;
-    email: string;
-    message: string;
-}
-
 export async function sendContactRequest(
-    event: SubmitEvent,
+    form: HTMLFormElement,
     onSuccess: Function,
     onErrror: Function
 ) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    const form = event.target as HTMLFormElement; // Get the form that was submitted
-    const formData = {
+    const formFields = {
         name: form.elements.namedItem("name"),
         email: form.elements.namedItem("email"),
         message: form.elements.namedItem("message"),
     };
 
-    if (formData.name.value == "") {
-        onErrror(`Pole '${formData.name.placeholder}' nie może być puste !`);
+    if (formFields.name.value == "") {
+        onErrror(`Pole '${formFields.name.placeholder}' nie może być puste !`);
         return;
     }
 
-    if (formData.email.value == "") {
-        onErrror(`Pole '${formData.email.placeholder}' nie może być puste !`);
+    if (formFields.email.value == "") {
+        onErrror(`Pole '${formFields.email.placeholder}' nie może być puste !`);
         return;
     }
 
-    if (formData.message.value == "") {
-        onErrror(`Pole '${formData.message.placeholder}' nie może być puste !`);
+    if (formFields.message.value == "") {
+        onErrror(
+            `Pole '${formFields.message.placeholder}' nie może być puste !`
+        );
         return;
     }
 
@@ -44,9 +36,9 @@ export async function sendContactRequest(
         },
         body: JSON.stringify({
             data: {
-                name: formData.name.value,
-                email: formData.email.value,
-                message: formData.message.value,
+                name: formFields.name.value,
+                email: formFields.email.value,
+                message: formFields.message.value,
             },
         }),
     };
