@@ -63,10 +63,13 @@ import Faded from "@components/elements/Faded.astro";
     </div>
 
     <script>
-        import { showWhenInView } from "/src/typescript/scroll.ts";
-        showWhenInView(".show-on-scroll");
-        showWhenInView(".show-on-scroll-alt");
-        showWhenInView(".show-on-scroll-alt2");
+        import {
+            showWhenInView,
+            CSS_CLASS_SHOW,
+        } from "/src/typescript/scroll.ts";
+
+        showWhenInView(".show-on-scroll", CSS_CLASS_SHOW);
+        showWhenInView(".show-on-scroll-alt", CSS_CLASS_SHOW);
     </script>
 
     <script src="vanilla-tilt"></script>
