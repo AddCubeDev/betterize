@@ -29,11 +29,19 @@ import Faded from "@components/elements/Faded.astro";
 
     <BackgroundImage
         src="/src/assets/herobg4.jpg"
+        placeholder="blurred"
+        breakpoints={[1930, 2560, 3440]}
+        includeSourceFormat={false}
+        fallbackFormat="webp"
         brightness={0.55}
         tint="251754"
         artDirectives={[
             {
                 src: "/src/assets/herobg1.jpg",
+                placeholder: "blurred",
+                breakpoints: [1930, 2560, 3440],
+                includeSourceFormat: false,
+                fallbackFormat: "webp",
                 media: "(orientation: potrait)",
             },
         ]}
