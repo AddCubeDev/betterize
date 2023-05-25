@@ -5,25 +5,25 @@ import { Testimonial } from "@typescript/Testimonials";
 
 const testimonialsData: Testimonial[] = [
     {
+        src: "/src/assets/grzegorz.jpg",
+        name: "Grzegorz Wiosna",
+        company: "Buisness Growth",
+        paragraph:
+            "Skupiliśmy się przede wszystkim na elementach performance i poprawie ścieżki klienta na stronie, tak by design zgadzał się z analityką. Efekt: 100% realizacji celów",
+    },
+    {
+        src: "/src/assets/daniel.jpg",
+        name: "Daniel Popek",
+        company: "Public Speaking Coach",
+        paragraph:
+            "Dużo moich klientów skarżyło się, że ciężko się chodzi po mojej stronie i wszystko długo się na niej ładuje. Po interwencji chłopaków z betterize czas ładowania strony na telefonie skrócił ponad dwukrotnie. Nie spodziewałem się, że moja strona może działać, aż tak szybko. Pełen profesjonalizm, polecam.",
+    },
+    {
         src: "/src/assets/adam.jpg",
         name: "Adam Naworski",
-        company: "Solution Engineer w Siemens",
+        company: "Solution Engineer",
         paragraph:
             "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
-    },
-    {
-        src: "/src/assets/grzegorz.jpg",
-        name: "Grzegorz Wiosna-Zieliński",
-        company: "Marketing Specialist",
-        paragraph:
-            "Lorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem IpsumLorem Ipsum",
-    },
-    {
-        src: "/src/assets/daniel.avif",
-        name: "Daniel Popek",
-        company: "Marketing manager w SocialDynamics",
-        paragraph:
-            "Dzięki firmie Betterize, moja strona internetowa jest teraz piękna i funkcjonalna. Zespół był bardzo kreatywny i elastyczny w dostosowaniu się do moich potrzeb. Gorąco polecam ich usługi.",
     },
 ];
 
@@ -58,7 +58,8 @@ const testimonialsWithSrcAsImg = await processTestimonialsData().then(
 );
 ---
 
-<div>
+<div class="relative">
     <h2 class="pb-12 header-1">Co mówią o nas klienci:</h2>
+
     <Testimonials testimonials_data={testimonialsWithSrcAsImg} client:visible />
 </div>

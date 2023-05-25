@@ -12,6 +12,13 @@ import StepByStep from "@components/StepByStep.astro";
 import Section1 from "@components/Section1.astro";
 import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
+import {
+    Img,
+    Picture,
+    BackgroundPicture,
+    BackgroundImage,
+} from "astro-imagetools/components";
+import Faded from "@components/elements/Faded.astro";
 ---
 
 <Layout
@@ -19,9 +26,29 @@ import Footer from "@components/Footer.astro";
     description="Tworzymy wydajne i konwertujące strony internetowe"
 >
     <!-- <FancyBg /> -->
-    <Nav />
-    <main class="flex flex-col min-h-screen mx-auto mt-20 gap-28 lg:gap-40">
-        <Hero />
+
+    <BackgroundImage
+        src="/src/assets/herobg4.jpg"
+        brightness={0.55}
+        tint="251754"
+        artDirectives={[
+            {
+                src: "/src/assets/herobg1.jpg",
+                media: "(orientation: potrait)",
+            },
+        ]}
+    >
+        <section class="relative z-10">
+            <Faded direction="bottom" />
+            <Faded direction="top" />
+            <Nav />
+            <div class="mt-20">
+                <Hero />
+            </div>
+        </section>
+    </BackgroundImage>
+
+    <main class="flex flex-col min-h-screen mx-auto mt-40 gap-28 lg:gap-40">
         <Marketing0 />
         <Marketing1 />
         <Section1 />
