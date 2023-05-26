@@ -76,7 +76,7 @@ const { data } = Astro.props;
         </button>
 
         <!-- TODO dodaj stylowanie -->
-        <!-- <div class="" id="responseInfo"></div> -->
+        <div class="" id="responseInfo"></div>
     </form>
 </div>
 
@@ -128,5 +128,7 @@ const { data } = Astro.props;
     }
 
     const form = document.getElementById("contactForm") as HTMLFormElement;
-    form.addEventListener("submit", onSubmit);
+    if (form) {
+        form.addEventListener("submit", onSubmit);
+    }
 </script>
