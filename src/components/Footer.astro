@@ -1,20 +1,12 @@
 ---
-import { Img } from "astro-imagetools/components";
-
-const logo = "/src/assets/logo.png";
+const logo = "/src/assets/logo-white-text.svg";
 ---
 
 <footer aria-label="Site Footer" class="bg-gray-800">
     <div class="py-8 mx-auto main-content sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <div class="flex justify-center text-teal-600 sm:justify-start">
-                <Img
-                    src={logo}
-                    width={80}
-                    placeholder="none"
-                    format="webp"
-                    alt="descriptive text"
-                />
+                <img src={logo} width="80" alt="descriptive text" />
             </div>
 
             <p
