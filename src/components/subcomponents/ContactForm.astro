@@ -1,5 +1,5 @@
 <div class="w-full mx-auto max-w-196">
-    <form id="contactForm" onsubmit="onSubmit()" class="space-y-4">
+    <form id="contactForm" class="space-y-4">
         <div data-error="W to pole można wpisać maksymalnie 50 znaków.">
             <label
                 for="name"
@@ -14,7 +14,7 @@
                 name="name"
                 aria-label="Twoje Imię"
                 data-error="Email nie może mieć więcej niż 30 znaków."
-                pattern="{1,50}"
+                pattern=".{1,50}"
                 required
                 autocomplete="off"
             />
@@ -65,7 +65,7 @@
         </button>
 
         <!-- TODO dodaj stylowanie -->
-        <!-- <div class="" id="responseInfo"></div> -->
+        <div class="" id="responseInfo"></div>
     </form>
 </div>
 
@@ -96,23 +96,34 @@
         background-color: #fffafa;
     }
 </style>
+
 <script>
+    import type { log } from "astro/dist/core/logger/core";
     import { sendContactRequest } from "src/typescript/contactForm";
 
-    function onSuccess() {
-        const responseInfo = document.getElementById("responseInfo");
-
-        // Przekierowanie na inną stronę, np. /thank-you
-        window.location.assign("/ThankYou");
-    }
-
-    function onError(error) {
-        const responseInfo = document.getElementById("responseInfo");
-
-        responseInfo.innerHTML = error;
-    }
-
     async function onSubmit(event) {
-        sendContactRequest(event, onSuccess, onError);
+        event.preventDefault();
+        event.stopPropagation();
+
+        const onSuccess = () => {
+            // Przekierowanie na inną stronę, np. /thank-you
+            window.location.assign("/ThankYou");
+        };
+
+        const onError = (error) => {
+            const responseInfo = document.getElementById("responseInfo");
+
+            responseInfo.innerHTML = error;
+        };
+
+        const form = event.target as HTMLFormElement; // Get the form that was submitted
+        await sendContactRequest(form, onSuccess, onError);
+    }
+
+    const form = document.getElementById("contactForm") as HTMLFormElement;
+    if (form) {
+        form.addEventListener("submit", onSubmit);
+    } else {
+        console.error("BUG: element with id=contactForm not found !!!");
     }
 </script>

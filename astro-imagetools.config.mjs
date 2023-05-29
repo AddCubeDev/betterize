@@ -1,15 +1,19 @@
 import { defineConfig } from "astro-imagetools/config";
 
 export default defineConfig({
-    placeholder: "none", // jesli nie jest to ustawione, to na raz wyswietla sie zarowno placeholder jak i zwykly obrazek
+    // placeholder
+    // Jeśli nie jest ustawiony, to na raz wyswietla sie zarówno placeholder jak i zwykły obrazek
+    // W przypadku elementów BackgroundImage, jeżeli nie jest ustawiony, to w konsoli są komunikaty, że serwer nie znalazł
+    // zasobu https://betterize.pl/null.
+    // Trzeba go ustawić na jedną z wartości: "blurred" | "tracedSVG" | "dominantColor"
+    // Patrz: node_modules/astro-imagetools/api/utils/getFallbackImage.js
+    // W pliku: index.astro, gdzie jest używany element BackgroundImage użyłem: "blurred"
+    placeholder: "none",
+
     format: ["webp"],
     loading: "lazy",
     // layout: "fill",
-    includeSourceFormat: true,
     formatOptions: {
-        avif: {
-            quality: 80,
-        },
         jpg: {
             quality: 80,
         },
