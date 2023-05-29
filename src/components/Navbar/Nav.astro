@@ -5,6 +5,8 @@ import ButtonContact from "@components/subcomponents/ButtonContact.astro";
 import NavBarSubItem from "./NavbarSubItem.astro";
 import NavbarItemGroup from "./NavbarItemGroup.astro";
 import NavbarPost from "./NavbarPost.astro";
+
+import logo from "/src/assets/logo-white-text.svg";
 ---
 
 <header aria-label="Site Header" class="z-10 w-full">
@@ -15,7 +17,7 @@ import NavbarPost from "./NavbarPost.astro";
         <div class="flex">
             <a href="/" class="image-animation hover:opacity-80">
                 <img
-                    src="/src/assets/logo-white-text.svg"
+                    src={logo}
                     width="80"
                     loading="eager"
                     decoding="async"
