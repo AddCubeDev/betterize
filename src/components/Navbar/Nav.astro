@@ -1,7 +1,4 @@
 ---
-import logo1x from "/src/assets/logo_1x.webp";
-import logo2x from "/src/assets/logo_2x.webp";
-import logo3x from "/src/assets/logo_3x.webp";
 import { Icon } from "astro-iconify";
 
 import ButtonContact from "@components/subcomponents/ButtonContact.astro";
@@ -18,10 +15,8 @@ import NavbarPost from "./NavbarPost.astro";
         <div class="flex">
             <a href="/" class="image-animation hover:opacity-80">
                 <img
-                    srcset={`${logo1x} 1x, ${logo2x} 2x, ${logo3x} 3x`}
-                    sizes="(max-width: 640px) 40px, (min-width: 640px) 120px"
+                    src="/src/assets/logo-white-text.svg"
                     width="80"
-                    height="64"
                     loading="eager"
                     decoding="async"
                     alt="descriptive text"
