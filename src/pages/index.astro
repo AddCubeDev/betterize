@@ -76,5 +76,14 @@ import Faded from "@components/elements/Faded.astro";
         showWhenInView(".show-on-scroll-alt", CSS_CLASS_SHOW);
     </script>
 
-    <script src="vanilla-tilt"></script>
+    <script>
+        import VanillaTilt from "vanilla-tilt";
+        import { isMobileDevice } from "/src/typescript/isMobile.ts";
+
+        if (!isMobileDevice()) {
+            window.VanillaTilt = VanillaTilt;
+
+            VanillaTilt.init(document.querySelectorAll("[data-tilt-desktop]"));
+        }
+    </script>
 </Layout>
