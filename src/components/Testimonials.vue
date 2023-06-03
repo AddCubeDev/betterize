@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-full p-4 mx-auto lg:max-w-6xl">
+    <div class="max-w-full p-4 mx-auto overflow-hidden lg:max-w-6xl">
         <swiper-container init="false">
             <SwiperSlider
                 v-for="(item, index) in props.testimonials_data"
@@ -36,6 +36,7 @@ onMounted(() => {
         const swiperParams = {
             cssMode: false,
             keyboard: true,
+            loop: true,
             mousewheel: false,
             navigation: true,
             pagination: true,
