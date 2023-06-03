@@ -26,7 +26,7 @@ import Faded from "@components/elements/Faded.astro";
         src="/src/assets/herobg4.jpg"
         format="webp"
         placeholder="blurred"
-        breakpoints={[1930, 2560, 3440]}
+        breakpoints={[1000, 1930, 2560, 3440]}
         includeSourceFormat={false}
         fallbackFormat="webp"
         brightness={0.55}
@@ -36,7 +36,7 @@ import Faded from "@components/elements/Faded.astro";
                 src: "/src/assets/herobg4.jpg",
                 media: "(orientation: landscape)",
                 placeholder: "blurred",
-                breakpoints: [1930, 2560, 3440],
+                breakpoints: [1000, 1930, 2560, 3440],
                 includeSourceFormat: false,
                 fallbackFormat: "webp",
             },
@@ -52,7 +52,7 @@ import Faded from "@components/elements/Faded.astro";
         </section>
     </BackgroundImage>
 
-    <main class="flex flex-col min-h-screen mx-auto mt-40 gap-28 lg:gap-40">
+    <main class="flex flex-col min-h-screen mx-auto lg:mt-40 gap-28 lg:gap-40">
         <Marketing0 />
         <Marketing1 />
         <Section1 />

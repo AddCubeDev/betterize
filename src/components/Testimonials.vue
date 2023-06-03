@@ -42,15 +42,8 @@ onMounted(() => {
             paginationClickable: true,
             grabCursor: true,
             centeredSlides: true,
-            // effect: "cards",   // powinno być wyłączone na telefonie
-            effect: "creative",
+            effect: "cards",
             slidesPerView: 1,
-            breakpoints: {
-                1024: {
-                    effect: "cards",
-                    // navigation: false,
-                },
-            },
         };
 
         // now we need to assign all parameters to Swiper element
