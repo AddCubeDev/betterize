@@ -77,13 +77,21 @@ import Faded from "@components/elements/Faded.astro";
     </script>
 
     <script>
-        import VanillaTilt from "vanilla-tilt";
         import { isMobileDevice } from "/src/typescript/isMobile.ts";
 
         if (!isMobileDevice()) {
-            window.VanillaTilt = VanillaTilt;
+            let script = document.createElement("script");
 
-            VanillaTilt.init(document.querySelectorAll("[data-tilt-desktop]"));
+            script.src = "/scripts/vanilla-tilt.min.js";
+
+            script.onload = function () {
+                window.VanillaTilt = VanillaTilt;
+                VanillaTilt.init(
+                    document.querySelectorAll("[data-tilt-desktop]")
+                );
+            };
+
+            document.body.appendChild(script);
         }
     </script>
 </Layout>

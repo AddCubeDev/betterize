@@ -1,5 +1,5 @@
 ---
-import { Img } from "astro-imagetools/components";
+import { Picture } from "astro-imagetools/components";
 import ButtonContact from "./subcomponents/ButtonContact.astro";
 import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
 ---
@@ -31,12 +31,23 @@ import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
         <div
             class="hidden lg:(overflow-hidden rounded-lg shadow-2xl justify-center items-center flex)"
         >
-            <Img
-                src="/src/assets/hero6.jpg"
+            <Picture
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                 width={600}
-                breakpoints={[420, 600]}
+                breakpoints={[600]}
                 loading="eager"
                 alt="descriptive text"
+                artDirectives={[
+                    {
+                        src: "/src/assets/hero6.jpg",
+                        media: "(min-width: 1024px)",
+                    },
+                ]}
+                attributes={{
+                    style: {
+                        display: "none",
+                    },
+                }}
             />
         </div>
     </div>

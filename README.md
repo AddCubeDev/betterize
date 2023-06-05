@@ -1,7 +1,6 @@
 # Projekt Betterize
 
 
-
 ### vue3-circle-progress custom component
 
 Ten komponent implementowany jest w repozytorium: [AddCubeDev/vue3-circle-progress.git](https://github.com/AddCubeDev/vue3-circle-progress.git).
@@ -19,7 +18,7 @@ Projekt zostanie sklonowany w katalogu: ../vue3-circle-progress
 ```
 
 Jeżeli chcesz mieć pewność, że katalog ../vue3-circle-progress zawiera
-najnowszą wersję uruchom następującą komendę:
+najnowszą wersję, to uruchom następującą komendę:
 ```
 npm run pull-circle-progress
 ```
@@ -28,3 +27,10 @@ Reinstalacja pakietów (np. musiałeś skasować katalog node_modules, bo coś s
 ```
 npm run reinstall
 ```
+
+### vanilla-tilt
+
+W obecnej implementacji pakiet 'vanilla-tilt' jest używany tylko na desktop-ach
+i jest ładowany warunkowo (patrz: index.astro), dlatego pakiet został usunięty z 
+pliku package.json (npm uninstall vanilla-tilt; bieżąca wersja to: 1.8 )
+i jego wersja .min została umieszczona w katalogu /public/scripts/vanilla-tilt.min.js.

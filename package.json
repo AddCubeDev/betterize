@@ -29,7 +29,6 @@
     "epic-spinners": "^2.0.0",
     "marked": "^5.0.2",
     "swiper": "^9.3.2",
-    "vanilla-tilt": "^1.8.0",
     "vue": "^3.3.4",
     "vue3-circle-progress": "file:../vue3-circle-progress"
   },

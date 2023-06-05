@@ -25,7 +25,24 @@ export async function getStaticPaths() {
         <Footer />
     </div>
 
-    <script src="vanilla-tilt"></script>
+    <script>
+        import { isMobileDevice } from "/src/typescript/isMobile.ts";
+
+        if (!isMobileDevice()) {
+            let script = document.createElement("script");
+
+            script.src = "/scripts/vanilla-tilt.min.js";
+
+            script.onload = function () {
+                window.VanillaTilt = VanillaTilt;
+                VanillaTilt.init(
+                    document.querySelectorAll("[data-tilt-desktop]")
+                );
+            };
+
+            document.body.appendChild(script);
+        }
+    </script>
 </Layout>
 
 <style>
