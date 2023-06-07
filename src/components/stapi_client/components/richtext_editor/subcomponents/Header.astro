@@ -7,10 +7,16 @@ interface Props {
 const { text, level } = Astro.props;
 
 function getHeader() {
-    if (level >= 2 && level <= 6) {
-        return `<h${level} class="max-w-2xl mx-auto mt-20 mb-2 text-4xl font-bold capitalize">${text}</h${level}>`;
+    if (level == 1) {
+        return `<h${level} class="blog-header-1">${text}</h${level}>`;
+    } else if (level == 2) {
+        return `<h${level} class="blog-header-2">${text}</h${level}>`;
+    } else if (level == 3) {
+        return `<h${level} class="blog-header-3">${text}</h${level}>`;
+    } else if (level == 4) {
+        return `<h${level} class="blog-header-4">${text}</h${level}>`;
     } else {
-        return `<h2 class="max-w-2xl mx-auto mt-20 mb-2 text-4xl capitalize">Invalid header value given</h2>`;
+        return `<h2 class="bg-red-500">Invalid header value given</h2>`;
     }
 }
 
