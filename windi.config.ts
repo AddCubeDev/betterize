@@ -14,7 +14,7 @@ export default defineConfig({
             "text-3xl lg:text-4xl font-bold text-gray-100 max-w-xl mb-4 lg:mb-6 tracking-normal",
         "header-3": "text-lg lg:text-xl font-bold text-gray-100 max-w-xl mb-2",
         "p-paragraph":
-            "text-md lg:text-lg font-normal text-gray-300 max-w-xl pb-3 leading-relaxed mx-auto font-font",
+            "text-md lg:text-lg font-normal text-gray-300 max-w-xl pb-3 leading-relaxed mx-auto",
         "p-proof-paragraph":
             "text-sm lg:text-md font-normal text-gray-300 max-w-xl pb-3 leading-relaxed mx-auto px-2 ",
         "blog-header": "lg:text-3xl text-left font-medium mb-6",
