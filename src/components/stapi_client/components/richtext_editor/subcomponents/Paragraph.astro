@@ -6,9 +6,7 @@ interface Props {
 const { text } = Astro.props;
 ---
 
-<div
-    class="flex items-center max-w-xl gap-2 py-2 mx-auto font-normal text-left text-gray-300"
->
+<div class="flex max-w-xl gap-2 py-2 font-normal text-left text-gray-300">
     <p>
         <Fragment set:html={text} />
     </p>
