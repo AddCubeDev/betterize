@@ -30,6 +30,15 @@ export default defineConfig({
         "main-content": "px-4 xl:px-0 max-w-screen lg:max-w-6xl mx-auto",
         "outlined-text":
             "text-stroke-width-2 text-stroke-sky-500/40 text-transparent bg-clip-text bg-gradient-to-br from-sky-500 via-indigo-500 to-teal-500 font-black",
+        // ---------------------------------------------------------------------------------------------
+        "blog-header-1":
+            "max-w-4xl text-4xl font-black text-gray-100 mb-4 lg:text-5xl lg:mb-6 mx-auto uppercase",
+        "blog-header-2":
+            "max-w-xl mb-4 text-3xl font-bold tracking-normal text-gray-100 capitalize lg:text-4xl lg:mt-8",
+        "blog-header-3":
+            "text-lg lg:text-xl font-bold text-gray-100 max-w-xl mb-4 lg:mt-8",
+        "blog-header-4":
+            "text-md lg:text-lg font-bold text-gray-100 max-w-xl mb-2 lg:mt-4",
     },
     theme: {
         extend: {
