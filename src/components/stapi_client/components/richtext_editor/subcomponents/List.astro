@@ -10,27 +10,16 @@ interface Props {
 }
 
 const { style, items } = Astro.props;
+
+const ListElement = style == Style.Ordered ? 'ol' : 'ul';
 ---
 
-<div class="px-4 pb-4 text-left">
-    <ul>
+<div class="px-4 pb-2 text-left">
+    <ListElement>
         {
-            () => {
-                if (style == Style.Ordered) {
-                    return items.map((item: string, index: number) => (
-                        <li>
-                            {index + 1}
-                            <Fragment set:html={item} />
-                        </li>
-                    ));
-                } else {
-                    return items.map((item: string) => (
-                        <li>
-                            <Fragment set:html={item} />
-                        </li>
-                    ));
-                }
-            }
+            items.map( (item: string) =>
+                        <li class="pb-2"> <Fragment set:html={item} /> </li>
+                     )
         }
-    </ul>
+    </ListElement>
 </div>
