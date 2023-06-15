@@ -26,11 +26,7 @@ export default defineConfig({
             },
         }),
         critters(),
-        partytown({
-            config: {
-                forward: ["dataLayer.push"],
-            },
-        }),
+        partytown(),
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
         // compress({
