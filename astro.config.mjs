@@ -5,13 +5,14 @@ import critters from "astro-critters";
 import vue from "@astrojs/vue";
 // import purgecss from "astro-purgecss";
 // import compress from "astro-compress";
-import compressor from "astro-compressor";
-
 import partytown from "@astrojs/partytown";
+import sitemap from "@astrojs/sitemap";
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
     output: "static",
+    site: "https://betterize.pl",
     integrations: [
         astroImageTools,
         windicss(),
@@ -27,6 +28,11 @@ export default defineConfig({
         }),
         critters(),
         partytown(),
+        sitemap({
+            filter: (page) =>
+                page !== "https://betterize.pl/test/" &&
+                page !== "https://betterize.pl/ThankYou/",
+        }),
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
         // compress({
