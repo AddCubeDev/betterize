@@ -32,6 +32,7 @@ export default defineConfig({
             filter: (page) =>
                 page !== "https://betterize.pl/test/" &&
                 page !== "https://betterize.pl/ThankYou/" &&
+                page !== "https://admin.betterize.pl/" &&
                 page !== "https://betterize.pl/~partytown/",
         }),
         // purgecss(),
