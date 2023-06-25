@@ -31,7 +31,8 @@ export default defineConfig({
         sitemap({
             filter: (page) =>
                 page !== "https://betterize.pl/test/" &&
-                page !== "https://betterize.pl/ThankYou/",
+                page !== "https://betterize.pl/ThankYou/" &&
+                page !== "https://betterize.pl/~partytown/",
         }),
         // purgecss(),
         // Important: It is vital that this is the last integration in the integrations property. Otherwise some files might not get compressed.
