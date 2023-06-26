@@ -1,3 +1,4 @@
+import i18n from "astro-i18n";
 import { defineConfig } from "astro/config";
 import { astroImageTools } from "astro-imagetools";
 import windicss from "astro-windicss";
@@ -14,6 +15,7 @@ export default defineConfig({
     output: "static",
     site: "https://betterize.pl",
     integrations: [
+        i18n(),
         astroImageTools,
         windicss(),
         // critters({}),
@@ -31,7 +33,7 @@ export default defineConfig({
         sitemap({
             filter: (page) =>
                 page !== "https://betterize.pl/test/" &&
-                page !== "https://betterize.pl/ThankYou/" &&
+                page !== "https://betterize.pl/thankyou/" &&
                 page !== "https://admin.betterize.pl/" &&
                 page !== "https://betterize.pl/~partytown/",
         }),

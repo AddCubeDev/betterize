@@ -1,56 +1,46 @@
 ---
+// @ts-ignore
 import { Img } from "astro-imagetools/components";
 import Marketing0Card from "./subcomponents/Marketing0Card.astro";
+
+import { t } from "astro-i18n";
 ---
 
 <div
     class="relative flex flex-col gap-16 mx-4 text-gray-100 lg:gap-32"
     id="marketing0"
 >
-    <Marketing0Card title="Prefabrykaty: Klucz do szybkości i niezawodności">
+    <Marketing0Card title={t("index.marketing0.card1.title")}>
         <p class="p-paragraph">
-            Dzięki naszej wiedzy i doświadczeniu, jesteśmy w stanie dostosować
-            usługi do <strong>indywidualnych potrzeb i wymagań</strong>, aby
-            wspólnie osiągnąć sukces w biznesie.
+            <Fragment set:html={t("index.marketing0.card1.text1")} />
         </p>
         <p class="p-paragraph">
-            Stawiamy na <strong
-                >szybkość, solidność oraz dbałość o detale</strong
-            >, by spełnić oczekiwania naszych klientów i pomóc im się wyróżnić
-            na rynku.
+            <Fragment set:html={t("index.marketing0.card1.text2")} />
         </p>
     </Marketing0Card>
+
     <Marketing0Card
-        title="Dopasowanie rozwiązań do potrzeb branży"
+        title={t("index.marketing0.card2.title")}
+        reverseorder={true}
         src="/src/assets/analytics1.jpg"
-        reverseorder="true"
     >
         <p class="p-paragraph">
-            W Betterize zdajemy sobie sprawę, że każda branża ma swoje unikalne
-            potrzeby i wymagania. Dlatego naszym priorytetem jest <strong
-                >dopasowanie rozwiązań</strong
-            > do specyfiki Twojego biznesu.
+            <Fragment set:html={t("index.marketing0.card2.text1")} />
         </p>
         <p class="p-paragraph">
-            Wspólnie z Tobą tworzymy rozwiązania, które sprawią, że Twoje
-            przedsiębiorstwo będzie się <strong
-                >wyróżniać na tle konkurencji</strong
-            > i zyska przewagę na rynku.
+            <Fragment set:html={t("index.marketing0.card2.text2")} />
         </p>
     </Marketing0Card>
+
     <Marketing0Card
-        title="Skupiamy się na małych i średnich przedsiębiorstwach"
+        title={t("index.marketing0.card3.title")}
         src="/src/assets/small.jpg"
     >
         <p class="p-paragraph">
-            <strong>Analizujemy rynek i konkurencję</strong>, aby zrozumieć
-            kluczowe aspekty Twojej działalności i dostarczyć strony
-            internetowe, które będą w pełni odzwierciedlały
-            <strong>wartości i cele Twojej firmy.</strong>
+            <Fragment set:html={t("index.marketing0.card3.text1")} />
         </p>
         <p class="p-paragraph">
-            W ten sposób, tworzymy strony szybko, solidnie i z dbałością o
-            detale, spełniając wymagania waszych celów biznesowych.
+            <Fragment set:html={t("index.marketing0.card3.text2")} />
         </p>
     </Marketing0Card>
 

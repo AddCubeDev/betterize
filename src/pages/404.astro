@@ -2,6 +2,9 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
+
+import { astroI18n, t } from "astro-i18n";
+astroI18n.init(Astro);
 ---
 
 <Layout>
@@ -9,9 +12,9 @@ import Footer from "@components/Footer.astro";
         <Nav />
 
         <div>
-            <h2 class="header-1">ERROR 404</h2>
+            <h2 class="header-1">{t("404.title")}</h2>
             <p class="ordinary-text">
-                Przepraszamy, strona na którą chciałeś wejść nie istnieje.
+                {t("404.subtitle")}
             </p>
         </div>
         <Footer />

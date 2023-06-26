@@ -2,17 +2,18 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import FancyBg from "@components/subcomponents/FancyBg.astro";
 import CaseStudiesList from "@components/stapi_client/components/case_studies/CaseStudiesList.astro";
+
+import { astroI18n, t } from "astro-i18n";
+astroI18n.init(Astro);
 ---
 
-<Layout title="Betterize - nasze projekty">
-    <!-- <FancyBg /> -->
+<Layout title={t("projects.pageTitle")}>
     <Nav />
 
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">
         <div class="mx-auto mb-20 max-w-screen main-content lg:show-on-scroll">
-            <h2 class="pb-16 header-1">Nasze Projekty:</h2>
+            <h2 class="pb-16 header-1">{t("projects.title")}</h2>
             <CaseStudiesList />
         </div>
     </main>

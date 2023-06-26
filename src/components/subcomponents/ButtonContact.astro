@@ -1,6 +1,14 @@
+---
+interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+---
+
 <a
     class="bg-gradient-to-r rounded-md font-bold from-sky-600 to-indigo-600 text-md py-2 px-6 transition-smooth ease-in-out hover:(transition-smooth transform scale-105 text-gray-900 shadow-lg shadow-blue-600/40)"
     href="/contact/"
 >
-    Skontaktuj Się
+    {text}
 </a>

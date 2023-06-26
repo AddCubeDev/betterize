@@ -1,29 +1,29 @@
 ---
+// @ts-ignore
 import { renderImg } from "astro-imagetools/api";
 import Testimonials from "./Testimonials.vue";
+// @ts-ignore
 import { Testimonial } from "@typescript/Testimonials";
+import { t } from "astro-i18n";
 
 const testimonialsData: Testimonial[] = [
     {
         src: "/src/assets/grzegorz.jpg",
-        name: "Grzegorz Wiosna",
-        company: "Buisness Growth",
-        paragraph:
-            "Skupiliśmy się przede wszystkim na elementach performance i poprawie ścieżki klienta na stronie, tak by design zgadzał się z analityką. Efekt: 100% realizacji celów",
+        name: t("index.marketing2.testimonial1.name"),
+        company: t("index.marketing2.testimonial1.company"),
+        paragraph: t("index.marketing2.testimonial1.paragraph"),
     },
     {
         src: "/src/assets/daniel2.jpg",
-        name: "Daniel Popek",
-        company: "Public Speaking Coach",
-        paragraph:
-            "Dużo moich klientów skarżyło się, że ciężko się chodzi po mojej stronie i wszystko długo się na niej ładuje. Po interwencji chłopaków z betterize czas ładowania strony na telefonie skrócił ponad dwukrotnie. Nie spodziewałem się, że moja strona może działać, aż tak szybko. Pełen profesjonalizm, polecam.",
+        name: t("index.marketing2.testimonial2.name"),
+        company: t("index.marketing2.testimonial2.company"),
+        paragraph: t("index.marketing2.testimonial1.paragraph"),
     },
     {
         src: "/src/assets/eryk.jpg",
-        name: "Eryk Rąk",
-        company: "Właściciel Laweta Wrocław",
-        paragraph:
-            "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych.",
+        name: t("index.marketing2.testimonial3.name"),
+        company: t("index.marketing2.testimonial3.company"),
+        paragraph: t("index.marketing2.testimonial3.paragraph"),
     },
 ];
 
@@ -59,7 +59,7 @@ const testimonialsWithSrcAsImg = await processTestimonialsData().then(
 ---
 
 <div class="relative">
-    <h2 class="pb-12 header-1">Co mówią o nas klienci:</h2>
+    <h2 class="pb-12 header-1">{t("index.marketing2.title")}</h2>
 
     <Testimonials testimonials_data={testimonialsWithSrcAsImg} client:visible />
 </div>

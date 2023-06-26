@@ -1,5 +1,13 @@
 ---
 import PageSpeed from "@components/PageSpeed";
+import { t } from "astro-i18n";
+
+const translations = {
+    url: t("section1.pageSpeedQuery.url"),
+    test: t("section1.pageSpeedQuery.test"),
+    processing: t("section1.pageSpeedQuery.processing"),
+    description: t("section1.pageSpeedQuery.description"),
+};
 ---
 
 <section class="flex flex-col justify-center rounded-lg main-content">
@@ -7,11 +15,9 @@ import PageSpeed from "@components/PageSpeed";
         class="relative px-4 pt-20 pb-10 border rounded-lg shadow-2xl bg-black/90 bg-opacity bg-clip-padding border-gray-300/50"
     >
         <div class="pb-12">
-            <h2 class="pb-4 header-1">Sprawdź wydajność swojej strony</h2>
+            <h2 class="pb-4 header-1">{t("section1.title")}</h2>
             <p class="ordinary-text">
-                Google w 2021 wprowadził nowe standardy oceniania i
-                pozycjonowania stron internetowych. Sprawdź czy twoja strona
-                spełnia nowe wymagania Googla
+                {t("section1.subtitle")}
             </p>
         </div>
         <div
@@ -19,6 +25,12 @@ import PageSpeed from "@components/PageSpeed";
         >
         </div>
 
-        <PageSpeed client:visible />
+        <PageSpeed
+            client:visible
+            url={translations.url}
+            test={translations.test}
+            processing={translations.processing}
+            description={translations.description}
+        />
     </div>
 </section>

@@ -4,6 +4,10 @@
             @testStart="onTestStart"
             @testResult="onTestResult"
             @testHasFailed="onTestHasFailed"
+            :url="props.url"
+            :test="props.test"
+            :processing="props.processing"
+            :description="props.description"
         />
 
         <div :hidden="hiddenPageSpeedTestError">
@@ -65,6 +69,13 @@ import {
 import { getEvaluationResult } from "./utils/scores";
 import { EvaluationResult2Colors } from "./utils/pageSpeedConstants";
 import { ref } from "vue";
+
+const props = defineProps({
+    url: String,
+    test: String,
+    processing: String,
+    description: String,
+});
 
 const performance = ref(0);
 const seo = ref(0);

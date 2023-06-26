@@ -3,9 +3,9 @@ import { Icon } from "astro-iconify";
 
 import ButtonContact from "@components/subcomponents/ButtonContact.astro";
 import NavBarSubItem from "./NavbarSubItem.astro";
-import NavbarItemGroup from "./NavbarItemGroup.astro";
-import NavbarPost from "./NavbarPost.astro";
 import logo from "/src/assets/logo-white-text.svg";
+
+import { t } from "astro-i18n";
 ---
 
 <header aria-label="Site Header" class="z-10 w-full">
@@ -104,7 +104,7 @@ import logo from "/src/assets/logo-white-text.svg";
                         id="nav-bar-menu-item-projekty"
                         class="flex items-center justify-center font-bold nav-bar-menu-item"
                     >
-                        Projekty
+                        {t("navBar.projects.title")}
                         <div
                             class="group-hover:(transform translate-y-0.5) transition-smooth"
                         >
@@ -126,7 +126,7 @@ import logo from "/src/assets/logo-white-text.svg";
                                 <ul>
                                     <NavBarSubItem
                                         href="/projects/optymalne-strony/"
-                                        title="Co robimy, aby zapewnić najlepszą jakość naszych usług?"
+                                        title={t("navBar.projects.whatWeDo")}
                                         src="/src/assets/article.jpg"
                                     />
                                 </ul>
@@ -135,7 +135,7 @@ import logo from "/src/assets/logo-white-text.svg";
                                 <ul>
                                     <NavBarSubItem
                                         href="/projects/betterize/"
-                                        title="betterize.pl"
+                                        title={t("navBar.projects.betterize")}
                                         src="/src/assets/betterize2.png"
                                     />
                                 </ul>
@@ -144,7 +144,9 @@ import logo from "/src/assets/logo-white-text.svg";
                                 <ul>
                                     <NavBarSubItem
                                         href="/projects/swiperight-admin/"
-                                        title="Manager sesji zdjęciowych"
+                                        title={t(
+                                            "navBar.projects.photoShootManager"
+                                        )}
                                         src="/src/assets/database-blue.png"
                                     />
                                 </ul>
@@ -155,7 +157,7 @@ import logo from "/src/assets/logo-white-text.svg";
                                 href="/projects/"
                                 class="flex items-center justify-center h-8 mx-auto mt-2 hover:text-gray-400 transition-smooth"
                             >
-                                Zobacz wszystkie</a
+                                {t("navBar.projects.more")}</a
                             >
                         </div>
                     </div>
@@ -170,7 +172,7 @@ import logo from "/src/assets/logo-white-text.svg";
                     id="nav-bar-menu-item-pagespeedtester"
                     class="nav-bar-menu-item"
                 >
-                    PageSpeedTester
+                    {t("navBar.pageSpeed")}
                 </p>
             </a>
 
@@ -191,7 +193,7 @@ import logo from "/src/assets/logo-white-text.svg";
         </nav>
 
         <div class="items-center hidden gap-4 md:flex">
-            <ButtonContact />
+            <ButtonContact text={t("navBar.contact")} />
         </div>
 
         <button id="menu_btn" aria-label="menu" class="w-10 sm:hidden">

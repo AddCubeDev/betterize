@@ -1,5 +1,7 @@
 ---
 import ProofItem from "./subcomponents/ProofItem.astro";
+import { t } from "astro-i18n";
+
 const { loading = "lazy" } = Astro.props;
 ---
 
@@ -9,30 +11,33 @@ const { loading = "lazy" } = Astro.props;
     >
     </div>
     <div class="mx-auto main-content lg:show-on-scroll">
-        <h2 class="pb-16 header-1">Nasze Projekty:</h2>
+        <h2 class="pb-16 header-1">{t("index.proof.title")}</h2>
         <div
             class="grid w-full gap-8 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl"
         >
             <ProofItem
-                title="Manager sesji zdjęciowych dla swiperight.pl"
-                paragraph="Wraz ze zwiększającą się ilością obsługiwanych klientów Swiperight zaczęło coraz bardziej potrzebować niezawodnego, zautomatyzowanego procesu zarządzania usługami."
+                title={t("proof.item1.title")}
+                paragraph={t("proof.item1.paragraph")}
                 src="/src/assets/database-blue.png"
                 href="/projects/swiperight-admin/"
                 loading={loading}
+                date={t("proof.item1.date")}
             />
             <ProofItem
-                title="Co robimy, aby zapewnić najlepszą jakość usługi dla klienta?"
-                paragraph="Wygląd, wydajność i intuicyjna obsługa to trzy najważniejsze rzeczy jeśli chodzi o stronę internetową. Opowiemy Ci pokrótce co robimy, aby każdy z tych trzech punktów był na najwyższym poziomie."
+                title={t("proof.item2.title")}
+                paragraph={t("proof.item2.paragraph")}
                 src="/src/assets/article.jpg"
                 href="/projects/optymalne-strony/"
                 loading={loading}
+                date={t("proof.item2.date")}
             />
             <ProofItem
-                title="Perfekcyjny wynik GoogleLighthouse na Betterize"
-                paragraph="Betterize to firma skupiająca się na tworzeniu stron internetowych. Bardzo ważne było dla nich zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób."
+                title={t("proof.item3.title")}
+                paragraph={t("proof.item3.paragraph")}
                 src="/src/assets/betterize2.png"
                 href="/projects/betterize/"
                 loading={loading}
+                date={t("proof.item3.date")}
             />
         </div>
     </div>
