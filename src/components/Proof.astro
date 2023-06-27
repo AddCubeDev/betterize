@@ -1,6 +1,7 @@
 ---
 import ProofItem from "./subcomponents/ProofItem.astro";
-import { t } from "astro-i18n";
+import { getTranslatedRoute } from "@typescript/routeTranslate";
+import { astroI18n, t } from "astro-i18n";
 
 const { loading = "lazy" } = Astro.props;
 ---
@@ -19,7 +20,10 @@ const { loading = "lazy" } = Astro.props;
                 title={t("proof.item1.title")}
                 paragraph={t("proof.item1.paragraph")}
                 src="/src/assets/database-blue.png"
-                href="/projects/swiperight-admin/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/swiperight-admin/"
+                )}
                 loading={loading}
                 date={t("proof.item1.date")}
             />
@@ -27,7 +31,10 @@ const { loading = "lazy" } = Astro.props;
                 title={t("proof.item2.title")}
                 paragraph={t("proof.item2.paragraph")}
                 src="/src/assets/article.jpg"
-                href="/projects/optymalne-strony/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/optymalne-strony/"
+                )}
                 loading={loading}
                 date={t("proof.item2.date")}
             />
@@ -35,7 +42,10 @@ const { loading = "lazy" } = Astro.props;
                 title={t("proof.item3.title")}
                 paragraph={t("proof.item3.paragraph")}
                 src="/src/assets/betterize2.png"
-                href="/projects/betterize/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/betterize/"
+                )}
                 loading={loading}
                 date={t("proof.item3.date")}
             />

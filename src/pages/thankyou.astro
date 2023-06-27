@@ -4,6 +4,7 @@ import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import ProofItem from "@components/subcomponents/ProofItem.astro";
 import { astroI18n, t } from "astro-i18n";
+import { getTranslatedRoute } from "@typescript/routeTranslate";
 const agree = "/src/assets/agreement.png";
 // @ts-ignore
 import { Img } from "astro-imagetools/components";
@@ -32,7 +33,10 @@ astroI18n.init(Astro);
                 title={t("proof.item1.title")}
                 paragraph={t("proof.item1.paragraph")}
                 src="/src/assets/database-blue.png"
-                href="/projects/swiperight-admin/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/swiperight-admin/"
+                )}
                 loading={"eager"}
                 date={t("proof.item1.date")}
             />
@@ -40,7 +44,10 @@ astroI18n.init(Astro);
                 title={t("proof.item2.title")}
                 paragraph={t("proof.item2.paragraph")}
                 src="/src/assets/article.jpg"
-                href="/projects/optymalne-strony/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/optymalne-strony/"
+                )}
                 loading={"eager"}
                 date={t("proof.item2.date")}
             />
@@ -48,7 +55,10 @@ astroI18n.init(Astro);
                 title={t("proof.item3.title")}
                 paragraph={t("proof.item3.paragraph")}
                 src="/src/assets/betterize2.png"
-                href="/projects/betterize/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/betterize/"
+                )}
                 loading={"eager"}
                 date={t("proof.item3.date")}
             />

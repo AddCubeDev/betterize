@@ -6,7 +6,7 @@ function addSlash(route: string) {
     }
 }
 
-function getTranslatedRoute(lang_code: string, route: string) {
+export function getTranslatedRoute(lang_code: string, route: string) {
     const routeWithSlash = addSlash(route);
 
     switch (lang_code) {

@@ -1,5 +1,5 @@
 ---
-import { t } from "astro-i18n";
+import { t, astroI18n } from "astro-i18n";
 ---
 
 <div class="w-full mx-auto max-w-196">
@@ -102,16 +102,19 @@ import { t } from "astro-i18n";
 </style>
 
 <script>
-    import type { log } from "astro/dist/core/logger/core";
     import { sendContactRequest } from "src/typescript/contactForm";
 
     async function onSubmit(event) {
+        const redirection = window.location.href.includes("/en/")
+            ? "/en/thankyou/"
+            : "/thankyou/";
+
         event.preventDefault();
         event.stopPropagation();
 
         const onSuccess = () => {
             // Przekierowanie na inną stronę, np. /thank-you
-            window.location.assign("/thankyou");
+            window.location.assign(redirection);
         };
 
         const onError = (error) => {
