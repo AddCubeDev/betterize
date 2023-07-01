@@ -2,20 +2,23 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import { getCaseStudiesSlugs } from "@components/stapi_client/index";
-import type { ApiCaseStudyCaseStudy } from "@components/stapi_client/index";
+import { getCaseStudiesAttributes } from "@components/stapi_client/index";
+// import type { ApiCaseStudyCaseStudy } from "@components/stapi_client/index";
 import CaseStudyPage from "@components/stapi_client/components/case_studies/CaseStudyPage.astro";
 
 export async function getStaticPaths() {
-    const slugs = await getCaseStudiesSlugs();
+    const attributes = await getCaseStudiesAttributes();
 
-    return slugs.map((slug: string) => ({
-        params: { slug: slug },
+    // See: https://docs.astro.build/en/reference/api-reference/#getstaticpaths
+
+    return attributes.map((attributes) => ({
+        params: { slug: attributes.slug },
+        props: { title: attributes.title },
     }));
 }
 ---
 
-<Layout>
+<Layout title={Astro.props.title}>
     <div class="mb-10 lg:mb-20">
         <Nav />
     </div>
