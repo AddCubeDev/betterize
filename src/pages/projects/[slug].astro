@@ -18,7 +18,10 @@ export async function getStaticPaths() {
 }
 ---
 
-<Layout title={Astro.props.title}>
+<Layout
+    title={Astro.props.title}
+    description={Astro.props.title}
+>
     <div class="mb-10 lg:mb-20">
         <Nav />
     </div>
