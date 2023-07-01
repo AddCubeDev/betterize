@@ -7,7 +7,7 @@ export {
 export {
     getCaseStudies,
     getCaseStudy,
-    getCaseStudiesSlugs,
+    getCaseStudiesAttributes,
 } from "./typescript/functions/case_studies";
 export { sendContactRequest } from "./typescript/functions/contact_form";
 export type {
