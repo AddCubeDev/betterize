@@ -7,6 +7,11 @@
             "photoShootManager": "Manager of Photoshoot Sessions",
             "more": "See all"
         },
+        "urls": {
+            "betterize": "betterize",
+            "whatWeDo": "optimal-pages",
+            "photoShootManager": "swiperight-admin"
+        },
         "pageSpeed": "PageSpeedTester",
         "contact": "Contact Us"
     },
@@ -34,17 +39,20 @@
         "item1": {
             "title": "Manager of photo shoots for swiperight.pl",
             "paragraph": "With the increasing number of customers Swiperight served, it began to increasingly need a reliable, automated service management process.",
-            "date": "5/3/2023"
+            "date": "5/3/2023",
+            "slug": "optimal-pages"
         },
         "item2": {
             "title": "What do we do to provide the best quality service to the customer?",
             "paragraph": "Appearance, performance and intuitive operation are the three most important things when it comes to a website. We'll briefly tell you what we do to make sure each of these three points is top-notch.",
-            "date": "6/1/2023"
+            "date": "6/1/2023",
+            "slug": "swiperight-admin"
         },
         "item3": {
             "title": "GoogleLighthouse's perfect score on Betterize",
             "paragraph": "Betterize is a company focused on website development. It was very important to them to increase conversions and serve images on their site in the best possible way.",
-            "date": "5/1/2023"
+            "date": "5/1/2023",
+            "slug": "betterize"
         }
     },
     "faq": {

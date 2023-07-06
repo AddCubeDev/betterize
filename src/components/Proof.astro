@@ -22,7 +22,7 @@ const { loading = "lazy" } = Astro.props;
                 src="/src/assets/database-blue.png"
                 href={getTranslatedRoute(
                     astroI18n.langCode,
-                    "/projects/swiperight-admin/"
+                    `/projects/${t("proof.item1.slug")}/`
                 )}
                 loading={loading}
                 date={t("proof.item1.date")}
@@ -33,7 +33,7 @@ const { loading = "lazy" } = Astro.props;
                 src="/src/assets/article.jpg"
                 href={getTranslatedRoute(
                     astroI18n.langCode,
-                    "/projects/optymalne-strony/"
+                    `/projects/${t("proof.item2.slug")}/`
                 )}
                 loading={loading}
                 date={t("proof.item2.date")}
@@ -44,7 +44,7 @@ const { loading = "lazy" } = Astro.props;
                 src="/src/assets/betterize2.png"
                 href={getTranslatedRoute(
                     astroI18n.langCode,
-                    "/projects/betterize/"
+                    `/projects/${t("proof.item3.slug")}/`
                 )}
                 loading={loading}
                 date={t("proof.item3.date")}

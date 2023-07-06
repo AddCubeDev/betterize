@@ -7,6 +7,11 @@
             "photoShootManager": "Manager sesji zdjęciowych",
             "more": "Zobacz wszystkie"
         },
+        "urls": {
+            "betterize": "perfekcyjny-wynik-betterize",
+            "whatWeDo": "optymalne-strony",
+            "photoShootManager": "manager-sesji-zdjeciowych"
+        },
         "pageSpeed": "PageSpeedTester",
         "contact": "Skontaktuj się"
     },
@@ -34,17 +39,20 @@
         "item1": {
             "title": "Manager sesji zdjęciowych dla swiperight.pl",
             "paragraph": "Wraz ze zwiększającą się ilością obsługiwanych klientów Swiperight zaczęło coraz bardziej potrzebować niezawodnego, zautomatyzowanego procesu zarządzania usługami.",
-            "date": "03.05.2023"
+            "date": "03.05.2023",
+            "slug": "manager-sesji-zdjeciowych"
         },
         "item2": {
             "title": "Co robimy, aby zapewnić najlepszą jakość usługi dla klienta?",
             "paragraph": "Wygląd, wydajność i intuicyjna obsługa to trzy najważniejsze rzeczy jeśli chodzi o stronę internetową. Opowiemy Ci pokrótce co robimy, aby każdy z tych trzech punktów był na najwyższym poziomie.",
-            "date": "01.06.2023"
+            "date": "01.06.2023",
+            "slug": "optymalne-strony"
         },
         "item3": {
             "title": "Perfekcyjny wynik GoogleLighthouse na Betterize",
             "paragraph": "Betterize to firma skupiająca się na tworzeniu stron internetowych. Bardzo ważne było dla nich zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób.",
-            "date": "01.05.2023"
+            "date": "01.05.2023",
+            "slug": "perfekcyjny-wynik-betterize"
         }
     },
     "faq": {

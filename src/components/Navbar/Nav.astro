@@ -131,7 +131,7 @@ import { astroI18n, t } from "astro-i18n";
                                     <NavBarSubItem
                                         href={getTranslatedRoute(
                                             astroI18n.langCode,
-                                            "/projects/optymalne-strony/"
+                                            `/projects/${t("navBar.urls.whatWeDo")}/`
                                         )}
                                         title={t("navBar.projects.whatWeDo")}
                                         src="/src/assets/article.jpg"
@@ -143,7 +143,7 @@ import { astroI18n, t } from "astro-i18n";
                                     <NavBarSubItem
                                         href={getTranslatedRoute(
                                             astroI18n.langCode,
-                                            "/projects/betterize/"
+                                            `/projects/${t("navBar.urls.betterize")}/`
                                         )}
                                         title={t("navBar.projects.betterize")}
                                         src="/src/assets/betterize2.png"
@@ -155,7 +155,7 @@ import { astroI18n, t } from "astro-i18n";
                                     <NavBarSubItem
                                         href={getTranslatedRoute(
                                             astroI18n.langCode,
-                                            "/projects/swiperight-admin/"
+                                            `/projects/${t("navBar.urls.photoShootManager")}/`
                                         )}
                                         title={t(
                                             "navBar.projects.photoShootManager"
