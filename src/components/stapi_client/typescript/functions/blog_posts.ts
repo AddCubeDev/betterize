@@ -1,4 +1,4 @@
-import type { ApiBlogPostBlogPost } from "./../types/schemas";
+import type { ApiBlogPostBlogPost } from "./../types/strapi_generated/contentTypes";
 import {
     getRequest,
     StrapiCollectionName,
@@ -6,7 +6,7 @@ import {
 
 export async function getBlogPost(slug: string) {
     const result = await getRequest(
-        `/blog-posts?filters[slug][$eq]=${slug}&populate=*`,
+        `/blog-posts?locale=all&filters[slug][$eq]=${slug}&populate=*`,
         StrapiCollectionName.blog_post,
         (data: any) => {
             return data.data[0] as ApiBlogPostBlogPost;
@@ -18,19 +18,19 @@ export async function getBlogPost(slug: string) {
 
 export async function getBlogPosts() {
     const result = await getRequest(
-        `/blog-posts?&populate=*`,
+        `/blog-posts?&locale=all&populate=*`,
         StrapiCollectionName.blog_post,
         (data: any) => {
             return data.data as [ApiBlogPostBlogPost];
         }
     );
 
-    return result;
+    return result as [ApiBlogPostBlogPost];
 }
 
 export async function getBlogPostsSlugs() {
     const result = await getRequest(
-        `/blog-posts`,
+        `/blog-posts?locale=all`,
         StrapiCollectionName.blog_post,
         (data: any) => {
             return data.data as [ApiBlogPostBlogPost];

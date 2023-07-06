@@ -11,7 +11,10 @@
     "clone-circle-progress": "nu dev/clone-circle-progress.nu",
     "pull-circle-progress": "nu dev/pull-circle-progress.nu",
     "reinstall": "npm install --install-links",
-    "partytown": "partytown copylib public/~partytown"
+    "partytown": "partytown copylib public/~partytown",
+    "i18n:install": "astro-i18n install",
+		"i18n:sync": "astro-i18n sync",
+		"i18n:extract:keys": "astro-i18n extract:keys"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +26,7 @@
     "@astrolib/seo": "^0.4.0",
     "@cubejs-client/core": "^0.33.12",
     "astro": "^2.6.6",
+    "astro-i18n": "^1.8.1",
     "astro-icon": "^0.8.1",
     "astro-iconify": "^1.2.0",
     "astro-imagetools": "^0.8.1",

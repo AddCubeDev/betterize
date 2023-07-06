@@ -1,6 +1,6 @@
 ---
 import { getBlogPosts } from "./../../typescript/functions/blog_posts";
-import type { ApiBlogPostBlogPost } from "./../../typescript/types/schemas";
+import type { ApiBlogPostBlogPost } from "./../../typescript/types/strapi_generated/contentTypes";
 import BlogPostsListElement from "./BlogPostsListElement.astro";
 
 const posts = await getBlogPosts();

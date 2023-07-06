@@ -1,9 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
+import Proof from "@components/Proof.astro";
 import Footer from "@components/Footer.astro";
 import { getCaseStudiesAttributes } from "@components/stapi_client/index";
-// import type { ApiCaseStudyCaseStudy } from "@components/stapi_client/index";
 import CaseStudyPage from "@components/stapi_client/components/case_studies/CaseStudyPage.astro";
 import { astroI18n } from "astro-i18n";
 astroI18n.init(Astro);
@@ -13,10 +13,13 @@ export async function getStaticPaths() {
 
     // See: https://docs.astro.build/en/reference/api-reference/#getstaticpaths
 
-    return attributes.map((attributes) => ({
-        params: { slug: attributes.slug },
-        props: { title: attributes.title },
-    }));
+    return attributes
+        .filter((project) => project.locale === astroI18n.langCode)
+        .map((attributes) => ({
+            params: { slug: attributes.slug },
+            props: { title: attributes.title },
+        }));
+
 }
 ---
 
@@ -25,7 +28,9 @@ export async function getStaticPaths() {
         <Nav />
     </div>
     <CaseStudyPage slug={Astro.params.slug} />
-
+    <div class="my-10 mb-20">
+        <Proof />
+    </div>
     <div class="mt-auto">
         <Footer />
     </div>

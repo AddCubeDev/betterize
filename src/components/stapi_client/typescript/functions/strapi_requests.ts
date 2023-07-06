@@ -2,7 +2,7 @@ import { strapiApiBaseUrl, PUBLIC_STRAPI_TOKEN } from "./../config";
 import type {
     ApiBlogPostBlogPost,
     ApiCaseStudyCaseStudy,
-} from "./../types/schemas";
+} from "./../types/strapi_generated/contentTypes";
 
 const extras = {
     headers: {

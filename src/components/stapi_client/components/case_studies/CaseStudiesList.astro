@@ -1,15 +1,26 @@
 ---
-import type { ApiProjectProject } from "./../../typescript/types/schemas";
+import type { ApiCaseStudyCaseStudy } from "./../../typescript/types/strapi_generated/contentTypes";
 import { getCaseStudies } from "./../../typescript/functions/case_studies";
 import CaseStudiesListElement from "./CaseStudiesListElement.astro";
+
+interface Props {
+    location: string;
+}
+
+const { location } = Astro.props;
 
 const projects = await getCaseStudies();
 ---
 
 <div class="grid w-full gap-8 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl">
     {
-        projects.map((project: ApiProjectProject) => (
-            <CaseStudiesListElement project={project} />
-        ))
+        projects
+            .filter(
+                (project: ApiCaseStudyCaseStudy) =>
+                    project.attributes.locale === location
+            )
+            .map((project: ApiCaseStudyCaseStudy) => (
+                <CaseStudiesListElement project={project} location={location} />
+            ))
     }
 </div>

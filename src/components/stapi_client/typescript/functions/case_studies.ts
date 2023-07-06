@@ -1,5 +1,5 @@
 import { getDynamicZoneFullPopulation } from "./populations";
-import type { ApiCaseStudyCaseStudy } from "./../types/schemas";
+import type { ApiCaseStudyCaseStudy } from "./../types/strapi_generated/contentTypes";
 import {
     getRequest,
     StrapiCollectionName,
@@ -7,19 +7,19 @@ import {
 
 export async function getCaseStudies() {
     const result = await getRequest(
-        `/case-studies?&populate=*`,
+        `/case-studies?locale=all&populate=*`,
         StrapiCollectionName.case_study,
         (data: any) => {
             return data.data as [ApiCaseStudyCaseStudy];
         }
     );
 
-    return result;
+    return result as [ApiCaseStudyCaseStudy];
 }
 
 export async function getCaseStudy(slug: string) {
     const result = await getRequest(
-        `/case-studies?filters[slug][$eq]=${slug}&${getDynamicZoneFullPopulation(
+        `/case-studies?locale=all&filters[slug][$eq]=${slug}&${getDynamicZoneFullPopulation(
             "body"
         )}&populate=image&populate=authors.image`,
         StrapiCollectionName.case_study,
@@ -33,7 +33,7 @@ export async function getCaseStudy(slug: string) {
 
 export async function getCaseStudiesAttributes() {
     const result = await getRequest(
-        `/case-studies`,
+        `/case-studies?locale=all`,
         StrapiCollectionName.case_study,
         (data: any) => {
             return data.data as [ApiCaseStudyCaseStudy];
@@ -43,5 +43,6 @@ export async function getCaseStudiesAttributes() {
     return (result as [ApiCaseStudyCaseStudy]).map((element) => ({
         slug: element.attributes.slug as string,
         title: element.attributes.title as string,
+        locale: element.attributes.locale as string,
     }));
 }

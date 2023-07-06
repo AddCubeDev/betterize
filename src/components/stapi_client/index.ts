@@ -14,4 +14,4 @@ export type {
     ApiBlogPostBlogPost,
     ApiAuthorAuthor,
     ApiCaseStudyCaseStudy,
-} from "./typescript/types/schemas";
+} from "./typescript/types/strapi_generated/contentTypes";
