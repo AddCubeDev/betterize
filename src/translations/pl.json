@@ -23,6 +23,17 @@
             "test": "Testuj",
             "processing": "przetwarzanie ...",
             "description": "zwykle trwa to około 15 sekund"
+        },
+        "labels": {
+            "performance": "Wydajność",
+            "seo": "Optymalizacja wyszukiwarki (SEO)",
+            "accessibility": "Dostępność",
+            "best_practices": "Dobre praktyki"
+        },
+        "results": {
+            "poor": "Słabo",
+            "average": "Przeciętnie",
+            "excellent": "Doskonale"
         }
     },
     "contactForm": {

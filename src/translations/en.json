@@ -23,6 +23,17 @@
             "test": "Test",
             "processing": "processing ...",
             "description": "it usually takes about 15 seconds"
+        },
+        "labels": {
+            "performance": "Performance",
+            "seo": "SEO",
+            "accessibility": "Accessibility",
+            "best_practices": "Best practices"
+        },
+        "results": {
+            "poor": "Poor",
+            "average": "Average",
+            "excellent": "Excellent"
         }
     },
     "contactForm": {
