@@ -10,7 +10,7 @@ export default defineConfig({
     // W pliku: index.astro, gdzie jest używany element BackgroundImage użyłem: "blurred"
     placeholder: "none",
 
-    format: ["webp"],
+    format: [ "webp" ],
     loading: "lazy",
     // layout: "fill",
     formatOptions: {

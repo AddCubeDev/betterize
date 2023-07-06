@@ -8,7 +8,11 @@ import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 ---
 
-<Layout title={t("projects.pageTitle")}>
+<Layout
+    title={t("projects.pageTitle")}
+    description="Linki do naszych projektów"
+>
+    <!-- <FancyBg /> -->
     <Nav />
 
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">

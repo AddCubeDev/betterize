@@ -3,8 +3,7 @@
     line-height: 28px;
     text-align: center;
 
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
+    color-scheme: dark;
     background-color: #151317;
     margin: auto;
 
@@ -31,6 +30,13 @@
     --swiper-pagination-bullet-height: 12px;
 }
 
+html {
+    background-color: #151317;
+}
+
+body {
+    background-color: #151317;
+}
 summary::-webkit-details-marker {
     display: none;
     margin-inline-end: 0;

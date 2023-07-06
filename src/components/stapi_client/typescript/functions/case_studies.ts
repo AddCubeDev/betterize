@@ -31,7 +31,7 @@ export async function getCaseStudy(slug: string) {
     return result;
 }
 
-export async function getCaseStudiesSlugs() {
+export async function getCaseStudiesAttributes() {
     const result = await getRequest(
         `/case-studies`,
         StrapiCollectionName.case_study,
@@ -40,7 +40,8 @@ export async function getCaseStudiesSlugs() {
         }
     );
 
-    return (result as [ApiCaseStudyCaseStudy]).map(
-        (element) => element.attributes.slug as string
-    );
+    return (result as [ApiCaseStudyCaseStudy]).map((element) => ({
+        slug: element.attributes.slug as string,
+        title: element.attributes.title as string,
+    }));
 }
