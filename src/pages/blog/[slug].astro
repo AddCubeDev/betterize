@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
-import { getBlogPostsSlugs } from "@components/stapi_client";
-import BlogPage from "@components/stapi_client/components/blog/BlogPage.astro";
+import { getBlogPostsSlugs } from "@components/strapi_client";
+import BlogPage from "@components/strapi_client/components/blog/BlogPage.astro";
 
 export async function getStaticPaths() {
     const slugs = await getBlogPostsSlugs();
