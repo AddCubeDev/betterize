@@ -4,6 +4,10 @@
             @testStart="onTestStart"
             @testResult="onTestResult"
             @testHasFailed="onTestHasFailed"
+            :url="props.url"
+            :test="props.test"
+            :processing="props.processing"
+            :description="props.description"
         />
 
         <div :hidden="hiddenPageSpeedTestError">
@@ -15,9 +19,13 @@
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex justify-center gap-6 pb-4 mx-auto">
-                <p class="font-black text-[#f90000]">0-49 Słabo</p>
-                <p class="font-black text-[#f9f900]">50-89 Przeciętnie</p>
-                <p class="font-black text-[#00f900]">90-100 Doskonale</p>
+                <p class="font-black text-[#f90000]">0-49 {{ props.poor }}</p>
+                <p class="font-black text-[#f9f900]">
+                    50-89 {{ props.average }}
+                </p>
+                <p class="font-black text-[#00f900]">
+                    90-100 {{ props.excellent }}
+                </p>
             </div>
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
@@ -66,6 +74,20 @@ import { getEvaluationResult } from "./utils/scores";
 import { EvaluationResult2Colors } from "./utils/pageSpeedConstants";
 import { ref } from "vue";
 
+const props = defineProps({
+    url: String,
+    test: String,
+    processing: String,
+    description: String,
+    poor: String,
+    average: String,
+    excellent: String,
+    performance: String,
+    seo: String,
+    accessibility: String,
+    best_practices: String,
+});
+
 const performance = ref(0);
 const seo = ref(0);
 const accessibility = ref(0);
@@ -75,10 +97,10 @@ const hiddenPageSpeedTestError = ref(true);
 const pageSpeedTestError = ref("");
 
 const pageSpeedTests = [
-    { label: "Wydajność", test_result: performance }, // Performance
-    { label: "Optymalizacja wyszukiwarki (SEO)", test_result: seo }, // SEO
-    { label: "Dostępność", test_result: accessibility }, // Accessibility
-    { label: "Najlepsze praktyki", test_result: best_practices }, // Best practices
+    { label: props.performance, test_result: performance },
+    { label: props.seo, test_result: seo },
+    { label: props.accessibility, test_result: accessibility },
+    { label: props.best_practices, test_result: best_practices },
 ];
 
 function onTestStart() {

@@ -11,3 +11,5 @@ interface ImportMetaEnv {
 interface ImportMeta {
     readonly env: ImportMetaEnv;
 }
+
+/// <reference path="../.astro-i18n/generated.d.ts" />

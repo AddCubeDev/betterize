@@ -1,0 +1,220 @@
+{
+    "navBar": {
+        "projects": {
+            "title": "Projects",
+            "betterize": "betterize.it",
+            "whatWeDo": "What do we do to ensure the highest quality of our services?",
+            "photoShootManager": "Manager of Photoshoot Sessions",
+            "more": "See all"
+        },
+        "urls": {
+            "betterize": "betterize",
+            "whatWeDo": "optimal-pages",
+            "photoShootManager": "swiperight-admin"
+        },
+        "pageSpeed": "PageSpeedTester",
+        "contact": "Contact Us"
+    },
+    "section1": {
+        "title": "Check your site's performance",
+        "subtitle": "Google in 2021 introduced new standards for rating and positioning websites. Check if your website meets Google's new requirements",
+        "pageSpeedQuery": {
+            "url": "Site url",
+            "test": "Test",
+            "processing": "processing ...",
+            "description": "it usually takes about 15 seconds"
+        },
+        "labels": {
+            "performance": "Performance",
+            "seo": "SEO",
+            "accessibility": "Accessibility",
+            "best_practices": "Best practices"
+        },
+        "results": {
+            "poor": "Poor",
+            "average": "Average",
+            "excellent": "Excellent"
+        }
+    },
+    "contactForm": {
+        "namePlaceholder": "John Doe",
+        "emailPlaceholder": "Your Email Address",
+        "messagePlaceholder": "I would like to request a quote for a website.",
+        "nameLabel": "Your Name",
+        "emailLabel": "Email",
+        "messageLabel": "Message",
+        "send": "Send"
+    },
+    "proof": {
+        "title": "Our Projects:",
+        "item1": {
+            "title": "Manager of photo shoots for swiperight.pl",
+            "paragraph": "With the increasing number of customers Swiperight served, it began to increasingly need a reliable, automated service management process.",
+            "date": "5/3/2023",
+            "slug": "optimal-pages"
+        },
+        "item2": {
+            "title": "What do we do to provide the best quality service to the customer?",
+            "paragraph": "Appearance, performance and intuitive operation are the three most important things when it comes to a website. We'll briefly tell you what we do to make sure each of these three points is top-notch.",
+            "date": "6/1/2023",
+            "slug": "swiperight-admin"
+        },
+        "item3": {
+            "title": "GoogleLighthouse's perfect score on Betterize",
+            "paragraph": "Betterize is a company focused on website development. It was very important to them to increase conversions and serve images on their site in the best possible way.",
+            "date": "5/1/2023",
+            "slug": "betterize"
+        }
+    },
+    "faq": {
+        "item1": {
+            "question": "Will it be easy to edit and update your website?",
+            "answer": "Yes, we hook up websites to a CMS system that allows you to easily edit and update content without coding knowledge"
+        },
+        "item2": {
+            "question": "Can I influence the design of the website?",
+            "answer": "Definitely yes! Your suggestions are key. We take into account your company's branding or together create a new one from scratch. Every aspect of the design is consulted with you so that the site meets your business goals. We determine the number of rounds of revisions to the design each time."
+        },
+        "item3": {
+            "question": "Do you offer technical support for my website after implementation?",
+            "answer": "Yes, we offer technical support to our customers after the implementation of the website to ensure its operation without failure."
+        },
+        "item4": {
+            "question": "What are the terms of my website design and implementation agreement?",
+            "answer": "Before starting the project, the client and our company sign a contract, which includes a detailed description of the services and a cost estimate. In the contract we also specify the deadlines for the project and the terms of payment"
+        },
+        "item5": {
+            "question": "What are the costs of designing and implementing my website with CMS?",
+            "answer": "The cost of designing and implementing a website depends on many factors, such as the scale of the project, the number of pages and functionality. Before starting the project, we establish a detailed quote for services."
+        },
+        "item6": {
+            "question": "What are the costs of hosting services for my website?",
+            "answer": "We offer proven and efficient hosting options for our clients. The cost of hosting services depends on the hosting option chosen by the client, such as the number of pages, disk capacity, data transfer, etc. For a simple company website, these costs range from 50 to 150zl per month"
+        }
+    },
+    "index": {
+        "hero": {
+            "title": {
+                "text1": "We make ",
+                "highlighted": "flying fast ",
+                "text2": "websites"
+            },
+            "subtitle": "Do you want better positioning and higher profits? Focus on the speed and quality of your website with Betterize!",
+            "mainButton": "Contact Us",
+            "secondaryButton": "Learn more"
+        },
+        "marketing0": {
+            "card1": {
+                "title": "Prefabricated elements: The key to speed and reliability",
+                "text1": "With our knowledge and experience, we are able to tailor services to <strong>individual needs and requirements</strong> to achieve business success together.",
+                "text2": "We focus on <strong>speed, reliability and attention to detail</strong> to meet our customers expectations and help them stand out in the market."
+            },
+            "card2": {
+                "title": "Matching solutions to industry needs",
+                "text1": "At Betterize, we realize that every industry has its own unique needs and requirements. That's why our priority is to <strong>adapt solutions</strong> to the specifics of your business.",
+                "text2": "We work with you to create solutions that will make your company <strong>stand out from the competition</strong> and gain an advantage in the market."
+            },
+            "card3": {
+                "title": "We focus on small and medium businesses",
+                "text1": "<strong>We analyze the market and the competition</strong> to understand the key aspects of your business and deliver websites that fully reflect your company's <strong>values and goals.</strong>",
+                "text2": "Thus, we create sites quickly, reliably and with attention to detail, meeting the requirements of your business goals."
+            }
+        },
+        "marketing1": {
+            "title": "need for speed",
+            "subtitle": "Why is website performance crucial to business?",
+            "card1": {
+                "title": "SEO",
+                "paragraph": "Faster pages have higher rankings in Google results, leading to more organic traffic (Google PageSpeed Insights)"
+            },
+            "card2": {
+                "title": "Higher customer retention",
+                "paragraph": "79% of customers who experienced website performance problems do not return to that store (State of Online Retail Performance)"
+            },
+            "card3": {
+                "title": "Lower rejection rate",
+                "paragraph": "Pages loading 1-3s have a 32% higher risk of rejection, and those loading 1-5s as much as 90% higher!"
+            },
+            "card4": {
+                "title": "More activity on the site",
+                "paragraph": "Faster pages improve user activity metrics such as longer time on page and more pages visited"
+            },
+            "card5": {
+                "title": "Reduced decision time",
+                "paragraph": "Fast-loading pages allow users to make buying decisions faster, increasing sales (Forbes)"
+            },
+            "card6": {
+                "title": "More effective advertising",
+                "paragraph": "Faster pages lead to lower cost-per-click (CPC) and higher conversion rates in ad campaigns (WordStream)"
+            }
+        },
+        "marketing2": {
+            "title": "What customers are saying about us:",
+            "testimonial1": {
+                "name": "Grzegorz Wiosna",
+                "company": "Buisness Growth",
+                "paragraph": "We focused primarily on performance elements and improving the customer's path on the site so that the design matched the analytics. The result: 100% achievement of goals"
+            },
+            "testimonial2": {
+                "name": "Daniel Popek",
+                "company": "Public Speaking Coach",
+                "paragraph": "A lot of my customers complained that it was hard to go to my site and everything takes a long time to load on it. After the intervention of the guys at betterize, the page loading time on my phone more than doubled. I did not expect that my site could work, so fast. Full professionalism, I recommend."
+            },
+            "testimonial3": {
+                "name": "Eryk Rąk",
+                "company": "Owner of Laweta Wrocław",
+                "paragraph": "Working with Betterize was the best decision I could have made. Their speed, professionalism and flexibility were second to none. I would recommend Betterize to anyone looking for quality Internet services."
+            }
+        },
+        "steps": {
+            "title": "What our cooperation will look like",
+            "step1": {
+                "title": "Consultation",
+                "paragraph": "The first step is to consult with the client to understand their needs and business goals. At this stage, we determine what functionality and elements are to be included on the website. Throughout the project, we keep the client informed of the progress of the website stages."
+            },
+            "step2": {
+                "title": "Design",
+                "paragraph": "We then create a visual design for the website. We present the client with several selected options so that they choose the design that best suits their needs and expectations."
+            },
+            "step3": {
+                "title": "Coding",
+                "paragraph": "Once the design is approved, we move to the coding stage, where we transform the graphic design into a functional website. We focus on making the site fast, efficient and SEO-friendly."
+            },
+            "step4": {
+                "title": "Testing",
+                "paragraph": "Once the coding is complete, we run tests to make sure the site works properly on different devices and browsers. We make sure your site's performance is at the highest possible level."
+            },
+            "step5": {
+                "title": "Deployment",
+                "paragraph": "Once the website is ready, we carry out the implementation, that is, we put it on the server and make it available to the public. We also help set up analytical systems and marketing tools so that the client can effectively manage their site."
+            },
+            "step6": {
+                "title": "Support and development",
+                "paragraph": "Our work does not end after the website is implemented. We also offer further technical support and development of the website so that it is always up-to-date and meets market requirements."
+            }
+        },
+        "contact": {
+            "title": "Improve your results with a modern website",
+            "subtitle": "Write to us at contact@betterize.pl or use the contact form by clicking on the button below",
+            "faqTitle": "FAQs"
+        },
+        "proof": {
+            "title": "Our Projects:"
+        }
+    },
+    "contact": {
+        "title": "Contact Us"
+    },
+    "thankYou": {
+        "title": "Thank you!",
+        "subtitle": "We will get back to you within 24 hours. In the meantime, why don't you read any of these posts?"
+    },
+    "404": {
+        "title": "ERROR 404",
+        "subtitle": "Sorry, the page you wanted to access does not exist."
+    },
+    "projects": {
+        "pageTitle": "Betterize - our projects",
+        "title": "Our Projects:"
+    }
+}

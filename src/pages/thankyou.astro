@@ -1,0 +1,70 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Navbar/Nav.astro";
+import Footer from "@components/Footer.astro";
+import ProofItem from "@components/subcomponents/ProofItem.astro";
+import { astroI18n, t } from "astro-i18n";
+import { getTranslatedRoute } from "@typescript/routeTranslate";
+const agree = "/src/assets/agreement.png";
+// @ts-ignore
+import { Img } from "astro-imagetools/components";
+
+astroI18n.init(Astro);
+---
+
+<Layout>
+    <div class="mb-10 lg:mb-20">
+        <Nav />
+    </div>
+    <main
+        class="flex flex-col mx-auto max-w-6xl min-h-screen p-4 gap-12 items-center xl:(p-0 gap-28)"
+    >
+        <div class="flex flex-col items-center">
+            <h1 class="mb-2 header-1">{t("thankYou.title")}</h1>
+            <Img src={agree} alt="descriptive text" width={200} />
+            <p class="max-w-lg mb-2">
+                {t("thankYou.subtitle")}
+            </p>
+        </div>
+        <div
+            class="grid w-full gap-8 mb-20 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl"
+        >
+            <ProofItem
+                title={t("proof.item1.title")}
+                paragraph={t("proof.item1.paragraph")}
+                src="/src/assets/database-blue.png"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/swiperight-admin/"
+                )}
+                loading={"eager"}
+                date={t("proof.item1.date")}
+            />
+            <ProofItem
+                title={t("proof.item2.title")}
+                paragraph={t("proof.item2.paragraph")}
+                src="/src/assets/article.jpg"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/optymalne-strony/"
+                )}
+                loading={"eager"}
+                date={t("proof.item2.date")}
+            />
+            <ProofItem
+                title={t("proof.item3.title")}
+                paragraph={t("proof.item3.paragraph")}
+                src="/src/assets/betterize2.png"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/projects/betterize/"
+                )}
+                loading={"eager"}
+                date={t("proof.item3.date")}
+            />
+        </div>
+    </main>
+    <div class="mt-auto">
+        <Footer />
+    </div>
+</Layout>

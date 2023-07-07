@@ -7,7 +7,7 @@
             <label
                 for="url"
                 class="pl-2 mr-auto text-sm font-light text-left text-gray-300"
-                >Adres url strony</label
+                >{{ props.url }}</label
             >
             <div class="flex w-full gap-2 md:w-auto lg:gap-4">
                 <input
@@ -24,7 +24,7 @@
                     class="bg-gradient-to-t border-none rounded-lg from-indigo-900 via-indigo-700 to-indigo-800 p-2 px-6 transition text-gray-200 capitalize lg:px-12 hover:(shadow-lg shadow-indigo-800)"
                     @click="runTest"
                 >
-                    Testuj
+                    {{ props.test }}
                 </button>
             </div>
         </div>
@@ -36,8 +36,8 @@
                     :size="64"
                     :color="'white'"
                 />
-                <p>przetwarzanie ...</p>
-                <p>zwykle trwa to około 15 sekund</p>
+                <p>{{ props.processing }}</p>
+                <p>{{ props.description }}</p>
             </div>
         </div>
     </div>
@@ -52,6 +52,13 @@ import {
 } from "../types/pageSpeed.types";
 import { AtomSpinner } from "epic-spinners";
 import { ref, onMounted } from "vue";
+
+const props = defineProps({
+    url: String,
+    test: String,
+    processing: String,
+    description: String,
+});
 
 // component properties/events (emits)
 // ------------------------------------------------------------------------

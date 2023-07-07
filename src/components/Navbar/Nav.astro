@@ -3,9 +3,10 @@ import { Icon } from "astro-iconify";
 
 import ButtonContact from "@components/subcomponents/ButtonContact.astro";
 import NavBarSubItem from "./NavbarSubItem.astro";
-import NavbarItemGroup from "./NavbarItemGroup.astro";
-import NavbarPost from "./NavbarPost.astro";
 import logo from "/src/assets/logo-white-text.svg";
+import { getTranslatedRoute } from "@typescript/routeTranslate";
+
+import { astroI18n, t } from "astro-i18n";
 ---
 
 <header aria-label="Site Header" class="z-10 w-full">
@@ -15,7 +16,10 @@ import logo from "/src/assets/logo-white-text.svg";
     >
         <!-- menu stacjonarne -->
         <div class="flex">
-            <a href="/" class="image-animation hover:opacity-80">
+            <a
+                href={getTranslatedRoute(astroI18n.langCode, "/")}
+                class="image-animation hover:opacity-80"
+            >
                 <img
                     src={logo}
                     width="80"
@@ -98,13 +102,13 @@ import logo from "/src/assets/logo-white-text.svg";
             <div class="relative z-30 group">
                 <a
                     class="flex items-center h-20 text-gray-300 ease-in-out transition-smooth"
-                    href="/projects/"
+                    href={getTranslatedRoute(astroI18n.langCode, "/projects/")}
                 >
                     <div
                         id="nav-bar-menu-item-projekty"
                         class="flex items-center justify-center font-bold nav-bar-menu-item"
                     >
-                        Projekty
+                        {t("navBar.projects.title")}
                         <div
                             class="group-hover:(transform translate-y-0.5) transition-smooth"
                         >
@@ -125,8 +129,11 @@ import logo from "/src/assets/logo-white-text.svg";
                             <div>
                                 <ul>
                                     <NavBarSubItem
-                                        href="/projects/optymalne-strony/"
-                                        title="Co robimy, aby zapewnić najlepszą jakość naszych usług?"
+                                        href={getTranslatedRoute(
+                                            astroI18n.langCode,
+                                            `/projects/${t("navBar.urls.whatWeDo")}/`
+                                        )}
+                                        title={t("navBar.projects.whatWeDo")}
                                         src="/src/assets/article.jpg"
                                     />
                                 </ul>
@@ -134,8 +141,11 @@ import logo from "/src/assets/logo-white-text.svg";
                             <div>
                                 <ul>
                                     <NavBarSubItem
-                                        href="/projects/betterize/"
-                                        title="betterize.pl"
+                                        href={getTranslatedRoute(
+                                            astroI18n.langCode,
+                                            `/projects/${t("navBar.urls.betterize")}/`
+                                        )}
+                                        title={t("navBar.projects.betterize")}
                                         src="/src/assets/betterize2.png"
                                     />
                                 </ul>
@@ -143,8 +153,13 @@ import logo from "/src/assets/logo-white-text.svg";
                             <div>
                                 <ul>
                                     <NavBarSubItem
-                                        href="/projects/swiperight-admin/"
-                                        title="Manager sesji zdjęciowych"
+                                        href={getTranslatedRoute(
+                                            astroI18n.langCode,
+                                            `/projects/${t("navBar.urls.photoShootManager")}/`
+                                        )}
+                                        title={t(
+                                            "navBar.projects.photoShootManager"
+                                        )}
                                         src="/src/assets/database-blue.png"
                                     />
                                 </ul>
@@ -152,10 +167,13 @@ import logo from "/src/assets/logo-white-text.svg";
                         </div>
                         <div class="w-full border-gray-800 border-t-1">
                             <a
-                                href="/projects/"
+                                href={getTranslatedRoute(
+                                    astroI18n.langCode,
+                                    "/projects/"
+                                )}
                                 class="flex items-center justify-center h-8 mx-auto mt-2 hover:text-gray-400 transition-smooth"
                             >
-                                Zobacz wszystkie</a
+                                {t("navBar.projects.more")}</a
                             >
                         </div>
                     </div>
@@ -164,13 +182,16 @@ import logo from "/src/assets/logo-white-text.svg";
 
             <a
                 class="flex items-center h-20 font-bold text-gray-300 ease-in-out nav-link transition-smooth hover:opacity-50"
-                href="/pagespeedtester/"
+                href={getTranslatedRoute(
+                    astroI18n.langCode,
+                    "/pagespeedtester/"
+                )}
             >
                 <p
                     id="nav-bar-menu-item-pagespeedtester"
                     class="nav-bar-menu-item"
                 >
-                    PageSpeedTester
+                    {t("navBar.pageSpeed")}
                 </p>
             </a>
 
@@ -191,7 +212,7 @@ import logo from "/src/assets/logo-white-text.svg";
         </nav>
 
         <div class="items-center hidden gap-4 md:flex">
-            <ButtonContact />
+            <ButtonContact text={t("navBar.contact")} />
         </div>
 
         <button id="menu_btn" aria-label="menu" class="w-10 sm:hidden">
@@ -235,20 +256,38 @@ import logo from "/src/assets/logo-white-text.svg";
                     <li
                         class="w-full py-4 border-b border-gray-300 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block" href="/projects"> Projekty</a>
+                        <a
+                            class="block"
+                            href={getTranslatedRoute(
+                                astroI18n.langCode,
+                                "/projects"
+                            )}
+                        >
+                            Projekty</a
+                        >
                     </li>
                     <li
                         class="w-full py-4 border-b border-gray-300 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block" href="/pagespeedtester/">
+                        <a
+                            class="block"
+                            href={getTranslatedRoute(
+                                astroI18n.langCode,
+                                "/pagespeedtester/"
+                            )}
+                        >
                             PageSpeedTester
                         </a>
                     </li>
                     <li
                         class="w-full py-4 hover:text-sky-500 transition-smooth"
                     >
-                        <a class="block font-black" href="/contact"
-                            >Skontaktuj się</a
+                        <a
+                            class="block font-black"
+                            href={getTranslatedRoute(
+                                astroI18n.langCode,
+                                "/contact"
+                            )}>Skontaktuj się</a
                         >
                     </li>
                 </ul>

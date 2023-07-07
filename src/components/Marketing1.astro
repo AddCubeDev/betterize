@@ -8,43 +8,39 @@ import TimeSVG from "@assets/advantages/time.svg";
 import AddsSVG from "@assets/advantages/adds.svg";
 //
 import CardsHoverGradient from "./elements/CardsHoverGradient.astro";
-import { Cards } from "@typescript/types/Cards";
+import type { Cards } from "@typescript/types/Cards";
+
+import { t } from "astro-i18n";
 
 const cards: Cards = [
     {
-        title: "SEO",
-        paragraph:
-            "Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)",
+        title: t("index.marketing1.card1.title"),
+        paragraph: t("index.marketing1.card1.paragraph"),
         src: SeoSVG,
     },
     {
-        title: "Wyższa retencja klientów",
-        paragraph:
-            "79% klientów, którzy doświadczyli problemów z wydajnością strony, nie wraca do tego sklepu (State of Online Retail Performance)",
+        title: t("index.marketing1.card2.title"),
+        paragraph: t("index.marketing1.card2.paragraph"),
         src: RetentionSVG,
     },
     {
-        title: "Niższy współczynnik odrzuceń",
-        paragraph:
-            "Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a te ładujące się 1-5s aż o 90% większe!.",
+        title: t("index.marketing1.card3.title"),
+        paragraph: t("index.marketing1.card3.paragraph"),
         src: BounceSVG,
     },
     {
-        title: "Większa aktywność na stronie",
-        paragraph:
-            "Szybsze strony poprawiają wskaźniki aktywności użytkowników, takie jak dłuższy czas na stronie i więcej odwiedzanych podstron",
+        title: t("index.marketing1.card4.title"),
+        paragraph: t("index.marketing1.card4.paragraph"),
         src: ActivitySVG,
     },
     {
-        title: "Skrócony czas decyzji",
-        paragraph:
-            "Szybko ładujące się strony pozwalają użytkownikom szybciej podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)",
+        title: t("index.marketing1.card5.title"),
+        paragraph: t("index.marketing1.card5.paragraph"),
         src: TimeSVG,
     },
     {
-        title: "Skuteczniejsze reklamy",
-        paragraph:
-            "Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC) i wyższych współczynników konwersji w kampaniach reklamowych (WordStream)",
+        title: t("index.marketing1.card6.title"),
+        paragraph: t("index.marketing1.card6.paragraph"),
         src: AddsSVG,
     },
 ];
@@ -57,9 +53,9 @@ const cards: Cards = [
     </div>
     <div class="mx-4">
         <div class="pb-16 lg:show-on-scroll">
-            <h2 class="mb-2 header-1">need for speed</h2>
+            <h2 class="mb-2 header-1">{t("index.marketing1.title")}</h2>
             <p class="p-paragraph">
-                Dlaczego wydajność strony jest kluczowa dla biznesu?
+                {t("index.marketing1.subtitle")}
             </p>
         </div>
         <div class="flex justify-center w-full">

@@ -1,14 +1,18 @@
+---
+import { t, astroI18n } from "astro-i18n";
+---
+
 <div class="w-full mx-auto max-w-196">
     <form id="contactForm" class="space-y-4">
         <div data-error="W to pole można wpisać maksymalnie 50 znaków.">
             <label
                 for="name"
                 class="block pl-2 font-medium text-left text-gray-300"
-                >Twoje Imię</label
+                >{t("contactForm.nameLabel")}</label
             >
             <input
                 class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
-                placeholder="Jan Kowalski"
+                placeholder={t("contactForm.namePlaceholder")}
                 type="text"
                 id="name"
                 name="name"
@@ -24,11 +28,11 @@
             <label
                 for="email"
                 class="block pl-2 font-medium text-left text-gray-100"
-                >Email</label
+                >{t("contactForm.emailLabel")}</label
             >
             <input
                 class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800"
-                placeholder="Twój Adres Email"
+                placeholder={t("contactForm.emailPlaceholder")}
                 type="email"
                 id="email"
                 name="email"
@@ -44,11 +48,11 @@
             <label
                 for="message"
                 class="block pl-2 font-medium text-left text-gray-300"
-                >Wiadomość</label
+                >{t("contactForm.messageLabel")}</label
             >
             <textarea
                 class="w-full p-3 text-sm font-light border-gray-200 rounded-lg bg-neutral-800 max-h-96 min-h-32"
-                placeholder="Chciałbym zamówić wycenę strony internetowej."
+                placeholder={t("contactForm.messagePlaceholder")}
                 rows="8"
                 id="message"
                 name="message"
@@ -61,7 +65,7 @@
             type="submit"
             class="rounded-lg w-full justify-center md:w-auto flex font-medium bg-blue-600 text-center text-white py-3 px-16 transition-smooth hover:(bg-blue-600/50 shadow-xl shadow-blue-600/20)"
         >
-            Wyślij
+            {t("contactForm.send")}
         </button>
 
         <!-- TODO dodaj stylowanie -->
@@ -98,16 +102,19 @@
 </style>
 
 <script>
-    import type { log } from "astro/dist/core/logger/core";
     import { sendContactRequest } from "src/typescript/contactForm";
 
     async function onSubmit(event) {
+        const redirection = window.location.href.includes("/en/")
+            ? "/en/thankyou/"
+            : "/thankyou/";
+
         event.preventDefault();
         event.stopPropagation();
 
         const onSuccess = () => {
             // Przekierowanie na inną stronę, np. /thank-you
-            window.location.assign("/ThankYou");
+            window.location.assign(redirection);
         };
 
         const onError = (error) => {

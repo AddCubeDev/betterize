@@ -1,0 +1,220 @@
+{
+    "navBar": {
+        "projects": {
+            "title": "Projekty",
+            "betterize": "betterize.pl",
+            "whatWeDo": "Co robimy, aby zapewnić najlepszą jakość naszych usług?",
+            "photoShootManager": "Manager sesji zdjęciowych",
+            "more": "Zobacz wszystkie"
+        },
+        "urls": {
+            "betterize": "perfekcyjny-wynik-betterize",
+            "whatWeDo": "optymalne-strony",
+            "photoShootManager": "manager-sesji-zdjeciowych"
+        },
+        "pageSpeed": "PageSpeedTester",
+        "contact": "Skontaktuj się"
+    },
+    "section1": {
+        "title": "Sprawdź wydajność swojej strony",
+        "subtitle": "Google w 2021 wprowadził nowe standardy oceniania i pozycjonowania stron internetowych. Sprawdź czy twoja strona spełnia nowe wymagania Googla",
+        "pageSpeedQuery": {
+            "url": "Adres url strony",
+            "test": "Testuj",
+            "processing": "przetwarzanie ...",
+            "description": "zwykle trwa to około 15 sekund"
+        },
+        "labels": {
+            "performance": "Wydajność",
+            "seo": "Optymalizacja wyszukiwarki (SEO)",
+            "accessibility": "Dostępność",
+            "best_practices": "Dobre praktyki"
+        },
+        "results": {
+            "poor": "Słabo",
+            "average": "Przeciętnie",
+            "excellent": "Doskonale"
+        }
+    },
+    "contactForm": {
+        "namePlaceholder": "Jan Kowalski",
+        "emailPlaceholder": "Twój Adres Email",
+        "messagePlaceholder": "Chciałbym zamówić wycenę strony internetowej.",
+        "nameLabel": "Twoje Imię",
+        "emailLabel": "Email",
+        "messageLabel": "Wiadomość",
+        "send": "Wyślij"
+    },
+    "proof": {
+        "title": "Nasze Projekty:",
+        "item1": {
+            "title": "Manager sesji zdjęciowych dla swiperight.pl",
+            "paragraph": "Wraz ze zwiększającą się ilością obsługiwanych klientów Swiperight zaczęło coraz bardziej potrzebować niezawodnego, zautomatyzowanego procesu zarządzania usługami.",
+            "date": "03.05.2023",
+            "slug": "manager-sesji-zdjeciowych"
+        },
+        "item2": {
+            "title": "Co robimy, aby zapewnić najlepszą jakość usługi dla klienta?",
+            "paragraph": "Wygląd, wydajność i intuicyjna obsługa to trzy najważniejsze rzeczy jeśli chodzi o stronę internetową. Opowiemy Ci pokrótce co robimy, aby każdy z tych trzech punktów był na najwyższym poziomie.",
+            "date": "01.06.2023",
+            "slug": "optymalne-strony"
+        },
+        "item3": {
+            "title": "Perfekcyjny wynik GoogleLighthouse na Betterize",
+            "paragraph": "Betterize to firma skupiająca się na tworzeniu stron internetowych. Bardzo ważne było dla nich zwiększenie konwersji i serwowanie zdjęć na swojej stronie w możliwie optymalny sposób.",
+            "date": "01.05.2023",
+            "slug": "perfekcyjny-wynik-betterize"
+        }
+    },
+    "faq": {
+        "item1": {
+            "question": "Czy będzie łatwo edytować i aktualizować swoją stronę internetową?",
+            "answer": "Tak, podpinamy do stron internetowych system CMS, który umożliwia łatwą edycję i aktualizację treści bez konieczności znajomości kodowania"
+        },
+        "item2": {
+            "question": "Czy mogę wpływać na projektowanie strony internetowej?",
+            "answer": "Zdecydowanie tak! Twoje sugestie są kluczowe. Bierzemy pod uwagę branding Twojej firmy lub wspólnie kreujemy nowy od podstaw. Każdy aspekt projektu jest z Tobą konsultowany, aby strona spełniała Twoje cele biznesowe. Za każdym razem ustalamy ilość tur poprawek do designu."
+        },
+        "item3": {
+            "question": "Czy oferujecie wsparcie techniczne dla mojej strony internetowej po jej wdrożeniu?",
+            "answer": "Tak, oferujemy wsparcie techniczne dla naszych klientów po wdrożeniu strony internetowej, aby zapewnić ich działanie bez awarii."
+        },
+        "item4": {
+            "question": "Jakie są warunki umowy dotyczącej projektowania i wdrażania mojej strony internetowej?",
+            "answer": "Przed rozpoczęciem projektu, klient i nasza firma podpisują umowę, która zawiera szczegółowy opis usług oraz kosztorys. W umowie określamy też terminy realizacji projektu oraz warunki płatności"
+        },
+        "item5": {
+            "question": "Jakie są koszty projektowania i wdrażania mojej strony internetowej z systemem CMS?",
+            "answer": "Koszty projektowania i wdrażania strony internetowej zależą od wielu czynników, takich jak skala projektu, liczba stron i funkcjonalności. Przed rozpoczęciem projektu, ustalamy szczegółową wycenę usług."
+        },
+        "item6": {
+            "question": "Jakie są koszty usług hostingowych dla mojej strony internetowej?",
+            "answer": "Oferujemy sprawdzone i wydajne opcje hostingowe dla naszych klientów. Koszty usług hostingowych zależą od wybranej przez klienta opcji hostingowej, takiej jak liczba stron, pojemność dysku, transfer danych itp. Dla zwykłej firmowej strony koszty te wahają się od 50 do 150zł miesięcznie"
+        }
+    },
+    "index": {
+        "hero": {
+            "title": {
+                "text1": "Tworzymy ",
+                "highlighted": "Szybkie i nowoczesne ",
+                "text2": "strony internetowe"
+            },
+            "subtitle": "Chcesz mieć lepsze pozycjonowanie i większe zyski? Postaw na szybkość i jakość swojej strony internetowej z Betterize!",
+            "mainButton": "Skontaktuj się",
+            "secondaryButton": "Dowiedz się więcej"
+        },
+        "marketing0": {
+            "card1": {
+                "title": "Prefabrykaty: Klucz do szybkości i niezawodności",
+                "text1": "Dzięki naszej wiedzy i doświadczeniu, jesteśmy w stanie dostosować usługi do <strong>indywidualnych potrzeb i wymagań</strong>, aby wspólnie osiągnąć sukces w biznesie.",
+                "text2": "Stawiamy na <strong>szybkość, solidność oraz dbałość o detale</strong>, by spełnić oczekiwania naszych klientów i pomóc im się wyróżnić na rynku."
+            },
+            "card2": {
+                "title": "Dopasowanie rozwiązań do potrzeb branży",
+                "text1": "W Betterize zdajemy sobie sprawę, że każda branża ma swoje unikalne potrzeby i wymagania. Dlatego naszym priorytetem jest <strong>dopasowanie rozwiązań</strong> do specyfiki Twojego biznesu.",
+                "text2": "Wspólnie z Tobą tworzymy rozwiązania, które sprawią, że Twoje przedsiębiorstwo będzie się <strong>wyróżniać na tle konkurencji</strong> i zyska przewagę na rynku."
+            },
+            "card3": {
+                "title": "Skupiamy się na małych i średnich przedsiębiorstwach",
+                "text1": "<strong>Analizujemy rynek i konkurencję</strong>, aby zrozumieć kluczowe aspekty Twojej działalności i dostarczyć strony internetowe, które będą w pełni odzwierciedlały <strong>wartości i cele Twojej firmy.</strong>",
+                "text2": "W ten sposób, tworzymy strony szybko, solidnie i z dbałością o detale, spełniając wymagania waszych celów biznesowych."
+            }
+        },
+        "marketing1": {
+            "title": "need for speed",
+            "subtitle": "Dlaczego wydajność strony jest kluczowa dla biznesu?",
+            "card1": {
+                "title": "SEO",
+                "paragraph": "Szybsze strony mają wyższe pozycje w wynikach Google, co prowadzi do większej ilości ruchu organicznego (Google PageSpeed Insights)"
+            },
+            "card2": {
+                "title": "Wyższa retencja klientów",
+                "paragraph": "79% klientów, którzy doświadczyli problemów z wydajnością strony, nie wraca do tego sklepu (State of Online Retail Performance)"
+            },
+            "card3": {
+                "title": "Niższy współczynnik odrzuceń",
+                "paragraph": "Strony ładujące się 1-3s mają 32% większe ryzyko odrzucenia, a te ładujące się 1-5s aż o 90% większe!"
+            },
+            "card4": {
+                "title": "Większa aktywność na stronie",
+                "paragraph": "Szybsze strony poprawiają wskaźniki aktywności użytkowników, takie jak dłuższy czas na stronie i więcej odwiedzanych podstron"
+            },
+            "card5": {
+                "title": "Skrócony czas decyzji",
+                "paragraph": "Szybko ładujące się strony pozwalają użytkownikom szybciej podejmować decyzje o zakupie, zwiększając sprzedaż (Forbes)"
+            },
+            "card6": {
+                "title": "Skuteczniejsze reklamy",
+                "paragraph": "Szybsze strony prowadzą do niższych kosztów za kliknięcie (CPC) i wyższych współczynników konwersji w kampaniach reklamowych (WordStream)"
+            }
+        },
+        "marketing2": {
+            "title": "Co mówią o nas klienci:",
+            "testimonial1": {
+                "name": "Grzegorz Wiosna",
+                "company": "Buisness Growth",
+                "paragraph": "Skupiliśmy się przede wszystkim na elementach performance i poprawie ścieżki klienta na stronie, tak by design zgadzał się z analityką. Efekt: 100% realizacji celów"
+            },
+            "testimonial2": {
+                "name": "Daniel Popek",
+                "company": "Public Speaking Coach",
+                "paragraph": "Dużo moich klientów skarżyło się, że ciężko się chodzi po mojej stronie i wszystko długo się na niej ładuje. Po interwencji chłopaków z betterize czas ładowania strony na telefonie skrócił ponad dwukrotnie. Nie spodziewałem się, że moja strona może działać, aż tak szybko. Pełen profesjonalizm, polecam."
+            },
+            "testimonial3": {
+                "name": "Eryk Rąk",
+                "company": "Właściciel Laweta Wrocław",
+                "paragraph": "Współpraca z firmą Betterize to była najlepsza decyzja jaką mogłem podjąć. Ich szybkość, profesjonalizm i elastyczność były nie do przecenienia. Polecam każdemu, kto szuka wysokiej jakości usług internetowych."
+            }
+        },
+        "steps": {
+            "title": "Jak Będzie wyglądać nasza współpraca",
+            "step1": {
+                "title": "Konsultacje",
+                "paragraph": "Pierwszy krok to konsultacje z klientem, aby zrozumieć jego potrzeby i cele biznesowe. W tym etapie ustalamy, jakie funkcjonalności i elementy mają znaleźć się na stronie internetowej. W trakcie trwania projektu na bieżąco powiadamiamy klienta o postępach w etapach powstawania strony."
+            },
+            "step2": {
+                "title": "Projektowanie",
+                "paragraph": "Następnie tworzymy projekt wizualny strony internetowej. Przedstawiamy klientowi kilka wybranych opcji, aby wybrał projekt, który najlepiej odpowiada jego potrzebom i oczekiwaniom."
+            },
+            "step3": {
+                "title": "Kodowanie",
+                "paragraph": "Po zatwierdzeniu projektu, przechodzimy do etapu kodowania, w którym przekształcamy projekt graficzny w funkcjonalną stronę internetową. Skupiamy się na tym, aby strona była szybka, wydajna i przyjazna SEO."
+            },
+            "step4": {
+                "title": "Testowanie",
+                "paragraph": "Po zakończeniu kodowania, przeprowadzamy testy, aby upewnić się, że strona działa prawidłowo na różnych urządzeniach i przeglądarkach. Upewniamy się że wydajność twojej strony jest na najwyższym możliwym poziomie."
+            },
+            "step5": {
+                "title": "Wdrażanie",
+                "paragraph": "Gdy strona internetowa jest gotowa, przeprowadzamy wdrażanie, czyli umieszczamy ją na serwerze i udostępniamy ją publicznie. Pomagamy również w konfiguracji systemów analitycznych i narzędzi marketingowych, aby klient mógł skutecznie zarządzać swoją stroną."
+            },
+            "step6": {
+                "title": "Wsparcie i rozwój",
+                "paragraph": "Nasza praca nie kończy się po wdrożeniu strony. Oferujemy również dalsze wsparcie techniczne oraz rozwój strony internetowej, aby była zawsze aktualna i spełniała wymagania rynkowe."
+            }
+        },
+        "contact": {
+            "title": "Popraw swoje wyniki dzięki nowoczesnej stronie www",
+            "subtitle": "Napisz do nas na contact@betterize.pl lub użyj formularza kontaktowego klikając w przycisk poniżej",
+            "faqTitle": "najczęściej zadawane pytania"
+        },
+        "proof": {
+            "title": "Nasze Projekty:"
+        }
+    },
+    "contact": {
+        "title": "Skontaktuj Się z nami"
+    },
+    "thankYou": {
+        "title": "Dziękujemy!",
+        "subtitle": "Odezwiemy się do Ciebie w ciągu 24h. W międzyczasie może przeczytasz któryś z tych postów?"
+    },
+    "404": {
+        "title": "ERROR 404",
+        "subtitle": "Przepraszamy, strona na którą chciałeś wejść nie istnieje."
+    },
+    "projects": {
+        "pageTitle": "Betterize - nasze projekty",
+        "title": "Nasze Projekty:"
+    }
+}

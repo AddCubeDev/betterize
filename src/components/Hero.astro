@@ -1,7 +1,10 @@
 ---
+// @ts-ignore
 import { Picture } from "astro-imagetools/components";
 import ButtonContact from "./subcomponents/ButtonContact.astro";
 import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
+
+import { t } from "astro-i18n";
 ---
 
 <section class="pb-50">
@@ -12,20 +15,20 @@ import ButtonSecondary from "./subcomponents/ButtonSecondary.astro";
     <div class="flex flex-col mb-10 lg:(mt-16 flex-row) main-content">
         <div class="flex flex-col gap-6 text-center lg:text-left">
             <h1 class="mb-0 header-1">
-                Tworzymy <span
+                {t("index.hero.title.text1")}
+                <span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-500 header-1"
                 >
-                    Szybkie i nowoczesne
+                    {t("index.hero.title.highlighted")}
                 </span>
-                strony internetowe
+                {t("index.hero.title.text2")}
             </h1>
             <h2 class="mx-auto font-normal lg:mx-0 header-3">
-                Chcesz mieć lepsze pozycjonowanie i większe zyski? Postaw na
-                szybkość i jakość swojej strony internetowej z Betterize!
+                {t("index.hero.subtitle")}
             </h2>
             <div class="flex justify-center gap-2 lg:justify-start">
-                <ButtonContact />
-                <ButtonSecondary />
+                <ButtonContact text={t("index.hero.mainButton")} />
+                <ButtonSecondary text={t("index.hero.secondaryButton")} />
             </div>
         </div>
         <div

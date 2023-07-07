@@ -1,4 +1,5 @@
 ---
+// @ts-ignore
 import { Img } from "astro-imagetools/components";
 interface Props {
     title?: string;
@@ -9,11 +10,12 @@ interface Props {
     list1?: string;
     list2?: string;
     list3?: string;
+    id?: string;
 }
 const {
     title = "Jestem pytaniem, które ktoś mógłby zadać",
     paragraph = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt voluptate dicta quo officiis explicabo consequuntur distinctio corporis earum similique! ",
-    number = "1",
+    number = 1,
     src = "/src/assets/search.png",
     connect = "",
 } = Astro.props;

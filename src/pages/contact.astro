@@ -1,12 +1,14 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
-import Hero from "@components/Hero.astro";
 import Footer from "@components/Footer.astro";
-import FAQcard from "@components/subcomponents/FAQcard.astro";
 import FAQsection from "@components/subcomponents/FAQsection.astro";
-import FancyBg from "@components/subcomponents/FancyBg.astro";
 import ContactForm from "@components/subcomponents/ContactForm.astro";
+
+import { astroI18n } from "astro-i18n";
+astroI18n.init(Astro);
+
+import { t } from "astro-i18n";
 ---
 
 <Layout
@@ -18,7 +20,7 @@ import ContactForm from "@components/subcomponents/ContactForm.astro";
     <main
         class="flex flex-col items-center justify-center min-h-screen gap-16 mx-auto main-content"
     >
-        <h1 class="pt-20 header-1">Skontaktuj Się z nami</h1>
+        <h1 class="pt-20 header-1">{t("contact.title")}</h1>
         <ContactForm />
         <FAQsection />
     </main>

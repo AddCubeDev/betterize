@@ -12,8 +12,12 @@ import StepByStep from "@components/StepByStep.astro";
 import Section1 from "@components/Section1.astro";
 import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
-import { Img, BackgroundImage } from "astro-imagetools/components";
+// @ts-ignore
+import { BackgroundImage } from "astro-imagetools/components";
 import Faded from "@components/elements/Faded.astro";
+
+import { astroI18n } from "astro-i18n";
+astroI18n.init(Astro);
 ---
 
 <Layout

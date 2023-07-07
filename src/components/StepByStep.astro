@@ -1,50 +1,51 @@
 ---
 import StepByStepElement from "./subcomponents/StepByStepElement.astro";
+import { t } from "astro-i18n";
 ---
 
 <section>
-    <h2 class="pb-16 header-1">Jak Będzie wyglądać nasza współpraca</h2>
+    <h2 class="pb-16 header-1">{t("index.steps.title")}</h2>
     <div class="flex flex-col max-w-4xl mx-auto" id="StepByStepAllCards">
         <StepByStepElement
             id="start"
-            title="Konsultacje"
-            paragraph="Pierwszy krok to konsultacje z klientem, aby zrozumieć jego potrzeby i cele biznesowe. W tym etapie ustalamy, jakie funkcjonalności i elementy mają znaleźć się na stronie internetowej. W trakcie trwania projektu na bieżąco powiadamiamy klienta o postępach w etapach powstawania strony."
-            number="1"
+            title={t("index.steps.step1.title")}
+            paragraph={t("index.steps.step1.paragraph")}
+            number={1}
             src="/src/assets/steps/conversation.png"
         />
         <StepByStepElement
             id="end"
-            title="Projektowanie"
-            paragraph="Następnie tworzymy projekt wizualny strony internetowej. Przedstawiamy klientowi kilka wybranych opcji, aby wybrał projekt, który najlepiej odpowiada jego potrzebom i oczekiwaniom."
-            number="2"
+            title={t("index.steps.step2.title")}
+            paragraph={t("index.steps.step2.paragraph")}
+            number={2}
             src="/src/assets/steps/ux.png"
         />
 
         <StepByStepElement
-            title="Kodowanie"
-            paragraph="Po zatwierdzeniu projektu, przechodzimy do etapu kodowania, w którym przekształcamy projekt graficzny w funkcjonalną stronę internetową. Skupiamy się na tym, aby strona była szybka, wydajna i przyjazna SEO."
-            number="3"
+            title={t("index.steps.step3.title")}
+            paragraph={t("index.steps.step3.paragraph")}
+            number={3}
             src="/src/assets/steps/coding.png"
         />
 
         <StepByStepElement
-            title="Testowanie"
-            paragraph="Po zakończeniu kodowania, przeprowadzamy testy, aby upewnić się, że strona działa prawidłowo na różnych urządzeniach i przeglądarkach. Upewniamy się że wydajność twojej strony jest na najwyższym możliwym poziomie."
-            number="4"
+            title={t("index.steps.step4.title")}
+            paragraph={t("index.steps.step4.paragraph")}
+            number={4}
             src="/src/assets/steps/data.png"
         />
 
         <StepByStepElement
-            title="Wdrażanie"
-            paragraph="Gdy strona internetowa jest gotowa, przeprowadzamy wdrażanie, czyli umieszczamy ją na serwerze i udostępniamy ją publicznie. Pomagamy również w konfiguracji systemów analitycznych i narzędzi marketingowych, aby klient mógł skutecznie zarządzać swoją stroną."
-            number="5"
+            title={t("index.steps.step5.title")}
+            paragraph={t("index.steps.step5.paragraph")}
+            number={5}
             src="/src/assets/steps/global-server.png"
         />
 
         <StepByStepElement
-            title="Wsparcie i rozwój"
-            paragraph="Nasza praca nie kończy się po wdrożeniu strony. Oferujemy również dalsze wsparcie techniczne oraz rozwój strony internetowej, aby była zawsze aktualna i spełniała wymagania rynkowe.            "
-            number="6"
+            title={t("index.steps.step6.title")}
+            paragraph={t("index.steps.step6.paragraph")}
+            number={6}
             src="/src/assets/steps/upgrade.png"
             connect="hidden"
         />

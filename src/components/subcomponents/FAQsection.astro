@@ -1,30 +1,31 @@
 ---
 import FAQcard from "./FAQcard.astro";
+import { t } from "astro-i18n";
 ---
 
 <div class="grid w-full max-w-6xl grid-cols-1 gap-4 pb-20">
     <FAQcard
-        question={"Czy będzie łatwo edytować i aktualizować swoją stronę internetową?"}
-        answer={"Tak, podpinamy do stron internetowych system CMS, który umożliwia łatwą edycję i aktualizację treści bez konieczności znajomości kodowania"}
+        question={t("faq.item1.question")}
+        answer={t("faq.item1.answer")}
     />
     <FAQcard
-        question={"Czy mogę wpływać na projektowanie strony internetowej?"}
-        answer={"Zdecydowanie tak! Twoje sugestie są kluczowe. Bierzemy pod uwagę branding Twojej firmy lub wspólnie kreujemy nowy od podstaw. Każdy aspekt projektu jest z Tobą konsultowany, aby strona spełniała Twoje cele biznesowe. Za każdym razem ustalamy ilość tur poprawek do designu."}
+        question={t("faq.item2.question")}
+        answer={t("faq.item2.answer")}
     />
     <FAQcard
-        question={"Czy oferujecie wsparcie techniczne dla mojej strony internetowej po jej wdrożeniu?"}
-        answer={"Tak, oferujemy wsparcie techniczne dla naszych klientów po wdrożeniu strony internetowej, aby zapewnić ich działanie bez awarii."}
+        question={t("faq.item3.question")}
+        answer={t("faq.item3.answer")}
     />
     <FAQcard
-        question={"Jakie są warunki umowy dotyczącej projektowania i wdrażania mojej strony internetowej?"}
-        answer={"Przed rozpoczęciem projektu, klient i nasza firma podpisują umowę, która zawiera szczegółowy opis usług oraz kosztorys. W umowie określamy też terminy realizacji projektu oraz warunki płatności"}
+        question={t("faq.item4.question")}
+        answer={t("faq.item4.answer")}
     />
     <FAQcard
-        question={"Jakie są koszty projektowania i wdrażania mojej strony internetowej z systemem CMS?"}
-        answer={"Koszty projektowania i wdrażania strony internetowej zależą od wielu czynników, takich jak skala projektu, liczba stron i funkcjonalności. Przed rozpoczęciem projektu, ustalamy szczegółową wycenę usług."}
+        question={t("faq.item5.question")}
+        answer={t("faq.item5.answer")}
     />
     <FAQcard
-        question={"Jakie są koszty usług hostingowych dla mojej strony internetowej?"}
-        answer={"Oferujemy sprawdzone i wydajne opcje hostingowe dla naszych klientów. Koszty usług hostingowych zależą od wybranej przez klienta opcji hostingowej, takiej jak liczba stron, pojemność dysku, transfer danych itp. Dla zwykłej firmowej strony koszty te wahają się od 50 do 150zł miesięcznie"}
+        question={t("faq.item6.question")}
+        answer={t("faq.item6.answer")}
     />
 </div>
