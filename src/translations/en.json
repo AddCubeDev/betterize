@@ -81,7 +81,7 @@
         },
         "item4": {
             "question": "What are the terms of my website design and implementation agreement?",
-            "answer": "Before starting the project, the client and our company sign a contract, which includes a detailed description of the services and a cost estimate. In the contract we also specify the deadlines for the project and the terms of payment"
+            "answer": "Before starting the project, the client and our company sign a contract, which includes a detailed description of the services and a cost estimate. In the contract we also specify the deadlines for the project and the terms of payment."
         },
         "item5": {
             "question": "What are the costs of designing and implementing my website with CMS?",
@@ -89,7 +89,7 @@
         },
         "item6": {
             "question": "What are the costs of hosting services for my website?",
-            "answer": "We offer proven and efficient hosting options for our clients. The cost of hosting services depends on the hosting option chosen by the client, such as the number of pages, disk capacity, data transfer, etc. For a simple company website, these costs range from 50 to 150zl per month"
+            "answer": "We offer proven and efficient hosting options for our clients. The cost of hosting services depends on the hosting option chosen by the client, such as the number of pages, disk capacity, data transfer, etc. For a simple company website, these costs range from 12 to 35 EUR per month."
         }
     },
     "index": {
@@ -99,8 +99,8 @@
                 "highlighted": "flying fast ",
                 "text2": "websites"
             },
-            "subtitle": "Do you want better positioning and higher profits? Focus on the speed and quality of your website with Betterize!",
-            "mainButton": "Contact Us",
+            "subtitle": "Do you want better positioning and higher profits? Bet on the speed and quality of your website with Betterize!",
+            "mainButton": "Contact us",
             "secondaryButton": "Learn more"
         },
         "marketing0": {
@@ -196,7 +196,7 @@
         "contact": {
             "title": "Improve your results with a modern website",
             "subtitle": "Write to us at contact@betterize.pl or use the contact form by clicking on the button below",
-            "faqTitle": "FAQs"
+            "faqTitle": "FAQ"
         },
         "proof": {
             "title": "Our Projects:"
