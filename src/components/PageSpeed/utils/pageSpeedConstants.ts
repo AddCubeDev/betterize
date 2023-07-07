@@ -1,6 +1,6 @@
 import {
     EvaluationResult,
-    EvaluationResultColors,
+    type EvaluationResultColors,
 } from "../types/pageSpeed.types";
 
 export const BACKGROUND_GREEN = "#00f90040";

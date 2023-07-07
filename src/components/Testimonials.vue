@@ -16,7 +16,7 @@
 import { register } from "swiper/element/bundle";
 import { onMounted } from "vue";
 import SwiperSlider from "@components/subcomponents/SwiperSlider.vue";
-import { Testimonial } from "@typescript/types/Testimonials";
+import type {  Testimonial } from "@typescript/types/Testimonials";
 
 // component properties/events (emits)
 // ------------------------------------------------------------------------
