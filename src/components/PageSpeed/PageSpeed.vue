@@ -15,9 +15,9 @@
             class="border rounded-md mx-auto bg-black/90 border-gray-200/20 w-full p-4 items-center lg:(w-192)"
         >
             <div class="flex justify-center gap-6 pb-4 mx-auto">
-                <p class="font-black text-[#f90000]">0-49 Poor</p>
-                <p class="font-black text-[#f9f900]">50-89 Average</p>
-                <p class="font-black text-[#00f900]">90-100 Excelent</p>
+                <p class="font-black text-[#f90000]">0-49 Słabo</p>
+                <p class="font-black text-[#f9f900]">50-89 Przeciętnie</p>
+                <p class="font-black text-[#00f900]">90-100 Doskonale</p>
             </div>
 
             <div class="gap-x-* grid gap-y-4 grid-cols-2 lg:grid-cols-4">
@@ -75,10 +75,10 @@ const hiddenPageSpeedTestError = ref(true);
 const pageSpeedTestError = ref("");
 
 const pageSpeedTests = [
-    { label: "Performance", test_result: performance },
-    { label: "Seo", test_result: seo },
-    { label: "Accessibility", test_result: accessibility },
-    { label: "Best practices", test_result: best_practices },
+    { label: "Wydajność", test_result: performance }, // Performance
+    { label: "Optymalizacja wyszukiwarki (SEO)", test_result: seo }, // SEO
+    { label: "Dostępność", test_result: accessibility }, // Accessibility
+    { label: "Najlepsze praktyki", test_result: best_practices }, // Best practices
 ];
 
 function onTestStart() {
