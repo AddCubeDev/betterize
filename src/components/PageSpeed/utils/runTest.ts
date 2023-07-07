@@ -1,10 +1,9 @@
-import {
-    type PagespeedTestResult,
-    type PagespeedTestResultOrError,
+import type {
+    PagespeedTestResultOrError,
     Strategy,
 } from "../types/pageSpeed.types";
 
-function adjustScoreValue(score: Number): Number {
+function adjustScoreValue(score: number): Number {
     return Math.round(score * 100);
 }
 

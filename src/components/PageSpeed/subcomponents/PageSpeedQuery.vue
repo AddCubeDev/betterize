@@ -45,13 +45,12 @@
 
 <script setup lang="ts">
 import { runPageSpeedTest } from "../utils/runTest";
-import {
-    Strategy,
-    type PagespeedTestResultOrError,
-    type PagespeedTestResult,
+import type {
+    PagespeedTestResultOrError,
+    PagespeedTestResult,
 } from "../types/pageSpeed.types";
 import { AtomSpinner } from "epic-spinners";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, type Ref } from "vue";
 
 const props = defineProps({
     url: String,
@@ -79,8 +78,8 @@ onMounted(() => {
 
 // ------------------------------------------------------------------------
 
-const speedTestInputDataBlock: Ref<HTMLDivElement> = ref(null);
-const spinner: Ref<HTMLDivElement> = ref(null);
+const speedTestInputDataBlock: Ref<HTMLDivElement | null> = ref(null);
+const spinner: Ref<HTMLDivElement | null> = ref(null);
 
 const url = ref("https://betterize.pl");
 function setupDefaultResults() {
