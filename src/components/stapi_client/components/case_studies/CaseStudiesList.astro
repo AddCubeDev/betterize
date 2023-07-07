@@ -4,10 +4,10 @@ import { getCaseStudies } from "./../../typescript/functions/case_studies";
 import CaseStudiesListElement from "./CaseStudiesListElement.astro";
 
 interface Props {
-    location: string;
+    langCode: string;
 }
 
-const { location } = Astro.props;
+const { langCode } = Astro.props;
 
 const projects = await getCaseStudies();
 ---
@@ -17,10 +17,10 @@ const projects = await getCaseStudies();
         projects
             .filter(
                 (project: ApiCaseStudyCaseStudy) =>
-                    project.attributes.locale === location
+                    project.attributes.locale === langCode
             )
             .map((project: ApiCaseStudyCaseStudy) => (
-                <CaseStudiesListElement project={project} location={location} />
+                <CaseStudiesListElement project={project} langCode={langCode} />
             ))
     }
 </div>

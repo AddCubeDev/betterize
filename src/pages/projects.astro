@@ -17,7 +17,7 @@ astroI18n.init(Astro);
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">
         <div class="mx-auto mb-20 max-w-screen main-content lg:show-on-scroll">
             <h2 class="pb-16 header-1">{t("projects.title")}</h2>
-            <CaseStudiesList location={astroI18n.langCode} />
+            <CaseStudiesList langCode={astroI18n.langCode} />
         </div>
     </main>
     <div class="mt-auto">

@@ -8,10 +8,10 @@ import { getTranslatedRoute } from "./../../typescript/functions/routeTranslate"
 
 interface Props {
     project: ApiCaseStudyCaseStudy;
-    location: string;
+    langCode: string;
 }
 
-const { project, location } = Astro.props;
+const { project, langCode } = Astro.props;
 
 const attributes = project.attributes;
 ---
@@ -19,7 +19,7 @@ const attributes = project.attributes;
 <div
     class="max-h-[800px] rounded-md flex flex-col mx-auto max-w-md bg-zinc-900 w-full transition-smooth shadow-2xl main-content relative xl:max-w-auto xl:shadow-sky-500/20 lg:hover:(transform scale-105)"
 >
-    <a class="hover:text-sky-200/50" href={getTranslatedRoute(location, "/projects/" + attributes.slug)}>
+    <a class="hover:text-sky-200/50" href={getTranslatedRoute(langCode, "/projects/" + attributes.slug)}>
         <div class="w-full h-64 overflow-hidden rounded-t-md">
             <Picture
                 src={getImageUrl(attributes.image as Image)}
