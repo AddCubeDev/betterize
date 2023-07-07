@@ -3,7 +3,7 @@
 import { renderImg } from "astro-imagetools/api";
 import Testimonials from "./Testimonials.vue";
 // @ts-ignore
-import { Testimonial } from "@typescript/Testimonials";
+import { Testimonial, ProcessedTestimonial } from "@typescript/Testimonials";
 import { t } from "astro-i18n";
 
 const testimonialsData: Testimonial[] = [
@@ -35,11 +35,12 @@ async function render_img_html(src: string) {
         height: 400,
         aspect: 1,
     });
+    // renderedHTML has 3 fields: { link, style, img };
 
     return renderedHTML;
 }
 
-async function processTestimonialsData() {
+async function processTestimonialsData(): Promise<ProcessedTestimonial[]> {
     const updatedTestimonialsData = await Promise.all(
         testimonialsData.map(async (testimonial) => {
             const renderedHTML = await render_img_html(testimonial.src);
