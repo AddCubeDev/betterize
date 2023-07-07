@@ -2,7 +2,7 @@
     <div class="max-w-full p-4 mx-auto overflow-hidden lg:max-w-6xl">
         <swiper-container init="false">
             <SwiperSlider
-                v-for="(item, index) in props.testimonials_data"
+                v-for="item in props.testimonials_data"
                 :img_html="item.src.img"
                 :name="item.name"
                 :company="item.company"
@@ -16,13 +16,13 @@
 import { register } from "swiper/element/bundle";
 import { onMounted } from "vue";
 import SwiperSlider from "@components/subcomponents/SwiperSlider.vue";
-import type {  Testimonial } from "@typescript/types/Testimonials";
+import type { ProcessedTestimonial } from "@typescript/types/Testimonials";
 
 // component properties/events (emits)
 // ------------------------------------------------------------------------
 
 const props = defineProps<{
-    testimonials_data: Testimonial[];
+    testimonials_data: ProcessedTestimonial[];
 }>();
 
 onMounted(() => {
