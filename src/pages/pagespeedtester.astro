@@ -4,11 +4,14 @@ import Footer from "@components/Footer.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Section1 from "@components/Section1.astro";
 
-import { astroI18n } from "astro-i18n";
+import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 ---
 
-<Layout title="PageSpeed Tester" description="Sprawdź prędkość swojej strony">
+<Layout
+    title={t("pageSpeedTester.pageTitle")}
+    description={t("pageSpeedTester.description")}
+>
     <div class="">
         <Nav />
     </div>

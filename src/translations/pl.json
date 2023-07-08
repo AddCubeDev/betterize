@@ -93,6 +93,8 @@
         }
     },
     "index": {
+        "pageTitle": "Flying Fast Websites",
+        "description": "Tworzymy wydajne i konwertujące strony internetowe",
         "hero": {
             "title": {
                 "text1": "Tworzymy ",
@@ -203,6 +205,8 @@
         }
     },
     "contact": {
+        "pageTitle": "Betterize - skontaktuj się z nami",
+        "description": "Strona z formularzem kontaktowym",
         "title": "Skontaktuj Się z nami"
     },
     "thankYou": {
@@ -215,6 +219,11 @@
     },
     "projects": {
         "pageTitle": "Betterize - nasze projekty",
+        "description": "Linki do naszych projektów",
         "title": "Nasze Projekty:"
+    },
+    "pageSpeedTester": {
+        "pageTitle": "PageSpeed Tester",
+        "description": "Sprawdź prędkość swojej strony"
     }
 }

@@ -2,16 +2,13 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
-import CaseStudiesList from "@components/stapi_client/components/case_studies/CaseStudiesList.astro";
+import CaseStudiesList from "@components/strapi_client/components/case_studies/CaseStudiesList.astro";
 
 import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 ---
 
-<Layout
-    title={t("projects.pageTitle")}
-    description="Linki do naszych projektów"
->
+<Layout title={t("projects.pageTitle")} description={t("projects.description")}>
     <Nav />
 
     <main class="flex flex-col min-h-screen gap-2 pt-16 mx-auto lg:gap-16">

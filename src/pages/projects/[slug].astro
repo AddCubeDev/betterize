@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Proof from "@components/Proof.astro";
 import Footer from "@components/Footer.astro";
-import { getCaseStudiesAttributes } from "@components/stapi_client/index";
-import CaseStudyPage from "@components/stapi_client/components/case_studies/CaseStudyPage.astro";
+import { getCaseStudiesAttributes } from "@components/strapi_client/index";
+import CaseStudyPage from "@components/strapi_client/components/case_studies/CaseStudyPage.astro";
 import { astroI18n } from "astro-i18n";
 astroI18n.init(Astro);
 
@@ -19,7 +19,6 @@ export async function getStaticPaths() {
             params: { slug: attributes.slug },
             props: { title: attributes.title },
         }));
-
 }
 ---
 

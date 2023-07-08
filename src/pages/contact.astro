@@ -11,10 +11,7 @@ astroI18n.init(Astro);
 import { t } from "astro-i18n";
 ---
 
-<Layout
-    title="Betterize - skontaktuj się z nami"
-    description="Strona z formularzem kontaktowym"
->
+<Layout title={t("contact.pageTitle")} description={t("contact.description")}>
     <!-- <FancyBg /> -->
     <Nav />
     <main

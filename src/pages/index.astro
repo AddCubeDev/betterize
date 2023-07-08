@@ -16,14 +16,11 @@ import Footer from "@components/Footer.astro";
 import { BackgroundImage } from "astro-imagetools/components";
 import Faded from "@components/elements/Faded.astro";
 
-import { astroI18n } from "astro-i18n";
+import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 ---
 
-<Layout
-    title="Flying Fast Websites"
-    description="Tworzymy wydajne i konwertujące strony internetowe"
->
+<Layout title={t("index.pageTitle")} description={t("index.description")}>
     <!-- <FancyBg /> -->
 
     <BackgroundImage
