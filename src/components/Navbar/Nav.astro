@@ -5,8 +5,11 @@ import ButtonContact from "@components/subcomponents/ButtonContact.astro";
 import NavBarSubItem from "./NavbarSubItem.astro";
 import logo from "/src/assets/logo-white-text.svg";
 import { getTranslatedRoute } from "@typescript/routeTranslate";
+import { getRecommendedCaseStudies } from "@components/strapi_client/index";
 
 import { astroI18n, t } from "astro-i18n";
+
+const temp = await getRecommendedCaseStudies(astroI18n.langCode);
 ---
 
 <header aria-label="Site Header" class="z-10 w-full">
@@ -126,44 +129,24 @@ import { astroI18n, t } from "astro-i18n";
                         class="relative w-full p-4 shadow-xl bg-gradient-to-b from-zinc-900 to-zinc-800 group top-4 rounded-xl"
                     >
                         <div class="grid grid-cols-3 gap-6 mb-4 text-md">
-                            <div>
-                                <ul>
-                                    <NavBarSubItem
-                                        href={getTranslatedRoute(
-                                            astroI18n.langCode,
-                                            `/projects/${t("navBar.urls.whatWeDo")}/`
-                                        )}
-                                        title={t("navBar.projects.whatWeDo")}
-                                        src="/src/assets/article.jpg"
-                                    />
-                                </ul>
-                            </div>
-                            <div>
-                                <ul>
-                                    <NavBarSubItem
-                                        href={getTranslatedRoute(
-                                            astroI18n.langCode,
-                                            `/projects/${t("navBar.urls.betterize")}/`
-                                        )}
-                                        title={t("navBar.projects.betterize")}
-                                        src="/src/assets/betterize2.png"
-                                    />
-                                </ul>
-                            </div>
-                            <div>
-                                <ul>
-                                    <NavBarSubItem
-                                        href={getTranslatedRoute(
-                                            astroI18n.langCode,
-                                            `/projects/${t("navBar.urls.photoShootManager")}/`
-                                        )}
-                                        title={t(
-                                            "navBar.projects.photoShootManager"
-                                        )}
-                                        src="/src/assets/database-blue.png"
-                                    />
-                                </ul>
-                            </div>
+                            {
+                                temp.map((item) => {
+                                    return (
+                                        <div>
+                                            <ul>
+                                                <NavBarSubItem
+                                                    href={getTranslatedRoute(
+                                                        astroI18n.langCode,
+                                                        `/projects/${item.slug}/`
+                                                    )}
+                                                    title={item.title}
+                                                    src={item.image}
+                                                />
+                                            </ul>
+                                        </div>
+                                    );
+                                })
+                            }
                         </div>
                         <div class="w-full border-gray-800 border-t-1">
                             <a

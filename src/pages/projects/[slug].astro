@@ -1,11 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
-import Proof from "@components/Proof.astro";
+import RecommendedCaseStudies from "@components/strapi_client/components/case_studies/RecommendedCaseStudies.astro";
 import Footer from "@components/Footer.astro";
 import { getCaseStudiesAttributes } from "@components/strapi_client/index";
 import CaseStudyPage from "@components/strapi_client/components/case_studies/CaseStudyPage.astro";
-import { astroI18n } from "astro-i18n";
+import { astroI18n, t } from "astro-i18n";
 astroI18n.init(Astro);
 
 export async function getStaticPaths() {
@@ -28,7 +28,10 @@ export async function getStaticPaths() {
     </div>
     <CaseStudyPage slug={Astro.params.slug} />
     <div class="my-10 mb-20">
-        <Proof />
+        <RecommendedCaseStudies
+            langCode={astroI18n.langCode}
+            title={t("index.proof.title")}
+        />
     </div>
     <div class="mt-auto">
         <Footer />

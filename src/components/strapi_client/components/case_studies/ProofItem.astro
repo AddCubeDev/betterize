@@ -1,4 +1,5 @@
 ---
+// @ts-ignore
 import { Picture } from "astro-imagetools/components";
 
 const {
@@ -7,6 +8,7 @@ const {
     src = "/src/assets/swiperight.jpg",
     href = "/projects/swiperight",
     loading = "lazy",
+    date = "01.01.2023",
 } = Astro.props;
 ---
 
@@ -29,7 +31,7 @@ const {
 
         <div class="p-4 pb-8 overflow-hidden">
             <!-- <div class="absolute inset-0 bg-grid -z-0"></div> -->
-            <time class="text-sm text-gray-300 items-left">01.01.2023</time>
+            <time class="text-sm text-gray-300 items-left">{date}</time>
             <h2 class="pb-4 text-2xl font-black text-gray-100">
                 {title}
             </h2>

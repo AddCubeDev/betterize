@@ -1,0 +1,46 @@
+---
+import ProofItem from "./ProofItem.astro";
+import { getRecommendedCaseStudies } from "./../../typescript/functions/app_state";
+import { getTranslatedRoute } from "./../../typescript/functions/routeTranslate";
+
+interface Props {
+    loading?: string;
+    langCode: string;
+    title: string;
+}
+
+const { loading = "lazy", langCode, title } = Astro.props;
+
+const projects = await getRecommendedCaseStudies(langCode);
+---
+
+<div class="relative">
+    <div
+        class="absolute w-full transform bg-gradient-to-br from-gray-700/60 via-gray-800/60 to-purple-900/20 skew-y-4 h-[2450px] lg:h-[900px] -translate-y-6 -z-10"
+    >
+    </div>
+    <div class="mx-auto main-content lg:show-on-scroll">
+        <h2 class="pb-16 header-1">{title}</h2>
+        <div
+            class="grid w-full gap-8 rounded-xl gird-cols-1 lg:grid-cols-3 xl:w-6xl"
+        >
+            {
+                projects.map((cs) => {
+                    return (
+                        <ProofItem
+                            title={cs.title}
+                            paragraph={cs.subtitle}
+                            src={cs.image}
+                            href={getTranslatedRoute(
+                                langCode,
+                                `/projects/${cs.slug}/`
+                            )}
+                            loading={loading}
+                            date={cs.date}
+                        />
+                    );
+                })
+            }
+        </div>
+    </div>
+</div>

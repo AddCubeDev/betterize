@@ -19,6 +19,7 @@ type Callback =
 export enum StrapiCollectionName {
     blog_post = "blog_post",
     case_study = "case_study",
+    app_state = "app-state",
 }
 
 export async function getRequest(
