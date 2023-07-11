@@ -15,3 +15,4 @@ export type {
     ApiAuthorAuthor,
     ApiCaseStudyCaseStudy,
 } from "./typescript/types/strapi_generated/contentTypes";
+export { getRecommendedCaseStudies } from "./typescript/functions/app_state";

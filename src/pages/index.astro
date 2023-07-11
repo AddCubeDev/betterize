@@ -2,12 +2,11 @@
 import Layout from "@layouts/Layout.astro";
 // import FancyBg from "@components/subcomponents/FancyBg.astro";
 import Nav from "@components/Navbar/Nav.astro";
-
+import RecommendedCaseStudies from "@components/strapi_client/components/case_studies/RecommendedCaseStudies.astro";
 import Hero from "@components/Hero.astro";
 import Marketing0 from "@components/Marketing0.astro";
 import Marketing1 from "@components/Marketing1.astro";
 import Marketing2 from "@components/Marketing2.astro";
-import Proof from "@components/Proof.astro";
 import StepByStep from "@components/StepByStep.astro";
 import Section1 from "@components/Section1.astro";
 import Contact from "@components/Contact.astro";
@@ -58,7 +57,10 @@ astroI18n.init(Astro);
         <Marketing1 />
         <Section1 />
         <Marketing2 />
-        <Proof />
+        <RecommendedCaseStudies
+            langCode={astroI18n.langCode}
+            title={t("index.proof.title")}
+        />
         <StepByStep />
         <!-- <Features /> -->
         <Contact />
