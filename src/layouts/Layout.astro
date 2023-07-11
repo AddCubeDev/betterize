@@ -8,9 +8,16 @@ import { AstroSeo } from "@astrolib/seo";
 interface Props {
     title?: string;
     description?: string;
+    keywords?: string;
+    metaRobots?: string;
 }
 
-const { title, description } = Astro.props as Props;
+const {
+    title,
+    description,
+    keywords = "",
+    metaRobots = "",
+} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -22,6 +29,7 @@ const { title, description } = Astro.props as Props;
             rel="apple-touch-icon"
             sizes="180x180"
             href="/apple-touch-icon.png"
+            Robots
         />
         <link
             rel="icon"
@@ -36,7 +44,7 @@ const { title, description } = Astro.props as Props;
             href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="sitemap" href="/sitemap-index.xml">
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
         <ImageSupportDetection />
 
@@ -129,7 +137,8 @@ const { title, description } = Astro.props as Props;
         </script>
         <!-- End Google Tag Manager -->
 
-        <meta name="keywords" content="" />
+        <meta name="keywords" content={keywords} />
+        <meta name="robots" content={metaRobots} />
         <AstroSeo
             canonical={Astro.url.href}
             title={title}

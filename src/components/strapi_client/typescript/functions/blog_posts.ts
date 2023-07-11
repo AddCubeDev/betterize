@@ -28,16 +28,18 @@ export async function getBlogPosts() {
     return result as [ApiBlogPostBlogPost];
 }
 
-export async function getBlogPostsSlugs() {
+export async function getBlogPostsAttributes() {
     const result = await getRequest(
-        `/blog-posts?locale=all`,
+        `/blog-posts?locale=all&populate=seo.metaSocial.image&populate=seo.metaImage`,
         StrapiCollectionName.blog_post,
         (data: any) => {
             return data.data as [ApiBlogPostBlogPost];
         }
     );
 
-    return (result as [ApiBlogPostBlogPost]).map(
-        (element) => element.attributes.slug as string
-    );
+    return (result as [ApiBlogPostBlogPost]).map((element) => ({
+        slug: element.attributes.slug as string,
+        locale: element.attributes.locale as string,
+        seo: element.attributes.seo as string,
+    }));
 }

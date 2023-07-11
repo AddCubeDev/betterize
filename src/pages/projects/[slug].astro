@@ -17,12 +17,17 @@ export async function getStaticPaths() {
         .filter((project) => project.locale === astroI18n.langCode)
         .map((attributes) => ({
             params: { slug: attributes.slug },
-            props: { title: attributes.title },
+            props: { seo: attributes.seo },
         }));
 }
 ---
 
-<Layout title={Astro.props.title} description={Astro.props.title}>
+<Layout
+    title={Astro.props.seo.metaTitle}
+    description={Astro.props.seo.metaDescription}
+    keywords={Astro.props.seo.keywords}
+    metaRobots={Astro.props.seo.metaRobots}
+>
     <div class="mb-10 lg:mb-20">
         <Nav />
     </div>
