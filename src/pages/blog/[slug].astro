@@ -3,19 +3,25 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Navbar/Nav.astro";
 import Footer from "@components/Footer.astro";
 import FancyBg from "@components/subcomponents/FancyBg.astro";
-import { getBlogPostsSlugs } from "@components/strapi_client";
+import { getBlogPostsAttributes } from "@components/strapi_client";
 import BlogPage from "@components/strapi_client/components/blog/BlogPage.astro";
 
 export async function getStaticPaths() {
-    const slugs = await getBlogPostsSlugs();
+    const attributes = await getBlogPostsAttributes();
 
-    return slugs.map((slug: string) => ({
-        params: { slug: slug },
+    return attributes.map((attributes) => ({
+        params: { slug: attributes.slug },
+        props: { seo: attributes.seo },
     }));
 }
 ---
 
-<Layout>
+<Layout
+    title={Astro.props.seo.metaTitle}
+    description={Astro.props.seo.metaDescription}
+    keywords={Astro.props.seo.keywords}
+    metaRobots={Astro.props.seo.metaRobots}
+>
     <FancyBg />
     <Nav />
     <BlogPage slug={Astro.params.slug} />

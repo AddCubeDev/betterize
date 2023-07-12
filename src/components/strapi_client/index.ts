@@ -2,7 +2,7 @@ export { default as DynamicZone } from "./components/dynamic_zone/DynamicZone.as
 export {
     getBlogPost,
     getBlogPosts,
-    getBlogPostsSlugs,
+    getBlogPostsAttributes,
 } from "./typescript/functions/blog_posts";
 export {
     getCaseStudies,

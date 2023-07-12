@@ -687,12 +687,24 @@ export interface ApiAppStateAppState extends Schema.SingleType {
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    AnyContentModifiedAfterBuild: Attribute.Boolean &
+    logo: Attribute.Media &
       Attribute.Required &
-      Attribute.DefaultTo<false>;
-    LastBuild: Attribute.DateTime;
-    logo: Attribute.Media & Attribute.Required;
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    recomended_case_studies: Attribute.Relation<
+      'api::app-state.app-state',
+      'oneToMany',
+      'api::case-study.case-study'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -707,6 +719,12 @@ export interface ApiAppStateAppState extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::app-state.app-state',
+      'oneToMany',
+      'api::app-state.app-state'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -807,6 +825,12 @@ export interface ApiBlogPostBlogPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -896,6 +920,12 @@ export interface ApiCaseStudyCaseStudy extends Schema.CollectionType {
       ]
     > &
       Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

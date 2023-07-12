@@ -33,7 +33,7 @@ export async function getCaseStudy(slug: string) {
 
 export async function getCaseStudiesAttributes() {
     const result = await getRequest(
-        `/case-studies?locale=all`,
+        `/case-studies?locale=all&populate=seo.metaSocial.image&populate=seo.metaImage`,
         StrapiCollectionName.case_study,
         (data: any) => {
             return data.data as [ApiCaseStudyCaseStudy];
@@ -42,7 +42,7 @@ export async function getCaseStudiesAttributes() {
 
     return (result as [ApiCaseStudyCaseStudy]).map((element) => ({
         slug: element.attributes.slug as string,
-        title: element.attributes.title as string,
         locale: element.attributes.locale as string,
+        seo: element.attributes.seo as string,
     }));
 }
